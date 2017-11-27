@@ -1,0 +1,18 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/login/login",
+    "pages/main/main",
+    "pages/mall/mall",
+    "pages/order/order",
+    "pages/orderDetail/orderDetail",
+    "pages/logs/logs",
+    "pages/indexDetail/indexDetail"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#15abc4",
+    "navigationBarTitleText": "",
+    "navigationBarTextStyle": "white"
+  }
+}

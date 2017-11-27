@@ -1,0 +1,75 @@
+<view style="padding-bottom: 55px">
+  <view class='switchContain'>
+    <text class="{{currentTab==0 ? 'personRankSelect' : 'personRank'}}"  bindtap="changeState" data-current="0">个人排行榜</text>
+    <text class="{{currentTab==1 ? 'teamRankSelect' : 'teamRank'}}" bindtap="changeState" data-current="1">小组排行榜</text>
+
+  </view>
+
+    <view class="userinfo">
+      <image class="userinfo-avatar" src="{{firstAvatar}}" background-size="cover"></image>
+      <view>
+        <text class="userinfo-nickname">{{firstName}}</text>
+        <text class="userinfo-nickname">{{firstStep}}</text>
+      </view>
+    </view>
+
+    <view class="{{currentTab==0 ? 'bankType' : 'bankTypeNone'}} ">
+      <text class="{{currentType==0 ? 'bankText' : 'bankTextNormal'}}" bindtap="changeType" data-current="0">日</text>
+      <text class="{{currentType==1 ? 'bankText' : 'bankTextNormal'}}" bindtap="changeType" data-current="1">周</text>
+      <text class="{{currentType==2 ? 'bankText' : 'bankTextNormal'}}" bindtap="changeType" data-current="2">月</text>
+    </view>
+  
+  
+  <view class="dividerWidth"></view>
+  <view class="{{currentTab==0 ? 'listClass' : 'bankTypeNone'}}  ">
+      <text class="rankClass">第{{myRank}}名</text>
+      <image src="{{myAvatar}}" class="headClass" background-size="cover"></image>
+      <text>{{myName}}</text>
+      <text style='flex:1'></text>
+      <text class="stepCntClass">{{myScore}}步</text>
+    </view>
+    <view class="dividerWidth"></view>
+
+  <block wx:for="{{list}}" wx:key="{{index}}" wx:for-item="item" class="blockClass">
+    <view class="listClass">
+      <text class="rankClass">{{item.rank}}</text>
+      <image src="{{item.avatar}}" class="headClass" background-size="cover"></image>
+      <text>{{item.nickname}}</text>
+      <text style='flex:1'></text>
+      <text class="stepCntClass">{{item.step}}步</text>
+    </view>
+    <view class="divider"></view>
+  </block>
+
+  <view class="weui-loadmore" hidden="{{isHideLoadMore}}">
+        <view class="weui-loading"></view>
+        <view class="weui-loadmore__tips">正在加载</view>
+      </view> 
+</view>
+
+ <view class="usermotto">
+    <view class='bottomTab' bindtap="goFirstTab" >
+      <image src='../../images/home.png' style='width: 25px; height: 25px;'></image>
+      <text style='color: #999999; font-size: 14px'>首页</text>
+    </view>
+
+    <view class='bottomTab' >
+      <image src='../../images/medal_fill.png' style='width: 25px; height: 25px;'></image>
+      <text style='color: #15abc4; font-size: 14px'>排名</text>
+    </view>
+
+    <view class='bottomTab' bindtap="goThirdTab">
+      <image src='../../images/plane.png' style='width: 25px; height: 25px;'></image>
+      <text style='color: #999999; font-size: 14px'>积分</text>
+    </view>
+
+    <view class='bottomTab' bindtap="goFourthTab">
+      <image src='../../images/remind.png' style='width: 25px; height: 25px;'></image>
+      <text style='color: #999999; font-size: 14px'>公告</text>
+    </view>
+    
+  </view>  
+
+
+
+

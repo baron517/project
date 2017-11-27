@@ -1,0 +1,15 @@
+/* orderDetail.wxss */
+.noticeDetailContain{
+  display: flex;
+  flex-direction: column;
+}
+
+.noticeClass{
+  width: 100%;
+  height: 140px;
+}
+
+.noticeDetail{
+  margin: 20px;
+  font-size:14px;
+}

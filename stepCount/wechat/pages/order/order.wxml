@@ -1,0 +1,50 @@
+<view style="padding-bottom: 55px">
+  <image src="https://lhjz.2donghua.com/html/asset/img/noticeBanner.jpg" class="noticeClass"></image>
+
+  
+  <view wx:for="{{list}}" wx:key="{{index}}" wx:for-item="item" 
+            data-index="{{index}}" bindtap="goToDetail" class="blockClass">
+    
+
+      <view class="listClass" >
+        <view style="background-image:url('https://lhjz.2donghua.com/data/upload/{{item.img}}')" class="headClass" mode="aspectFill"></view>
+        <view class="noticeDetail">
+          <view class="title">{{item.title}}</view>
+          <view class="stepCntClass">{{item.brief}}</view>
+          <view class="time">发布时间：{{item.create_time}}</view>
+        </view>
+      </view>
+
+      <view class="divider"></view>
+  </view>
+
+  <view class="weui-loadmore" hidden="{{isHideLoadMore}}">
+        <view class="weui-loading"></view>
+        <view class="weui-loadmore__tips">正在加载</view>
+  </view> 
+</view>
+
+  <view class="usermotto">
+    <view class='bottomTab' bindtap="goFirstTab" >
+      <image src='../../images/home.png' style='width: 25px; height: 25px;'></image>
+      <text style='color: #999999; font-size: 14px'>首页</text>
+    </view>
+
+    <view class='bottomTab' bindtap="goSecondTab">
+      <image src='../../images/medal.png' style='width: 25px; height: 25px;'></image>
+      <text style='color: #999999; font-size: 14px'>排名</text>
+    </view>
+
+    <view class='bottomTab' bindtap="goThirdTab">
+      <image src='../../images/plane.png' style='width: 25px; height: 25px;'></image>
+      <text style='color: #999999; font-size: 14px'>积分</text>
+    </view>
+
+    <view class='bottomTab' >
+      <image src='../../images/remind_fill.png' style='width: 25px; height: 25px;'></image>
+      <text style='color: #15abc4; font-size: 14px'>公告</text>
+    </view>
+    
+  </view>  
+
+

@@ -1,0 +1,70 @@
+<!--firstPage.wxml-->
+<view class="container">
+
+<swiper indicator-dots="{{indicatorDots}}" bindchange="bindchange"
+   autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" style="height:120px;">
+   <block wx:for="{{imgUrls}}" wx:key="{{index}}" wx:for-item="item" data-index="{{index}}" >
+     <swiper-item>
+       
+       <view style="background-image:url({{item}});background-size:cover;height:120px;" bindtap="goToDetail"></view>
+     </swiper-item>
+   </block>
+ </swiper>
+
+
+  
+  <view  bindtap="bindViewTap" class="userinfo"> 
+    <text style="color: #fff; font-size: 25px;">今日步数</text> 
+
+    <view class="circle-box">
+      <canvas class="circle"  canvas-id="canvasBgCircle">
+      </canvas>
+       <canvas class="circle"  canvas-id="canvasCircle">
+      </canvas> 
+
+      <text style="color: #fff; font-size: 25px; margin-top: 1px">{{todayStep}}</text> 
+
+    </view>
+
+    <view class='stepCal'>
+      <text style='color: #fff'>朝三 {{morning_step}} 步</text>
+      <text style='color: #fff'>暮四 {{night_step}} 步</text>
+    </view>
+    <view class='stepTime'>
+      <text style='color: #fff; font-size: 15px'>5:00~9:00</text>
+      <text style='color: #fff; font-size: 15px'>17:00~23:00</text>
+    </view>
+    
+    <view class='stepstatus'>
+      <text style='color: #fff'>{{distance}}公里</text>
+      <text style='color: #fff'>{{kaka}}卡</text>
+      <text style='color: #fff'>{{time}}分钟</text>
+    </view>
+  </view>
+
+
+  <view class="usermotto">
+    <view class='bottomTab'>
+      <image src='../../images/home_fill_light.png' style='width: 25px; height: 25px;'></image>
+      <text style='color: #15abc4; font-size: 14px'>首页</text>
+    </view>
+
+    <view class='bottomTab' bindtap="goSecondTab">
+      <image src='../../images/medal_white.png' style='width: 25px; height: 25px;'></image>
+      <text style='color: #ffffff; font-size: 14px'>排名</text>
+    </view>
+
+    <view class='bottomTab' bindtap="goThirdTab">
+      <image src='../../images/plane_white.png' style='width: 25px; height: 25px;'></image>
+      <text style='color: #ffffff; font-size: 14px'>积分</text>
+    </view>
+
+    <view class='bottomTab' bindtap="goFourthTab">
+      <image src='../../images/remind_white.png' style='width: 25px; height: 25px;'></image>
+      <text style='color: #ffffff; font-size: 14px'>公告</text>
+    </view>
+    
+  </view>    
+
+</view>
+

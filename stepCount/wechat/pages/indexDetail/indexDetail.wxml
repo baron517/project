@@ -1,0 +1,18 @@
+<!--orderDetail.wxml-->
+<import src="../../wxParse/wxParse.wxml"/> 
+
+<view class="noticeDetailContain">
+  <image src="https://lhjz.2donghua.com/html/asset/img/banner2.jpg" class="noticeClass"></image>
+  
+  <view style='padding:16px 15px 10px 15px;font-size:14px;line-height:20px;'>
+ <view style=' padding: 10px 0;'>报名截止时间：{{endTime}}</view>  
+<view style=' padding: 10px 0;'>赛事时间：{{gameTime}}</view>
+ </view>
+
+  <view class='noticeDetail'>
+    <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+  </view>
+  
+
+</view>
+

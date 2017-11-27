@@ -1,0 +1,67 @@
+<view style="padding-bottom: 55px">
+
+     <view class="userinfo">
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{firstAvatar}}" background-size="cover"></image>
+      <view>
+        <text class="userinfo-nickname">{{firstName}}</text>
+        <text class="userinfo-nickname">{{firstStep}}</text>
+      </view>
+    </view>  
+  
+  <view class="dividerWidth"></view>
+   <view class="listClass">
+        <text class="rankClass">第{{myRank}}名</text>
+         <image src="{{myAvatar}}" class="headClass" background-size="cover"></image> 
+        <text>{{myName}}</text>
+        <text style='flex:1'></text>
+        <text class="stepCntClass">{{myScore}}分</text>
+      </view>
+      <view class="dividerWidth"></view>
+
+  
+    <block wx:for="{{list}}" wx:key="{{index}}" wx:for-item="item" class="blockClass">
+      <view class="listClass">
+        <text class="rankClass">{{item.rank}}</text>
+         <image src="{{item.avatar}}" class="headClass" background-size="cover"></image> 
+        <text>{{item.nickname}}</text>
+        <text style='flex:1'></text>
+        <text class="stepCntClass">{{item.score}}分</text>
+      </view>
+      <view class="divider"></view>
+    </block>
+
+     <view class="weui-loadmore" hidden="{{isHideLoadMore}}">
+        <view class="weui-loading"></view>
+        <view class="weui-loadmore__tips">正在加载</view>
+      </view> 
+
+</view>
+
+<view class="usermotto">
+    <view class='bottomTab' bindtap="goFirstTab" >
+      <image src='../../images/home.png' style='width: 25px; height: 25px;'></image>
+      <text style='color: #999999; font-size: 14px'>首页</text>
+    </view>
+
+    <view class='bottomTab' bindtap="goSecondTab">
+      <image src='../../images/medal.png' style='width: 25px; height: 25px;'></image>
+      <text style='color: #999999; font-size: 14px'>排名</text>
+    </view>
+
+    <view class='bottomTab' >
+      <image src='../../images/plane_fill.png' style='width: 25px; height: 25px;'></image>
+      <text style='color: #15abc4; font-size: 14px'>积分</text>
+    </view>
+
+    <view class='bottomTab' bindtap="goFourthTab">
+      <image src='../../images/remind.png' style='width: 25px; height: 25px;'></image>
+      <text style='color: #999999; font-size: 14px'>公告</text>
+    </view>
+    
+  </view> 
+
+
+
+
+
+
