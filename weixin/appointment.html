@@ -19,23 +19,23 @@
 <ul class="info-list">
     <li class="clearfix">
         <span class="left" style="top:0.04rem;"><img src="asset/img/yuyueIcon_07.jpg"><label>访客姓名</label></span>
-        <input type="text" value="张明" />
+        <input type="text" placeholder="输入访客姓名"  />
     </li>
     <li class="clearfix">
         <span class="left" style="top:0.04rem;"><img src="asset/img/sexIcon.jpg"><label>访客性别</label></span>
-        <input type="text" value="男" />
+        <input type="text" placeholder="输入访客姓名" value="男" />
     </li>
     <li class="clearfix">
         <span class="left" style="top:0.05rem;"><img src="asset/img/yuyueIcon_17.jpg"><label>访客手机</label></span>
-        <input type="text" value="1429834787" />
+        <input type="text" placeholder="输入访客姓名" value="1429834787" />
     </li>
     <li class="clearfix">
         <span class="left"><img src="asset/img/yuyueIcon_27.jpg"><label>访客工作单位</label></span>
-        <input type="text" value="信息管理部" />
+        <input type="text" placeholder="输入访客工作单位" value="信息管理部" />
     </li>
     <li class="clearfix">
         <span class="left"><img src="asset/img/yuyueIcon_67.jpg"><label>访客车牌</label></span>
-        <input type="text" value="浙A12***" />
+        <input type="text" placeholder="输入访客车牌" value="浙A12***" />
     </li>
 
 
@@ -51,30 +51,30 @@
     <li class="person-list">
         <div class="clearfix">
             <span class="fl">
-                <input type="text" value="张三" />
+                <input type="text" placeholder="请输入姓名" value="张三" />
             </span>
 
-            <span class="fr"> <input type="text" value="135****1234" />
-
-                <span class="remove"><img src="asset/img/removeIcon.png"></span>
-            </span>
-        </div>
-        <div class="clearfix">
-            <span class="fl">
-                <input type="text" value="张三" />
-            </span>
-
-            <span class="fr"> <input type="text" value="135****1234" />
+            <span class="fr"> <input type="text"  placeholder="请输入手机" value="135****1234" />
 
                 <span class="remove"><img src="asset/img/removeIcon.png"></span>
             </span>
         </div>
         <div class="clearfix">
             <span class="fl">
-                <input type="text" value="张三" />
+                <input type="text" placeholder="请输入姓名" value="张三" />
             </span>
 
-            <span class="fr"> <input type="text" value="135****1234" />
+            <span class="fr"> <input type="text"  placeholder="请输入手机" value="135****1234" />
+
+                <span class="remove"><img src="asset/img/removeIcon.png"></span>
+            </span>
+        </div>
+        <div class="clearfix">
+            <span class="fl">
+                <input type="text" placeholder="请输入姓名" value="张三" />
+            </span>
+
+            <span class="fr"> <input type="text"  placeholder="请输入手机" value="135****1234" />
 
                 <span class="remove"><img src="asset/img/removeIcon.png"></span>
             </span>
@@ -98,15 +98,15 @@
 
     <li class="clearfix">
         <span class="left" style="top:0.04rem;"><img src="asset/img/yuyueIcon_07.jpg"><label>被访人姓名</label></span>
-        <input type="text" value="李四" />
+        <input type="text" placeholder="请输入被访人姓名" value="李四" />
     </li>
     <li class="clearfix">
         <span class="left" style="top:0.05rem;"><img src="asset/img/yuyueIcon_17.jpg"><label>被访人手机</label></span>
-        <input type="text" value="1429834787" />
+        <input type="text" placeholder="请输入被访人手机" value="1429834787" />
     </li>
     <li class="clearfix">
         <span class="left"><img src="asset/img/yuyueIcon_27.jpg"><label>被访人部门</label></span>
-        <input type="text" value="**软件公司" />
+        <input type="text" placeholder="请输入被访人部门" value="**软件公司" />
     </li>
 
 </ul>
@@ -123,12 +123,12 @@
 
     <li class="clearfix">
         <span class="left"><img style="width:0.25rem;" src="asset/img/yuyueIcon_37.jpg"><label>开始时间</label></span>
-        <input type="datetime-local"  />
+        <input type="datetime-local"   /><label class="info-text">请选择（必填）</label>
 
     </li>
     <li class="clearfix">
         <span class="left"><img style="width:0.25rem;" src="asset/img/yuyueIcon_47.jpg"><label>结束时间</label></span>
-        <input type="datetime-local"  />
+        <input type="datetime-local"  /><label class="info-text">请选择（必填）</label>
     </li>
     <li class="clearfix" style="height:auto;padding-left:0;border-bottom:0;padding-bottom:0;">
         <span class="left"><img style="width:0.27rem;" src="asset/img/yuyueIcon_57.jpg"><label>访问事由</label></span>
@@ -147,6 +147,19 @@
 <script>
 
 
+    $(".info-list input[type=datetime-local]").on("input",function()
+    {
+        if($(this).val()=="")
+        {
+            $(this).next().show();
+        }
+        else {
+            $(this).next().hide();
+        }
+
+
+    });
+
     $(".info-list").on("click",".remove",function()
     {
 
@@ -159,9 +172,9 @@
 
         $(".person-list").append('<div class="clearfix">'+
                 '<span class="fl">'+
-                '<input type="text" value="张三">'+
+                '<input type="text" placeholder="请输入姓名" >'+
                 ' </span>'+
-                '<span class="fr"> <input type="text" value="135****1234">'+
+                '<span class="fr"> <input type="text" placeholder="请输入手机" >'+
                 '<span class="remove"><img src="asset/img/removeIcon.png"></span>'+
                 ' </span>'+
                 '</div>');
