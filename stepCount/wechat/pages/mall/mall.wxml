@@ -6,7 +6,13 @@
         <text class="userinfo-nickname">{{firstName}}</text>
         <text class="userinfo-nickname">{{firstStep}}</text>
       </view>
-    </view>  
+    </view>
+
+    <view class="bankType">
+            <text class="{{currentType==0 ? 'bankText' : 'bankTextNormal'}}" bindtap="changeType" data-current="0">日</text>
+            <text class="{{currentType==1 ? 'bankText' : 'bankTextNormal'}}" bindtap="changeType" data-current="1">周</text>
+            <text class="{{currentType==2 ? 'bankText' : 'bankTextNormal'}}" bindtap="changeType" data-current="2">月</text>
+        </view>  
   
   <view class="dividerWidth"></view>
    <view class="listClass">
