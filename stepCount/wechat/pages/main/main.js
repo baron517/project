@@ -27,14 +27,15 @@ Page({
     firstStep:'',
     firstAvatar:'',
 
-    currentType: 0
+    currentType: 0,
+    currentGroupType: 0
   },
 
-  getGroupBank: function () {
+  getGroupBank: function (type) {
     var that = this;
 
     wx.request({
-      url: app.globalData.url + '/index.php?g=Api&m=CommonApi&a=groupDayBillboard',
+      url: app.globalData.url + '/index.php?g=Api&m=CommonApi&a='+type,
       data: {
         page: that.data.groupPageIndex,
         flag: 3
@@ -160,11 +161,6 @@ Page({
               })
           } 
 
-          // that.setData({
-          //   list: that.data.list.concat(res.data),
-          //   isHideLoadMore: true
-          // })
-
         }
 
         if (res.data && res.data.length > 0)
@@ -202,6 +198,59 @@ Page({
 
   },
 
+
+  groupDayBillboard: function (type) {
+      var that = this;
+
+      wx.request({
+          url: app.globalData.url + '/index.php?g=Api&m=CommonApi&a=' + type,
+          data: {
+              page: that.data.pageIndex,
+              flag: that.data.currentType + 1
+          },
+          header: {
+              "Content-Type": "application/x-www-form-urlencoded"
+          },
+          method: 'GET',
+          success: function (res) {
+              console.log(res.data)
+              //console.log(that.data.pageIndex)
+              if (that.data.pageIndex == 0) {
+                  that.setData({
+                      list: res.data,
+                      isHideLoadMore: true
+                  })
+
+                  that.setData({
+                      firstName: res.data[0].nickname,
+                      firstAvatar: res.data[0].avatar,
+                      firstStep: res.data[0].step
+                  })
+
+              } else {
+
+                  if (res.data && res.data.length > 0) {
+                      that.setData({
+                          list: that.data.list.concat(res.data),
+                          isHideLoadMore: true
+                      })
+                            } else {
+                      that.setData({
+                          isHideLoadMore: true
+                      })
+                            }
+
+              }
+
+              if (res.data && res.data.length > 0)
+                  that.data.pageIndex++;
+          }
+      });
+
+  },
+
+
+
   onLoad:function(){
     var that = this;
 
@@ -225,7 +274,7 @@ Page({
       } else {  
           if(e.target.dataset.current == 1){
             that.data.groupPageIndex = 0;
-            that.getGroupBank();
+            that.getGroupBank('groupDayBillboard');
           }else{
             that.data.pageIndex = 0;
             that.getDayBillboard("getDayBillboard")
@@ -248,23 +297,60 @@ Page({
       })
 
       that.data.pageIndex = 0;
-      
+    
 
-      if (that.data.currentType == 0) {
-        that.getDayBillboard("getDayBillboard")
-        that.getBrank("getMyStepInfo");
-      } else if (that.data.currentType == 1) {
-        that.getDayBillboard("getDayBillboardWeek")
-        that.getBrank("getMyStepInfoWeek");
-      } else if (that.data.currentType == 2) {
-        that.getDayBillboard("getDayBillboardMonth")
-        that.getBrank("getMyStepInfoMonth");
+          if (that.data.currentType == 0) {
+              that.getDayBillboard("getDayBillboard")
+              that.getBrank("getMyStepInfo");
+          } else if (that.data.currentType == 1) {
+              that.getDayBillboard("getDayBillboardWeek")
+              that.getBrank("getMyStepInfoWeek");
+          } else if (that.data.currentType == 2) {
+              that.getDayBillboard("getDayBillboardMonth")
+              that.getBrank("getMyStepInfoMonth");
+          }
+
       }
-      
-
-    }
+    
 
   },
+
+
+  changeGroupType: function (e) {
+      var that = this;
+
+      if (this.data.currentGroupType === e.target.dataset.current) {
+          return false;
+      } else {
+          console.log(e.target.dataset.current)
+          this.setData({
+              currentGroupType: e.target.dataset.current
+          })
+
+          that.data.groupPageIndex = 0;
+
+          
+
+          if (that.data.currentGroupType == 0) {
+              that.getGroupBank("groupDayBillboard")
+                  //that.getBrank("getMyStepInfo");
+          } else if (that.data.currentGroupType == 1) {
+              that.getGroupBank("groupDayBillboard1")
+                  //that.getBrank("getMyStepInfoWeek");
+          } else if (that.data.currentGroupType == 2) {
+              that.getGroupBank("groupDayBillboard2")
+                  //that.getBrank("getMyStepInfoMonth");
+              }
+
+          
+
+
+
+
+      }
+
+  },
+
  
   
   onReachBottom: function () {

@@ -147,6 +147,42 @@
 }
 
 
+.bankType{
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  position: fixed;
+  right: 10px;
+  top: 50px;
+}
+
+.bankText{
+  width: 30px;
+  height: 30px;
+  background-color: #15abc4;
+  border-radius:50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  margin-bottom: 5px;
+}
+
+.bankTextNormal{
+  width: 30px;
+  height: 30px;
+  background-color: #fff;
+  border-radius:50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #15abc4;
+  border: solid 1px #15abc4;
+  margin-bottom: 5px;
+}
+
+
+
 
 
 /*  加载更多   */

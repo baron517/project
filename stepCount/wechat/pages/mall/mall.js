@@ -21,6 +21,7 @@ Page({
 
     isHideLoadMore: true,
     pageIndex: 0,
+    currentType: 0,
 
     firstName: '',
     firstStep: '',
@@ -32,10 +33,10 @@ Page({
     myAvatar: ''
   },
 
-  getMyStepInfo: function () {
+  getMyStepInfo: function (type) {
     var that = this;
     wx.request({
-      url: app.globalData.url + '/index.php?g=Api&m=CommonApi&a=getMyStepInfo',
+      url: app.globalData.url + '/index.php?g=Api&m=CommonApi&a='+type,
       data: {
         m_id: app.globalData.userAllInfo.m_id
       },
@@ -59,10 +60,10 @@ Page({
   },
 
 
-  getScore: function(){
+  getScore: function(type){
     var that = this;
     wx.request({
-      url: app.globalData.url + '/index.php?g=Api&m=CommonApi&a=getDayScoreBillboard',
+      url: app.globalData.url + '/index.php?g=Api&m=CommonApi&a='+type,
       data: {
         page: that.data.pageIndex
       },
@@ -119,8 +120,39 @@ Page({
       })
     }
 
-    that.getScore();
-    this.getMyStepInfo();
+    that.getScore('getDayScoreBillboard');
+    this.getMyStepInfo('getMyStepInfoScore');
+
+  },
+
+
+  changeType: function (e) {
+      var that = this;
+
+      if (this.data.currentType === e.target.dataset.current) {
+          return false;
+      } else {
+          console.log(e.target.dataset.current)
+          this.setData({
+              currentType: e.target.dataset.current
+          })
+
+          that.data.pageIndex = 0;
+
+
+          if (that.data.currentType == 0) {
+              that.getScore('getDayScoreBillboard');
+              this.getMyStepInfo('getMyStepInfoScore');
+          } else if (that.data.currentType == 1) {
+              that.getScore('getDayBillboardWeekScore');
+              this.getMyStepInfo('getMyStepInfoWeekScore');
+          } else if (that.data.currentType == 2) {
+              that.getScore('getDayBillboardMonthScore');
+              this.getMyStepInfo('getMyStepInfoMonthScore');
+          }
+
+      }
+
 
   },
   
@@ -133,8 +165,16 @@ Page({
       isHideLoadMore: false
     })
 
+    var type = "getDayScoreBillboard";
+    if (that.data.currentType == 0) {
+        type = "getDayScoreBillboard";
+    } else if (that.data.currentType == 1) {
+        type = "getDayBillboardWeekScore"
+    } else if (that.data.currentType == 2) {
+        type = "getDayBillboardMonthScore"
+    }
+    that.getScore(type)
 
-    that.getScore()
   },
 
 
