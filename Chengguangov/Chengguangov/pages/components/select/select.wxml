@@ -1,0 +1,30 @@
+<!--index.wxml-->
+<view class='page'>
+<view class='header'>
+<view class='header-1'>
+<view class='touxiang'>
+<image src='{{userInfo.avatarUrl}}'></image>
+</view>
+</view>
+<view class='header-2'>
+<view class='header-2-text'>
+<text>{{userInfo.nickName}}</text>
+</view>
+</view>
+</view>
+<!--高校-->
+
+<view class='gaoxiao' style='  margin-top:1rem;'> 
+<view class='gaoxiao-1'><image src='../../../image/name.png'></image></view>
+<view class='gaoxiao-2' placeholder='姓名'>姓名：{{user.name}}</view>
+</view>
+<view class='gaoxiao'>
+<view class='gaoxiao-1'><image src='../../../image/phone.png'></image></view>
+<view class='gaoxiao-2' placeholder='电话'>电话：{{user.phone}}</view>
+</view>
+
+
+
+
+
+</view>
