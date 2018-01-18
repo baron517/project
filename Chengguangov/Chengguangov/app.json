@@ -4,7 +4,10 @@
     "pages/components/inquiry/inquiry",
     "pages/components/details/details",
     "pages/components/select/select",
-      "pages/components/quan/quan"
+    "pages/components/spDetail/spDetail",
+    "pages/components/quan/quan",
+    "pages/components/spDetail2/spDetail2",
+    "pages/components/quan2/quan2"
      
   
   ],

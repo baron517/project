@@ -72,7 +72,7 @@ Page({
          },
          data: {
            uid: uid,
-           typestr: 1
+           typestr:2
          },
          success: function (res) {
            console.log(res.data);

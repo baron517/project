@@ -96,69 +96,79 @@ Page({
   form: function (e) {
     console.log(e.detail.value);
     var form = e.detail.value;
-    wx.request({
-      url: 'https://chengguangov.diguikeji.com/index.php?g=Api&m=CommonApi&a=apply',
-      data: {
-        zhongdui: form.zhongdui,
-        jingban: form.jingban,
-        liyou: form.liyou,
-        renshu: form.renshu,
-        renyuan: form.renyuan,
-        canting: form.canting,
-        time: form.time,
-        biaozhun: form.biaozhun,
-        money: form.money,
-        anpai: form.anpai,
-        fristshenpi: form.fristshenpi,
-       
 
-      },
-      header: {
-        'content-type': 'application/json'
-      },
-      method: 'GET',
+
+    wx.getStorage({
+      key: 'openid',
       success: function (res) {
-        var rest = res.data;
-        console.log(rest);
+        var openid = res.data;
+        wx.request({
+          url: 'https://chengguangov.diguikeji.com/index.php?g=Api&m=CommonApi&a=apply',
+          data: {
+            zhongdui: form.zhongdui,
+            jingban: form.jingban,
+            liyou: form.liyou,
+            renshu: form.renshu,
+            renyuan: form.renyuan,
+            canting: form.canting,
+            time: form.time,
+            biaozhun: form.biaozhun,
+            money: form.money,
+            anpai: form.anpai,
+            fristshenpi: form.fristshenpi,
+            openid:openid
+          
 
-        if (rest == 1) {
-          wx.showModal({
-            title: '提示',
-            content: '申请成功！请等待审批',
-            success: function (res) {
-              if (res.confirm) {
-                console.log('用户点击确定')
-              }
-            }
-          })
-        } else if (rest == 2) {
+          },
+          header: {
+            'content-type': 'application/json'
+          },
+          method: 'GET',
+          success: function (res) {
+            var rest = res.data;
+            console.log(rest);
 
-          wx.showModal({
-            title: '提示',
-            content: '申请失败！',
-            success: function (res) {
-              if (res.confirm) {
-                console.log('用户点击确定')
-              }
-            }
-          })
-        } else if (rest == 3) {
-          wx.showModal({
-            title: '提示',
-            content: '请输入完整的信息！',
-            success: function (res) {
-              if (res.confirm) {
-                console.log('用户点击确定')
-              }
-            }
-          })
-        }
+            if (rest == 1) {
+              wx.showModal({
+                title: '提示',
+                content: '申请成功！请等待审批',
+                success: function (res) {
+                  if (res.confirm) {
+                    console.log('用户点击确定')
+                  }
+                }
+              })
+            } else if (rest == 2) {
 
-      },
-      fail: function (res) {
-        console.log(res);
+              wx.showModal({
+                title: '提示',
+                content: '申请失败！',
+                success: function (res) {
+                  if (res.confirm) {
+                    console.log('用户点击确定')
+                  }
+                }
+              })
+            } else if (rest == 3) {
+              wx.showModal({
+                title: '提示',
+                content: '请输入完整的信息！',
+                success: function (res) {
+                  if (res.confirm) {
+                    console.log('用户点击确定')
+                  }
+                }
+              })
+            }
+
+          },
+          fail: function (res) {
+            console.log(res);
+          }
+        
+        })
       }
-    })
+    });
   },
 
 
@@ -257,14 +267,46 @@ Page({
                 nickname: name,
                 openid: openid
               },
-              method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+              method: 'GET', 
               // header: {}, // 设置请求的 header
               success: function (res) {
+
+               
+
                 wx.setStorage({
                   key: 'userInfo',
                   data: res.data,
+                  success: function (res)
+                  {
+                    
+                  }
                 })
-                //console.log(res.data);
+
+               
+
+
+
+
+                if (res.data == 1) {
+
+                  wx.navigateTo({
+                    url: '../components/details/details',
+                    success: function (res) {
+
+                    },
+                    fail: function () {
+
+                    },
+                    complete: function () {
+
+                    }
+                  })
+
+
+                }
+
+               
+
               },
               fail: function (res) {
                 // fail

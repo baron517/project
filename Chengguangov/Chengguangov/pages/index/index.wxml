@@ -26,6 +26,7 @@
                 </view>
              <input value="{{pername}}" type='text' name="renyuan" disabled="true" placeholder="请输入加班人员姓名"/>
 
+              
 
              <picker bindchange="bindPickerChange1" name="canting" value="{{res[resIndex]}}" range="{{res}}">  
              <view class="picker">  
@@ -56,6 +57,8 @@
                   <textarea  name="beizhu" value="" placeholder="备注：" />
              <button type="default" form-type="submit">推送</button>
            
+          <view style="height:200px;"></view>
+
         </form>
     </view>
 </view>
