@@ -23,24 +23,23 @@
 	background: url(../img/login_input_bg.png) repeat;
 }
 .login_input_icon_user {
-	padding-left: 50px;
+	padding:11px 0 11px 50px;
 	background: url(../img/login_input_icon_user.png) no-repeat #fff 10px center;
 	border: 0;
-	height: 42px;
+	height: auto;
 	margin-bottom: 32px;
 	font-size: 14px;
 }
 .login_input_icon_pwd {
-	padding-left: 50px;
+	padding:11px 0 11px 50px;
 	background: url(../img/login_input_icon_pwd.png) no-repeat #fff 10px center;
 	border: 0;
-	height: 42px;
+	height: auto;
 	font-size: 14px;
 }
 .login_input_tips {
-	height: 40px;
+	height: 30px;
 	color: #ff0000;
-	line-height: 40px;
 }
 .login_btn {
 	background: #ff5300;
