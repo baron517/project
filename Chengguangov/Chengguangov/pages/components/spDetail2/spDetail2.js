@@ -32,7 +32,7 @@ Page({
       data: {
         rid: ridIndex,
         statusValue: idIndex,
-        typestr:1,
+        typestr:2,
         erji: erji
       },
       success: function (res) {

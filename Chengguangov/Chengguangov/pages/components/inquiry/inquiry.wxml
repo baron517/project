@@ -19,7 +19,7 @@
   </view>
   
   <view class="shoucang">
-      <navigator url="../quan/quan">
+      <navigator url="../quan3/quan3">
         <view class="picute">
          <image class="inco" src="/image/jilu.png"></image>
          <view class="text">
@@ -29,7 +29,7 @@
        </view>  
       </navigator>
 
- <navigator url="../quan/quan">
+	  <navigator url="../quan/quan">
         <view class="picute">
          <image class="inco" src="/image/jilu.png"></image>
          <view class="text">

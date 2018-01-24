@@ -1,0 +1,220 @@
+@charset "UTF-8";
+/* CSS Document */
+.login {
+	width: 440px;
+	height: 660px;
+	position: absolute;
+	left: 50%;
+	margin-top: 80px;
+	margin-left: -220px;
+}
+.login_logo {
+	display: block;
+	margin: auto;
+}
+.login_logo_text {
+	display: block;
+	margin: 30px auto;
+}
+.login_input {
+	width: 440px;
+	height: 410px;
+	padding: 48px 60px;
+	background: url(../img/login_input_bg.png) repeat;
+}
+.login_input_icon_user {
+	padding-left: 50px;
+	background: url(../img/login_input_icon_user.png) no-repeat #fff 10px center;
+	border: 0;
+	height: 42px;
+	margin-bottom: 32px;
+	font-size: 14px;
+}
+.login_input_icon_pwd {
+	padding-left: 50px;
+	background: url(../img/login_input_icon_pwd.png) no-repeat #fff 10px center;
+	border: 0;
+	height: 42px;
+	font-size: 14px;
+}
+.login_input_tips {
+	height: 40px;
+	color: #ff0000;
+	line-height: 40px;
+}
+.login_btn {
+	background: #ff5300;
+	width:320px;
+	height: 42px;
+	color: #fff;
+	border: 0;
+	margin-bottom: 20px;
+	font-size: 14px;
+}
+.login_btn:hover {
+	background: #ff6216;
+	height: 42px;
+	color: #fff;
+	border: 0;
+}
+ .login_btn:foucs {
+ background: #ff6216;
+ height: 42px;
+ color: #fff;
+ border: 0;
+}
+.login_btn:active {
+	background: #ff6216;
+	height: 42px;
+	color: #fff;
+	border: 0;
+}
+.login_btn:visited {
+	background: #ff6216;
+	height: 42px;
+	color: #fff;
+	border: 0;
+}
+.login_mode {
+	color: #fff;
+	height: 78px;
+	text-align: center;
+	padding-top: 10px;
+	cursor: pointer;
+	font-size: 14px;
+	font-weight: 100;
+}
+.login_mode img {
+	display: block;
+	margin: auto;
+	margin-bottom: 5px;
+}
+.login_mode_on {
+	background: url(../img/login_icon_on_bg.png) center center no-repeat;
+	color: #ff5300;
+}
+.login_mode:hover {
+	background: url(../img/login_icon_on_bg_hover.png) center center no-repeat;
+}
+
+
+/* ------- This is the CSS Reset ------- */
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* ------- HTML5 display-role reset for older browsers ------- */
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+	font-size: 14px;
+	font-weight: 100;
+	font-family:  "Microsoft YaHei", "微软雅黑", STXihei, "华文细黑", SimSun, "宋体", Heiti, "黑体", sans-serif;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after, q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+* {
+	margin: 0;
+	padding: 0;
+}
+body {
+	background: #111;
+	height: 100%;
+}
+img {
+	border: none;
+}
+#supersized-loader {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	z-index: 0;
+	width: 60px;
+	height: 60px;
+	margin: -30px 0 0 -30px;
+	text-indent: -999em;
+	background: url(../img/progress.gif) no-repeat center center;
+}
+#supersized {
+	display: block;
+	position: fixed;
+	left: 0;
+	top: 0;
+	overflow: hidden;
+	z-index: -999;
+	height: 100%;
+	width: 100%;
+}
+#supersized img {
+	width: auto;
+	height: auto;
+	position: relative;
+	display: none;
+	outline: none;
+	border: none;
+}
+#supersized.speed img {
+	-ms-interpolation-mode: nearest-neighbor;
+	image-rendering: -moz-crisp-edges;
+}	/*Speed*/
+#supersized.quality img {
+	-ms-interpolation-mode: bicubic;
+	image-rendering: optimizeQuality;
+}			/*Quality*/
+#supersized li {
+	display: block;
+	list-style: none;
+	z-index: -30;
+	position: fixed;
+	overflow: hidden;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: #111;
+}
+#supersized a {
+	width: 100%;
+	height: 100%;
+	display: block;
+}
+#supersized li.prevslide {
+	z-index: -20;
+}
+#supersized li.activeslide {
+	z-index: -10;
+}
+#supersized li.image-loading {
+	background: #111 url(../img/progress.gif) no-repeat center center;
+	width: 100%;
+	height: 100%;
+}
+#supersized li.image-loading img {
+	visibility: hidden;
+}
+#supersized li.prevslide img, #supersized li.activeslide img {
+	display: inline;
+}
+#supersized img {
+	max-width: none !important
+}

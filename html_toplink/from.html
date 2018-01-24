@@ -1,0 +1,187 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>表单-倍可企业金融管理平台</title>
+<link rel="stylesheet" href="css/bootstrap.min.css" >
+<link rel="stylesheet" href="css/style_main.css">  
+</head>
+<body>
+<div class="row">
+  <div class="col-xs-12">
+    <form>
+      <div class="form-group">
+        <label for=" ">文本框</label>
+        <input type="text" class="form-control" id="exampleInputEmail1" placeholder="文本框">
+     
+        <label for=" ">文本域</label>
+        <textarea class="form-control" rows="3"></textarea>
+      
+		  	 <label for=" ">时间控件</label> 
+		  1
+		     <div class="input-group date form_datetime"  >
+                    <input class="form-control" size="16" type="text" value="2017-06-15 14:45" readonly> 
+					<span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+                </div>
+		  <br>
+		  2
+		  <input size="16" type="text" value="2017-06-15 14:45" readonly class="form-control form_datetime"><br> 
+		  3
+		   <div class="input-group date form_date"   data-date="2017-06-15" data-date-format="yyyy-mm-dd"  >
+                    <input class="form-control" size="16"  type="text" value="" readonly> 
+					<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                </div>
+		  <br>
+		  4
+		  <div class="input-group date form_time"  data-date-format="hh:ii" data-link-field="dtp_input3" data-link-format="hh:ii">
+                    <input class="form-control" size="16" type="text" value="" readonly> 
+					<span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
+                </div>
+		  
+		  
+		  
+		 <label for=" ">下拉框</label>
+		<select class="form-control">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+      </select>
+		
+	 
+        <label for=" ">文本框组</label>
+        <div class="input-group">
+          <div class="input-group-addon">$</div>
+          <input type="text" class="form-control" id="exampleInputAmount" placeholder="Amount">
+          <div class="input-group-addon">.00</div>
+        </div>
+      </div> 
+		
+		  <div class="input-group">
+      <input type="text" class="form-control" placeholder="Search for...">
+      <span class="input-group-btn">
+      <button class="btn btn-default" type="button">Go!</button>
+      </span> </div> <br>
+		<div class="input-group"> <span class="input-group-btn">
+      <button class="btn btn-default" type="button">Go!</button>
+      </span>
+      <input type="text" class="form-control" placeholder="Search for...">
+    </div> 
+		
+		
+		<br>		
+<div class="progress">
+  <div class="progress-bar progress-bar-back" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"> 60% </div>
+</div>  
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" value="">
+          复选框</label>
+      </div>
+      <div class="checkbox disabled">
+        <label>
+          <input type="checkbox" value="" disabled>
+         禁用的复选框 </label>
+      </div>
+      <div class="radio">
+        <label>
+          <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+          单选框1 </label>
+      </div>
+      <div class="radio">
+        <label>
+          <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+          单选框2 </label>
+      </div>
+      <div class="radio disabled">
+        <label>
+          <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3" disabled>
+         禁用的单选框 </label>
+      </div>
+      
+     
+      <div class="form-group">
+        <label for="exampleInputFile">选择文件</label>
+        <input type="file" id="exampleInputFile">
+      </div>
+       
+      <button type="submit" class="btn btn-back">按钮</button>   <button type="submit" class="btn btn-default">按钮</button><br><br>
+		 
+		  
+    </form><br> 
+	  <div class="btn-group" data-toggle="buttons">
+  <label class="btn btn-back active">
+    <input type="checkbox" autocomplete="off" checked> 多选
+  </label>
+  <label class="btn btn-back">
+    <input type="checkbox" autocomplete="off"> 多选
+  </label>
+  <label class="btn btn-back">
+    <input type="checkbox" autocomplete="off">多选
+  </label>
+</div>
+	  
+	 <div class="btn-group" data-toggle="buttons">
+  <label class="btn btn-back active">
+    <input type="radio" name="options" id="option1" autocomplete="off" checked> 单选
+  </label>
+  <label class="btn btn-back">
+    <input type="radio" name="options" id="option2" autocomplete="off"> 单选
+  </label>
+  <label class="btn btn-back">
+    <input type="radio" name="options" id="option3" autocomplete="off"> 单选
+  </label>
+</div>
+  </div>
+</div> 
+ 
+	
+	
+ <br><br><br><br><br>
+	
+<script src="js/jquery-1.12.4.min.js"></script> 
+<!--<script src="http://code.jquery.com/jquery-2.0.3.min.js"></script> -->
+<!--<script src="js/jquery-1.12.4.min.js"></script>  -->
+<script src="js/bootstrap.min.js"></script>	
+<script src="js/bootstrap-datetimepicker.min.js"></script>	 	 
+	<script type="text/javascript">
+  $('.form_datetime').datetimepicker({
+        //language:  'fr',
+        weekStart: 1,
+        todayBtn:  1,
+		autoclose: 1,
+		todayHighlight: 1,
+		startView: 2,
+		forceParse: 0,
+        showMeridian: 1
+    });
+	$('.form_date').datetimepicker({
+        language:  'fr',
+        weekStart: 1,
+        todayBtn:  1,
+		autoclose: 1,
+		todayHighlight: 1,
+		startView: 2,
+		minView: 2,
+		forceParse: 0
+    });
+	$('.form_time').datetimepicker({
+        language:  'fr',
+        weekStart: 1,
+        todayBtn:  1,
+		autoclose: 1,
+		todayHighlight: 1,
+		startView: 1,
+		minView: 0,
+		maxView: 1,
+		forceParse: 0
+    }); 
+		
+		$('#datetimepicker').datetimepicker({
+    format: 'yyyy-mm-dd hh:ii'
+});
+</script>   
+	
+</body>
+</html>

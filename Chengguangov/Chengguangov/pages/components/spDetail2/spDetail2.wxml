@@ -1,8 +1,5 @@
 <view class="sp-list">
 
-<view>就餐时间：{{detail.radv_time}}</view>
-
-<view>领导审核：{{detail.radvanced}}</view>
 
 <view>备注：{{detail.rdesc}}</view>
 

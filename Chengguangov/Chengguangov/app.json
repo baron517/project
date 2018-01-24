@@ -7,7 +7,9 @@
     "pages/components/spDetail/spDetail",
     "pages/components/quan/quan",
     "pages/components/spDetail2/spDetail2",
-    "pages/components/quan2/quan2"
+    "pages/components/quan2/quan2",
+	"pages/components/spDetail3/spDetail3",
+    "pages/components/quan3/quan3"
      
   
   ],
