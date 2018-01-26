@@ -79,19 +79,28 @@ a:hover {
 .index_top_link {
 	width: 100%;
 	height: 110px;
-	overflow: hidden;
 	background: #fff;
 	color: #a3a3a3;
+	overflow: hidden;;
 	margin: 0 auto;
+	position: relative;
 }
+
+.index_top_link_btn_left{position: absolute;left:0;z-index:100000;top:0;width:30px;height:110px;background: #fff;box-sizing: border-box;padding-top:33px;cursor: pointer;}
+.index_top_link_btn_right{position: absolute;right:0;z-index:100000;top:0;width:30px;height:110px;background: #fff;box-sizing: border-box;padding-top:33px;cursor: pointer;}
+
 .index_top_link ul {
 	list-style: none;
     margin: 0;
-    padding: 0; 
+    padding: 0 20px;
+	width:100%;
+	box-sizing: border-box;
     position: fixed;
+	overflow-x:hidden;
+	overflow-y: hidden;
+	white-space: nowrap;
     z-index: 1000;
     background: #fff;
-	overflow: hidden;
 	border-bottom: 1px solid #ddd;
 }
 .clear{
@@ -111,7 +120,7 @@ a:hover {
 
 .index_top_link li {
 	list-style: none;
-	float: left;
+	display: inline-block;
 	width: 80px;
 	height: 90px;
 	text-align: center;
@@ -120,7 +129,7 @@ a:hover {
 .index_top_link li a {
 	width: 80px;
     height: 90px;
-    display: block;
+    display: inline-block;
     color: #666;
     cursor: pointer; 
 }
@@ -154,7 +163,7 @@ a:hover {
 	height: 110px;
 	position: absolute;
 	top: 60px;
-	width: 30x;
+	width: 30px;
 	z-index: 200;
 	cursor: pointer;
 }
@@ -441,6 +450,8 @@ text-decoration: none;}
 	background: #c7cacf;
 	border-right: 1px solid #d8dadd;
 }
-..nav-tabs {
+.nav-tabs {
  width:10000px;
 }
+
+

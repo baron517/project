@@ -1966,3 +1966,9 @@ disabled look for disabled choices in the results dropdown
 	background-position: 100% -21px !important;
 }
 }
+
+.form-horizontal .control-label{text-align: right;}
+.modal-dialog{margin: 30px auto;}
+.form-control{box-sizing: border-box;}
+.modal-body{box-sizing: border-box;}
+.modal{width:100%;height:100%;box-sizing: border-box;}

@@ -16,8 +16,13 @@
     <div class="col-xs-4"> <a class="index_top_icon" herf="#" style="margin: 2px 25px"  data-toggle="tooltip" data-placement="left" title="用户信息"><img src="img/index_icon_user.png" alt="" /></a> <a class="index_top_icon" herf="#" style="margin:8px 0 0 0;"> <img src="img/index_top_line.png"  alt="" /> </a> <a class="index_top_icon" herf="#"  data-toggle="tooltip" data-placement="left"  title="退出账号"><img src="img/index_icon_sign_out.png" data-toggle="modal" data-target="#myModal" alt=""/> </a> <a class="index_top_icon" herf="#" data-toggle="tooltip" data-placement="left" title="换肤"><img src="img/index_icon_color.png" alt=""/></a> <a class="index_top_icon" herf="#" data-toggle="tooltip" data-placement="left" title="消息"><img src="img/index_icon_message.png" alt=""/><i class="index_top_message_tips"></i></a> </div>
   </div>
   <div class="index_top_link">  
-	   <div class="index_top_link_btn"></div>
-        <ul class="index_top_link_he">
+	   <div class="index_top_link_btn_left">
+           <img src="img/top_link_btn_left.png">
+       </div>
+      <div class="index_top_link_btn_right">
+          <img src="img/top_link_btn _right.png">
+      </div>
+        <ul class="index_top_link_he clearfix">
           <li> <a href="left.html"> <img src="img/top_link_icon_1.png" alt=""/>基础信息</a> </li>
           <li> <a href="left.html"> <img src="img/top_link_icon_2.png" alt=""/> 系统管理</a> </li>
           <li> <a href="left.html"> <img src="img/top_link_icon_3.png" alt=""/> 流程管理</a> </li>
@@ -36,8 +41,10 @@
           <li> <a href="left.html"> <img src="img/top_link_icon_7.png" alt=""/>  承兑汇票 </a> </li>
           <li> <a href="left.html"> <img src="img/top_link_icon_8.png" alt=""/>  资金预算 </a> </li>
           <li> <a href="left.html"> <img src="img/top_link_icon_9.png" alt=""/>  单据跟踪 </a> </li>
-			<div class="clear"></div>
-        </ul>  
+        </ul>
+
+
+
 	</div> 
 </div>
 <!--顶部结束--> 
@@ -148,6 +155,35 @@
 <script src="js/nth.tabs.min.js"></script> 
 <script type="text/javascript">  
 $(function(){
+
+
+    $(".index_top_link_btn_right").click(function()
+    {
+
+        var scrollLeftValue=$(".index_top_link_he").scrollLeft();
+
+        scrollLeftValue=scrollLeftValue+80;
+
+        $(".index_top_link_he").animate({scrollLeft:scrollLeftValue},200);
+
+    });
+
+
+    $(".index_top_link_btn_left").click(function()
+    {
+        var scrollLeftValue=$(".index_top_link_he").scrollLeft();
+
+        scrollLeftValue=scrollLeftValue-80;
+
+        $(".index_top_link_he").animate({scrollLeft:scrollLeftValue},200);
+
+    });
+
+
+
+
+
+
     $(".index_top_link_btn").click(function(){ 
      
 	if($(".index_top_link_btn").parent().hasClass("height_show")) 
@@ -165,6 +201,9 @@ $(function(){
 	
 	
 	$('#someTab').tab('show')
+
+
+
 </script>
 </body>
 </html>
