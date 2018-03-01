@@ -95,7 +95,7 @@ Page({
       },
       method: 'POST',
       success: function (res) {
-        //console.log(res)
+        console.log(res)
         let response = res.data.substring(3)
         that.stepInfoList = JSON.parse(response).stepInfoList;
         //console.log(res)
