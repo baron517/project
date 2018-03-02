@@ -134,6 +134,7 @@ Page({
           var kakaValue = 0.8214 * 57 * that.todayStep * 0.414 * 156;
         }
        
+	   kakaValue=kakaValue/100000;
 
         that.setData({
           todayStep: that.todayStep,

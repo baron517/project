@@ -111,11 +111,21 @@ Page({
         }
         //console.log("all" + all)
 
+       if(app.globalData.userAllInfo.gender=="1")
+        {
+          var kakaValue = 0.8214 * 66 * that.todayStep*0.414*167;
+        }
+        else{
+          var kakaValue = 0.8214 * 57 * that.todayStep * 0.414 * 156;
+        }
+       
+	   kakaValue=kakaValue/100000;
+
         that.setData({
           todayStep: that.todayStep,
           distance: (that.todayStep*5/8000).toFixed(2),
           time: (that.todayStep/120).toFixed(2),
-          kaka: (that.todayStep * 655 / 720).toFixed(2),
+          kaka: kakaValue.toFixed(2),
           allStep: all,
         })
 

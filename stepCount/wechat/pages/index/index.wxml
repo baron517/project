@@ -37,7 +37,7 @@
     
     <view class='stepstatus'>
       <text style='color: #fff'>{{distance}}公里</text>
-      <text style='color: #fff'>{{kaka}}卡</text>
+      <text style='color: #fff'>{{kaka}}千卡</text>
       <text style='color: #fff'>{{time}}分钟</text>
     </view>
   </view>
