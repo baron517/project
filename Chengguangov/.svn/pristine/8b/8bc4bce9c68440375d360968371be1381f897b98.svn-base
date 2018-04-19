@@ -1,0 +1,425 @@
+[ 2017-11-09T10:39:42+08:00 ] 127.0.0.1 /Chengguangov/index.php?g=Admin&m=public&a=dologin
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000808s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001811s ]
+INFO: Run Common\Behavior\UrldecodeGetBehavior [ RunTime:0.000413s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004334s ]
+INFO: [ admin_begin ] --START--
+INFO: Run Common\Behavior\AdminDefaultLangBehavior [ RunTime:0.002358s ]
+INFO: [ admin_begin ] --END-- [ RunTime:0.002450s ]
+SQL: SHOW COLUMNS FROM `dg_users` [ RunTime:0.0112s ]
+SQL: SELECT * FROM `dg_users` WHERE `user_login` = 'admin' LIMIT 1   [ RunTime:0.0008s ]
+SQL: SHOW COLUMNS FROM `dg_role_user` [ RunTime:0.0104s ]
+SQL: SELECT `role_id` FROM dg_role_user a INNER JOIN dg_role as b on a.role_id =b.id  WHERE `user_id` = '1' AND `status` = 1  [ RunTime:0.0016s ]
+SQL: UPDATE `dg_users` SET `user_login`='admin',`user_pass`='###a852818edbecc3ec5a7d4e734e3709b8',`user_nicename`='admin',`user_email`='1048240588@qq.com',`user_url`='',`avatar`=NULL,`sex`='0',`birthday`='2000-01-01',`signature`=NULL,`last_login_ip`='127.0.0.1',`last_login_time`='2017-11-09 10:39:42',`create_time`='2017-11-09 10:39:24',`user_activation_key`='',`user_status`='1',`score`='0',`user_type`='1',`coin`='0',`mobile`='' WHERE `id` = '1' [ RunTime:0.0009s ]
+
+[ 2017-11-09T11:15:19+08:00 ] 127.0.0.1 /Chengguangov/index.php?g=Admin&m=Menu&a=index
+NOTIC: D方法实例化没找到模型类Common\Model\AuthRuleModel
+
+[ 2017-11-09T11:15:22+08:00 ] 127.0.0.1 /Chengguangov/index.php?g=Admin&m=menu&a=lists
+NOTIC: D方法实例化没找到模型类Common\Model\AuthRuleModel
+
+[ 2017-11-09T14:00:19+08:00 ] 127.0.0.1 /Chengguangov/index.php?g=Admin&m=menu&a=add
+NOTIC: D方法实例化没找到模型类Common\Model\AuthRuleModel
+
+[ 2017-11-09T14:18:13+08:00 ] 127.0.0.1 /Chengguangov/index.php?g=Admin&m=Menu&a=add_post
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001030s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.002668s ]
+INFO: Run Common\Behavior\UrldecodeGetBehavior [ RunTime:0.001201s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.005726s ]
+INFO: [ admin_begin ] --START--
+INFO: Run Common\Behavior\AdminDefaultLangBehavior [ RunTime:0.002147s ]
+INFO: [ admin_begin ] --END-- [ RunTime:0.002282s ]
+SQL: SHOW COLUMNS FROM `dg_users` [ RunTime:0.0109s ]
+SQL: SELECT * FROM `dg_users` WHERE `id` = '1' LIMIT 1   [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `dg_menu` [ RunTime:0.0181s ]
+NOTIC: D方法实例化没找到模型类Common\Model\AuthRuleModel
+SQL: SHOW COLUMNS FROM `dg_auth_rule` [ RunTime:0.0080s ]
+NOTIC: [8] Undefined index: validate D:\WWW\project\Chengguangov\simplewind\Core\Library\Think\Model.class.php 第 1185 行.
+SQL: SELECT * FROM `dg_menu` WHERE `app` = 'Admin' AND `model` = 'Users' AND `action` = 'index' LIMIT 1   [ RunTime:0.0006s ]
+SQL: SELECT `parentid` FROM `dg_menu` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [8] Undefined index: auto D:\WWW\project\Chengguangov\simplewind\Core\Library\Think\Model.class.php 第 1128 行.
+SQL: INSERT INTO `dg_menu` (`parentid`,`name`,`app`,`model`,`action`,`data`,`icon`,`remark`,`status`,`type`) VALUES ('0','申请人员','Admin','Users','index','','','','1','1') [ RunTime:0.0006s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `dg_auth_rule` WHERE `name` = 'admin/users/index' LIMIT 1   [ RunTime:0.0581s ]
+SQL: INSERT INTO `dg_auth_rule` (`name`,`module`,`type`,`title`) VALUES ('admin/users/index','Admin','admin_url','申请人员') [ RunTime:0.0006s ]
+SQL: SELECT * FROM `dg_menu` WHERE `app` = 'Admin' ORDER BY `listorder` ASC,`app` ASC,`model` ASC,`action` ASC  [ RunTime:0.0030s ]
+
+[ 2017-11-09T14:18:14+08:00 ] 127.0.0.1 /Chengguangov/index.php?g=Admin&m=Menu&a=lists
+NOTIC: D方法实例化没找到模型类Common\Model\AuthRuleModel
+
+[ 2017-11-09T14:18:18+08:00 ] 127.0.0.1 /Chengguangov/index.php?g=Admin&m=menu&a=add
+NOTIC: D方法实例化没找到模型类Common\Model\AuthRuleModel
+
+[ 2017-11-09T14:18:57+08:00 ] 127.0.0.1 /Chengguangov/index.php?g=Admin&m=Menu&a=add_post
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000819s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.003618s ]
+INFO: Run Common\Behavior\UrldecodeGetBehavior [ RunTime:0.000777s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.006108s ]
+INFO: [ admin_begin ] --START--
+INFO: Run Common\Behavior\AdminDefaultLangBehavior [ RunTime:0.003106s ]
+INFO: [ admin_begin ] --END-- [ RunTime:0.003274s ]
+SQL: SHOW COLUMNS FROM `dg_users` [ RunTime:0.0528s ]
+SQL: SELECT * FROM `dg_users` WHERE `id` = '1' LIMIT 1   [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `dg_menu` [ RunTime:0.0089s ]
+NOTIC: D方法实例化没找到模型类Common\Model\AuthRuleModel
+SQL: SHOW COLUMNS FROM `dg_auth_rule` [ RunTime:0.0084s ]
+NOTIC: [8] Undefined index: validate D:\WWW\project\Chengguangov\simplewind\Core\Library\Think\Model.class.php 第 1185 行.
+SQL: SELECT * FROM `dg_menu` WHERE `app` = 'Admin' AND `model` = 'Restaurant' AND `action` = 'index' LIMIT 1   [ RunTime:0.0007s ]
+SQL: SELECT `parentid` FROM `dg_menu` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [8] Undefined index: auto D:\WWW\project\Chengguangov\simplewind\Core\Library\Think\Model.class.php 第 1128 行.
+SQL: INSERT INTO `dg_menu` (`parentid`,`name`,`app`,`model`,`action`,`data`,`icon`,`remark`,`status`,`type`) VALUES ('0','就餐地点','Admin','Restaurant','index','','','','1','1') [ RunTime:0.0006s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `dg_auth_rule` WHERE `name` = 'admin/restaurant/index' LIMIT 1   [ RunTime:0.0005s ]
+SQL: INSERT INTO `dg_auth_rule` (`name`,`module`,`type`,`title`) VALUES ('admin/restaurant/index','Admin','admin_url','就餐地点') [ RunTime:0.0005s ]
+SQL: SELECT * FROM `dg_menu` WHERE `app` = 'Admin' ORDER BY `listorder` ASC,`app` ASC,`model` ASC,`action` ASC  [ RunTime:0.0036s ]
+NOTIC: [2] mkdir(): File exists D:\WWW\project\Chengguangov\application\Admin\Controller\MenuController.class.php 第 247 行.
+
+[ 2017-11-09T14:18:58+08:00 ] 127.0.0.1 /Chengguangov/index.php?g=Admin&m=Menu&a=lists
+NOTIC: D方法实例化没找到模型类Common\Model\AuthRuleModel
+
+[ 2017-11-09T14:19:01+08:00 ] 127.0.0.1 /Chengguangov/index.php?g=Admin&m=menu&a=add
+NOTIC: D方法实例化没找到模型类Common\Model\AuthRuleModel
+
+[ 2017-11-09T14:20:22+08:00 ] 127.0.0.1 /Chengguangov/index.php?g=Admin&m=Menu&a=add_post
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001493s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.003228s ]
+INFO: Run Common\Behavior\UrldecodeGetBehavior [ RunTime:0.000873s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.006681s ]
+INFO: [ admin_begin ] --START--
+INFO: Run Common\Behavior\AdminDefaultLangBehavior [ RunTime:0.002771s ]
+INFO: [ admin_begin ] --END-- [ RunTime:0.002913s ]
+SQL: SHOW COLUMNS FROM `dg_users` [ RunTime:0.0064s ]
+SQL: SELECT * FROM `dg_users` WHERE `id` = '1' LIMIT 1   [ RunTime:0.0008s ]
+SQL: SHOW COLUMNS FROM `dg_menu` [ RunTime:0.0105s ]
+NOTIC: D方法实例化没找到模型类Common\Model\AuthRuleModel
+SQL: SHOW COLUMNS FROM `dg_auth_rule` [ RunTime:0.0105s ]
+NOTIC: [8] Undefined index: validate D:\WWW\project\Chengguangov\simplewind\Core\Library\Think\Model.class.php 第 1185 行.
+SQL: SELECT * FROM `dg_menu` WHERE `app` = 'Admin' AND `model` = 'Squadron' AND `action` = 'i' LIMIT 1   [ RunTime:0.0005s ]
+SQL: SELECT `parentid` FROM `dg_menu` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: auto D:\WWW\project\Chengguangov\simplewind\Core\Library\Think\Model.class.php 第 1128 行.
+SQL: INSERT INTO `dg_menu` (`parentid`,`name`,`app`,`model`,`action`,`data`,`icon`,`remark`,`status`,`type`) VALUES ('0','中队管理','Admin','Squadron','i','','','','1','1') [ RunTime:0.0004s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `dg_auth_rule` WHERE `name` = 'admin/squadron/i' LIMIT 1   [ RunTime:0.0005s ]
+SQL: INSERT INTO `dg_auth_rule` (`name`,`module`,`type`,`title`) VALUES ('admin/squadron/i','Admin','admin_url','中队管理') [ RunTime:0.0004s ]
+SQL: SELECT * FROM `dg_menu` WHERE `app` = 'Admin' ORDER BY `listorder` ASC,`app` ASC,`model` ASC,`action` ASC  [ RunTime:0.0031s ]
+NOTIC: [2] mkdir(): File exists D:\WWW\project\Chengguangov\application\Admin\Controller\MenuController.class.php 第 247 行.
+
+[ 2017-11-09T14:20:23+08:00 ] 127.0.0.1 /Chengguangov/index.php?g=Admin&m=Menu&a=lists
+NOTIC: D方法实例化没找到模型类Common\Model\AuthRuleModel
+
+[ 2017-11-09T14:20:24+08:00 ] 127.0.0.1 /Chengguangov/index.php?g=Admin&m=Menu&a=add_post
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001569s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.005404s ]
+INFO: Run Common\Behavior\UrldecodeGetBehavior [ RunTime:0.003046s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.011618s ]
+INFO: [ admin_begin ] --START--
+INFO: Run Common\Behavior\AdminDefaultLangBehavior [ RunTime:0.013409s ]
+INFO: [ admin_begin ] --END-- [ RunTime:0.013656s ]
+SQL: SHOW COLUMNS FROM `dg_users` [ RunTime:0.0107s ]
+SQL: SELECT * FROM `dg_users` WHERE `id` = '1' LIMIT 1   [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `dg_menu` [ RunTime:0.0178s ]
+NOTIC: D方法实例化没找到模型类Common\Model\AuthRuleModel
+SQL: SHOW COLUMNS FROM `dg_auth_rule` [ RunTime:0.0080s ]
+NOTIC: [8] Undefined index: validate D:\WWW\project\Chengguangov\simplewind\Core\Library\Think\Model.class.php 第 1185 行.
+SQL: SELECT * FROM `dg_menu` WHERE `app` = 'Admin' AND `model` = 'Squadron' AND `action` = 'index' LIMIT 1   [ RunTime:0.0006s ]
+SQL: SELECT `parentid` FROM `dg_menu` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: auto D:\WWW\project\Chengguangov\simplewind\Core\Library\Think\Model.class.php 第 1128 行.
+SQL: INSERT INTO `dg_menu` (`parentid`,`name`,`app`,`model`,`action`,`data`,`icon`,`remark`,`status`,`type`) VALUES ('0','中队管理','Admin','Squadron','index','','','','1','1') [ RunTime:0.0004s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `dg_auth_rule` WHERE `name` = 'admin/squadron/index' LIMIT 1   [ RunTime:0.0004s ]
+SQL: INSERT INTO `dg_auth_rule` (`name`,`module`,`type`,`title`) VALUES ('admin/squadron/index','Admin','admin_url','中队管理') [ RunTime:0.0004s ]
+SQL: SELECT * FROM `dg_menu` WHERE `app` = 'Admin' ORDER BY `listorder` ASC,`app` ASC,`model` ASC,`action` ASC  [ RunTime:0.0031s ]
+NOTIC: [2] mkdir(): File exists D:\WWW\project\Chengguangov\application\Admin\Controller\MenuController.class.php 第 247 行.
+
+[ 2017-11-09T14:20:26+08:00 ] 127.0.0.1 /Chengguangov/index.php?g=Admin&m=menu&a=add
+NOTIC: D方法实例化没找到模型类Common\Model\AuthRuleModel
+
+[ 2017-11-09T14:30:31+08:00 ] 127.0.0.1 /Chengguangov/index.php?g=Admin&m=Menu&a=add_post
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001228s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.003824s ]
+INFO: Run Common\Behavior\UrldecodeGetBehavior [ RunTime:0.001586s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.007633s ]
+INFO: [ admin_begin ] --START--
+INFO: Run Common\Behavior\AdminDefaultLangBehavior [ RunTime:0.002064s ]
+INFO: [ admin_begin ] --END-- [ RunTime:0.002205s ]
+SQL: SHOW COLUMNS FROM `dg_users` [ RunTime:0.0104s ]
+SQL: SELECT * FROM `dg_users` WHERE `id` = '1' LIMIT 1   [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `dg_menu` [ RunTime:0.0151s ]
+NOTIC: D方法实例化没找到模型类Common\Model\AuthRuleModel
+SQL: SHOW COLUMNS FROM `dg_auth_rule` [ RunTime:0.0070s ]
+NOTIC: [8] Undefined index: validate D:\WWW\project\Chengguangov\simplewind\Core\Library\Think\Model.class.php 第 1185 行.
+SQL: SELECT * FROM `dg_menu` WHERE `app` = 'Admin' AND `model` = 'Word' AND `action` = 'index' LIMIT 1   [ RunTime:0.0005s ]
+SQL: SELECT `parentid` FROM `dg_menu` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: auto D:\WWW\project\Chengguangov\simplewind\Core\Library\Think\Model.class.php 第 1128 行.
+SQL: INSERT INTO `dg_menu` (`parentid`,`name`,`app`,`model`,`action`,`data`,`icon`,`remark`,`status`,`type`) VALUES ('0','文档库','Admin','Word','index','','','','1','1') [ RunTime:0.0004s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `dg_auth_rule` WHERE `name` = 'admin/word/index' LIMIT 1   [ RunTime:0.0004s ]
+SQL: INSERT INTO `dg_auth_rule` (`name`,`module`,`type`,`title`) VALUES ('admin/word/index','Admin','admin_url','文档库') [ RunTime:0.0003s ]
+SQL: SELECT * FROM `dg_menu` WHERE `app` = 'Admin' ORDER BY `listorder` ASC,`app` ASC,`model` ASC,`action` ASC  [ RunTime:0.0028s ]
+NOTIC: [2] mkdir(): File exists D:\WWW\project\Chengguangov\application\Admin\Controller\MenuController.class.php 第 247 行.
+
+[ 2017-11-09T14:30:32+08:00 ] 127.0.0.1 /Chengguangov/index.php?g=Admin&m=Menu&a=lists
+NOTIC: D方法实例化没找到模型类Common\Model\AuthRuleModel
+
+[ 2017-11-09T14:30:38+08:00 ] 127.0.0.1 /Chengguangov/index.php?g=Admin&m=Squadron&a=index
+ERR: 无法加载控制器:Squadron
+
+[ 2017-11-09T14:30:38+08:00 ] 127.0.0.1 /Chengguangov/index.php?g=Admin&m=Squadron&a=i
+ERR: 无法加载控制器:Squadron
+
+[ 2017-11-09T14:30:39+08:00 ] 127.0.0.1 /Chengguangov/index.php?g=Admin&m=Squadron&a=index
+ERR: 无法加载控制器:Squadron
+
+[ 2017-11-09T14:30:41+08:00 ] 127.0.0.1 /Chengguangov/index.php?g=Admin&m=Word&a=index
+ERR: 无法加载控制器:Word
+
+[ 2017-11-09T14:30:42+08:00 ] 127.0.0.1 /Chengguangov/index.php?g=Admin&m=Restaurant&a=index
+ERR: 无法加载控制器:Restaurant
+
+[ 2017-11-09T14:30:42+08:00 ] 127.0.0.1 /Chengguangov/index.php?g=Admin&m=Users&a=index
+ERR: 无法加载控制器:Users
+
+[ 2017-11-09T14:30:43+08:00 ] 127.0.0.1 /Chengguangov/index.php?g=Admin&m=Squadron&a=index
+ERR: 无法加载控制器:Squadron
+
+[ 2017-11-09T14:30:50+08:00 ] 127.0.0.1 /Chengguangov/index.php?g=Admin&m=Menu&a=index
+NOTIC: D方法实例化没找到模型类Common\Model\AuthRuleModel
+
+[ 2017-11-09T14:31:03+08:00 ] 127.0.0.1 /Chengguangov/index.php?g=Admin&m=Menu&a=index
+NOTIC: D方法实例化没找到模型类Common\Model\AuthRuleModel
+
+[ 2017-11-09T14:31:04+08:00 ] 127.0.0.1 /Chengguangov/index.php?g=Admin&m=menu&a=lists
+NOTIC: D方法实例化没找到模型类Common\Model\AuthRuleModel
+
+[ 2017-11-09T14:31:15+08:00 ] 127.0.0.1 /Chengguangov/index.php?g=Admin&m=menu&a=delete&id=189
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000780s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.002428s ]
+INFO: Run Common\Behavior\UrldecodeGetBehavior [ RunTime:0.000714s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004939s ]
+INFO: [ admin_begin ] --START--
+INFO: Run Common\Behavior\AdminDefaultLangBehavior [ RunTime:0.001949s ]
+INFO: [ admin_begin ] --END-- [ RunTime:0.002072s ]
+SQL: SHOW COLUMNS FROM `dg_users` [ RunTime:0.0116s ]
+SQL: SELECT * FROM `dg_users` WHERE `id` = '1' LIMIT 1   [ RunTime:0.0009s ]
+SQL: SHOW COLUMNS FROM `dg_menu` [ RunTime:0.0145s ]
+NOTIC: D方法实例化没找到模型类Common\Model\AuthRuleModel
+SQL: SHOW COLUMNS FROM `dg_auth_rule` [ RunTime:0.0084s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `dg_menu` WHERE `parentid` = 189 LIMIT 1   [ RunTime:0.0004s ]
+SQL: DELETE FROM `dg_menu` WHERE `id` = 189 [ RunTime:0.0242s ]
+
+[ 2017-11-09T14:31:16+08:00 ] 127.0.0.1 /Chengguangov/index.php?g=Admin&m=menu&a=lists
+NOTIC: D方法实例化没找到模型类Common\Model\AuthRuleModel
+
+[ 2017-11-09T14:57:51+08:00 ] 127.0.0.1 /Chengguangov/index.php?g=Admin&m=Users&a=index
+ERR: 无法加载控制器:Users
+
+[ 2017-11-09T15:00:36+08:00 ] 127.0.0.1 /Chengguangov/index.php?g=Admin&m=Users&a=index
+NOTIC: D方法实例化没找到模型类Common\Model\UserModel
+ERR: 模板不存在:admin/themes/simplebootx/Admin/Users/index.html
+
+[ 2017-11-09T15:02:04+08:00 ] 127.0.0.1 /Chengguangov/index.php?g=Admin&m=Users&a=index
+NOTIC: D方法实例化没找到模型类Common\Model\UserModel
+
+[ 2017-11-09T15:08:20+08:00 ] 127.0.0.1 /Chengguangov/index.php?g=Admin&m=Users&a=index
+NOTIC: D方法实例化没找到模型类Common\Model\UserModel
+
+[ 2017-11-09T15:08:39+08:00 ] 127.0.0.1 /Chengguangov/index.php?g=Admin&m=Users&a=index
+NOTIC: D方法实例化没找到模型类Common\Model\UserModel
+
+[ 2017-11-09T15:08:49+08:00 ] 127.0.0.1 /Chengguangov/index.php?g=Admin&m=Users&a=index
+NOTIC: D方法实例化没找到模型类Common\Model\UserModel
+
+[ 2017-11-09T15:21:04+08:00 ] 127.0.0.1 /Chengguangov/index.php?g=Admin&m=Users&a=index
+NOTIC: D方法实例化没找到模型类Common\Model\UserModel
+
+[ 2017-11-09T15:21:06+08:00 ] 127.0.0.1 /Chengguangov/index.php?g=Admin&m=users&a=add
+NOTIC: D方法实例化没找到模型类Common\Model\UserModel
+
+[ 2017-11-09T15:35:34+08:00 ] 127.0.0.1 /Chengguangov/index.php?g=Admin&m=Users&a=index
+NOTIC: D方法实例化没找到模型类Common\Model\UserModel
+NOTIC: D方法实例化没找到模型类Common\Model\SquadronModel
+
+[ 2017-11-09T15:35:35+08:00 ] 127.0.0.1 /Chengguangov/index.php?g=Admin&m=users&a=add
+NOTIC: D方法实例化没找到模型类Common\Model\UserModel
+NOTIC: D方法实例化没找到模型类Common\Model\SquadronModel
+
+[ 2017-11-09T15:36:10+08:00 ] 127.0.0.1 /Chengguangov/index.php?g=Admin&m=users&a=add
+NOTIC: D方法实例化没找到模型类Common\Model\UserModel
+NOTIC: D方法实例化没找到模型类Common\Model\SquadronModel
+
+[ 2017-11-09T15:36:11+08:00 ] 127.0.0.1 /Chengguangov/index.php?g=Admin&m=Users&a=index
+NOTIC: D方法实例化没找到模型类Common\Model\UserModel
+NOTIC: D方法实例化没找到模型类Common\Model\SquadronModel
+
+[ 2017-11-09T15:36:13+08:00 ] 127.0.0.1 /Chengguangov/index.php?g=Admin&m=users&a=add
+NOTIC: D方法实例化没找到模型类Common\Model\UserModel
+NOTIC: D方法实例化没找到模型类Common\Model\SquadronModel
+
+[ 2017-11-09T15:36:25+08:00 ] 127.0.0.1 /Chengguangov/index.php?g=Admin&m=Users&a=index
+NOTIC: D方法实例化没找到模型类Common\Model\UserModel
+NOTIC: D方法实例化没找到模型类Common\Model\SquadronModel
+
+[ 2017-11-09T15:36:27+08:00 ] 127.0.0.1 /Chengguangov/index.php?g=Admin&m=users&a=add
+NOTIC: D方法实例化没找到模型类Common\Model\UserModel
+NOTIC: D方法实例化没找到模型类Common\Model\SquadronModel
+
+[ 2017-11-09T15:36:43+08:00 ] 127.0.0.1 /Chengguangov/index.php?g=Admin&m=Users&a=index
+NOTIC: D方法实例化没找到模型类Common\Model\UserModel
+NOTIC: D方法实例化没找到模型类Common\Model\SquadronModel
+
+[ 2017-11-09T15:36:44+08:00 ] 127.0.0.1 /Chengguangov/index.php?g=Admin&m=users&a=add
+NOTIC: D方法实例化没找到模型类Common\Model\UserModel
+NOTIC: D方法实例化没找到模型类Common\Model\SquadronModel
+
+[ 2017-11-09T15:36:51+08:00 ] 127.0.0.1 /Chengguangov/index.php?g=Admin&m=Users&a=index
+NOTIC: D方法实例化没找到模型类Common\Model\UserModel
+NOTIC: D方法实例化没找到模型类Common\Model\SquadronModel
+
+[ 2017-11-09T15:36:52+08:00 ] 127.0.0.1 /Chengguangov/index.php?g=Admin&m=users&a=add
+NOTIC: D方法实例化没找到模型类Common\Model\UserModel
+NOTIC: D方法实例化没找到模型类Common\Model\SquadronModel
+
+[ 2017-11-09T15:38:17+08:00 ] 127.0.0.1 /Chengguangov/index.php?g=Admin&m=Users&a=index
+NOTIC: D方法实例化没找到模型类Common\Model\UserModel
+NOTIC: D方法实例化没找到模型类Common\Model\SquadronModel
+
+[ 2017-11-09T15:38:18+08:00 ] 127.0.0.1 /Chengguangov/index.php?g=Admin&m=users&a=add
+NOTIC: D方法实例化没找到模型类Common\Model\UserModel
+NOTIC: D方法实例化没找到模型类Common\Model\SquadronModel
+
+[ 2017-11-09T15:38:42+08:00 ] 127.0.0.1 /Chengguangov/index.php?g=Admin&m=Users&a=index
+NOTIC: D方法实例化没找到模型类Common\Model\UserModel
+NOTIC: D方法实例化没找到模型类Common\Model\SquadronModel
+
+[ 2017-11-09T15:38:44+08:00 ] 127.0.0.1 /Chengguangov/index.php?g=Admin&m=users&a=add
+NOTIC: D方法实例化没找到模型类Common\Model\UserModel
+NOTIC: D方法实例化没找到模型类Common\Model\SquadronModel
+
+[ 2017-11-09T15:38:59+08:00 ] 127.0.0.1 /Chengguangov/index.php?g=Admin&m=Users&a=index
+NOTIC: D方法实例化没找到模型类Common\Model\UserModel
+NOTIC: D方法实例化没找到模型类Common\Model\SquadronModel
+
+[ 2017-11-09T15:39:01+08:00 ] 127.0.0.1 /Chengguangov/index.php?g=Admin&m=users&a=add
+NOTIC: D方法实例化没找到模型类Common\Model\UserModel
+NOTIC: D方法实例化没找到模型类Common\Model\SquadronModel
+
+[ 2017-11-09T15:39:41+08:00 ] 127.0.0.1 /Chengguangov/index.php?g=Admin&m=Users&a=index
+NOTIC: D方法实例化没找到模型类Common\Model\UserModel
+NOTIC: D方法实例化没找到模型类Common\Model\SquadronModel
+
+[ 2017-11-09T15:39:44+08:00 ] 127.0.0.1 /Chengguangov/index.php?g=Admin&m=users&a=add
+NOTIC: D方法实例化没找到模型类Common\Model\UserModel
+NOTIC: D方法实例化没找到模型类Common\Model\SquadronModel
+
+[ 2017-11-09T15:40:15+08:00 ] 127.0.0.1 /Chengguangov/index.php?g=Admin&m=Users&a=index
+NOTIC: D方法实例化没找到模型类Common\Model\UserModel
+NOTIC: D方法实例化没找到模型类Common\Model\SquadronModel
+
+[ 2017-11-09T15:40:17+08:00 ] 127.0.0.1 /Chengguangov/index.php?g=Admin&m=users&a=add
+NOTIC: D方法实例化没找到模型类Common\Model\UserModel
+NOTIC: D方法实例化没找到模型类Common\Model\SquadronModel
+
+[ 2017-11-09T15:40:25+08:00 ] 127.0.0.1 /Chengguangov/index.php?g=Admin&m=users&a=add_post
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001994s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.005357s ]
+INFO: Run Common\Behavior\UrldecodeGetBehavior [ RunTime:0.001095s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.009929s ]
+INFO: [ admin_begin ] --START--
+INFO: Run Common\Behavior\AdminDefaultLangBehavior [ RunTime:0.004608s ]
+INFO: [ admin_begin ] --END-- [ RunTime:0.004855s ]
+SQL: SHOW COLUMNS FROM `dg_users` [ RunTime:0.0071s ]
+SQL: SELECT * FROM `dg_users` WHERE `id` = '1' LIMIT 1   [ RunTime:0.0005s ]
+NOTIC: D方法实例化没找到模型类Common\Model\UserModel
+SQL: SHOW COLUMNS FROM `dg_user` [ RunTime:0.0072s ]
+NOTIC: D方法实例化没找到模型类Common\Model\SquadronModel
+SQL: SHOW COLUMNS FROM `dg_squadron` [ RunTime:0.0056s ]
+
+[ 2017-11-09T15:40:29+08:00 ] 127.0.0.1 /Chengguangov/index.php?g=Admin&m=users&a=add
+NOTIC: D方法实例化没找到模型类Common\Model\UserModel
+NOTIC: D方法实例化没找到模型类Common\Model\SquadronModel
+
+[ 2017-11-09T15:40:32+08:00 ] 127.0.0.1 /Chengguangov/index.php?g=Admin&m=Users&a=index
+NOTIC: D方法实例化没找到模型类Common\Model\UserModel
+NOTIC: D方法实例化没找到模型类Common\Model\SquadronModel
+
+[ 2017-11-09T15:40:59+08:00 ] 127.0.0.1 /Chengguangov/index.php?g=Admin&m=Users&a=index
+NOTIC: D方法实例化没找到模型类Common\Model\UserModel
+NOTIC: D方法实例化没找到模型类Common\Model\SquadronModel
+
+[ 2017-11-09T15:41:01+08:00 ] 127.0.0.1 /Chengguangov/index.php?g=Admin&m=users&a=add
+NOTIC: D方法实例化没找到模型类Common\Model\UserModel
+NOTIC: D方法实例化没找到模型类Common\Model\SquadronModel
+
+[ 2017-11-09T15:41:10+08:00 ] 127.0.0.1 /Chengguangov/index.php?g=Admin&m=users&a=add_post
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001640s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.003188s ]
+INFO: Run Common\Behavior\UrldecodeGetBehavior [ RunTime:0.000640s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.006820s ]
+INFO: [ admin_begin ] --START--
+INFO: Run Common\Behavior\AdminDefaultLangBehavior [ RunTime:0.002105s ]
+INFO: [ admin_begin ] --END-- [ RunTime:0.002222s ]
+SQL: SHOW COLUMNS FROM `dg_users` [ RunTime:0.0111s ]
+SQL: SELECT * FROM `dg_users` WHERE `id` = '1' LIMIT 1   [ RunTime:0.0006s ]
+NOTIC: D方法实例化没找到模型类Common\Model\UserModel
+SQL: SHOW COLUMNS FROM `dg_user` [ RunTime:0.0165s ]
+NOTIC: D方法实例化没找到模型类Common\Model\SquadronModel
+SQL: SHOW COLUMNS FROM `dg_squadron` [ RunTime:0.0073s ]
+NOTIC: [8] Undefined index: validate D:\WWW\project\Chengguangov\simplewind\Core\Library\Think\Model.class.php 第 1185 行.
+NOTIC: [8] Undefined index: auto D:\WWW\project\Chengguangov\simplewind\Core\Library\Think\Model.class.php 第 1128 行.
+SQL: INSERT INTO `dg_user` (`uname`,`udepartment`,`ufrist_auditor`,`usenior_auditor`) VALUES ('王二','朝阳中路','1','0') [ RunTime:0.0006s ]
+
+[ 2017-11-09T15:41:11+08:00 ] 127.0.0.1 /Chengguangov/index.php?g=Admin&m=users&a=index
+NOTIC: D方法实例化没找到模型类Common\Model\UserModel
+NOTIC: D方法实例化没找到模型类Common\Model\SquadronModel
+
+[ 2017-11-09T15:41:14+08:00 ] 127.0.0.1 /Chengguangov/index.php?g=Admin&m=Users&a=index
+NOTIC: D方法实例化没找到模型类Common\Model\UserModel
+NOTIC: D方法实例化没找到模型类Common\Model\SquadronModel
+
+[ 2017-11-09T15:41:44+08:00 ] 127.0.0.1 /Chengguangov/index.php?g=Admin&m=Users&a=index
+NOTIC: D方法实例化没找到模型类Common\Model\UserModel
+NOTIC: D方法实例化没找到模型类Common\Model\SquadronModel
+
+[ 2017-11-09T15:42:43+08:00 ] 127.0.0.1 /Chengguangov/index.php?g=Admin&m=Users&a=index
+NOTIC: D方法实例化没找到模型类Common\Model\UserModel
+NOTIC: D方法实例化没找到模型类Common\Model\SquadronModel
+
+[ 2017-11-09T15:43:19+08:00 ] 127.0.0.1 /Chengguangov/index.php?g=Admin&m=Users&a=index
+NOTIC: D方法实例化没找到模型类Common\Model\UserModel
+NOTIC: D方法实例化没找到模型类Common\Model\SquadronModel
+
+[ 2017-11-09T15:43:38+08:00 ] 127.0.0.1 /Chengguangov/index.php?g=Admin&m=Users&a=index
+NOTIC: D方法实例化没找到模型类Common\Model\UserModel
+NOTIC: D方法实例化没找到模型类Common\Model\SquadronModel
+
+[ 2017-11-09T15:47:19+08:00 ] 127.0.0.1 /Chengguangov/index.php?g=Admin&m=Users&a=index
+NOTIC: D方法实例化没找到模型类Common\Model\UserModel
+NOTIC: D方法实例化没找到模型类Common\Model\SquadronModel
+
+[ 2017-11-09T15:47:21+08:00 ] 127.0.0.1 /Chengguangov/index.php?g=Admin&m=users&a=edit&id=1
+NOTIC: D方法实例化没找到模型类Common\Model\UserModel
+NOTIC: D方法实例化没找到模型类Common\Model\SquadronModel
+
+[ 2017-11-09T15:48:27+08:00 ] 127.0.0.1 /Chengguangov/index.php?g=Admin&m=Users&a=index
+NOTIC: D方法实例化没找到模型类Common\Model\UserModel
+NOTIC: D方法实例化没找到模型类Common\Model\SquadronModel
+
+[ 2017-11-09T15:48:29+08:00 ] 127.0.0.1 /Chengguangov/index.php?g=Admin&m=users&a=edit&id=1
+NOTIC: D方法实例化没找到模型类Common\Model\UserModel
+NOTIC: D方法实例化没找到模型类Common\Model\SquadronModel
+
+[ 2017-11-09T15:48:34+08:00 ] 127.0.0.1 /Chengguangov/index.php?g=Admin&m=Users&a=index
+NOTIC: D方法实例化没找到模型类Common\Model\UserModel
+NOTIC: D方法实例化没找到模型类Common\Model\SquadronModel
+
+[ 2017-11-09T15:49:15+08:00 ] 127.0.0.1 /Chengguangov/index.php?g=Admin&m=Users&a=index
+NOTIC: D方法实例化没找到模型类Common\Model\UserModel
+NOTIC: D方法实例化没找到模型类Common\Model\SquadronModel
+
+[ 2017-11-09T15:49:18+08:00 ] 127.0.0.1 /Chengguangov/index.php?g=Admin&m=Restaurant&a=index
+ERR: 无法加载控制器:Restaurant
+

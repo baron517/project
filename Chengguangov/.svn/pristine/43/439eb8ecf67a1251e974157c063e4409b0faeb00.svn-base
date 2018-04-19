@@ -1,0 +1,11 @@
+<view wx:for="{{itemArr}}" wx:for-index="index" wx:for-item="item" style="background:#fff;width:100%;padding:10px 10px;margin-bottom:10px;">
+
+<navigator url="../spDetail2/spDetail2?id={{item.rid}}">
+
+{{item.rsquad}}  {{item.rmeal_time}}
+
+</navigator>
+
+
+
+</view>

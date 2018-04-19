@@ -1,0 +1,38 @@
+<!--index.wxml-->
+<view class='page'>
+<view class='header'>
+<view class='header-1'>
+<view class='touxiang'>
+<image src='{{userInfo.avatarUrl}}'></image>
+</view>
+</view>
+<view class='header-2'>
+<view class='header-2-text'>
+<text>{{userInfo.nickName}}</text>
+</view>
+</view>
+</view>
+<!--高校-->
+     <form bindsubmit="infor"> 
+
+<view class='gaoxiao' style='  margin-top:1rem;'> 
+<view class='gaoxiao-1'><image src='../../../image/name.png'></image></view>
+<input class='gaoxiao-2' value='{{user.uname}}' name="name"  placeholder='姓名'></input>
+</view>
+<view class='gaoxiao'>
+<view class='gaoxiao-1'><image src='../../../image/phone.png'></image></view>
+<input class='gaoxiao-2' value='{{user.phone}}' name="phone"  type="number" placeholder='电话'></input>
+
+
+</view>
+      <picker bindchange="bindPickerChange" name="t_address" data-id='{{areadata}}' value="{{area             [areaIndex]}}" range="{{area}}">  
+             <view class="gaoxiao"> 
+             <view class='gaoxiao-1'><image src='../../../image/mine.png'></image></view> 
+    <input class='gaoxiao-2' value='{{area[areaIndex]}}' name="sname"  placeholder='所属中队'></input>
+              </view>  
+              </picker>
+
+<button class='bt' form-type="submit">提交个人信息</button>
+   </form>
+</view>
+

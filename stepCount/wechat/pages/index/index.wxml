@@ -32,12 +32,12 @@
     </view>
     <view class='stepTime'>
       <text style='color: #fff; font-size: 15px'>5:00~9:00</text>
-      <text style='color: #fff; font-size: 15px'>17:00~23:00</text>
+      <text style='color: #fff; font-size: 15px'>17:00~22:00</text>
     </view>
     
     <view class='stepstatus'>
       <text style='color: #fff'>{{distance}}公里</text>
-      <text style='color: #fff'>{{kaka}}卡</text>
+      <text style='color: #fff'>{{kaka}}千卡</text>
       <text style='color: #fff'>{{time}}分钟</text>
     </view>
   </view>

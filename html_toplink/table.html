@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>表格-倍可企业金融管理平台</title>
+<link rel="stylesheet" href="css/bootstrap.min.css" >
+<link rel="stylesheet" href="css/style_main.css">
+</head>
+
+<body>
+<div class="row">
+  <div class="col-xs-12 query">
+    <form class="form-inline ">
+      <div class="form-group">
+        <label class="form-message" for=" ">所属单位</label>
+        <select class="form-control" >
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+        </select>
+        <div class="clear"></div>
+      </div>
+      <div class="form-group">
+        <label  class="form-message" for=" ">支付金额范围</label>
+        <input type="text" class="form-control input_group_left" style="width: 86px;" placeholder="min"  >
+        <span class="form-control input_group_mid" style="width: 22px;"> <img src="img/input_group_exchange.png"  alt=""/></span>
+        <input type="text" class="form-control input_group_right" style="width: 86px;"  placeholder="max" >
+        <div class="clear"></div>
+      </div>
+      <div class="form-group">
+        <label class="form-message" for=" ">结算方式</label>
+        <select class="form-control">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+        </select>
+        <div class="clear"></div>
+      </div>
+      <div class="form-group">
+        <label  class="form-message" for=" ">单据来源</label>
+        <select class="form-control">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+        </select>
+        <div class="clear"></div>
+      </div>
+      <div class="form-group">
+        <label class="form-message" for=" ">期望支付日期</label>
+        <input size="16" class="form-control input_group_left date form_date" data-date="2017-06-15" data-date-format="yyyy-mm-dd" style="width: 86px;" placeholder="starDAY" >
+        <span class="form-control input_group_mid" style="width: 22px;"><img src="img/input_group_exchange.png" alt=""/></span>
+        <input size="16" class="form-control input_group_right date form_date" data-date="2017-06-15" data-date-format="yyyy-mm-dd" style="width: 86px;" placeholder="endDAY"  >
+        <div class="clear"></div>
+      </div>
+      <div class="form-group">
+        <label  class="form-message" for=" ">付款账户</label>
+        <input type="text" class="form-control" id=" " placeholder="请输入">
+        <div class="clear"></div>
+      </div>
+      <div class="form-group">
+        <label class="form-message" for=" ">单据状态</label>
+        <select class="form-control">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+        </select>
+        <div class="clear"></div>
+      </div>
+      <div class="form-group">
+        <label  class="form-message" for=" ">交易指令状态</label>
+        <select class="form-control">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+        </select>
+        <div class="clear"></div>
+      </div>
+      <div class="form-group">
+        <label  class="form-message" for=" ">收款账户</label>
+        <input type="text" class="form-control" id=" " placeholder="请输入">
+        <div class="clear"></div>
+      </div>
+      <div class="form-group">
+        <label  class="form-message" for=" ">审批状态</label>
+        <select class="form-control">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+        </select>
+        <div class="clear"></div>
+      </div>
+      <button type="submit" class="btn btn-back">查询</button>
+    </form>
+  </div>
+</div>
+<div class="row">
+  <div  class="col-xs-12" style="padding:15px; padding-bottom: 0">
+    <button type="submit" class="btn btn-back">新增</button>
+    <button type="submit" class="btn btn-back">修改</button>
+    <button type="submit" class="btn btn-back">删除</button>
+    <button type="submit" class="btn btn-back">重置</button>
+  </div>
+  <div class="col-xs-12">
+    <table width=" %" border="0" class="table table-bordered table-hover">
+      <tbody>
+        <tr>
+          <th style="width:50px; text-align: center">序号</th>
+          <th>标题一</th>
+          <th>标题二</th>
+          <th>标题三</th>
+          <th>标题四</th>
+          <th>标题五</th>
+        </tr>
+        <tr>
+          <td style="width:50px; text-align: center">&nbsp;1</td>
+          <td><button type="button" class="btn btn-default btn-xs"  data-toggle="modal" data-target="#myModal">付款办理样式</button></td>
+          <td><button type="button" class="btn btn-default btn-xs"  data-toggle="modal" data-target="#myModal1">报销费用汇报信息</button></td>
+          <td><button type="button" class="btn btn-default btn-xs"  data-toggle="modal" data-target="#myModal2">冲账申请凭证</button></td>
+          <td>&nbsp;1</td>
+          <td>&nbsp;1</td>
+        </tr>
+        <tr>
+          <td style="width:50px; text-align: center">&nbsp;2</td>
+          <td>点击按钮会有弹出层样式</td>
+          <td>&nbsp;2</td>
+          <td>&nbsp;1</td>
+          <td>&nbsp;1</td>
+          <td>&nbsp;1</td>
+        </tr>
+        <tr>
+          <td style="width:50px; text-align: center">&nbsp;3</td>
+          <td>&nbsp;3</td>
+          <td>&nbsp;3</td>
+          <td>&nbsp;1</td>
+          <td>&nbsp;1</td>
+          <td>&nbsp;1</td>
+        </tr>
+      </tbody>
+    </table>
+    <div aria-label="Page navigation">
+      <ul class="pagination">
+        <li> <a href="#" aria-label="Previous"> <span aria-hidden="true">上一页</span> </a> </li>
+        <li><a href="#">1</a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li><a href="#">5</a></li>
+        <li> <a href="#" aria-label="Next"> <span aria-hidden="true">下一页</span> </a> </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+	<!-- 付款办理样式 -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document" style="width: 750px;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">付款办理</h4>
+      </div>
+      <div class="modal-body layout ">
+        <div style="width:50%; float: left">
+          <form class="form-horizontal">
+            <div class="form-group">
+              <label for="inputEmail3" class="layout_left control-label">开户单位</label>
+              <div class="layout_right">
+                <select class="form-control">
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputEmail3" class="layout_left control-label">付款方式</label>
+              <div class="layout_right">
+                <select class="form-control">
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputEmail3" class="layout_left control-label">付款账户</label>
+              <div class="layout_right">
+                <div class="input-group">
+                  <input type="text" class="form-control" placeholder="付款账户">
+                  <span class="input-group-btn">
+                  <button class="btn btn-default" type="button">选择</button>
+                  </span> </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputEmail3" class="layout_left control-label">付款账号名称</label>
+              <div class="layout_right">
+                <input type="email" class="form-control" id="inputEmail3" placeholder="付款账号名称">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputEmail3" class="layout_left control-label">付款开户行名称</label>
+              <div class="layout_right">
+                <input type="email" class="form-control" id="inputEmail3" placeholder="付款开户行名称">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputEmail3" class="layout_left control-label">账户余额</label>
+              <div class="layout_right">
+                <input type="email" class="form-control" id="inputEmail3" placeholder="账户余额">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputEmail3" class="layout_left control-label">金额（小写）</label>
+              <div class="layout_right">
+                <input type="email" class="form-control" id="inputEmail3" placeholder="0.00">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputEmail3" class="layout_left control-label">是否对私付款</label>
+              <div class="layout_right">
+                <label class="radio-inline">
+                  <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" checked>
+                  普通付款 </label>
+                <label class="radio-inline">
+                  <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">
+                  对私付款 </label>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputEmail3" class="layout_left control-label">跨行标识</label>
+              <div class="layout_right">
+                <label class="radio-inline">
+                  <input type="radio" name="inlineRadioOptions1" id="inlineRadio1" value="option1" checked>
+                  同行 </label>
+                <label class="radio-inline">
+                  <input type="radio" name="inlineRadioOptions1" id="inlineRadio3" value="option3">
+                  他行 </label>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputPassword3" class="layout_left control-label">加急标志</label>
+              <div class="layout_right">
+                <label class="radio-inline">
+                  <input type="radio" name="inlineRadioOptions2" id="inlineRadio1" value="option1" checked>
+                  加急 </label>
+                <label class="radio-inline">
+                  <input type="radio" name="inlineRadioOptions2" id="inlineRadio3" value="option3">
+                  不加急 </label>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputPassword3" class="layout_left control-label">会计凭证号</label>
+              <div class="layout_right">
+                <input type="password" class="form-control" id="inputPassword3" placeholder="请输入会计凭证号">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputPassword3" class="layout_left control-label">用途</label>
+              <div class="layout_right">
+                <input type="password" class="form-control" id="inputPassword3">
+              </div>
+            </div>
+          </form>
+        </div>
+        <div style="width:50%; float: left">
+          <form class="form-horizontal">
+            <div class="form-group">
+              <label for="inputEmail3" class="layout_left control-label">收款账号</label>
+              <div class="layout_right">
+                 <div class="input-group">
+                  <input type="text" class="form-control" placeholder="收款账户">
+                  <span class="input-group-btn">
+                  <button class="btn btn-default" type="button">选择</button>
+                  </span> </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputEmail3" class="layout_left control-label">收款账户名称</label>
+              <div class="layout_right">
+                 <div class="input-group">
+                  <input type="text" class="form-control" placeholder="收款账户名称">
+                  <span class="input-group-btn">
+                  <button class="btn btn-default" type="button">选择</button>
+                  </span> </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputEmail3" class="layout_left control-label">收款开户行名称</label>
+              <div class="layout_right">
+                <input type="input" class="form-control" id="inputEmail3" placeholder="收款开户行名称">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputEmail3" class="layout_left control-label">收款开户行行号</label>
+              <div class="layout_right">
+                <input type="input" class="form-control" id="inputEmail3" placeholder="收款开户行行号">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputEmail3" class="layout_left control-label">省份</label>
+              <div class="layout_right">
+                <select class="form-control">
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                </select>
+              </div>
+            </div>
+			<div class="form-group">
+              <label for="inputEmail3" class="layout_left control-label">城市</label>
+              <div class="layout_right">
+                <select class="form-control">
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                </select>
+              </div>
+            </div>  
+            <div class="form-group">
+              <label for="inputEmail3" class="layout_left control-label">金额（大写）</label>
+              <div class="layout_right">
+                <input type="input" class="form-control" id="inputEmail3" placeholder="金额">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputEmail3" class="layout_left control-label">币别</label>
+              <div class="layout_right">
+                <input type="input" class="form-control" placeholder="币别">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputEmail3" class="layout_left control-label">地域标识</label>
+              <div class="layout_right">
+                <label class="radio-inline">
+                  <input type="radio" name="inlineRadioOptions3" id="inlineRadio1" value="option1" checked>
+                  同地 </label>
+                <label class="radio-inline">
+                  <input type="radio" name="inlineRadioOptions3" id="inlineRadio3" value="option3">
+                  异地 </label>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputPassword3" class="layout_left control-label">期望支付日期</label>
+              <div class="layout_right">
+                <div class="input-group date form_date"   data-date="2017-06-15" data-date-format="yyyy-mm-dd"  >
+                    <input class="form-control" size="16"  type="text" value="" readonly>
+					<span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+					<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputPassword3" class="layout_left control-label">业务类别</label>
+              <div class="layout_right">
+                <select class="form-control">
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputPassword3" class="layout_left control-label">附言</label>
+              <div class="layout_right">
+                <input type="input" class="form-control" >
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="clear"></div>
+		  <div class="row selct_file">
+	 
+		  <div class="form-group">
+        <label  for="exampleInputFile">选择文件</label>
+        <input class="btn btn-default" type="file" id="exampleInputFile">
+      </div> 
+		  </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+        <button type="button" class="btn btn-back">提交数据</button>
+      </div>
+    </div>
+  </div>
+</div>
+	
+<!-- 报销费用汇报信息 -->
+<div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document" style="width: 800px;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">报销费用汇总信息</h4>
+      </div>
+      <div class="modal-body layout">   
+          <form class="form-horizontal form_half">
+            <div class="form-group">
+              <label for="inputEmail3" class="layout_left control-label">凭证种类</label>
+              <div class="layout_right">
+                 <select class="form-control">
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputEmail3" class="layout_left control-label">加急标志</label>
+              <div class="layout_right">
+                 <label class="radio-inline">
+                  <input type="radio" name="inlineRadioOptions5" id="inlineRadio1" value="option1" checked>
+                  加急 </label>
+                <label class="radio-inline">
+                  <input type="radio" name="inlineRadioOptions5" id="inlineRadio3" value="option3">
+                  不加急 </label>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputEmail3" class="layout_left control-label">业务种类</label>
+              <div class="layout_right">
+                <select class="form-control">
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputEmail3" class="layout_left control-label">附件张数</label>
+              <div class="layout_right">
+                <input type="input" class="form-control" id="inputEmail3" placeholder="">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputEmail3" class="layout_left control-label">记账日期</label>
+              <div class="layout_right">
+                <div class="input-group date form_date"   data-date="2017-06-15" data-date-format="yyyy-mm-dd"  >
+                    <input class="form-control" size="16"  type="text" value="" readonly>
+					<span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+					<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                </div>
+              </div>
+            </div>
+			<div class="form-group">
+              <label for="inputEmail3" class="layout_left control-label">记息日期</label>
+              <div class="layout_right">
+                <div class="input-group date form_date"   data-date="2017-06-15" data-date-format="yyyy-mm-dd"  >
+                    <input class="form-control" size="16"  type="text" value="" readonly>
+					<span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+					<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                </div>
+              </div>
+            </div>  
+            <div class="form-group">
+              <label for="inputEmail3" class="layout_left control-label">备注</label>
+              <div class="layout_right">
+                <input type="input" class="form-control" id="inputEmail3" placeholder="金额">
+              </div>
+            </div> 
+          </form> 
+		  <div class="clear"></div>
+		  <button type="button" class="btn btn-back"> 新增行 </button> 
+			  
+		  <table width=" %" border="0" class="table table-bordered table-hover">
+      <tbody>
+        <tr>
+          <th style="width: 80px">摘要</th>
+          <th>账户</th>
+          <th>账户名称</th>
+          <th>原始凭证</th>
+          <th>借方发生额</th>
+          <th>贷方发生额</th>
+		  <th> </th>	
+        </tr>
+        <tr>
+          <td><select class="form-control">
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                </select></td>
+          <td><input type="input" class="form-control" id="inputEmail3"></td>
+		  <td><input type="input" class="form-control" id="inputEmail3"></td>
+          <td><input type="input" class="form-control" id="inputEmail3"></td>
+		  <td><input type="input" class="form-control" id="inputEmail3"></td>
+          <td><input type="input" class="form-control" id="inputEmail3"></td>
+		  <td><button type="button" class="btn btn-default">删除</button></td>	
+        </tr> 
+		 <tr>
+          <td><select class="form-control">
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                </select></td>
+          <td><input type="input" class="form-control" id="inputEmail3"></td>
+		  <td><input type="input" class="form-control" id="inputEmail3"></td>
+          <td><input type="input" class="form-control" id="inputEmail3"></td>
+		  <td><input type="input" class="form-control" id="inputEmail3"></td>
+          <td><input type="input" class="form-control" id="inputEmail3"></td>
+		  <td><button type="button" class="btn btn-default">删除</button></td>	
+        </tr>  
+      </tbody>
+    </table> 
+		  
+	  </div>
+		   
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+        <button type="button" class="btn btn-back">确定</button>
+      </div>
+    </div>
+  </div>
+</div>	
+<!-- 冲账申请凭证 -->
+<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document" style="width: 900px;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">报销费用汇总信息</h4>
+      </div>
+      <div class="modal-body layout">    
+
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">冲帐凭证</a></li>
+    <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">原凭证</a></li>
+    <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">录入新凭证</a></li> 
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="home" style="padding-top: 10px;">
+	<form class="form-horizontal form_half">
+            <div class="form-group">
+              <label for="inputEmail3" class="layout_left control-label">业务种类</label>
+              <div class="layout_right">
+                <input type="input" class="form-control" id="inputEmail3" placeholder="">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputEmail3" class="layout_left control-label">附件张数</label>
+              <div class="layout_right">
+                 <input type="input" class="form-control" id="inputEmail3" placeholder="">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputEmail3" class="layout_left control-label">币别</label>
+              <div class="layout_right">
+               <input type="input" class="form-control" id="inputEmail3" placeholder="">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputEmail3" class="layout_left control-label">凭证号</label>
+              <div class="layout_right">
+                <input type="input" class="form-control" id="inputEmail3" placeholder="">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputEmail3" class="layout_left control-label">流水号</label>
+              <div class="layout_right">
+                <input type="input" class="form-control" id="inputEmail3" placeholder="">
+              </div>
+            </div>
+			<div class="form-group">
+              <label for="inputEmail3" class="layout_left control-label">录入日期</label>
+              <div class="layout_right">
+                <div class="input-group date form_date"   data-date="2017-06-15" data-date-format="yyyy-mm-dd"  >
+                    <input class="form-control" size="16"  type="text" value="" readonly>
+					<span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+					<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                </div>
+              </div>
+            </div>   
+          </form>   
+	  <div class="clear"></div>
+	   <table cellspacing="0" cellpadding="0" width=" %" border="0" class="table table-bordered table-hover"> 
+  <tr>
+    <th colspan="2" width="174">摘要</th>
+    <th colspan="3" width="261">账户</th>
+    <th colspan="2" width="179">账户名称</th>
+    <th width="87">原始凭证</th>
+    <th width="87">借方发生额</th>
+    <th width="87">贷方发生额</th>
+  </tr>
+  <tr>
+    <td colspan="2">收款</td>
+    <td colspan="3">银行活期存款2323</td>
+    <td colspan="2">银行活期存款-工行</td>
+    <td></td>
+    <td align="right">100,000</td>
+    <td align="right">0</td>
+  </tr>
+  <tr>
+    <td colspan="2">收款</td>
+    <td colspan="3">企业活期存款2323</td>
+    <td colspan="2">企业活期存款-1001单位</td>
+    <td></td>
+    <td align="right">100,000</td>
+    <td align="right">0</td>
+  </tr>
+  <tr>
+    <td rowspan="5">备注</td>
+    <td>凭证种类</td>
+    <td colspan="3">内转</td>
+    <td>记账日期</td>
+    <td align="right">2017/11/22</td>
+    <td rowspan="2">合计：</td>
+    <td rowspan="2">100000</td>
+    <td rowspan="2">0</td>
+  </tr>
+  <tr>
+    <td>加急标志</td>
+    <td>是</td>
+    <td>成交汇率</td>
+    <td></td>
+    <td>气息日期</td>
+    <td align="right">2017/11/22</td>
+  </tr>
+  <tr>
+    <td>外单位名称</td>
+    <td colspan="3"></td>
+    <td>外单位账号</td>
+    <td colspan="4"></td>
+  </tr>
+  <tr>
+    <td>开户行</td>
+    <td colspan="3"></td>
+    <td>省份</td>
+    <td></td>
+    <td>城市</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td colspan="3"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+	</div>
+     
+    <div role="tabpanel" class="tab-pane" id="profile">...</div>
+    <div role="tabpanel" class="tab-pane" id="messages">...</div> 
+  </div> 
+		  
+	  </div>
+		   
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+        <button type="button" class="btn btn-back">确定</button>
+      </div>
+    </div>
+  </div>
+</div>		
+<script src="js/jquery-1.12.4.min.js"></script> 
+<!--<script src="http://code.jquery.com/jquery-2.0.3.min.js"></script> --> 
+<!--<script src="js/jquery-1.12.4.min.js"></script>  --> 
+<script src="js/bootstrap.min.js"></script> 
+<script src="js/bootstrap-datetimepicker.min.js"></script>
+
+<script type="text/javascript">
+  $('.form_datetime').datetimepicker({
+        //language:  'fr',
+        weekStart: 1,
+        todayBtn:  1,
+		autoclose: 1,
+		todayHighlight: 1,
+		startView: 2,
+		forceParse: 0,
+        showMeridian: 1
+    });
+	$('.form_date').datetimepicker({
+        language:  'fr',
+        weekStart: 1,
+        todayBtn:  1,
+		autoclose: 1,
+		todayHighlight: 1,
+		startView: 2,
+		minView: 2,
+		forceParse: 0
+    });
+	$('.form_time').datetimepicker({
+        language:  'fr',
+        weekStart: 1,
+        todayBtn:  1,
+		autoclose: 1,
+		todayHighlight: 1,
+		startView: 1,
+		minView: 0,
+		maxView: 1,
+		forceParse: 0
+    }); 
+		
+		$('#datetimepicker').datetimepicker({
+    format: 'yyyy-mm-dd'
+});
+</script>
+</body>
+</html>

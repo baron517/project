@@ -1,0 +1,39 @@
+<admintpl file="header" />
+</head>
+<body>
+	<div class="wrap js-check-wrap">
+		<ul class="nav nav-tabs">
+			<li class="active"><a href="{:U('restaurant/index')}">就餐地点</a></li>
+			<li><a href="{:U('restaurant/add')}">餐厅添加</a></li>
+		</ul>
+		<form method="post" class="js-ajax-form">
+			<!--<php> $ufrist=array("1"=>L('是'),"0"=>L('否')); </php>
+			<php> $usenior=array("1"=>L('是'),"0"=>L('否')); </php>-->
+			<table class="table table-hover table-bordered table-list">
+				<thead>
+					<tr>
+						<th width="50">ID</th>
+						<th>餐厅名称</th>
+						<th>餐厅描述</th>
+						<th>操作</th>
+					</tr>
+				</thead>
+				<tbody>
+					<foreach name="restaurant" item="vo">
+					<tr>
+						<td>{$vo.rid}</td>
+						<td>{$vo.rname}</td>
+						<td>{$vo.rdesc}</td>
+						<td>
+							<a href="{:U('restaurant/edit',array('id'=>$vo['rid']))}">编辑</a> |
+							<a href="{:U('restaurant/delete',array('id'=>$vo['rid']))}" class="js-ajax-delete">删除</a>
+						</td>
+					</tr>
+					</foreach>
+				</tbody>
+			</table>
+		</form>
+	</div>
+	<script src="__PUBLIC__/js/common.js"></script>
+</body>
+</html>
