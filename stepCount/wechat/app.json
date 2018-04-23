@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/firstPage/firstPage",
     "pages/index/index",
     "pages/login/login",
     "pages/main/main",
