@@ -38,16 +38,26 @@
     </view>
 
     <view class='stepCal'>
-    <view style='display: flex; align-items:flex-end;'>
-      <text style='color: #000'>朝三: </text>
-      <text style='color: #02177B'>{{morning_step}}</text>
-      <text> 步</text>
-    </view>
-      <view style='display: flex; align-items:flex-end;'>
-      <text style='color: #000'>暮四: </text>
-      <text style='color: #02177B'>{{night_step}}</text>
-      <text> 步</text>
+      <view style='text-align: center; justify-content: flex-end; display: flex; flex-direction: column;'>
+        <view style='color: #000; font-size: 12px;'>热量 </view>
+        <view style='color: #000; font-size: 12px;'>{{kaka}}千卡 </view>
+        <view style='display: flex; align-items:flex-end;flex-direction: row;'>
+          <text style='color: #000'>朝三: </text>
+          <text style='color: #02177B'>{{morning_step}}</text>
+          <text> 步</text>
+        </view>
       </view>
+
+      <view style='text-align: center; justify-content: flex-end; display: flex; flex-direction: column;'>
+        <view style='color: #000; font-size: 12px;'>距离 </view>
+        <view style='color: #000; font-size: 12px;'>{{distance}}公里 </view>
+        <view style='display: flex; align-items:flex-end;flex-direction: row;'>
+          <text style='color: #000'>暮四: </text>
+          <text style='color: #02177B'>{{night_step}}</text>
+          <text> 步</text>
+        </view>
+      </view>
+      
       
     </view>
     <!-- <view class='stepTime'>
@@ -82,22 +92,22 @@
   <view class="usermotto">
     <view class='bottomTab'>
       <image src='../../images/home_fill_light.png' style='width: 25px; height: 25px;'></image>
-      <text style='color: #15abc4; font-size: 14px'>首页</text>
+      <text style='color: #999; font-size: 10px'>首页</text>
     </view>
 
     <view class='bottomTab' bindtap="goSecondTab">
       <image src='../../images/medal.png' style='width: 25px; height: 25px;'></image>
-      <text style='color: #999; font-size: 14px'>排名</text>
+      <text style='color: #000; font-size: 10px'>排名</text>
     </view>
 
     <view class='bottomTab' bindtap="goThirdTab">
       <image src='../../images/plane.png' style='width: 25px; height: 25px;'></image>
-      <text style='color: #999; font-size: 14px'>积分</text>
+      <text style='color: #000; font-size: 10px'>积分</text>
     </view>
 
     <view class='bottomTab' bindtap="goFourthTab">
       <image src='../../images/remind.png' style='width: 25px; height: 25px;'></image>
-      <text style='color: #999; font-size: 14px'>公告</text>
+      <text style='color: #000; font-size: 10px'>公告</text>
     </view>
     
   </view>    
