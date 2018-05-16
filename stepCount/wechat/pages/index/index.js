@@ -405,7 +405,7 @@ Page({
     var myDate = new Date();
     var hour = myDate.getHours();
     console.log(hour);
-    if (((hour > 5) && (hour < 9)) || ((hour > 17) && (hour < 23))){
+    if (((hour => 5) && (hour < 9)) || ((hour => 17) && (hour < 23))){
       wx.showToast({
         title: '已打卡成功',
         icon: 'success',
