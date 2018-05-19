@@ -1,0 +1,96 @@
+body{height:100%;background: #eff3f6;}
+.login-bg{overflow:hidden;background: url("../img/loginBg.jpg") center center no-repeat;background-size:cover;}
+.main-col{width:1060px;height:530px;position: absolute;left:50%;top:50%;margin-left:-530px;margin-top:-330px;}
+.main-col .left{float:left;width:416px;height:494px;background: #2876e1;color:#fff;}
+.main-col .right{width:644px;height:494px;background:#fff;background: rgba(255,255,255,0.8);float:right;}
+.main-col .left .bottom{font-size:14px;margin-top:30px;padding-left:36px;}
+.main-col .left .bottom p{padding:3px 0;}
+.main-col .left .bottom p i{margin-right:10px;}
+.main-col .login-left{width:336px;margin:0 auto;border-bottom:1px solid #a2c4f2;padding-bottom:30px;}
+.main-col .left .login-left-logo{width:308px;height:65px;background: url("../img/loginLeftLogo.png");margin-top:216px;display: block;}
+.main-col .right input[type=text],.main-col .right input[type=password]{line-height:34px;height:34px;width:278px;border-radius: 4px;}
+.main-col .right .row label{color:#999;display: inline-block;width:60px;text-align: right;font-size:13px;margin-right:12px;}
+.main-col .right .row{margin-bottom:18px;position: relative;}
+.main-col .right .row .veri-code-input{width:170px;}
+.main-col .right .row img{position: absolute;right:16px;top:0;width:94px;height:34px;}
+
+.main-col .right-col{width:476px;margin:0 auto;}
+.main-col .right-col .login-col{width:368px;margin:0 auto;}
+.main-col .right-col .blue-btn{width:280px;height:42px;line-height:42px;border-radius: 4px;margin-left:70px;}
+.main-col .right-col .top{margin-top:64px;padding-left:20px;}
+.main-col .right-col .top{font-size:28px;margin-bottom:5px;}
+.main-col .right-col .top span{margin-left:6px;position: relative;top:5px;}
+.main-col .right-col .top .log-in{width:48px;height:25px;background: url("../img/logIn.png");display: inline-block;}
+
+.main-col .right-col .text{font-size:12px;color:#c1c1c1;margin-bottom:26px;padding-left:20px;}
+
+.main-col .right-col .operation{font-size:12px;color:#666666;padding-left:70px;margin:16px 0 18px 0;position: relative;}
+.main-col .right-col .operation a{position: absolute;right:20px;top:5px;}
+
+.error-col{width:274px;background: #ffefd1;font-size:12px;text-align: center;padding:4px 0 6px 0;border:1px solid #ff9a33;margin-left:72px;}
+.error-col .icon-excla{width:16px;height:16px;background: url("../img/exclaIcon.png");display: inline-block;position: relative;top:3px;margin-right:5px;}
+
+
+/* flexslider */
+.flexslider{position:relative;height:260px;overflow:hidden;padding-left:70px;}
+.slides{position:relative;z-index:1;}
+.slides li{height:260px;}
+.slides li .col{width:162px;height:110px;display: table;float:left;border:1px solid #287ee5;border-radius: 4px;text-align: center;margin:6px 6px;cursor: pointer;}
+.slides li .col div{display: table-cell;vertical-align: middle;font-size:14px;color:#2875e1;padding:0 22px;box-sizing: border-box;background: url("../img/yes.png") 92% 10% no-repeat;}
+.slides li .col.active{background: #287ee5;}
+.slides li .col.active div{color:#fff;background: url("../img/yes.png") 92% 10% no-repeat;}
+.flex-control-nav{position:absolute;bottom:10px;z-index:2;width:100%;text-align:center;display: none;}
+.flex-control-nav li{display:inline-block;width:14px;height:14px;margin:0 5px;*display:inline;zoom:1;}
+.flex-control-nav a{display:inline-block;width:14px;height:14px;line-height:40px;overflow:hidden;cursor:pointer;}
+.flex-control-nav .flex-active{background-position:0 0;}
+
+.flex-direction-nav{position:absolute;z-index:3;width:100%;top:36%;}
+.flex-direction-nav li a{display:block;width:50px;height:50px;overflow:hidden;cursor:pointer;position:absolute;}
+.flex-direction-nav li a:hover{opacity: 0.5;}
+.flex-direction-nav li a.flex-prev{left:-70px;background:url(../img/leftArrow.png) center center no-repeat;}
+.flex-direction-nav li a.flex-next{right:60px;background:url(../img/rightArrow.png) center center no-repeat;}
+
+.select-identity{width:476px;}
+.select-identity .title{font-size:26px;margin:50px 0 14px 0;padding-left:72px;}
+.main-col .right-col .select-identity .blue-btn{width:336px;margin-left:76px;margin-top:16px;}
+.select-identity .error-col{width:336px;margin-left:76px;}
+
+
+.forget-pass{margin-top:60px;}
+.forget-pass .title-col{background: #279cf5;color:#fff;font-size:16px;line-height:42px;padding:0 36px;border-radius: 4px 4px 0 0;overflow: hidden;}
+.forget-pass .forget-step{width:640px;height:23px;padding:60px 0 78px 0;margin:0 auto;}
+.forget-pass .forget-step .text-list{height:28px;margin:12px 0 0 0;}
+.forget-pass .forget-step .text-list li{float:left;width:25%;text-align: center;font-size:12px;}
+.forget-pass .forget-step .text-list li.active{color:#1bb934;}
+.forget-pass .forget-col{background: #fff;padding:0 0 30px 0;min-height: 438px;}
+.forget-pass .forget-col .form{width:336px;margin:0 auto;}
+.forget-pass .forget-col .form .info{font-size:13px;color:#666666;line-height:20px;padding-bottom:22px;}
+.forget-pass .forget-col .form .row{margin-bottom:20px;position: relative;}
+.forget-pass .forget-col .form .row .input-msg-code{width:198px;float:left;}
+.forget-pass .forget-col .form .row .get-msg-code{width:124px;float:right;background: #f4f5f9;}
+.forget-pass .forget-col .form .row .get-msg-code.active{background: #8191a6;color:#fff;}
+.forget-pass .forget-col .form input{line-height:40px;width:336px;border-radius: 4px;font-size:13px;}
+.forget-pass .forget-step div{width:640px;height:23px;}
+.forget-pass .forget-step .step1{background: url("../img/forgetPassStep1.png");}
+.forget-pass .forget-step .step2{background: url("../img/forgetPassStep2.png");}
+.forget-pass .forget-step .step3{background: url("../img/forgetPassStep3.png");}
+.forget-pass .forget-step .step4{background: url("../img/forgetPassStep4.png");}
+.forget-pass .forget-col button{font-size:16px;}
+.forget-pass .forget-col button.long{width:336px;height:40px;line-height:40px;text-align: center;display: inline-block;border-radius: 4px;}
+.forget-pass .forget-col .form i{float:left;font-size:48px;color:#1bb934;display: inline-block;margin-right:10px;}
+.forget-pass .forget-col .form .success{font-size:14px;color:#666666;width:200px;padding:10px 0 30px 0;margin-left:80px;}
+.forget-pass .forget-col .form .success div{float:left;margin-top:6px;}
+.forget-pass .forget-col .short{width:182px;height:40px;line-height:40px;text-align: center;display: inline-block;border-radius: 4px;margin-left:80px;}
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,6 @@
+
+
+$("body").append("<div style='height:160px;width:100px;background: #000;position: absolute;z-index:100000;bottom:0;left:0;' onclick='window.location.reload();'>刷新</div>");
+
+
+

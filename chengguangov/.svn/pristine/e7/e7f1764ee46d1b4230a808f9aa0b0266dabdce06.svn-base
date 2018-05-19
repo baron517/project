@@ -1,0 +1,15 @@
+[ 2018-01-16T10:21:29+08:00 ] 60.168.149.11 /index.php?g=Api&m=CommoonnApi&a=squadron
+ERR: 无法加载控制器:CommoonnApi
+
+[ 2018-01-16T20:07:58+08:00 ] 140.205.205.25 /index.php?g=api&m=oauth&a=login&type=qq
+ERR: 请配置您申请的APP_KEY和APP_SECRET
+
+[ 2018-01-16T20:07:59+08:00 ] 140.205.205.23 /index.php?g=api&m=oauth&a=login&type=sina
+ERR: 请配置您申请的APP_KEY和APP_SECRET
+
+[ 2018-01-16T21:11:54+08:00 ] 140.205.205.23 /index.php?g=api&m=oauth&a=login&type=sina
+ERR: 请配置您申请的APP_KEY和APP_SECRET
+
+[ 2018-01-16T21:11:54+08:00 ] 140.205.205.25 /index.php?g=api&m=oauth&a=login&type=qq
+ERR: 请配置您申请的APP_KEY和APP_SECRET
+

@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" href="css/base.css"/>
+
+    <style>
+
+    #problemList li{position: relative;padding-left:70px;display: none;}
+    #problemList li:first-child{display: block;}
+    #problemList li .number{position: absolute;top:0;left:0;}
+    #problemList li .question{margin-bottom:15px;}
+    #problemList li .check{display: none;}
+    #problemList li img{width:82px;display: block;}
+    #problemList li .xuanxiang{position: relative;padding-right:102px;margin-bottom:10px;padding-left:68px;}
+    #problemList li .xuanxiang span{position: absolute;left:0;top:0;}
+    #problemList li .xuanxiang span.check-col{position: absolute;right:10px;top:-14px;left:auto;}
+    #problemList li .xuanxiang span.check-col.active .kong{display: none;}
+    #problemList li .xuanxiang span.check-col.active .check{display: block;}
+
+    .nengliangzhu img{display: none;margin-left:-1px;position: relative;top:-4px;}
+    #donghua{width:280px;}
+    .jieguo-video{display: block;width:100%;position: absolute;top:0;left:0;z-index:10000;}
+
+    </style>
+
+
+</head>
+<body>
+
+    <img style="width:100%;display: block;" src="img/3.png"/>
+
+    <ul style="position: absolute;width:80%;left:50%;top:30%;margin-left:-40%;font-size:43px;font-weight: bold;color:#1a76b9;z-index:100;" id="problemList">
+
+
+
+    </ul>
+
+
+    <div class="nengliangzhu" style="width:145px;height:330px;background: url('img/能量柱/6.png');position: absolute;right:-10px;z-index:1000;top:280px;">
+        <img src="img/能量柱/1.png"/>
+        <img src="img/能量柱/2.png"/>
+        <img src="img/能量柱/3.png"/>
+        <img src="img/能量柱/4.png"/>
+        <img src="img/能量柱/5.png"/>
+    </div>
+
+
+    <audio src="答对音效.mp3" style="display: none;" id="dui">
+
+    </audio>
+
+    <audio src="答错音效.mp3" style="display: none;" id="cuo" >
+
+    </audio>
+
+
+    <img style="position: absolute;right:0;bottom:0;display: none;" id="donghua"  />
+
+
+    <div id="bofang" style="display: block;width:300px;height:300px;background: red;top:200px;left:0;z-index:10000;position: absolute;"></div>
+
+
+    <video class="jieguo-video" id="video0" autoplay="autoplay" controls webkit-playsinline src="video/shibai.mp4">
+
+        不能播放
+
+    </video>
+
+
+    <!--<video class="jieguo-video" id="video1" autoplay="autoplay" controls webkit-playsinline src="video/小学.mp4"/>-->
+    <!--<video class="jieguo-video" id="video2" src="video/中学.mp4"/>
+    <video class="jieguo-video" id="video3" src="video/高中.mp4"/>
+    <video class="jieguo-video" id="video4" src="video/大学.mp4"/>-->
+
+    <script src="js/jquery.js"></script>
+    <script src="script/common.js"></script>
+    <script src="js/data.js"></script>
+
+    <script>
+
+
+        $("#bofang").click(function()
+        {
+            alert();
+            document.getElementById("video1").play();
+        });
+
+
+
+
+        function getRandomArrayElements(arr, count) {
+            var shuffled = arr.slice(0), i = arr.length, min = i - count, temp, index;
+            while (i-- > min) {
+                index = Math.floor((i + 1) * Math.random());
+                temp = shuffled[index];
+                shuffled[index] = shuffled[i];
+                shuffled[i] = temp;
+            }
+            return shuffled.slice(min);
+        }
+
+
+        function init()
+        {
+            $("#problemList").empty();
+            if(localStorage.index==1)
+            {
+                var items = problem1;
+            }
+            else if(localStorage.index==2)
+            {
+                var items = problem2;
+            }
+            else if(localStorage.index==3)
+            {
+                var items = problem3;
+            }
+            else
+            {
+                var items = problem4;
+            }
+
+
+            var list=getRandomArrayElements(items, 5);
+            var html="";
+            for(var i=0;i<list.length;i++)
+            {
+                var index=i+1;
+
+                var ok=list[i].ok;
+
+                html=html+"<li  data-index='"+i+"' data-ok='"+ok+"'><span class='number'>"+index+"、</span><div class='question'>"+list[i].question+"</div><div>";
+
+                for(var j=0;j<list[i].list.length;j++)
+                {
+                    if(j==0)
+                    {
+                        var xuanxiang="<span>A. </span>";
+                    }
+                    else if(j==1)
+                    {
+                        var xuanxiang="<span>B. </span>";
+                    }
+                    else if(j==2)
+                    {
+                        var xuanxiang="<span>C. </span>";
+                    }
+                    else if(j==3)
+                    {
+                        var xuanxiang="<span>D. </span>";
+                    }
+
+                    html=html+"<div class='xuanxiang'>"+xuanxiang+list[i].list[j]+"<span class='check-col' data-index='"+j+"'><img class='kong' src='img/空框.png' /><img class='check' src='img/框带钩.png' /></span></div>";
+                }
+
+                html=html+"</div></li>"
+
+            }
+
+            $("#problemList").append(html);
+        }
+
+
+
+        init();
+
+        var dui= document.getElementById("dui");
+        var cuo = document.getElementById("cuo");
+
+
+        var duiCount=0;
+
+        $("#problemList").on("click",".check-col",function()
+        {
+            if($(this).parent().parent().find(".active").length==0)
+            {
+                $(this).addClass("active");
+
+               var ok=$(this).parent().parent().parent().attr("data-ok");
+                var timuIndex=$(this).parent().parent().parent().attr("data-index");
+                timuIndex=parseInt(timuIndex)+1;
+                if(ok==$(this).attr("data-index"))
+                {
+                    dui.play();
+                    duiCount++;
+                    $(".nengliangzhu img").hide();
+                    var imgIndex=duiCount-1;
+                    $(".nengliangzhu img").eq(imgIndex).show();;
+
+                    if(localStorage.index=1)
+                    {
+                        bofangxulie("小学笑");
+                    }
+                    else if(localStorage.index=1)
+                    {
+                        bofangxulie("初中笑");
+                    }
+                    else if(localStorage.index=1)
+                    {
+                        bofangxulie("高中笑");
+                    }
+                    else {
+                        bofangxulie("大学笑");
+                    }
+
+
+
+
+
+                }
+                else {
+                    cuo.play();
+
+                    if(localStorage.index=1)
+                    {
+                        bofangxulie("小学哭");
+                    }
+                    else if(localStorage.index=1)
+                    {
+                        bofangxulie("初中哭");
+                    }
+                    else if(localStorage.index=1)
+                    {
+                        bofangxulie("高中哭");
+                    }
+                    else {
+                        bofangxulie("大学哭");
+                    }
+
+                }
+
+                setTimeout(
+                function()
+                {
+                    huanti(timuIndex);
+                },2000);
+
+
+
+            }
+
+
+        });
+
+
+        function bofangxulie(imgStr)
+        {
+            var i=1;
+            var timerId=setInterval(function()
+            {
+                $("#donghua").attr("src","img/"+imgStr+"/1 ("+i+").png");
+                $("#donghua").show();
+                i++;
+                if(i>101)
+                {
+                    clearInterval(timerId);
+                    $("#donghua").hide();
+                }
+
+            },20)
+        }
+
+
+        function huanti(indexValue)
+        {
+            $("#problemList li").hide();
+            $("#problemList li").eq(indexValue).show();
+
+            if(indexValue==5)
+            {
+                if(duiCount>=3)
+                {
+
+                }
+            }
+
+        }
+
+
+
+
+
+    </script>
+
+</body>
+</html>

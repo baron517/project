@@ -1,0 +1,777 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>交易员管理</title>
+
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/fonts/font-awesome.min.css" rel="stylesheet" />
+    <link href="assets/css/datepicker.css" rel="stylesheet">
+    <link href="assets/css/mltp.theme.css" rel="stylesheet">
+    <link href="assets/css/main.css" rel="stylesheet">
+
+
+</head>
+
+<body>
+
+<section id="container" class="">
+    <!--头部 开始-->
+
+    <header class="header blue-bg">
+        <div class="sidebar-toggle-box">
+            <i class="fa fa-bars"></i>
+        </div>
+
+        <!--logo start-->
+        <a href="index.html" class="logo" >MLTP 后台管理系统</a>
+        <!--logo end-->
+
+        <div class="nav notify-row" id="top_menu">
+
+        </div>
+        <div class="top-nav ">
+            <ul class="nav pull-right top-menu">
+
+                <!-- user login dropdown start-->
+                <li class="dropdown">
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                        <span class="username">管理员</span>
+                        <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu extended logout">
+                        <div class="log-arrow-up"></div>
+                        <li><a href="#">设置</a></li>
+                        <li><a href="#">修改密码</a></li>
+                        <li><a href="###">退出</a></li>
+                    </ul>
+                </li>
+
+            </ul>
+        </div>
+    </header>
+    <!--头部 结束-->
+
+    <!-- 菜单开始 -->
+    <aside>
+        <div id="sidebar"  class="nav-collapse ">
+            <!-- sidebar menu start-->
+            <ul class="sidebar-menu" id="nav-accordion">
+                <li>
+                    <a href="###">
+                        <i class="fa fa-home"></i>
+                        <span>首页</span>
+                    </a>
+                </li>
+
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-laptop"></i>
+                        <span>菜单一</span>
+                    </a>
+                    <ul class="sub">
+                        <li><a  href="###">子菜单</a></li>
+                        <li><a  href="###">子菜单</a></li>
+                        <li><a  href="###">子菜单</a></li>
+                        <li><a  href="###">子菜单</a></li>
+                        <li><a  href="###">子菜单</a></li>
+                    </ul>
+                </li>
+
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-book"></i>
+                        <span>菜单二</span>
+                    </a>
+                    <ul class="sub">
+                        <li><a  href="###">子菜单</a></li>
+                        <li><a  href="###">子菜单</a></li>
+                        <li><a  href="###">子菜单</a></li>
+                        <li><a  href="###">子菜单</a></li>
+                        <li><a  href="###">子菜单</a></li>
+                    </ul>
+                </li>
+
+
+
+            </ul>
+            <!-- sidebar menu end-->
+        </div>
+    </aside>
+    <!-- 菜单结束 -->
+
+
+
+    <!--main content start-->
+    <section id="main-content">
+        <section class="wrapper">
+
+            <ol class="breadcrumb">
+                <li><a href="#">交易员管理</a></li>
+                <li class="active">交易员管理</li>
+            </ol>
+
+            <!-- page start-->
+            <div class="row">
+                <div class="col-lg-12">
+
+                    <section class="panel">
+                        <header class="panel-heading">
+                            交易员查询
+                        </header>
+
+                        <div class="panel-body form-inline search-col" >
+
+                            <div class="form-group">
+                                <label>交易商：</label>
+                                <input type="text" style="width:180px;" placeholder="交易商名称或者编号" class="form-control" >
+
+                                <label>交易员：</label>
+                                <input type="text" style="width:180px;" placeholder="交易员名称或者编号" class="form-control" >
+
+
+                                <label>交易权限：</label>
+                                <select  style="width:80px;" class="form-control">
+                                    <option>全部</option>
+                                    <option>有</option>
+                                    <option>无</option>
+                                </select>
+
+                                <label>状态：</label>
+
+                                <select  style="width:90px;" class="form-control">
+                                    <option>全部</option>
+                                    <option>启用中</option>
+                                    <option>冻结中</option>
+                                </select>
+
+
+
+                                <button type="button" class="btn btn-info">查询</button>
+
+                                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#addModal">新增</button>
+
+                            </div>
+
+
+
+
+                        </div>
+
+                    </section>
+
+
+                    <section class="panel">
+                        <header class="panel-heading">
+                            交易员列表 （共 xx 条 ）
+                        </header>
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-striped ">
+                                    <thead>
+                                    <tr>
+                                        <th>序号</th>
+                                        <th>交易员编码</th>
+                                        <th>交易员名称</th>
+                                        <th>企业编码</th>
+                                        <th>企业简称</th>
+                                        <th>交易场权限</th>
+                                        <th>绑定时间</th>
+                                        <th>状态</th>
+                                        <th>冻结人</th>
+                                        <th>冻结时间</th>
+                                        <th>操作</th>
+
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>999999901<div class="text-success">交易员</div></td>
+                                        <td>张三</td>
+                                        <td>9999999</td>
+                                        <td>
+                                            企业简称
+
+                                        </td>
+                                        <td>有</td>
+                                        <td>2017/05/17<br/>17:15:16</td>
+                                        <td>启用中</td>
+                                        <td>---</td>
+                                        <td>2017/05/17<br/>17:15:16</td>
+                                        <td>
+                                            <button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#editModal">修改</button>
+                                            <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#unbindModal">解绑</button>
+                                            <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#freezeModal">冻结</button>
+                                        </td>
+
+                                    </tr>
+
+                                    <tr>
+                                        <td>1</td>
+                                        <td>999999901<div class="text-info">管理员</div></td>
+                                        <td>张三</td>
+                                        <td>9999999</td>
+                                        <td>
+                                            企业简称
+
+                                        </td>
+                                        <td>有</td>
+                                        <td>2017/05/17<br/>17:15:16</td>
+                                        <td>启用中</td>
+                                        <td>---</td>
+                                        <td>2017/05/17<br/>17:15:16</td>
+                                        <td>
+                                            <button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#editModal">修改</button>
+                                            <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#unbindModal">解绑</button>
+                                            <button type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#settingTradeModal">启用</button>
+                                        </td>
+
+                                    </tr>
+
+                                    <tr>
+                                        <td>1</td>
+                                        <td>999999901<div class="text-info">管理员</div></td>
+                                        <td>张三</td>
+                                        <td>9999999</td>
+                                        <td>
+                                            企业简称
+
+                                        </td>
+                                        <td>有</td>
+                                        <td>2017/05/17<br/>17:15:16</td>
+                                        <td>启用中</td>
+                                        <td>---</td>
+                                        <td>2017/05/17<br/>17:15:16</td>
+                                        <td>
+                                            <button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#bindingModal">绑定用户</button>
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>999999901<div class="text-info">管理员</div></td>
+                                        <td>张三</td>
+                                        <td>9999999</td>
+                                        <td>
+                                            企业简称
+
+                                        </td>
+                                        <td>有</td>
+                                        <td>2017/05/17<br/>17:15:16</td>
+                                        <td>启用中</td>
+                                        <td>---</td>
+                                        <td>2017/05/17<br/>17:15:16</td>
+                                        <td>
+                                            <button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#editModal">修改</button>
+                                        </td>
+
+                                    </tr>
+
+
+
+                                    </tbody>
+                                </table>
+
+                                <div class="pagination-col">
+                                <ul class="pagination">
+                                    <li><a href="#">&laquo;</a></li>
+                                    <li><a href="#">1</a></li>
+                                    <li><a href="#">2</a></li>
+                                    <li><a href="#">3</a></li>
+                                    <li><a href="#">4</a></li>
+                                    <li><a href="#">5</a></li>
+                                    <li><a href="#">&raquo;</a></li>
+                                </ul>
+                                </div>
+
+                            </div>
+                        </div>
+                    </section>
+
+                </div>
+            </div>
+
+        </section>
+    </section>
+    <!--main content end-->
+
+
+
+</section>
+
+
+<!-- 新增交易员（Modal） -->
+<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">新增交易员</h4>
+            </div>
+            <div class="modal-body">
+
+
+
+
+                <div class="row">
+                    <div class="form-group col-lg-6">
+                        <label  class="control-label col-lg-4">绑定交易商：</label>
+                        <div class="col-lg-8">
+                            <input class=" form-control" type="text">
+                        </div>
+                    </div>
+
+                    <div class="form-group col-lg-6">
+                        <label  class="control-label col-lg-4">交易员编码：</label>
+                        <div class="col-lg-8">
+                            <input class=" form-control" disabled type="text">
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <div class="row">
+
+                    <div class="form-group col-lg-6">
+                        <label  class="control-label col-lg-4">绑定用户：</label>
+                        <div class="col-lg-8">
+                            <input class=" form-control"  type="text">
+                        </div>
+                    </div>
+
+                    <div class="form-group col-lg-6">
+                        <label  class="control-label col-lg-4">角色：</label>
+                        <div class="col-lg-8">
+
+                            <select class=" form-control">
+                                <option>交易员</option>
+                                <option>管理员</option>
+                            </select>
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="row">
+
+                    <div class="form-group col-lg-6">
+                        <label class="control-label col-lg-4">交易场权限：</label>
+
+                        <div class="col-lg-8">
+                            <label class="label_radio r_on" for="radio-10">
+                                <input id="radio-10" value="1" type="checkbox"> SM
+                            </label>
+                            &nbsp;&nbsp;
+                            <label class="label_radio r_on" for="radio-11">
+                                <input id="radio-11" value="1" type="checkbox"> MEG
+                            </label>
+                        </div>
+                    </div>
+
+
+
+
+
+                </div>
+
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-info">绑定</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+<!-- 新增交易员（Modal）结束 -->
+
+
+<!-- 绑定交易员（Modal） -->
+<div class="modal fade" id="bindingModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">绑定用户</h4>
+            </div>
+            <div class="modal-body">
+
+
+                <div class="form-col">
+                <div class="form-row">
+
+                        <label  class="control-label" style="width: auto;">交易商编码名称：</label>
+                        <span>
+
+                            999999999---简称简称简称简称简称简称简称简简称简称简称简称简称
+
+                        </span>
+
+                </div>
+
+                <div class="form-row">
+
+                        <label  class="control-label" style="width:82px;">交易员编码：</label>
+
+                        <span>999999999</span>
+
+
+                </div>
+                </div>
+
+
+                <div class="row">
+
+                    <div class="form-group col-lg-6">
+                        <label  class="control-label col-lg-4">绑定用户：</label>
+                        <div class="col-lg-8">
+                            <input class=" form-control"  type="text">
+                        </div>
+                    </div>
+
+                    <div class="form-group col-lg-6">
+                        <label  class="control-label col-lg-4">角色：</label>
+                        <div class="col-lg-8">
+
+                            <select class=" form-control">
+                                <option>交易员</option>
+                                <option>管理员</option>
+                            </select>
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="row">
+
+                    <div class="form-group col-lg-6">
+                        <label class="control-label col-lg-4">交易场权限：</label>
+
+                        <div class="col-lg-8">
+                            <label class="label_radio r_on" for="radio-10">
+                                <input id="radio-10" value="1" type="checkbox"> SM
+                            </label>
+                            &nbsp;&nbsp;
+                            <label class="label_radio r_on" for="radio-11">
+                                <input id="radio-11" value="1" type="checkbox"> MEG
+                            </label>
+                        </div>
+                    </div>
+
+
+
+
+
+                </div>
+
+
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-info">解绑</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+<!-- 绑定交易员（Modal）结束 -->
+
+<!-- 修改交易员（Modal） -->
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">修改</h4>
+            </div>
+            <div class="modal-body">
+
+
+                <div class="form-col">
+                    <div class="form-row">
+
+                        <label  class="control-label" style="width: auto;">交易商编码名称：</label>
+                        <span>
+
+                            999999999---简称简称简称简称简称简称简称简简称简称简称简称简称
+
+                        </span>
+
+                    </div>
+
+                    <div class="form-row">
+
+                        <label  class="control-label" style="width:82px;">交易员编码：</label>
+
+                        <span>999999999</span>
+
+
+                    </div>
+                </div>
+
+
+                <div class="row">
+
+                    <div class="form-group col-lg-6">
+                        <label  class="control-label col-lg-4">绑定用户：</label>
+                        <div class="col-lg-8">
+                            <input class=" form-control"  type="text">
+                        </div>
+                    </div>
+
+                    <div class="form-group col-lg-6">
+                        <label  class="control-label col-lg-4">角色：</label>
+                        <div class="col-lg-8">
+
+                            <select class=" form-control">
+                                <option>交易员</option>
+                                <option>管理员</option>
+                            </select>
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="row">
+
+                    <div class="form-group col-lg-6">
+                        <label class="control-label col-lg-4">交易场权限：</label>
+
+                        <div class="col-lg-8">
+                            <label class="label_radio r_on" for="radio-12">
+                                <input id="radio-12" value="1" type="checkbox"> SM
+                            </label>
+                            &nbsp;&nbsp;
+                            <label class="label_radio r_on" for="radio-13">
+                                <input id="radio-13" value="1" type="checkbox"> MEG
+                            </label>
+                        </div>
+                    </div>
+
+
+
+
+
+                </div>
+
+
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-info">解绑</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+<!-- 修改交易员（Modal）结束 -->
+
+
+
+<!-- 解绑交易员（Modal） -->
+<div class="modal fade" id="unbindModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">解绑</h4>
+            </div>
+            <div class="modal-body">
+
+
+                <div class="form-col">
+                    <div class="form-row">
+
+                        <label  class="control-label" style="width: auto;">交易商编码名称：</label>
+                        <span>
+
+                            999999999---简称简称简称简称简称简称简称简简称简称简称简称简称
+
+                        </span>
+
+                    </div>
+
+                    <div class="form-row">
+
+                        <label  class="control-label" style="width:82px;">交易员编码：</label>
+
+                        <span>999999999</span>
+
+
+                    </div>
+                </div>
+
+
+                <div class="row">
+
+                    <div class="form-group col-lg-6">
+                        <label  class="control-label col-lg-4">绑定用户：</label>
+                        <div class="col-lg-8">
+                            <input class=" form-control" disabled type="text">
+                        </div>
+                    </div>
+
+                    <div class="form-group col-lg-6">
+                        <label  class="control-label col-lg-4">角色：</label>
+                        <div class="col-lg-8">
+
+                            <select class=" form-control" disabled>
+                                <option>交易员</option>
+                                <option>管理员</option>
+                            </select>
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="row">
+
+                    <div class="form-group col-lg-6">
+                        <label class="control-label col-lg-4">交易场权限：</label>
+
+                        <div class="col-lg-8">
+                            <label class="label_radio r_on" for="radio-14">
+                                <input id="radio-14" value="1" type="checkbox"> SM
+                            </label>
+                            &nbsp;&nbsp;
+                            <label class="label_radio r_on" for="radio-15">
+                                <input id="radio-15" value="1" type="checkbox"> MEG
+                            </label>
+                        </div>
+                    </div>
+
+
+
+
+
+                </div>
+
+
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-info">解绑</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+<!-- 解绑交易员（Modal）结束 -->
+
+<!-- 冻结交易员（Modal） -->
+<div class="modal fade" id="freezeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">冻结</h4>
+            </div>
+            <div class="modal-body">
+
+
+                <div class="form-col">
+                    <div class="form-row">
+
+                        <label  class="control-label" style="width: auto;">交易商编码名称：</label>
+                        <span>
+
+                            999999999---简称简称简称简称简称简称简称简简称简称简称简称简称
+
+                        </span>
+
+                    </div>
+
+                    <div class="form-row">
+
+                        <label  class="control-label" style="width:82px;">交易员编码：</label>
+
+                        <span>999999999</span>
+
+
+                    </div>
+                </div>
+
+
+                <div class="row">
+
+                    <div class="form-group col-lg-6">
+                        <label  class="control-label col-lg-4">绑定用户：</label>
+                        <div class="col-lg-8">
+                            <input class=" form-control" disabled type="text">
+                        </div>
+                    </div>
+
+                    <div class="form-group col-lg-6">
+                        <label  class="control-label col-lg-4">角色：</label>
+                        <div class="col-lg-8">
+
+                            <select class=" form-control" disabled>
+                                <option>交易员</option>
+                                <option>管理员</option>
+                            </select>
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="row">
+
+                    <div class="form-group col-lg-6">
+                        <label class="control-label col-lg-4">交易场权限：</label>
+
+                        <div class="col-lg-8">
+                            <label class="label_radio r_on" for="radio-16">
+                                <input id="radio-16" value="1" type="checkbox"> SM
+                            </label>
+                            &nbsp;&nbsp;
+                            <label class="label_radio r_on" for="radio-17">
+                                <input id="radio-17" value="1" type="checkbox"> MEG
+                            </label>
+                        </div>
+                    </div>
+
+
+
+
+
+                </div>
+
+
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-info">解绑</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+<!-- 冻结交易员（Modal）结束 -->
+
+
+<script src="assets/lib/jquery.js"></script>
+<script src="assets/lib/bootstrap.min.js"></script>
+
+<script src="assets/lib/jquery.scrollTo.min.js"></script>
+<script src="assets/lib/bootstrap-datepicker.min.js"></script>
+<script src="assets/lib/bootstrap-datepicker.zh-CN.min.js"></script>
+
+<!--common script for all pages-->
+<script src="assets/lib/common-scripts.js"></script>
+
+</body>
+</html>

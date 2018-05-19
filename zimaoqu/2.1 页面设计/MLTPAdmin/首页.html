@@ -1,0 +1,486 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>首页</title>
+
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/fonts/font-awesome.min.css" rel="stylesheet" />
+    <link href="assets/css/datepicker.css" rel="stylesheet">
+    <link href="assets/css/mltp.theme.css" rel="stylesheet">
+    <link href="assets/lib/layer/skin/layer.css" rel="stylesheet">
+    <link href="assets/css/main.css" rel="stylesheet">
+
+
+</head>
+
+<body>
+
+<section id="container" class="">
+    <!--头部 开始-->
+
+    <header class="header blue-bg">
+        <div class="sidebar-toggle-box">
+            <i class="fa fa-bars"></i>
+        </div>
+
+        <!--logo start-->
+        <a href="index.html" class="logo" ><i>SCIX</i> 自贸区后台管理系统</a>
+        <!--logo end-->
+
+        <div class="nav notify-row" id="top_menu">
+
+        </div>
+        <div class="top-nav ">
+            <ul class="nav pull-right top-menu">
+
+                <!-- user login dropdown start-->
+                <li class="dropdown">
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                        <span class="username">管理员</span>
+                        <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu extended logout">
+                        <div class="log-arrow-up"></div>
+                        <li><a href="#">设置</a></li>
+                        <li><a href="#">修改密码</a></li>
+                        <li><a href="###">退出</a></li>
+                    </ul>
+                </li>
+
+            </ul>
+        </div>
+    </header>
+    <!--头部 结束-->
+
+    <!-- 菜单开始 -->
+    <aside>
+        <div id="sidebar"  class="nav-collapse ">
+            <!-- sidebar menu start-->
+            <ul class="sidebar-menu" id="nav-accordion">
+                <li>
+                    <a href="###">
+                        <i class="fa fa-home"></i>
+                        <span>首页</span>
+                    </a>
+                </li>
+
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-cog"></i>
+                        <span>交易参数设定</span>
+                    </a>
+                    <ul class="sub">
+                        <li><a  href="###">子菜单</a></li>
+                        <li><a  href="###">子菜单</a></li>
+                        <li><a  href="###">子菜单</a></li>
+                        <li><a  href="###">子菜单</a></li>
+                        <li><a  href="###">子菜单</a></li>
+                    </ul>
+                </li>
+
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-user"></i>
+                        <span>企业用户管理</span>
+                    </a>
+                    <ul class="sub">
+                        <li><a  href="###">子菜单</a></li>
+                        <li><a  href="###">子菜单</a></li>
+                        <li><a  href="###">子菜单</a></li>
+                        <li><a  href="###">子菜单</a></li>
+                        <li><a  href="###">子菜单</a></li>
+                    </ul>
+                </li>
+
+
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-money"></i>
+                        <span>交易与交收</span>
+                    </a>
+                    <ul class="sub">
+                        <li><a  href="###">子菜单</a></li>
+                        <li><a  href="###">子菜单</a></li>
+                        <li><a  href="###">子菜单</a></li>
+                        <li><a  href="###">子菜单</a></li>
+                        <li><a  href="###">子菜单</a></li>
+                    </ul>
+                </li>
+
+
+            </ul>
+            <!-- sidebar menu end-->
+        </div>
+    </aside>
+    <!-- 菜单结束 -->
+
+
+
+    <!--main content start-->
+    <section id="main-content">
+
+        <section class="wrapper">
+            <!--state overview start-->
+            <div class="row state-overview">
+                <div class="col-lg-3 col-sm-6">
+                    <section class="panel">
+                        <div class="symbol terques">
+                            <i class="fa fa-user"></i>
+                        </div>
+                        <div class="value">
+                            <h1 class="count">495</h1>
+                            <p>用户数量</p>
+                        </div>
+                    </section>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <section class="panel">
+                        <div class="symbol" style="background: #299bf4;">
+                            <i class="fa fa-tags"></i>
+                        </div>
+                        <div class="value">
+                            <h1 class=" count2">947</h1>
+                            <p>交易额</p>
+                        </div>
+                    </section>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <section class="panel">
+                        <div class="symbol yellow" style="background: #6b6b6b;">
+                            <i class="fa fa-shopping-cart"></i>
+                        </div>
+                        <div class="value">
+                            <h1 class=" count3">328</h1>
+                            <p>新增订单</p>
+                        </div>
+                    </section>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <section class="panel">
+                        <div class="symbol blue">
+                            <i class="fa fa-bar-chart-o"></i>
+                        </div>
+                        <div class="value">
+                            <h1 class=" count4">10328</h1>
+                            <p>当日访问</p>
+                        </div>
+                    </section>
+                </div>
+            </div>
+            <!--state overview end-->
+
+            <div class="row">
+                <div class="col-lg-8">
+                    <!--custom chart start-->
+                    <div class="border-head">
+                        <h3>成交吨数</h3>
+                    </div>
+                    <div class="custom-bar-chart">
+                        <ul class="y-axis">
+                            <li><span>100</span></li>
+                            <li><span>80</span></li>
+                            <li><span>60</span></li>
+                            <li><span>40</span></li>
+                            <li><span>20</span></li>
+                            <li><span>0</span></li>
+                        </ul>
+                        <div class="bar">
+                            <div class="title">JAN</div>
+                            <div class="value tooltips" data-original-title="80%" data-toggle="tooltip" data-placement="top" style="height: 80%;"></div>
+                        </div>
+                        <div class="bar ">
+                            <div class="title">FEB</div>
+                            <div class="value tooltips" data-original-title="50%" data-toggle="tooltip" data-placement="top" style="height: 50%;"></div>
+                        </div>
+                        <div class="bar ">
+                            <div class="title">MAR</div>
+                            <div class="value tooltips" data-original-title="40%" data-toggle="tooltip" data-placement="top" style="height: 40%;"></div>
+                        </div>
+                        <div class="bar ">
+                            <div class="title">APR</div>
+                            <div class="value tooltips" data-original-title="55%" data-toggle="tooltip" data-placement="top" style="height: 55%;"></div>
+                        </div>
+                        <div class="bar">
+                            <div class="title">MAY</div>
+                            <div class="value tooltips" data-original-title="20%" data-toggle="tooltip" data-placement="top" style="height: 20%;"></div>
+                        </div>
+                        <div class="bar ">
+                            <div class="title">JUN</div>
+                            <div class="value tooltips" data-original-title="39%" data-toggle="tooltip" data-placement="top" style="height: 39%;"></div>
+                        </div>
+                        <div class="bar">
+                            <div class="title">JUL</div>
+                            <div class="value tooltips" data-original-title="75%" data-toggle="tooltip" data-placement="top" style="height: 75%;"></div>
+                        </div>
+                        <div class="bar ">
+                            <div class="title">AUG</div>
+                            <div class="value tooltips" data-original-title="45%" data-toggle="tooltip" data-placement="top" style="height: 45%;"></div>
+                        </div>
+                        <div class="bar ">
+                            <div class="title">SEP</div>
+                            <div class="value tooltips" data-original-title="50%" data-toggle="tooltip" data-placement="top" style="height: 50%;"></div>
+                        </div>
+                        <div class="bar ">
+                            <div class="title">OCT</div>
+                            <div class="value tooltips" data-original-title="42%" data-toggle="tooltip" data-placement="top" style="height: 42%;"></div>
+                        </div>
+                        <div class="bar ">
+                            <div class="title">NOV</div>
+                            <div class="value tooltips" data-original-title="60%" data-toggle="tooltip" data-placement="top" style="height: 60%;"></div>
+                        </div>
+                        <div class="bar ">
+                            <div class="title">DEC</div>
+                            <div class="value tooltips" data-original-title="90%" data-toggle="tooltip" data-placement="top" style="height: 90%;"></div>
+                        </div>
+                    </div>
+                    <!--custom chart end-->
+                </div>
+                <div class="col-lg-4">
+                    <!--new earning start-->
+                    <div class="panel terques-chart">
+                        <div class="panel-body chart-texture">
+                            <div class="chart">
+                                <div class="heading">
+                                    <span>星期五</span>
+                                    <strong>$ 57,00 | 15%</strong>
+                                </div>
+                                <div class="sparkline" data-type="line" data-resize="true" data-height="75" data-width="90%" data-line-width="1" data-line-color="#fff" data-spot-color="#fff" data-fill-color="" data-highlight-line-color="#fff" data-spot-radius="4" data-data="[200,135,667,333,526,996,564,123,890,564,455]"><canvas width="454" height="75" style="display: inline-block; width: 454px; height: 75px; vertical-align: top;"></canvas></div>
+                            </div>
+                        </div>
+                        <div class="chart-tittle">
+                            <span class="title">新增成交额</span>
+                              <span class="value">
+                                 $, 76,54,678
+                              </span>
+                        </div>
+                    </div>
+                    <!--new earning end-->
+
+                    <!--total earning start-->
+                    <div class="panel green-chart">
+                        <div class="panel-body">
+                            <div class="chart">
+                                <div class="heading">
+                                    <span>七月</span>
+                                    <strong>23 日 | 65%</strong>
+                                </div>
+                                <div id="barchart"><canvas width="294" height="65" style="display: inline-block; width: 294px; height: 65px; vertical-align: top;"></canvas></div>
+                            </div>
+                        </div>
+                        <div class="chart-tittle">
+                            <span class="title">总成交额</span>
+                            <span class="value">$, 76,54,678</span>
+                        </div>
+                    </div>
+                    <!--total earning end-->
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-lg-4">
+                    <!--user info table start-->
+                    <section class="panel">
+                        <div class="panel-body">
+                            <a href="#" class="task-thumb">
+                                <img width="80px;" src="assets/img/avatar.png" alt="">
+                            </a>
+                            <div class="task-thumb-details">
+                                <h1><a href="#">用户名</a></h1>
+                                <p>数据数据数据数据</p>
+                            </div>
+                        </div>
+                        <table class="table table-hover personal-task">
+                            <tbody>
+                            <tr>
+                                <td>
+                                    <i class=" fa fa-tasks"></i>
+                                </td>
+                                <td>数据一</td>
+                                <td> 02</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <i class="fa fa-exclamation-triangle"></i>
+                                </td>
+                                <td>数据二</td>
+                                <td> 14</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <i class="fa fa-envelope"></i>
+                                </td>
+                                <td>数据三</td>
+                                <td> 45</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <i class=" fa fa-bell-o"></i>
+                                </td>
+                                <td>数据四</td>
+                                <td> 09</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </section>
+                    <!--user info table end-->
+                </div>
+                <div class="col-lg-8">
+                    <!--work progress start-->
+                    <section class="panel">
+                        <div class="panel-body progress-panel">
+                            <div class="task-progress">
+                                <h1>标题标题</h1>
+                                <p>详细详细</p>
+                            </div>
+                            <div class="task-option">
+                                <select class="styled hasCustomSelect" style="-webkit-appearance: menulist-button; width: 114px; position: absolute; opacity: 0; height: 39px; font-size: 12px;">
+                                    <option>数据一</option>
+                                    <option>数据一</option>
+                                    <option>数据一</option>
+                                </select><span class="customSelect styled" style="display: inline-block;"><span class="customSelectInner" style="width: 92px; display: inline-block;">数据分类</span></span>
+                            </div>
+                        </div>
+                        <table class="table table-hover personal-task">
+                            <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>
+                                    数据一
+                                </td>
+                                <td>
+                                    <span class="badge bg-important">75%</span>
+                                </td>
+                                <td>
+                                    <div id="work-progress1"><canvas width="47" height="20" style="display: inline-block; width: 47px; height: 20px; vertical-align: top;"></canvas></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>
+                                    数据一
+                                </td>
+                                <td>
+                                    <span class="badge bg-success">43%</span>
+                                </td>
+                                <td>
+                                    <div id="work-progress2"><canvas width="47" height="22" style="display: inline-block; width: 47px; height: 22px; vertical-align: top;"></canvas></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>
+                                    数据一
+                                </td>
+                                <td>
+                                    <span class="badge bg-info">67%</span>
+                                </td>
+                                <td>
+                                    <div id="work-progress3"><canvas width="47" height="22" style="display: inline-block; width: 47px; height: 22px; vertical-align: top;"></canvas></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>
+                                    数据一
+                                </td>
+                                <td>
+                                    <span class="badge bg-warning">30%</span>
+                                </td>
+                                <td>
+                                    <div id="work-progress4"><canvas width="47" height="22" style="display: inline-block; width: 47px; height: 22px; vertical-align: top;"></canvas></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>
+                                    数据一
+                                </td>
+                                <td>
+                                    <span class="badge bg-primary">15%</span>
+                                </td>
+                                <td>
+                                    <div id="work-progress5"><canvas width="47" height="22" style="display: inline-block; width: 47px; height: 22px; vertical-align: top;"></canvas></div>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </section>
+                    <!--work progress end-->
+                </div>
+            </div>
+
+
+
+
+        </section>
+
+
+    </section>
+    <!--main content end-->
+
+
+    <footer class="site-footer">
+        <div class="text-center">
+            2015 ©  powered by MLTP.
+        </div>
+    </footer>
+
+
+</section>
+
+
+
+
+<!-- 模态框（Modal） -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">编辑交易场</h4>
+            </div>
+            <div class="modal-body">
+
+
+
+
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-info">提交更改</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+<!-- 模态框（Modal）结束 -->
+
+
+
+<script src="assets/lib/jquery.js"></script>
+<script src="assets/lib/bootstrap.min.js"></script>
+
+<script src="assets/lib/jquery.scrollTo.min.js"></script>
+<script src="assets/lib/bootstrap-datepicker.min.js"></script>
+<script src="assets/lib/bootstrap-datepicker.zh-CN.min.js"></script>
+
+<!--common script for all pages-->
+<script src="assets/lib/common-scripts.js"></script>
+
+<script src="assets/lib/layer/layer.js"></script>
+
+
+<script src="assets/lib/jquery.sparkline.js"></script>
+
+<script src="assets/lib/sparkline-chart.js"></script>
+
+<script src="assets/lib/count.js"></script>
+
+
+
+</body>
+</html>

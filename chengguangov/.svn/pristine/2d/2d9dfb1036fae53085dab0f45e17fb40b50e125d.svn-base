@@ -1,0 +1,8 @@
+[ 2018-01-19T10:33:53+08:00 ] 58.243.250.99 /index.php?g=user&m=index&a=is_login
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000029s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000157s ]
+INFO: Run Common\Behavior\UrldecodeGetBehavior [ RunTime:0.000036s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000295s ]
+NOTIC: [8] Undefined index: url /alidata/www/chengguangov/application/Common/Controller/AppframeController.class.php 第 22 行.
+

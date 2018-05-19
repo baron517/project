@@ -48,7 +48,13 @@ margin-top: 1rem;
     font-size: 0.8rem;
     color: black;
     padding-left: 6.5rem;
+
+    clear:both;
     
+}
+.box3 input {
+  padding-left : 0rem !important;
+  clear : none !important;
 }
 .form-box textarea{
     height: 4rem;
@@ -92,6 +98,27 @@ picker text{
   float: left;
   margin-top: 0.6rem;
 }
+.personBox {
+  width : 210rpx;
+  height : 60rpx;
+  float : left;
+  overflow: hidden;
+}
+
+.money{
+  float: left;
+  margin-top: 0.6rem;
+}
+
+.box3{
+  height: 2.5rem;
+    border-bottom: 1px solid #D0D5D6;
+    font-size: 0.8rem;
+    color: black;
+      margin:0.3rem 0.3rem 0 0;
+      padding-left: 2.5rem;
+      width: 88%;
+}
 
 
 
@@ -134,6 +161,7 @@ picker text{
      color: #656866;
 
 }
+
 .input{
      height: 2rem;
      border: 2px solid #D0D5D6;
@@ -147,9 +175,16 @@ picker text{
      margin-left: 6rem;
 }
 
+.numcheck{
+  width: 65%;
+  height: auto;
+  float: right;
+  word-wrap: break-word;
+  padding-top : 15rpx; 
+  
+}
+
 .cbox{
     height: auto;
     font-size: 0.8rem;
-    padding-left: 6.5rem;
-
 }

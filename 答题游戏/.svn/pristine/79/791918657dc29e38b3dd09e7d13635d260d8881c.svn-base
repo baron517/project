@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" href="css/base.css"/>
+
+    <style>
+
+    #problemList li{position: relative;padding-left:70px;display: none;}
+    #problemList li:first-child{display: block;}
+    #problemList li .number{position: absolute;top:0;left:0;}
+    #problemList li .question{margin-bottom:15px;}
+    #problemList li .check{display: none;}
+    #problemList li img{width:82px;display: block;}
+    #problemList li .xuanxiang{position: relative;padding-right:102px;margin-bottom:10px;padding-left:68px;}
+    #problemList li .xuanxiang span{position: absolute;left:0;top:0;}
+    #problemList li .xuanxiang span.check-col{position: absolute;right:10px;top:-14px;left:auto;display: block;width:90px;height:90px;}
+    #problemList li .xuanxiang span.check-col.active .kong{display: none;}
+    #problemList li .xuanxiang span.check-col.active .check{display: block;}
+
+    .nengliangzhu img{display: none;margin-left:-1px;position: relative;top:-4px;}
+    #donghua{width:280px;}
+    .jieguo-video{display: block;width:100%;position: absolute;top:0;left:0;z-index:10000;}
+
+    html,body{width:100%;height:100%;overflow: hidden;}
+
+    </style>
+
+
+</head>
+<body>
+
+    <img style="width:100%;display: block;" src="img/3.png"/>
+
+    <ul style="position: absolute;width:80%;left:50%;top:23%;margin-left:-40%;font-size:43px;font-weight: bold;color:#1a76b9;z-index:100;" id="problemList">
+
+
+
+    </ul>
+
+
+    <div class="nengliangzhu" style="width:145px;height:330px;background: url('img/能量柱/6.png');position: absolute;right:-10px;z-index:1000;top:280px;">
+        <img src="img/能量柱/1.png"/>
+        <img src="img/能量柱/2.png"/>
+        <img src="img/能量柱/3.png"/>
+        <img src="img/能量柱/4.png"/>
+        <img src="img/能量柱/5.png"/>
+    </div>
+
+
+    <audio src="答对音效.mp3" style="display: none;" id="dui">
+
+    </audio>
+
+    <audio src="答错音效.mp3" style="display: none;" id="cuo" >
+
+    </audio>
+
+
+    <img style="position: absolute;right:0;bottom:0;display: none;" id="donghua"  />
+
+
+    <script src="script/api.js"></script>
+    <script src="js/jquery.js"></script>
+    <script src="script/common.js"></script>
+    <script src="js/data.js"></script>
+
+
+    <script>
+
+
+        apiready = function()
+        {
+
+              var videoPlayer = api.require('videoPlayer');
+
+
+
+
+
+
+
+            function getRandomArrayElements(arr, count) {
+                var shuffled = arr.slice(0), i = arr.length, min = i - count, temp, index;
+                while (i-- > min) {
+                    index = Math.floor((i + 1) * Math.random());
+                    temp = shuffled[index];
+                    shuffled[index] = shuffled[i];
+                    shuffled[i] = temp;
+                }
+                return shuffled.slice(min);
+            }
+
+
+            function init() {
+
+                duiCount = 0;
+
+                $(".nengliangzhu img").hide();
+
+                $("#problemList").empty();
+                if (localStorage.index == 1) {
+                    var items = problem1;
+                }
+                else if (localStorage.index == 2) {
+                    var items = problem2;
+                }
+                else if (localStorage.index == 3) {
+                    var items = problem3;
+                }
+                else {
+                    var items = problem4;
+                }
+
+
+                var list = getRandomArrayElements(items, 5);
+                var html = "";
+                for (var i = 0; i < list.length; i++) {
+                    var index = i + 1;
+
+                    var ok = list[i].ok;
+
+
+                    if (localStorage.index == 1) {
+                        var indexValue = index;
+                    }
+                    else if (localStorage.index == 2) {
+                        var indexValue = index+5;
+                    }
+                    else if (localStorage.index == 3) {
+                        var indexValue = index+10;
+                    }
+                    else {
+                        var indexValue = index+15;
+                    }
+
+
+                    html = html + "<li  data-index='" + i + "' data-ok='" + ok + "'><span class='number'>" + indexValue + "、</span><div class='question'>" + list[i].question + "</div><div>";
+
+                    for (var j = 0; j < list[i].list.length; j++) {
+                        if (j == 0) {
+                            var xuanxiang = "<span>A. </span>";
+                        }
+                        else if (j == 1) {
+                            var xuanxiang = "<span>B. </span>";
+                        }
+                        else if (j == 2) {
+                            var xuanxiang = "<span>C. </span>";
+                        }
+                        else if (j == 3) {
+                            var xuanxiang = "<span>D. </span>";
+                        }
+
+                        html = html + "<div class='xuanxiang'>" + xuanxiang + list[i].list[j] + "<span class='check-col' data-index='" + j + "'><img class='kong' src='img/空框.png' /><img class='check' src='img/框带钩.png' /></span></div>";
+                    }
+
+                    html = html + "</div></li>"
+
+                }
+
+                $("#problemList").append(html);
+            }
+
+
+            init();
+
+            var dui = document.getElementById("dui");
+            var cuo = document.getElementById("cuo");
+
+
+            var duiCount = 0;
+
+            $("#problemList").on("touchstart", ".check-col", function (e) {
+
+
+                if ($(this).parent().parent().find(".active").length == 0) {
+                    $(this).addClass("active");
+
+                    var ok = $(this).parent().parent().parent().attr("data-ok");
+                    var timuIndex = $(this).parent().parent().parent().attr("data-index");
+                    timuIndex = parseInt(timuIndex) + 1;
+                    if (ok == $(this).attr("data-index")) {
+                        dui.play();
+                        duiCount++;
+                        $(".nengliangzhu img").hide();
+                        var imgIndex = duiCount - 1;
+                        $(".nengliangzhu img").eq(imgIndex).show();
+                        ;
+
+                        if (localStorage.index == 1) {
+                            bofangxulie("小学笑");
+                        }
+                        else if (localStorage.index == 2) {
+                            bofangxulie("中学笑");
+                        }
+                        else if (localStorage.index == 3) {
+                            bofangxulie("高中笑");
+                        }
+                        else {
+                            bofangxulie("大学笑");
+                        }
+
+
+                    }
+                    else {
+                        cuo.play();
+
+                        if (localStorage.index ==1) {
+                            bofangxulie("小学哭");
+                        }
+                        else if (localStorage.index ==2) {
+                            bofangxulie("中学哭");
+                        }
+                        else if (localStorage.index ==3) {
+                            bofangxulie("高中哭");
+                        }
+                        else {
+                            bofangxulie("大学哭");
+                        }
+
+                    }
+
+                    setTimeout(
+                            function () {
+                                huanti(timuIndex);
+                            }, 4500);
+
+
+                }
+
+
+            });
+
+
+            function bofangxulie(imgStr) {
+                var i = 1;
+                var timerId = setInterval(function () {
+                    $("#donghua").attr("src", "img/" + imgStr + "/1 (" + i + ").png");
+                    $("#donghua").show();
+                    i++;
+                    if (i > 101) {
+                        clearInterval(timerId);
+                        $("#donghua").hide();
+                    }
+
+                }, 40)
+            }
+
+
+            function huanti(indexValueStr) {
+                $("#problemList li").hide();
+                $("#problemList li").eq(indexValueStr).show();
+
+                if (indexValueStr == 5) {
+                    if (duiCount >= 3) {
+
+
+                        if (localStorage.index ==1) {
+
+
+                            videoPlayer.open({
+                                rect:
+                                {   x: 0,
+                                    y : 0,
+                                    w: $(window).width(),
+                                    h: $(window).height()
+                                },
+                                path: 'widget://video/xiaoxue.mp4',
+                                scalingMode:'scaleToFill'
+                            }, function(ret, err) {
+                            });
+
+                         }
+                         else if (localStorage.index ==2) {
+
+                            videoPlayer.open({
+                                rect:
+                                {   x: 0,
+                                    y : 0,
+                                    w: $(window).width(),
+                                    h: $(window).height()
+                                },
+                                path: 'widget://video/zhongxue.mp4',
+                                scalingMode:'scaleToFill'
+                            }, function(ret, err) {
+                            });
+
+
+                         }
+                         else if (localStorage.index == 3) {
+
+                            videoPlayer.open({
+                                rect:
+                                {   x: 0,
+                                    y : 0,
+                                    w: $(window).width(),
+                                    h: $(window).height()
+                                },
+                                path: 'widget://video/gaozhong.mp4',
+                                scalingMode:'scaleToFill'
+                            }, function(ret, err) {
+                            });
+
+
+                         }
+                         else {
+
+                            videoPlayer.open({
+                                rect:
+                                {   x: 0,
+                                    y : 0,
+                                    w: $(window).width(),
+                                    h: $(window).height()
+                                },
+                                path: 'widget://video/daxue.mp4',
+                                scalingMode:'scaleToFill'
+                            }, function(ret, err) {
+                            });
+
+
+                         }
+
+
+                        setTimeout(function()
+                        {
+
+                             videoPlayer.close();
+
+                            localStorage.index=parseInt(localStorage.index)+1;
+
+                            console.log(localStorage.index);
+
+                            if(localStorage.index<4)
+                            {
+                                init();
+                            }
+
+
+
+
+                        },5000)
+
+
+
+
+                    }
+
+                    else {
+
+
+                        videoPlayer.open({
+                            rect:
+                            {   x: 0,
+                                y : 0,
+                                w: $(window).width(),
+                                h: $(window).height()
+                            },
+                            path: 'widget://video/shibai.mp4',
+                            scalingMode:'scaleToFill'
+                        }, function(ret, err) {
+                        });
+
+
+
+                        setTimeout(function()
+                        {
+                            videoPlayer.close();
+                            api.closeWin({
+                            });
+
+                        },5000)
+
+                    }
+
+                }
+
+            }
+
+
+
+
+
+        }
+
+
+
+
+
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,445 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>客户Web操作员</title>
+
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/fonts/font-awesome.min.css" rel="stylesheet" />
+    <link href="assets/css/datepicker.css" rel="stylesheet">
+    <link href="assets/css/mltp.theme.css" rel="stylesheet">
+    <link href="assets/css/main.css" rel="stylesheet">
+
+
+</head>
+
+<body>
+
+<section id="container" class="">
+    <!--头部 开始-->
+
+    <header class="header blue-bg">
+        <div class="sidebar-toggle-box">
+            <i class="fa fa-bars"></i>
+        </div>
+
+        <!--logo start-->
+        <a href="index.html" class="logo" >MLTP 后台管理系统</a>
+        <!--logo end-->
+
+        <div class="nav notify-row" id="top_menu">
+
+        </div>
+        <div class="top-nav ">
+            <ul class="nav pull-right top-menu">
+
+                <!-- user login dropdown start-->
+                <li class="dropdown">
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                        <span class="username">管理员</span>
+                        <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu extended logout">
+                        <div class="log-arrow-up"></div>
+                        <li><a href="#">设置</a></li>
+                        <li><a href="#">修改密码</a></li>
+                        <li><a href="###">退出</a></li>
+                    </ul>
+                </li>
+
+            </ul>
+        </div>
+    </header>
+    <!--头部 结束-->
+
+    <!-- 菜单开始 -->
+    <aside>
+        <div id="sidebar"  class="nav-collapse ">
+            <!-- sidebar menu start-->
+            <ul class="sidebar-menu" id="nav-accordion">
+                <li>
+                    <a href="###">
+                        <i class="fa fa-home"></i>
+                        <span>首页</span>
+                    </a>
+                </li>
+
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-laptop"></i>
+                        <span>菜单一</span>
+                    </a>
+                    <ul class="sub">
+                        <li><a  href="###">子菜单</a></li>
+                        <li><a  href="###">子菜单</a></li>
+                        <li><a  href="###">子菜单</a></li>
+                        <li><a  href="###">子菜单</a></li>
+                        <li><a  href="###">子菜单</a></li>
+                    </ul>
+                </li>
+
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-book"></i>
+                        <span>菜单二</span>
+                    </a>
+                    <ul class="sub">
+                        <li><a  href="###">子菜单</a></li>
+                        <li><a  href="###">子菜单</a></li>
+                        <li><a  href="###">子菜单</a></li>
+                        <li><a  href="###">子菜单</a></li>
+                        <li><a  href="###">子菜单</a></li>
+                    </ul>
+                </li>
+
+
+
+            </ul>
+            <!-- sidebar menu end-->
+        </div>
+    </aside>
+    <!-- 菜单结束 -->
+
+
+
+    <!--main content start-->
+    <section id="main-content">
+        <section class="wrapper">
+
+            <ol class="breadcrumb">
+                <li><a href="#">客户Web权限管理</a></li>
+                <li class="active">客户Web操作员</li>
+            </ol>
+
+            <!-- page start-->
+            <div class="row">
+                <div class="col-lg-12">
+
+                    <section class="panel">
+                        <header class="panel-heading">
+                            操作员查询
+                        </header>
+
+                        <div class="panel-body form-inline search-col" >
+
+                            <div class="form-group">
+                                <label>操作员：</label>
+                                <input type="text" class="form-control" >
+
+                                <label>企业名称：</label>
+                                <input type="text" class="form-control" >
+
+                                <label>角色：</label>
+
+                                <select class="form-control">
+                                    <option>全部</option>
+                                    <option>履约保障</option>
+                                    <option>撮合</option>
+                                </select>
+
+                                <button type="button" class="btn btn-info">查询</button>
+
+                                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myAddModal">新建</button>
+
+                            </div>
+
+
+
+
+
+
+                        </div>
+
+                    </section>
+
+
+                    <section class="panel">
+                        <header class="panel-heading">
+                            操作员列表 （共 xx 条 ）
+                        </header>
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-striped ">
+                                    <thead>
+                                    <tr>
+                                        <th>序号</th>
+                                        <th>操作员登录账号</th>
+                                        <th>操作员姓名</th>
+                                        <th>所属企业</th>
+                                        <th>品目</th>
+                                        <th>角色</th>
+                                        <th>操作</th>
+
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>abc@aaa.com</td>
+                                        <td>三个字</td>
+                                        <td>企业名称企业名称</td>
+                                        <td>SM、MEG</td>
+                                        <td>管理员</td>
+                                        <td>
+                                            <button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#myModal">编辑</button>
+                                        </td>
+                                    </tr>
+
+                                    </tbody>
+                                </table>
+
+                                <div class="pagination-col">
+                                <ul class="pagination">
+                                    <li><a href="#">&laquo;</a></li>
+                                    <li><a href="#">1</a></li>
+                                    <li><a href="#">2</a></li>
+                                    <li><a href="#">3</a></li>
+                                    <li><a href="#">4</a></li>
+                                    <li><a href="#">5</a></li>
+                                    <li><a href="#">&raquo;</a></li>
+                                </ul>
+                                </div>
+
+                            </div>
+                        </div>
+                    </section>
+
+                </div>
+            </div>
+
+        </section>
+    </section>
+    <!--main content end-->
+
+
+
+</section>
+
+
+<!-- 模态框（Modal） -->
+<div class="modal fade" id="myAddModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">增加操作员</h4>
+            </div>
+            <div class="modal-body">
+
+
+
+                <div class="row">
+                    <div class="form-group col-lg-6">
+                        <label  class="control-label col-lg-4">操作员姓名：</label>
+                        <div class="col-lg-8">
+                            <input class=" form-control" type="text">
+                        </div>
+                    </div>
+
+                    <div class="form-group col-lg-6">
+                        <label  class="control-label col-lg-4">登录名：</label>
+                        <div class="col-lg-8">
+                            <input class=" form-control"  type="text">
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <div class="row">
+
+                    <div class="form-group col-lg-6">
+                        <label  class="control-label col-lg-4">手机号码：</label>
+                        <div class="col-lg-8">
+                            <input class=" form-control"  type="text">
+                        </div>
+                    </div>
+
+                    <div class="form-group col-lg-6">
+                        <label  class="control-label col-lg-4">所属企业：</label>
+                        <div class="col-lg-8">
+                            <input class=" form-control"  type="text">
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row">
+
+                    <div class="form-group col-lg-12">
+                        <label  class="control-label col-lg-2">角色配置：</label>
+                        <div class="col-lg-10">
+
+                            <label class="label_radio r_on" for="radio-06">
+                                <input  id="radio-06" value="1" type="checkbox" > 管理员
+                            </label>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <label class="label_radio r_on" for="radio-07">
+                                <input  id="radio-07" value="1" type="checkbox" > 业务
+                            </label>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <label class="label_radio r_on" for="radio-08">
+                                <input  id="radio-08" value="1" type="checkbox" > 单证
+                            </label>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <label class="label_radio r_on" for="radio-09">
+                                <input  id="radio-09" value="1" type="checkbox" > 出金
+                            </label>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <label class="label_radio r_on" for="radio-10">
+                                <input  id="radio-10" value="1" type="checkbox" > 支付货款
+                            </label>
+
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <div class="row">
+
+                    <div class="form-group col-lg-12">
+                        <label  class="control-label col-lg-2">品目配置：</label>
+                        <div class="col-lg-10">
+
+                            <label class="label_radio r_on" for="radio-06">
+                                <input  id="radio-13" value="1" type="checkbox" > SM
+                            </label>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-info">保存</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+<!-- 模态框（Modal）结束 -->
+
+<!-- 模态框（Modal） -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">编辑操作员</h4>
+            </div>
+            <div class="modal-body">
+
+
+
+                <div class="row">
+                    <div class="form-group col-lg-6">
+                        <label  class="control-label col-lg-4">操作员姓名：</label>
+                        <div class="col-lg-8">
+                            <input class=" form-control" type="text">
+                        </div>
+                    </div>
+
+                    <div class="form-group col-lg-6">
+                        <label  class="control-label col-lg-4">登录名：</label>
+                        <div class="col-lg-8">
+                            <input class=" form-control"  type="text">
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <div class="row">
+
+                    <div class="form-group col-lg-6">
+                        <label  class="control-label col-lg-4">手机号码：</label>
+                        <div class="col-lg-8">
+                            <input class=" form-control"  type="text">
+                        </div>
+                    </div>
+
+                    <div class="form-group col-lg-6">
+                        <label  class="control-label col-lg-4">所属企业：</label>
+                        <div class="col-lg-8">
+                            <input class=" form-control"  type="text">
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row">
+
+                    <div class="form-group col-lg-12">
+                        <label  class="control-label col-lg-2">角色配置：</label>
+                        <div class="col-lg-10">
+
+                            <label class="label_radio r_on" for="radio-01">
+                                <input  id="radio-01" value="1" type="checkbox" > 管理员
+                            </label>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <label class="label_radio r_on" for="radio-02">
+                                <input  id="radio-02" value="1" type="checkbox" > 业务
+                            </label>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <label class="label_radio r_on" for="radio-03">
+                                <input  id="radio-03" value="1" type="checkbox" > 单证
+                            </label>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <label class="label_radio r_on" for="radio-04">
+                                <input  id="radio-04" value="1" type="checkbox" > 出金
+                            </label>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <label class="label_radio r_on" for="radio-05">
+                                <input  id="radio-05" value="1" type="checkbox" > 支付货款
+                            </label>
+
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <div class="row">
+
+                    <div class="form-group col-lg-12">
+                        <label  class="control-label col-lg-2">品目配置：</label>
+                        <div class="col-lg-10">
+
+                            <label class="label_radio r_on" for="radio-14">
+                                <input  id="radio-14" value="1" type="checkbox" > SM
+                            </label>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-info">保存</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+<!-- 模态框（Modal）结束 -->
+
+
+<script src="assets/lib/jquery.js"></script>
+<script src="assets/lib/bootstrap.min.js"></script>
+
+<script src="assets/lib/jquery.scrollTo.min.js"></script>
+<script src="assets/lib/bootstrap-datepicker.min.js"></script>
+<script src="assets/lib/bootstrap-datepicker.zh-CN.min.js"></script>
+
+<!--common script for all pages-->
+<script src="assets/lib/common-scripts.js"></script>
+
+</body>
+</html>

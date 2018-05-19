@@ -1,8 +1,9 @@
 //获取应用实例
+// 
 var app = getApp()
 Page({
   data: {
-
+    test : ''
   },
 
   call: function () {
@@ -47,6 +48,18 @@ Page({
       that.setData({
         userInfo: userInfo
       })
+      // 查询当前角色id
+   
+    })
+    wx.getStorage({
+      key: 'userInfo',
+      success: function(res) {
+        console.log('当前的全局信息时'+res.data[0])
+        that.setData({
+          test : res.data
+        })
+        console.log(that.data.test)
+      },
     })
   },
 

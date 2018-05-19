@@ -1,0 +1,480 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自定义合约</title>
+
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/fonts/font-awesome.min.css" rel="stylesheet" />
+    <link href="assets/css/datepicker.css" rel="stylesheet">
+    <link href="assets/css/mltp.theme.css" rel="stylesheet">
+    <link href="assets/css/main.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+<section id="container">
+    <!--头部 开始-->
+
+    <header class="header blue-bg">
+        <div class="sidebar-toggle-box">
+            <i class="fa fa-bars"></i>
+        </div>
+
+        <!--logo start-->
+        <a href="index.html" class="logo" >自贸区 后台管理系统</a>
+        <!--logo end-->
+
+        <div class="nav notify-row" id="top_menu">
+
+        </div>
+        <div class="top-nav ">
+            <ul class="nav pull-right top-menu">
+
+                <!-- user login dropdown start-->
+                <li class="dropdown">
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                        <span class="username">管理员</span>
+                        <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu extended logout">
+                        <div class="log-arrow-up"></div>
+                        <li><a href="#">设置</a></li>
+                        <li><a href="#">修改密码</a></li>
+                        <li><a href="###">退出</a></li>
+                    </ul>
+                </li>
+
+            </ul>
+        </div>
+    </header>
+    <!--头部 结束-->
+
+    <!-- 菜单开始 -->
+    <aside>
+        <div id="sidebar"  class="nav-collapse ">
+            <!-- sidebar menu start-->
+            <ul class="sidebar-menu" id="nav-accordion">
+                <li>
+                    <a href="###">
+                        <i class="fa fa-home"></i>
+                        <span>首页</span>
+                    </a>
+                </li>
+
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-laptop"></i>
+                        <span>菜单一</span>
+                    </a>
+                    <ul class="sub">
+                        <li><a  href="###">子菜单</a></li>
+                        <li><a  href="###">子菜单</a></li>
+                        <li><a  href="###">子菜单</a></li>
+                        <li><a  href="###">子菜单</a></li>
+                        <li><a  href="###">子菜单</a></li>
+                    </ul>
+                </li>
+
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-book"></i>
+                        <span>菜单二</span>
+                    </a>
+                    <ul class="sub">
+                        <li><a  href="###">子菜单</a></li>
+                        <li><a  href="###">子菜单</a></li>
+                        <li><a  href="###">子菜单</a></li>
+                        <li><a  href="###">子菜单</a></li>
+                        <li><a  href="###">子菜单</a></li>
+                    </ul>
+                </li>
+
+
+
+            </ul>
+            <!-- sidebar menu end-->
+        </div>
+    </aside>
+    <!-- 菜单结束 -->
+
+
+
+    <!--main content start-->
+    <section id="main-content">
+        <section class="wrapper">
+
+            <ol class="breadcrumb">
+                <li><a href="#">交易参数设定</a></li>
+                <li class="active">自定义合约</li>
+            </ol>
+
+            <!-- page start-->
+            <div class="row">
+                <div class="col-lg-12">
+
+                    <section class="panel">
+                        <header class="panel-heading">
+                            查询条件
+                        </header>
+
+                        <div class="panel-body form-inline search-col" >
+
+                            <div class="form-group">
+
+                                <label>合约选择：</label>
+
+                                <select class="form-control">
+                                    <option>180401</option>
+                                    <option>180401</option>
+                                    <option>180401</option>
+                                </select>
+
+                                <label>品类：</label>
+
+                                <select class="form-control">
+                                    <option>MEG</option>
+                                    <option>MEG</option>
+                                    <option>MEG</option>
+                                </select>
+
+                                <label>交收日：</label>
+                                <input type="text" class="form-control" >
+                                -
+                                <input type="text"  class="form-control" >
+
+
+
+                                <button type="button" class="btn btn-info">查询</button>
+
+                                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModalAdd">新增</button>
+
+                            </div>
+
+
+
+
+
+
+                        </div>
+
+                    </section>
+
+
+                    <section class="panel">
+                        <header class="panel-heading">
+                            合约列表 （共 xx 条 ）
+                        </header>
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-striped table-col">
+                                    <thead>
+                                    <tr>
+                                        <th><input type="checkbox"/>全选</th>
+                                        <th>No</th>
+                                        <th>品类</th>
+                                        <th>合约代码</th>
+                                        <th>合约名称</th>
+                                        <th>追加保证金日</th>
+                                        <th>交易日</th>
+                                        <th>交收日</th>
+                                        <th>状态</th>
+                                        <th>操作</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td><input type="checkbox"/></td>
+                                        <td>1</td>
+                                        <td>MEG</td>
+                                        <td>180401</td>
+                                        <td>4月上合约</td>
+                                        <td>2018-04-6</td>
+                                        <td>2018-04-6</td>
+                                        <td>2018-04-6</td>
+                                        <td>启用</td>
+                                        <td>
+                                            <button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#myModal">编辑</button>
+                                            <button type="button" class="btn btn-danger btn-xs">禁用</button>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td><input type="checkbox"/></td>
+                                        <td>1</td>
+                                        <td>MEG</td>
+                                        <td>180401</td>
+                                        <td>4月上合约</td>
+                                        <td>2018-04-6</td>
+                                        <td>2018-04-6</td>
+                                        <td>2018-04-6</td>
+                                        <td>禁用</td>
+                                        <td>
+                                            <button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#myModal">编辑</button>
+                                            <button type="button" class="btn btn-success btn-xs">启用</button>
+                                        </td>
+                                    </tr>
+
+
+                                    </tbody>
+                                </table>
+
+                                <div class="pagination-col">
+                                <ul class="pagination">
+                                    <li><a href="#">&laquo;</a></li>
+                                    <li><a href="#">1</a></li>
+                                    <li><a href="#">2</a></li>
+                                    <li><a href="#">3</a></li>
+                                    <li><a href="#">4</a></li>
+                                    <li><a href="#">5</a></li>
+                                    <li><a href="#">&raquo;</a></li>
+                                </ul>
+                                </div>
+
+                            </div>
+                        </div>
+                    </section>
+
+                </div>
+            </div>
+
+        </section>
+    </section>
+    <!--main content end-->
+
+
+
+</section>
+
+
+<!-- 模态框（Modal） -->
+<div class="modal contract-modal fade" id="myModalAdd" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <form method="post">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">自定义合约设定</h4>
+            </div>
+            <div class="modal-body">
+
+
+                <div class="row">
+                    <div class="form-group col-lg-6">
+                        <label  class="control-label col-lg-4">品类：</label>
+                        <div class="col-lg-8">
+                            <select class="form-control">
+                                <option>MEG</option>
+                                <option>MEG</option>
+                                <option>MEG</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-lg-6">
+                        <label  class="control-label col-lg-4">合约代码：</label>
+                        <div class="col-lg-8">
+                            <select class="form-control">
+                                <option>180401</option>
+                                <option>180401</option>
+                                <option>180401</option>
+                            </select>
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <div class="row">
+
+                    <div class="form-group col-lg-6">
+                        <label  class="control-label col-lg-4">合约名称：</label>
+                        <div class="col-lg-8">
+                            <input class=" form-control" type="text">
+                        </div>
+                    </div>
+
+                    <div class="form-group col-lg-6">
+                        <label  class="control-label col-lg-4">追加保证金日：</label>
+                        <div class="col-lg-8">
+                            <input class=" form-control" type="text">
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row">
+
+                    <div class="form-group col-lg-6">
+                        <label  class="control-label col-lg-4">最后交易日：</label>
+                        <div class="col-lg-8">
+                            <input class=" form-control" type="text">
+                        </div>
+                    </div>
+
+                    <div class="form-group col-lg-6">
+                        <label  class="control-label col-lg-4">交收日：</label>
+                        <div class="col-lg-8">
+                            <input class=" form-control" type="text">
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row">
+
+                    <div class="form-group col-lg-6">
+                        <label  class="control-label col-lg-4">状态：</label>
+                        <div class="col-lg-8">
+                            <span class="radio-check-col">
+                            <input type="radio" name="status" /><label>启用</label>
+                            <input type="radio" name="status" /><label>禁用</label>
+                            </span>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="submit" class="btn btn-info">保存</button>
+            </div>
+
+
+            </form>
+
+
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+<!-- 模态框（Modal）结束 -->
+
+
+<!-- 模态框（Modal） -->
+<div class="modal fade contract-modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <form method="post">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">编辑</h4>
+                </div>
+                <div class="modal-body">
+
+
+                    <div class="row">
+                        <div class="form-group col-lg-6">
+                            <label  class="control-label col-lg-4">品类：</label>
+                            <div class="col-lg-8">
+                                MEG
+                            </div>
+                        </div>
+
+                        <div class="form-group col-lg-6">
+                            <label  class="control-label col-lg-4">合约代码：</label>
+                            <div class="col-lg-8">
+                                180401
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                    <div class="row">
+
+                        <div class="form-group col-lg-6">
+                            <label  class="control-label col-lg-4">合约名称：</label>
+                            <div class="col-lg-8">
+                                <input class=" form-control" type="text">
+                            </div>
+                        </div>
+
+                        <div class="form-group col-lg-6">
+                            <label  class="control-label col-lg-4">追加保证金日：</label>
+                            <div class="col-lg-8">
+                                <input class=" form-control" type="text">
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+
+                        <div class="form-group col-lg-6">
+                            <label  class="control-label col-lg-4">最后交易日：</label>
+                            <div class="col-lg-8">
+                                <input class=" form-control" type="text">
+                            </div>
+                        </div>
+
+                        <div class="form-group col-lg-6">
+                            <label  class="control-label col-lg-4">交收日：</label>
+                            <div class="col-lg-8">
+                                <input class=" form-control" type="text">
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+
+                        <div class="form-group col-lg-6">
+                            <label  class="control-label col-lg-4">状态：</label>
+                            <div class="col-lg-8">
+                            <span class="radio-check-col">
+                            <input type="radio" name="status" /><label>启用</label>
+                            <input type="radio" name="status" /><label>禁用</label>
+                            </span>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <button type="submit" class="btn btn-info">保存</button>
+                </div>
+
+
+            </form>
+
+
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+<!-- 模态框（Modal）结束 -->
+
+
+
+<script src="assets/lib/jquery.js"></script>
+<script src="assets/lib/bootstrap.min.js"></script>
+<script src="assets/lib/jquery.validate.min.js"></script>
+<script src="assets/lib/jquery.scrollTo.min.js"></script>
+<script src="assets/lib/bootstrap-datepicker.min.js"></script>
+<script src="assets/lib/bootstrap-datepicker.zh-CN.min.js"></script>
+
+<!--common script for all pages-->
+<script src="assets/lib/common-scripts.js"></script>
+
+<script>
+
+
+
+
+
+
+</script>
+
+</body>
+</html>

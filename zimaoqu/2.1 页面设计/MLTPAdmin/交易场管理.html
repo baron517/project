@@ -1,0 +1,491 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>交易场管理</title>
+
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/fonts/font-awesome.min.css" rel="stylesheet" />
+    <link href="assets/css/datepicker.css" rel="stylesheet">
+    <link href="assets/css/mltp.theme.css" rel="stylesheet">
+    <link href="assets/css/main.css" rel="stylesheet">
+
+
+</head>
+
+<body>
+
+<section id="container" class="">
+    <!--头部 开始-->
+
+    <header class="header blue-bg">
+        <div class="sidebar-toggle-box">
+            <i class="fa fa-bars"></i>
+        </div>
+
+        <!--logo start-->
+        <a href="index.html" class="logo" >MLTP 后台管理系统</a>
+        <!--logo end-->
+
+        <div class="nav notify-row" id="top_menu">
+
+        </div>
+        <div class="top-nav ">
+            <ul class="nav pull-right top-menu">
+
+                <!-- user login dropdown start-->
+                <li class="dropdown">
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                        <span class="username">管理员</span>
+                        <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu extended logout">
+                        <div class="log-arrow-up"></div>
+                        <li><a href="#">设置</a></li>
+                        <li><a href="#">修改密码</a></li>
+                        <li><a href="###">退出</a></li>
+                    </ul>
+                </li>
+
+            </ul>
+        </div>
+    </header>
+    <!--头部 结束-->
+
+    <!-- 菜单开始 -->
+    <aside>
+        <div id="sidebar"  class="nav-collapse ">
+            <!-- sidebar menu start-->
+            <ul class="sidebar-menu" id="nav-accordion">
+                <li>
+                    <a href="###">
+                        <i class="fa fa-home"></i>
+                        <span>首页</span>
+                    </a>
+                </li>
+
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-laptop"></i>
+                        <span>菜单一</span>
+                    </a>
+                    <ul class="sub">
+                        <li><a  href="###">子菜单</a></li>
+                        <li><a  href="###">子菜单</a></li>
+                        <li><a  href="###">子菜单</a></li>
+                        <li><a  href="###">子菜单</a></li>
+                        <li><a  href="###">子菜单</a></li>
+                    </ul>
+                </li>
+
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-book"></i>
+                        <span>菜单二</span>
+                    </a>
+                    <ul class="sub">
+                        <li><a  href="###">子菜单</a></li>
+                        <li><a  href="###">子菜单</a></li>
+                        <li><a  href="###">子菜单</a></li>
+                        <li><a  href="###">子菜单</a></li>
+                        <li><a  href="###">子菜单</a></li>
+                    </ul>
+                </li>
+
+
+
+            </ul>
+            <!-- sidebar menu end-->
+        </div>
+    </aside>
+    <!-- 菜单结束 -->
+
+
+
+    <!--main content start-->
+    <section id="main-content">
+        <section class="wrapper">
+
+            <ol class="breadcrumb">
+                <li><a href="#">交易管理</a></li>
+                <li class="active">交易场管理</li>
+            </ol>
+
+            <!-- page start-->
+            <div class="row">
+                <div class="col-lg-12">
+
+                    <section class="panel">
+                        <header class="panel-heading">
+                            交易场查询
+                        </header>
+
+                        <div class="panel-body form-inline search-col" >
+
+                            <div class="form-group">
+                                <label>交易场名称：</label>
+                                <input type="text" class="form-control" >
+
+
+                                <label>状态：</label>
+
+                                <select class="form-control">
+                                    <option>全部</option>
+                                    <option>启用</option>
+                                    <option>停止</option>
+                                </select>
+
+                                <button type="button" class="btn btn-info">查询</button>
+
+                                <button type="button" class="btn btn-success">新建</button>
+
+                            </div>
+
+
+
+
+
+
+                        </div>
+
+                    </section>
+
+
+                    <section class="panel">
+                        <header class="panel-heading">
+                            交易场列表 （共 xx 条 ）
+                        </header>
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-striped ">
+                                    <thead>
+                                    <tr>
+                                        <th>交易场名称</th>
+                                        <th>状态</th>
+                                        <th>有效时间</th>
+                                        <th>说明</th>
+                                        <th>操作</th>
+
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td>SM撮合交易</td>
+                                        <td>启用</td>
+                                        <td>2016-08-15 至 2020-08-15</td>
+                                        <td>XXXX</td>
+                                        <td><button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#myModal">编辑</button> <button type="button" class="btn btn-danger btn-xs">删除</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>SM撮合交易</td>
+                                        <td>启用</td>
+                                        <td>2016-08-15 至 2020-08-15</td>
+                                        <td>XXXX</td>
+                                        <td><button type="button" class="btn btn-info btn-xs">编辑</button> <button type="button" class="btn btn-danger btn-xs">删除</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>SM撮合交易</td>
+                                        <td>启用</td>
+                                        <td>2016-08-15 至 2020-08-15</td>
+                                        <td>XXXX</td>
+                                        <td><button type="button" class="btn btn-info btn-xs">编辑</button> <button type="button" class="btn btn-danger btn-xs">删除</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>SM撮合交易</td>
+                                        <td>启用</td>
+                                        <td>2016-08-15 至 2020-08-15</td>
+                                        <td>XXXX</td>
+                                        <td><button type="button" class="btn btn-info btn-xs">编辑</button> <button type="button" class="btn btn-danger btn-xs">删除</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>SM撮合交易</td>
+                                        <td>启用</td>
+                                        <td>2016-08-15 至 2020-08-15</td>
+                                        <td>XXXX</td>
+                                        <td><button type="button" class="btn btn-info btn-xs">编辑</button> <button type="button" class="btn btn-danger btn-xs">删除</button></td>
+                                    </tr>
+
+
+                                    </tbody>
+                                </table>
+
+                                <div class="pagination-col">
+                                <ul class="pagination">
+                                    <li><a href="#">&laquo;</a></li>
+                                    <li><a href="#">1</a></li>
+                                    <li><a href="#">2</a></li>
+                                    <li><a href="#">3</a></li>
+                                    <li><a href="#">4</a></li>
+                                    <li><a href="#">5</a></li>
+                                    <li><a href="#">&raquo;</a></li>
+                                </ul>
+                                </div>
+
+                            </div>
+                        </div>
+                    </section>
+
+                </div>
+            </div>
+
+        </section>
+    </section>
+    <!--main content end-->
+
+
+
+</section>
+
+
+<!-- 模态框（Modal） -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">编辑交易场</h4>
+            </div>
+            <div class="modal-body">
+
+
+
+                <div class="row">
+                    <div class="form-group col-lg-4">
+                        <label  class="control-label col-lg-4">交易场名称：</label>
+                        <div class="col-lg-8" id="test">
+                            <input class=" form-control" type="text" />
+
+                        </div>
+                    </div>
+
+                    <div class="form-group col-lg-8 text-center">
+
+                            <label class="label_radio r_on" for="radio-01">
+                                <input name="sample-radio" id="radio-01" value="1" type="radio" checked=""> 启用
+                            </label>
+                           &nbsp;&nbsp;&nbsp;&nbsp;
+                            <label class="label_radio r_off" for="radio-02">
+                                <input name="sample-radio" id="radio-02" value="1" type="radio"> 停用
+                            </label>
+
+                    </div>
+
+                </div>
+
+
+
+
+                <strong class="col-lg-12">交易场参数</strong>
+
+                <div class="row">
+                <div class="form-group col-lg-4">
+                    <label  class="control-label col-lg-4">交易场类型：</label>
+                    <div class="col-lg-8">
+                        <input class=" form-control" type="text">
+                    </div>
+                </div>
+
+                <div class="form-group col-lg-4">
+                    <label  class="control-label col-lg-4">品目：</label>
+                    <div class="col-lg-8">
+                        <input class=" form-control" type="text">
+                    </div>
+                </div>
+
+                <div class="form-group col-lg-4">
+                    <label  class="control-label col-lg-4">品目头寸：</label>
+                    <div class="col-lg-8">
+                        <input class=" form-control" type="text">
+                    </div>
+                </div>
+                </div>
+
+                <strong class="col-lg-12">&nbsp;&nbsp;有效日期</strong>
+
+                <div class="row">
+                    <div class="form-group col-lg-4">
+                        <label  class="control-label col-lg-4">起始日期：</label>
+                        <div class="col-lg-8">
+                            <input class="form-control datepicker" type="text">
+                        </div>
+                    </div>
+
+                    <div class="form-group col-lg-4">
+                        <label  class="control-label col-lg-4">结束日期：</label>
+                        <div class="col-lg-8">
+                            <input class=" form-control datepicker" type="text">
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <strong class="col-lg-12">开闭市时间</strong>
+
+                <div class="row">
+                    <div class="form-group col-lg-4">
+                        <label  class="control-label col-lg-4">开市时间：</label>
+                        <div class="col-lg-8">
+                            <input class="form-control date-time-picker" type="text">
+                        </div>
+                    </div>
+
+                    <div class="form-group col-lg-4">
+                        <label  class="control-label col-lg-4">闭市时间：</label>
+                        <div class="col-lg-8">
+                            <input class=" form-control" type="text">
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <strong class="col-lg-12">交易保证金</strong>
+
+                <div class="row">
+                    <div class="form-group col-lg-4">
+                        <label  class="control-label col-lg-4">交易场类型：</label>
+                        <div class="col-lg-8">
+                            <input class=" form-control" type="text">
+                        </div>
+                    </div>
+
+                    <div class="form-group col-lg-4">
+                        <label  class="control-label col-lg-4">品目：</label>
+                        <div class="col-lg-8">
+                            <input class=" form-control" type="text">
+                        </div>
+                    </div>
+
+                    <div class="form-group col-lg-4">
+                        <label  class="control-label col-lg-4">品目头寸：</label>
+                        <div class="col-lg-8">
+                            <input class=" form-control" type="text">
+                        </div>
+                    </div>
+                </div>
+
+
+                <strong class="col-lg-12">交收保证金</strong>
+
+                <div class="row">
+                    <div class="form-group col-lg-4">
+                        <label  class="control-label col-lg-4">交易场类型：</label>
+                        <div class="col-lg-8">
+                            <input class=" form-control" type="text">
+                        </div>
+                    </div>
+
+                    <div class="form-group col-lg-4">
+                        <label  class="control-label col-lg-4">品目：</label>
+                        <div class="col-lg-8">
+                            <input class=" form-control" type="text">
+                        </div>
+                    </div>
+
+                    <div class="form-group col-lg-4">
+                        <label  class="control-label col-lg-4">品目头寸：</label>
+                        <div class="col-lg-8">
+                            <input class=" form-control" type="text">
+                        </div>
+                    </div>
+                </div>
+                <strong class="col-lg-12">交易手续费</strong>
+
+                <div class="row">
+                    <div class="form-group col-lg-4">
+                        <label  class="control-label col-lg-4">交易场类型：</label>
+                        <div class="col-lg-8">
+                            <input class=" form-control" type="text">
+                        </div>
+                    </div>
+
+                    <div class="form-group col-lg-4">
+                        <label  class="control-label col-lg-4">品目：</label>
+                        <div class="col-lg-8">
+                            <input class=" form-control" type="text">
+                        </div>
+                    </div>
+
+                    <div class="form-group col-lg-4">
+                        <label  class="control-label col-lg-4">品目头寸：</label>
+                        <div class="col-lg-8">
+                            <input class=" form-control" type="text">
+                        </div>
+                    </div>
+                </div>
+                <strong class="col-lg-12">交收手续费</strong>
+
+                <div class="row">
+                    <div class="form-group col-lg-4">
+                        <label  class="control-label col-lg-4">手续费算法：</label>
+                        <div class="col-lg-8">
+                            <select class=" form-control">
+                                <option>按百分比</option>
+                                <option>按绝对值</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-lg-4">
+                        <label  class="control-label col-lg-4">品目：</label>
+                        <div class="col-lg-8">
+                            <input class=" form-control" type="text">
+                        </div>
+                    </div>
+
+                    <div class="form-group col-lg-4">
+                        <label  class="control-label col-lg-4">品目头寸：</label>
+                        <div class="col-lg-8">
+                            <input class=" form-control" type="text">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+
+                    <div class="form-group col-lg-12">
+                        <label class="col-lg-1">交易场说明</label>
+                        <textarea class="form-control" ></textarea>
+                    </div>
+
+                </div>
+
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-info">提交更改</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+<!-- 模态框（Modal）结束 -->
+
+
+
+<script src="assets/lib/jquery.js"></script>
+<script src="assets/lib/bootstrap.min.js"></script>
+
+<script src="assets/lib/jquery.scrollTo.min.js"></script>
+<script src="assets/lib/bootstrap-datepicker.min.js"></script>
+<script src="assets/lib/bootstrap-datepicker.zh-CN.min.js"></script>
+
+<!--common script for all pages-->
+<script src="assets/lib/common-scripts.js"></script>
+
+<script>
+
+    $('#myModal').on('shown.bs.modal', function () {
+
+        $("#test").append('<input class="form-control date-time-picker" type="text">')
+
+    })
+
+
+</script>
+
+</body>
+</html>

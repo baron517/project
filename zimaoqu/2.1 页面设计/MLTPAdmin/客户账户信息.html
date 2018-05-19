@@ -1,0 +1,309 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>客户账户信息</title>
+
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/fonts/font-awesome.min.css" rel="stylesheet" />
+    <link href="assets/css/datepicker.css" rel="stylesheet">
+    <link href="assets/css/mltp.theme.css" rel="stylesheet">
+    <link href="assets/css/main.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+<section id="container">
+    <!--头部 开始-->
+
+    <header class="header blue-bg">
+        <div class="sidebar-toggle-box">
+            <i class="fa fa-bars"></i>
+        </div>
+
+        <!--logo start-->
+        <a href="index.html" class="logo" >MLTP 后台管理系统</a>
+        <!--logo end-->
+
+        <div class="nav notify-row" id="top_menu">
+
+        </div>
+        <div class="top-nav ">
+            <ul class="nav pull-right top-menu">
+
+                <!-- user login dropdown start-->
+                <li class="dropdown">
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                        <span class="username">管理员</span>
+                        <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu extended logout">
+                        <div class="log-arrow-up"></div>
+                        <li><a href="#">设置</a></li>
+                        <li><a href="#">修改密码</a></li>
+                        <li><a href="###">退出</a></li>
+                    </ul>
+                </li>
+
+            </ul>
+        </div>
+    </header>
+    <!--头部 结束-->
+
+    <!-- 菜单开始 -->
+    <aside>
+        <div id="sidebar"  class="nav-collapse ">
+            <!-- sidebar menu start-->
+            <ul class="sidebar-menu" id="nav-accordion">
+                <li>
+                    <a href="###">
+                        <i class="fa fa-home"></i>
+                        <span>首页</span>
+                    </a>
+                </li>
+
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-laptop"></i>
+                        <span>菜单一</span>
+                    </a>
+                    <ul class="sub">
+                        <li><a  href="###">子菜单</a></li>
+                        <li><a  href="###">子菜单</a></li>
+                        <li><a  href="###">子菜单</a></li>
+                        <li><a  href="###">子菜单</a></li>
+                        <li><a  href="###">子菜单</a></li>
+                    </ul>
+                </li>
+
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-book"></i>
+                        <span>菜单二</span>
+                    </a>
+                    <ul class="sub">
+                        <li><a  href="###">子菜单</a></li>
+                        <li><a  href="###">子菜单</a></li>
+                        <li><a  href="###">子菜单</a></li>
+                        <li><a  href="###">子菜单</a></li>
+                        <li><a  href="###">子菜单</a></li>
+                    </ul>
+                </li>
+
+
+
+            </ul>
+            <!-- sidebar menu end-->
+        </div>
+    </aside>
+    <!-- 菜单结束 -->
+
+
+
+    <!--main content start-->
+    <section id="main-content">
+        <section class="wrapper">
+
+            <ol class="breadcrumb">
+                <li><a href="#">业务offline</a></li>
+                <li class="active">客户账户信息</li>
+            </ol>
+
+            <!-- page start-->
+            <div class="row">
+                <div class="col-lg-12">
+
+                    <section class="panel">
+                        <header class="panel-heading">
+                            结算查询
+
+                            <span class="info-col">结算价格最新更新时间：<span class="text-danger">2016-11-28      11：10</span></span>
+
+                        </header>
+
+                        <div class="panel-body form-inline search-col" >
+
+                            <div class="form-group">
+                                <label>客户名称：</label>
+                                <input type="text" class="form-control" >
+
+                                <label>客户编号：</label>
+                                <input type="text" class="form-control" >
+
+
+                                <label>账户状态：</label>
+
+                                <select class="form-control">
+                                    <option>全部</option>
+                                    <option>正常</option>
+                                    <option>冻结</option>
+                                </select>
+
+                                <button type="button" class="btn btn-info">查询</button>
+
+                            </div>
+
+
+
+
+
+
+                        </div>
+
+                    </section>
+
+
+                    <section class="panel">
+                        <header class="panel-heading">
+                            客户账户信息列表 （共 xx 条 ）
+                        </header>
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-striped ">
+                                    <thead>
+                                    <tr>
+                                        <th>客户名称</th>
+                                        <th>客户编号</th>
+                                        <th>账户状态</th>
+                                        <th>上日待补资金（元）</th>
+                                        <th class="table-price-col">
+                                            <div>上日结算</div>
+                                            <ul class="row">
+                                                <li class="col-sm-4">冻结保证金（元）</li>
+                                                <li class="col-sm-4">浮动盈亏（元）</li>
+                                                <li class="col-sm-4">可用资金（元）</li>
+                                            </ul>
+                                        </th>
+                                        <th class="table-price-col">
+                                            <div>当日结算</div>
+                                            <ul class="row">
+                                                <li class="col-sm-3">冻结保证金（元）</li>
+                                                <li class="col-sm-3">浮动盈亏（元）</li>
+                                                <li class="col-sm-3">可用资金（元）</li>
+                                                <li class="col-sm-3">风险度</li>
+                                            </ul>
+                                        </th>
+                                        <th>操作</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td>47924798</td>
+                                        <td>小明</td>
+                                        <td class="text-danger">冻结</td>
+                                        <td class="text-danger">300,000</td>
+
+                                        <td class="table-list-col">
+                                            <ul class="row">
+                                                <li class="col-sm-4">550,000</li>
+                                                <li class="text-success col-sm-4">-550,000</li>
+                                                <li class="col-sm-4">550,000</li>
+                                            </ul>
+                                        </td>
+
+                                        <td class="table-list-col">
+                                            <ul class="row">
+                                                <li class="col-sm-3">550,000</li>
+                                                <li class="text-success col-sm-3">-550,000</li>
+                                                <li class="col-sm-3">550,000</li>
+                                                <li class="col-sm-3">550,000</li>
+                                            </ul>
+                                        </td>
+
+                                        <td>
+                                            <button type="button" class="btn btn-success btn-xs">查看订单</button>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>47924798</td>
+                                        <td>小明</td>
+                                        <td>正常</td>
+                                        <td>300,000</td>
+
+                                        <td class="table-list-col">
+                                            <ul class="row">
+                                                <li class="col-sm-4">550,000</li>
+                                                <li class="text-success col-sm-4">-550,000</li>
+                                                <li class="col-sm-4">550,000</li>
+                                            </ul>
+                                        </td>
+
+                                        <td class="table-list-col">
+                                            <ul class="row">
+                                                <li class="col-sm-3">550,000</li>
+                                                <li class="text-danger col-sm-3">+550,000</li>
+                                                <li class="col-sm-3">550,000</li>
+                                                <li class="col-sm-3">550,000</li>
+                                            </ul>
+                                        </td>
+
+                                        <td>
+                                            <button type="button" class="btn btn-success btn-xs">查看订单</button>
+                                        </td>
+                                    </tr>
+
+
+
+                                    </tbody>
+                                </table>
+
+                                <div class="pagination-col">
+                                    <ul class="pagination">
+                                        <li><a href="#">&laquo;</a></li>
+                                        <li><a href="#">1</a></li>
+                                        <li><a href="#">2</a></li>
+                                        <li><a href="#">3</a></li>
+                                        <li><a href="#">4</a></li>
+                                        <li><a href="#">5</a></li>
+                                        <li><a href="#">&raquo;</a></li>
+                                    </ul>
+                                </div>
+
+                            </div>
+                        </div>
+                    </section>
+
+                </div>
+            </div>
+
+        </section>
+    </section>
+    <!--main content end-->
+
+
+
+</section>
+
+
+
+
+
+<script src="assets/lib/jquery.js"></script>
+<script src="assets/lib/bootstrap.min.js"></script>
+<script src="assets/lib/jquery.validate.min.js"></script>
+<script src="assets/lib/jquery.scrollTo.min.js"></script>
+<script src="assets/lib/bootstrap-datepicker.min.js"></script>
+<script src="assets/lib/bootstrap-datepicker.zh-CN.min.js"></script>
+
+<!--common script for all pages-->
+<script src="assets/lib/common-scripts.js"></script>
+
+<script>
+
+    $(function()
+    {
+        $("#addUserForm").validate();
+
+        $("#commentForm").validate();
+    });
+
+
+
+</script>
+
+</body>
+</html>

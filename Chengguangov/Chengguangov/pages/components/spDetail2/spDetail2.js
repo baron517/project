@@ -33,7 +33,8 @@ Page({
         rid: ridIndex,
         statusValue: idIndex,
         typestr:2,
-        erji: erji
+        erji: erji,
+        second_img:that.data.secondImg
       },
       success: function (res) {
         console.log("####");
@@ -84,7 +85,14 @@ Page({
         userInfo: userInfo
       })
     })
-
+    wx.getStorage({
+      key: 'userInfo',
+      success: function(res) {
+        that.setData({
+          uname : res.data[0].uname
+        })
+      },
+    })
 
 
     wx.getStorage({
@@ -108,8 +116,10 @@ Page({
             console.log("####");
             console.log(res.data);
             console.log("####");
+            var second = 'second_img'
             that.setData({
-              detail: res.data
+              detail: res.data.userList,
+              ['detail.'+second] : res.data.second_img
             })
 
           }

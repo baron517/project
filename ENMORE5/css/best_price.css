@@ -1,0 +1,224 @@
+.Public_main,
+.Public_header.PC {
+  margin-bottom: 0;
+}
+.setting {
+  width: 135px;
+  height: 50px;
+  background-color: #e4ecff;
+  color: #402426;
+  font-size: 14px;
+  text-indent: 1px;
+  border-radius: 25px ;
+  cursor: pointer;
+}
+.setting i {
+  float: right;
+  margin-right: 17px;
+  color: #0178e0;
+}
+.setting::before {
+  margin-right: 12px;
+}
+.price_details {
+  width: 1280px;
+  margin: -20px auto 0;
+}
+.price_details_xian {
+  margin-top: 30px;
+}
+.price_details_xian tr,
+.price_details_xian div {
+  height: 35px;
+  text-align: left;
+  text-indent: 20px;
+}
+.price_details_xian div {
+  line-height: 37px;
+  color: #0178e0;
+  font-weight: 900;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-bottom: none;
+  background-color: #fff;
+}
+.price_details_xian thead tr {
+  background-color: #f4f7fe;
+  border: 1px solid #ccc;
+}
+.price_details_xian thead tr th {
+  font-size: 14px;
+  font-weight: 900;
+}
+.price_details_xian tbody tr {
+  border: 1px solid #ccc;
+}
+.price_details_xian tbody tr td {
+  font-size: 14px;
+}
+.price_details_xian tbody tr td:nth-child(6) {
+  font-weight: 900;
+  color: #0178e0;
+}
+.price_details_xian tbody tr:nth-child(odd) {
+  background-color: #fff;
+}
+.price_details_xian tbody tr:nth-child(even) {
+  background-color: #f4f7fe;
+}
+tbody tr td:last-child {
+  cursor: pointer;
+}
+.PC_title {
+  padding-top: 10px;
+  height: 50px;
+}
+.PC_title > .fl {
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+}
+.masking {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0px;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  padding-top: 200px;
+}
+.masking > div {
+  margin: 0 auto;
+}
+.masking .masking_title {
+  height: 40px;
+  line-height: 40px;
+  border-top: 1px solid #f0eaec;
+  width: 1280px;
+  background-color: #fff;
+  box-sizing: border-box;
+  padding-left: 30px;
+  margin: 0 auto;
+}
+.masking .masking_title .fl {
+  border-bottom: none;
+  font-size: 13px;
+  font-weight: 900;
+  color: #0178e0;
+}
+.masking .masking_title .fr {
+  padding: 0 30px;
+  cursor: pointer;
+  border-bottom: none;
+}
+.masking table {
+  width: 1275px;
+  height: 363px;
+  margin: 0 auto;
+}
+.masking table tbody tr td {
+  font-size: 14px;
+}
+.masking table tr:nth-child(even) {
+  background-color: #fff;
+}
+.masking table tr:nth-child(odd) {
+  background-color: #f4f4f4;
+}
+.masking table tr {
+  height: 35px;
+}
+.masking table tr td:nth-child(1) {
+  text-indent: 30px;
+  color: #0178e0;
+}
+.masking_title1 {
+  height: 40px;
+  line-height: 40px;
+  border-top: 1px solid #f0eaec;
+  width: 1280px;
+  background-color: #fff;
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+.masking_title1 > span {
+  width: 142px;
+  display: inline-block;
+  text-align: left;
+  margin: 0;
+  font-size: 15px;
+  font-weight: 800;
+}
+.masking_title1 span:nth-child(1) {
+  text-indent: 30px;
+  width: 141px;
+}
+.masking_title1 span:nth-child(2) {
+  width: 141px;
+}
+.masking_title1 span:nth-child(3) {
+  width: 129px;
+}
+.masking_title1 span:nth-child(5) {
+  width: 139px;
+}
+#mask {
+  width: 1275px;
+  height: 400px;
+  margin: 0 auto;
+}
+.Modal {
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999999;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+.Modal .Modal_datils {
+  width: 1280px;
+  height: 300px;
+  margin: 200px auto;
+  background-color: #fff;
+  border-radius: 10px;
+  padding-top: 50px;
+  box-sizing: border-box;
+}
+.Modal .Modal_datils .genre {
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  width: 1000px;
+  margin: 10px auto;
+}
+.Modal .Modal_datils .genre span {
+  width: 125px;
+  height: 40px;
+  line-height: 40px;
+  float: left;
+  cursor: pointer;
+}
+.Modal .Modal_datils .genre span:nth-child(1) {
+  border-radius: 10px;
+  background-color: #e4ecff;
+  color: #000;
+}
+.Modal .Modal_datils div:last-child {
+  text-align: center;
+}
+.Modal .Modal_datils div:last-child i {
+  display: inline-block;
+  width: 125px;
+  height: 40px;
+  line-height: 40px;
+  background-color: #e4ecff;
+  border-radius: 10px;
+  font-size: 14px;
+  cursor: pointer;
+  color: #0178e0;
+}
+.Modal .Modal_datils div:last-child i:first-child {
+  margin-right: 30px;
+  background-color: #0178e0;
+}

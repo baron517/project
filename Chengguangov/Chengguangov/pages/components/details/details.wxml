@@ -25,7 +25,7 @@
 
 
 </view>
-      <picker bindchange="bindPickerChange" name="t_address" data-id='{{areadata}}' value="{{area             [areaIndex]}}" range="{{area}}">  
+      <picker bindchange="bindPickerChange" name="t_address" data-id='{{areadata}}' value="{{area[areaIndex]}}" range="{{area}}">  
              <view class="gaoxiao"> 
              <view class='gaoxiao-1'><image src='../../../image/mine.png'></image></view> 
     <input class='gaoxiao-2' value='{{area[areaIndex]}}' name="sname"  placeholder='所属中队'></input>

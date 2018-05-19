@@ -1,0 +1,148 @@
+.Public_main,
+.Public_header.PC {
+  margin-bottom: 0;
+}
+.current_time {
+  background-color: #f8f9fb;
+}
+.current_time ul {
+  margin: 0 auto  10px;
+  width: 1024px;
+  height: 97px;
+  padding: 20px 129px 20px 129px;
+  background-color: #f8f9fb;
+}
+.current_time ul li {
+  padding-left: 24px;
+  padding-right: 12px;
+  box-sizing: border-box;
+  height: 100%;
+  width: 227px;
+  margin-right: 38px;
+  padding-top: 16px;
+  background-color: #fff;
+  border: 1px solid #f0eaeb;
+}
+.current_time ul li p:nth-child(1) {
+  font-size: 14px;
+  font-weight: 800;
+}
+.current_time ul li p:nth-child(2) {
+  padding-top: 10px;
+  font-weight: 900;
+}
+.current_time ul li p:nth-child(2) .fl {
+  font-size: 20px;
+  color: red;
+}
+.current_time ul li p:nth-child(2) .fr {
+  margin-top: 4px;
+  font-size: 12px;
+  color: red;
+}
+.current_time ul li p:nth-child(3) {
+  margin-top: 8px;
+  font-size: 9px;
+  color: #CCC;
+}
+.current_time ul li:nth-child(4) {
+  margin-right: 0;
+}
+.USD {
+  margin-top: 50px;
+}
+.RMB,
+.USD {
+  width: 1024px;
+}
+.RMB div:nth-child(1),
+.USD div:nth-child(1) {
+  background-color: #f6f6f6;
+  height: 43px;
+  line-height: 43px;
+  padding: 0 32px;
+  border: 1px solid #ccc;
+}
+.RMB div:nth-child(1) .fl,
+.USD div:nth-child(1) .fl {
+  color: #0178e0;
+  font-weight: 900;
+  font-size: 14px;
+}
+.RMB div:nth-child(1) .fr,
+.USD div:nth-child(1) .fr {
+  cursor: pointer;
+}
+.RMB div:nth-child(1) .fr i,
+.USD div:nth-child(1) .fr i {
+  color: #000;
+  font-weight: 900;
+  font-size: 14px;
+}
+.RMB_details,
+.USD_details {
+  background-color: #fff;
+  padding-top: 27px;
+  padding-bottom: 27px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+table {
+  margin-top: 23px;
+  width: 970px;
+  border: 2px solid #ccc;
+}
+table .first_td {
+  background-color: #fff;
+  border: 2px solid #ccc;
+}
+table .last_td {
+  color: gold;
+  border: 2px solid #ccc;
+  background-color: #fff;
+}
+table th {
+  font-size: 14px;
+}
+table tr {
+  border: 2px solid #ccc;
+}
+table tr,
+table th {
+  background-color: #fff;
+  height: 35px;
+  text-align: center;
+}
+table thead {
+  border: 2px solid #ccc;
+}
+table tbody {
+  border: 2px solid #ccc;
+}
+table tbody tr:nth-child(odd) {
+  background-color: #f8f9fb;
+}
+table tbody tr:nth-child(even) {
+  background-color: #fff;
+}
+html {
+  background: #f8f9fb;
+}
+.current_time ul {
+  margin: 0 auto 10px;
+  width: 1282px;
+  height: 97px;
+  padding: 20px 0px 20px 0px;
+  background-color: #f8f9fb;
+}
+.current_time ul li {
+  width: 265px;
+  margin-right: 74px;
+}
+.RMB,
+.USD {
+  width: 1280px;
+}
+.Public_main {
+  background: #f8f9fb;
+}

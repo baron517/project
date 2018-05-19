@@ -1,5 +1,6 @@
  {
   "pages":[
+    "pages/logs/index",
     "pages/index/index",
     "pages/components/inquiry/inquiry",
     "pages/components/details/details",

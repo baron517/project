@@ -1,0 +1,635 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>成交订单</title>
+
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/fonts/font-awesome.min.css" rel="stylesheet" />
+    <link href="assets/css/datepicker.css" rel="stylesheet">
+    <link href="assets/lib/layer/skin/layer.css" rel="stylesheet">
+    <link href="assets/css/mltp.theme.css" rel="stylesheet">
+    <link href="assets/css/main.css" rel="stylesheet">
+
+
+</head>
+
+<body>
+
+<section id="container" class="">
+    <!--头部 开始-->
+
+    <header class="header blue-bg">
+        <div class="sidebar-toggle-box">
+            <i class="fa fa-bars"></i>
+        </div>
+
+        <!--logo start-->
+        <a href="index.html" class="logo" >MLTP 后台管理系统</a>
+        <!--logo end-->
+
+        <div class="nav notify-row" id="top_menu">
+
+        </div>
+        <div class="top-nav ">
+            <ul class="nav pull-right top-menu">
+
+                <!-- user login dropdown start-->
+                <li class="dropdown">
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                        <span class="username">管理员</span>
+                        <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu extended logout">
+                        <div class="log-arrow-up"></div>
+                        <li><a href="#">设置</a></li>
+                        <li><a href="#">修改密码</a></li>
+                        <li><a href="###">退出</a></li>
+                    </ul>
+                </li>
+
+            </ul>
+        </div>
+    </header>
+    <!--头部 结束-->
+
+    <!-- 菜单开始 -->
+    <aside>
+        <div id="sidebar"  class="nav-collapse ">
+            <!-- sidebar menu start-->
+            <ul class="sidebar-menu" id="nav-accordion">
+                <li>
+                    <a href="###">
+                        <i class="fa fa-home"></i>
+                        <span>首页</span>
+                    </a>
+                </li>
+
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-laptop"></i>
+                        <span>菜单一</span>
+                    </a>
+                    <ul class="sub">
+                        <li><a  href="###">子菜单</a></li>
+                        <li><a  href="###">子菜单</a></li>
+                        <li><a  href="###">子菜单</a></li>
+                        <li><a  href="###">子菜单</a></li>
+                        <li><a  href="###">子菜单</a></li>
+                    </ul>
+                </li>
+
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-book"></i>
+                        <span>菜单二</span>
+                    </a>
+                    <ul class="sub">
+                        <li><a  href="###">子菜单</a></li>
+                        <li><a  href="###">子菜单</a></li>
+                        <li><a  href="###">子菜单</a></li>
+                        <li><a  href="###">子菜单</a></li>
+                        <li><a  href="###">子菜单</a></li>
+                    </ul>
+                </li>
+
+
+
+            </ul>
+            <!-- sidebar menu end-->
+        </div>
+    </aside>
+    <!-- 菜单结束 -->
+
+
+
+    <!--main content start-->
+    <section id="main-content">
+        <section class="wrapper">
+
+            <ol class="breadcrumb">
+                <li><a href="#">成交订单</a></li>
+                <li class="active">成交订单</li>
+            </ol>
+
+            <!-- page start-->
+            <div class="row">
+
+                <div class="col-lg-12">
+
+                    <section class="panel">
+                        <header class="panel-heading">
+                            成交查询
+                        </header>
+
+                        <div class="panel-body form-inline search-col" >
+
+                            <div class="form-group">
+                                <label>成交时间：</label>
+                                <input type="text" class="form-control" >
+                                 -
+                                <input type="text" class="form-control" >
+
+                                <label>客户名称：</label>
+                                <input type="text" class="form-control" >
+
+                                <label>订单号：</label>
+                                <input type="text" class="form-control" >
+
+
+
+                                <button type="button" class="btn btn-info">查询</button>
+
+
+                            </div>
+
+
+
+
+
+
+                        </div>
+
+                    </section>
+
+
+                    <section class="panel">
+                        <header class="panel-heading">
+                            成交订单列表
+                        </header>
+                        <div class="table-main-col">
+
+
+                            <div class="panel-body left-col" style="min-height:810px;">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered table-striped ">
+                                        <thead>
+                                        <tr>
+                                            <th>订单号</th>
+                                            <th>品名</th>
+                                            <th>交收期</th>
+                                            <th>成交时间</th>
+                                            <th>上家客户</th>
+                                            <th>上家成交类型</th>
+                                            <th>下家客户</th>
+                                            <th>下家成交类型</th>
+                                            <th>数量（吨）</th>
+                                            <th>成交价格</th>
+
+
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+
+                                        <tr class="active">
+                                            <td>XXXXXXXXXXXXX</td>
+                                            <td>SM</td>
+                                            <td>2016-10 下</td>
+                                            <td>2016-11-12  10：15</td>
+                                            <td>卖方客户-联系人</td>
+                                            <td>开仓</td>
+                                            <td>买方客户-联系人</td>
+                                            <td>开仓</td>
+                                            <td>500</td>
+                                            <td>8000元/吨</td>
+
+                                        </tr>
+
+                                        <tr>
+                                            <td>XXXXXXXXXXXXX</td>
+                                            <td>SM</td>
+                                            <td>2016-10 下</td>
+                                            <td>2016-11-12  10：15</td>
+                                            <td>卖方客户-联系人</td>
+                                            <td>开仓</td>
+                                            <td>买方客户-联系人</td>
+                                            <td>开仓</td>
+                                            <td>500</td>
+                                            <td>8000元/吨</td>
+
+                                        </tr>
+
+                                        <tr>
+                                            <td>XXXXXXXXXXXXX</td>
+                                            <td>SM</td>
+                                            <td>2016-10 下</td>
+                                            <td>2016-11-12  10：15</td>
+                                            <td>卖方客户-联系人</td>
+                                            <td>开仓</td>
+                                            <td>买方客户-联系人</td>
+                                            <td>开仓</td>
+                                            <td>500</td>
+                                            <td>8000元/吨</td>
+
+                                        </tr>
+
+                                        <tr>
+                                            <td>XXXXXXXXXXXXX</td>
+                                            <td>SM</td>
+                                            <td>2016-10 下</td>
+                                            <td>2016-11-12  10：15</td>
+                                            <td>卖方客户-联系人</td>
+                                            <td>开仓</td>
+                                            <td>买方客户-联系人</td>
+                                            <td>开仓</td>
+                                            <td>500</td>
+                                            <td>8000元/吨</td>
+
+                                        </tr>
+
+                                        </tbody>
+                                    </table>
+
+
+                                    <div class="pagination-col">
+                                        <div id="Pagination" class="pagination">
+
+                                        </div>
+                                    </div>
+
+
+                                    <!-- <div class="pagination-col">
+
+                                         <ul class="pagination">
+                                             <li><a>&laquo;</a></li>
+                                             <li><a href="#">1</a></li>
+                                             <li><a href="#">2</a></li>
+                                             <li><a href="#">3</a></li>
+                                             <li><a href="#">4</a></li>
+                                             <li><a href="#">5</a></li>
+                                             <li><a href="#">&raquo;</a></li>
+                                         </ul>
+
+                                     </div>-->
+
+                                </div>
+                            </div>
+
+
+                            <div class="right-col">
+
+                                <div class="top-title"><div>订单信息</div></div>
+
+                                <ul>
+                                    <li><label>订单号：</label>XXXXXXXXXXX</li>
+                                    <li><label>品目：</label>1SM</li>
+                                    <li><label>交割期：</label>12016-11 下</li>
+                                    <li><label>单价：</label>17800元/吨</li>
+                                    <li><label>数量：</label>11000吨</li>
+                                    <li><label>总价：</label>17800000元</li>
+                                    <li><label>成交时间：</label>12016-11-10</li>
+                                    <li class="row-col"><label>备注：</label>10%保证金 库区 提单 进口货 免仓7天 手续费 3 元 / 吨</li>
+                                </ul>
+
+                                <ul>
+
+
+                                    <li class="text-danger" style="padding:5px 0;"><b>上家信息</b></li>
+                                    <li>卖方客户—联系人</li>
+                                    <li><label>PIC：</label>某某某</li>
+                                    <li><label>成交类型：</label>平仓</li>
+                                    <li><label>保证金释放：</label>3000元</li>
+                                    <li><label>手续费：</label>3000元</li>
+                                    <li><label>结算盈亏：</label>3000元</li>
+                                    <li><label>开仓时间：</label>2016-11-05</li>
+                                    <li><label>开仓价格：</label>7800元/吨</li>
+
+                                </ul>
+
+                                <ul>
+
+
+                                    <li class="text-danger" style="padding:5px 0;"><b>下家信息</b></li>
+                                    <li>买方客户—联系人</li>
+                                    <li><label>PIC：</label>某某某</li>
+                                    <li><label>成交类型：</label>平仓</li>
+                                    <li><label>保证金：</label>780000元</li>
+                                    <li><label>手续费：</label>3000元</li>
+                                    <li><label>结算盈亏：</label>20000元</li>
+                                    <li><label>开仓时间：</label>2016-11-05</li>
+                                    <li><label>开仓价格：</label>7800元/吨</li>
+
+
+                                </ul>
+
+                            </div>
+
+                        </div>
+                    </section>
+
+                </div>
+
+
+            </div>
+
+        </section>
+    </section>
+    <!--main content end-->
+
+
+
+</section>
+
+
+<!-- 模态框（Modal） -->
+<div class="modal fade" id="tradeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">成交明细</h4>
+            </div>
+
+            <ul id="step-list">
+                <li>
+                    <div class="modal-body">
+
+
+
+
+                        <div class="row">
+                            <div class="form-group col-lg-6">
+                                <label  class="control-label col-lg-4">交货时间：</label>
+                                <div class="col-lg-8">
+                                    <span class="text-col">3月下</span>
+                                </div>
+                            </div>
+                            <div class="form-group col-lg-6">
+                                <label  class="control-label col-lg-4">成交数量：</label>
+                                <div class="col-lg-8">
+                                    <span class="text-col">500吨</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-lg-6">
+                                <label  class="control-label col-lg-4">成交价格：</label>
+                                <div class="col-lg-8">
+                                    <input type="text" class="form-control">
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group col-lg-6">
+                                <label  class="control-label col-lg-4">上家客户：</label>
+                                <div class="col-lg-8">
+                                    <select class="form-control">
+                                        <option>卖方客户-联系人</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group col-lg-6">
+                                <label  class="control-label col-lg-4">下家客户：</label>
+                                <div class="col-lg-8">
+                                    <select class="form-control">
+                                        <option>买方客户-联系人</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group col-lg-6">
+                                <label  class="control-label col-lg-4">上家PIC：</label>
+                                <div class="col-lg-8">
+                                    <select class="form-control">
+                                        <option>默认报盘PIC</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group col-lg-6">
+                                <label  class="control-label col-lg-4">下家PIC：</label>
+                                <div class="col-lg-8">
+                                    <select class="form-control">
+                                        <option>默认报盘PIC</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group col-lg-6">
+                                <label  class="control-label col-lg-4">上家类型：</label>
+                                <div class="col-lg-8">
+                                    <span class="text-col">开仓</span>
+                                </div>
+                            </div>
+                            <div class="form-group col-lg-6">
+                                <label  class="control-label col-lg-4">下家PIC：</label>
+                                <div class="col-lg-8">
+
+                                    <label class="label_radio r_on" for="radio-03">
+                                        <input id="radio-03" name="type" checked type="radio"> 开仓
+                                    </label>
+                                    &nbsp;&nbsp;
+                                    <label class="label_radio r_on" for="radio-04">
+                                        <input id="radio-04" name="type" type="radio"> 平仓
+                                    </label>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <div class="row">
+                            <div class="form-group col-lg-6">
+                                <label  class="control-label col-lg-4">上家保证金：</label>
+                                <div class="col-lg-8">
+                                    <span class="text-col">冻结 120000 元（比例 10%）</span>
+                                </div>
+                            </div>
+                            <div class="form-group col-lg-6">
+                                <label  class="control-label col-lg-4">下家平仓单：</label>
+                                <div class="col-lg-8">
+                                    <select class="form-control">
+                                        <option>12300元/500吨</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group col-lg-6">
+                                <label  class="control-label col-lg-4">上家手续费：</label>
+                                <div class="col-lg-8">
+                                    <span class="text-col">5000 元（10 元/吨）</span>
+                                </div>
+                            </div>
+                            <div class="form-group col-lg-6">
+                                <label  class="control-label col-lg-4">下家手续费：</label>
+                                <div class="col-lg-8">
+                                    <span class="text-col">5000 元（10 元/吨）</span>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+
+                            <div class="form-group col-lg-12">
+                                <label  class="control-label col-lg-2" style="width:103px;">备注：</label>
+                                <div class="col-lg-8">
+                                    <textarea style="width:500px;height:80px;resize: none;"></textarea>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+
+
+
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                        <button type="button" class="btn btn-info" id="submitBtn">提交</button>
+                    </div>
+                </li>
+
+                <li style="display: none;">
+
+                    <div class="modal-body">
+
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <label  class="control-label col-lg-4">上家：</label>
+                                <div class="col-lg-8">
+                                    <span class="text-col">企业简称-联系人</span>
+                                </div>
+                            </div>
+                            <div class="col-lg-8">
+                                <label  class="control-label col-lg-2">PIC：</label>
+                                <div class="col-lg-10">
+                                    <span class="text-col">某某某<span class="text-danger" style="margin-left:10px;">开仓</span></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <label  class="control-label col-lg-4">下家：</label>
+                                <div class="col-lg-8">
+                                    <span class="text-col">企业简称-联系人</span>
+                                </div>
+                            </div>
+                            <div class="col-lg-8">
+                                <label  class="control-label col-lg-2">PIC：</label>
+                                <div class="col-lg-10">
+                                    <span class="text-col">某某某<span class="text-danger" style="margin-left:10px;">平仓 【2016-11-16】【7770 元 / 吨】</span></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <label  class="control-label col-lg-2" style="width: 65px;">细节：</label>
+                                <div class="col-lg-8">
+                                    <span class="text-col">品名 类型 交货时间 价格 数量T</span>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="bottom-col">
+
+                            <ul class="list-col">
+                                <li><strong>上家</strong> <label>保证金冻结：</label><span class="info-col">120000元</span>  <label>手续费：</label><span class="info-col">2000元</span></li>
+                                <li><strong>下家</strong> <label>保证金释放：</label><span class="info-col">120000元</span>  <label>手续费：</label><span class="info-col">2000元</span>
+                                    <label>结算盈亏：</label><span class="info-col">30000元</span>
+                                </li>
+                            </ul>
+                            <div class="text-center text-danger">确认成交后将冻结开仓保证金，释放平仓保证金并结算盈亏，扣除手续费。</div>
+
+                        </div>
+
+
+
+                    </div>
+
+
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                        <button type="button" class="btn btn-info" id="confirmSubmitBtn">确认成交</button>
+                    </div>
+
+                </li>
+
+            </ul>
+
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+<!-- 模态框（Modal）结束 -->
+
+
+
+<script src="assets/lib/jquery.js"></script>
+<script src="assets/lib/bootstrap.min.js"></script>
+
+<script src="assets/lib/jquery.scrollTo.min.js"></script>
+<script src="assets/lib/bootstrap-datepicker.min.js"></script>
+<script src="assets/lib/bootstrap-datepicker.zh-CN.min.js"></script>
+
+<!--common script for all pages-->
+<script src="assets/lib/common-scripts.js"></script>
+<script src="assets/lib/layer/layer.js"></script>
+<script src="assets/lib/jquery.pagination.js"></script>
+
+<script>
+
+    //分页
+    var initPagination = function() {
+        var num_entries =100;
+        // 创建分页
+        $("#Pagination").pagination(num_entries, {
+            num_edge_entries: 1, //边缘页数
+            num_display_entries: 4, //主体页数
+            callback: pageselectCallback,
+            items_per_page:1 //每页显示1项
+        });
+    }();
+
+    function pageselectCallback(page_index, jq){
+
+        //回调函数 写ajax 添加数据
+
+    }
+
+    $("#submitBtn").click(function()
+    {
+
+        $("#step-list>li").hide();
+        $("#step-list>li").eq(1).show();
+
+
+    });
+
+    $("#confirmSubmitBtn").click(function()
+    {
+
+        $('#tradeModal').modal('hide')
+        layer.alert("提交成功！");
+
+    });
+
+    $(".table-main-col .left-col .table tbody tr").click(function()
+    {
+        $(".table-main-col .left-col .table tbody tr").removeClass("active");
+        $(this).addClass("active");
+    })
+
+</script>
+
+
+</body>
+</html>

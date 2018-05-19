@@ -1,0 +1,634 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>企业管理</title>
+
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/fonts/font-awesome.min.css" rel="stylesheet" />
+    <link href="assets/css/datepicker.css" rel="stylesheet">
+    <link href="assets/css/mltp.theme.css" rel="stylesheet">
+    <link href="assets/css/jquery-ui.css" rel="stylesheet">
+    <link href="assets/css/main.css" rel="stylesheet">
+
+    <link href="assets/lib/chosen/chosen.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+<section id="container" class="">
+    <!--头部 开始-->
+
+    <header class="header blue-bg">
+        <div class="sidebar-toggle-box">
+            <i class="fa fa-bars"></i>
+        </div>
+
+        <!--logo start-->
+        <a href="index.html" class="logo" >MLTP 后台管理系统</a>
+        <!--logo end-->
+
+        <div class="nav notify-row" id="top_menu">
+
+        </div>
+        <div class="top-nav ">
+            <ul class="nav pull-right top-menu">
+
+                <!-- user login dropdown start-->
+                <li class="dropdown">
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                        <span class="username">管理员</span>
+                        <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu extended logout">
+                        <div class="log-arrow-up"></div>
+                        <li><a href="#">设置</a></li>
+                        <li><a href="#">修改密码</a></li>
+                        <li><a href="###">退出</a></li>
+                    </ul>
+                </li>
+
+            </ul>
+        </div>
+    </header>
+    <!--头部 结束-->
+
+    <!-- 菜单开始 -->
+    <aside>
+        <div id="sidebar"  class="nav-collapse ">
+            <!-- sidebar menu start-->
+            <ul class="sidebar-menu" id="nav-accordion">
+                <li>
+                    <a href="###">
+                        <i class="fa fa-home"></i>
+                        <span>首页</span>
+                    </a>
+                </li>
+
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-laptop"></i>
+                        <span>菜单一</span>
+                    </a>
+                    <ul class="sub">
+                        <li><a  href="###">子菜单</a></li>
+                        <li><a  href="###">子菜单</a></li>
+                        <li><a  href="###">子菜单</a></li>
+                        <li><a  href="###">子菜单</a></li>
+                        <li><a  href="###">子菜单</a></li>
+                    </ul>
+                </li>
+
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-book"></i>
+                        <span>菜单二</span>
+                    </a>
+                    <ul class="sub">
+                        <li><a  href="###">子菜单</a></li>
+                        <li><a  href="###">子菜单</a></li>
+                        <li><a  href="###">子菜单</a></li>
+                        <li><a  href="###">子菜单</a></li>
+                        <li><a  href="###">子菜单</a></li>
+                    </ul>
+                </li>
+
+
+
+            </ul>
+            <!-- sidebar menu end-->
+        </div>
+    </aside>
+    <!-- 菜单结束 -->
+
+
+
+    <!--main content start-->
+    <section id="main-content">
+        <section class="wrapper">
+
+            <ol class="breadcrumb">
+                <li><a href="#">企业管理</a></li>
+                <li class="active">企业管理</li>
+            </ol>
+
+            <!-- page start-->
+            <div class="row">
+                <div class="col-lg-12">
+
+                    <section class="panel">
+                        <header class="panel-heading">
+                            查询条件
+                        </header>
+
+                        <div class="panel-body form-inline search-col" >
+
+                            <div class="form-group">
+                                <label>企业编码：</label>
+                                <input id="companyNo" type="text" class="form-control" >
+
+                                <label>交易商名称：</label>
+
+
+                                <select data-placeholder="请选择" class="chosen-select form-control" tabindex="2">
+                                    <option value=""></option>
+                                    <option value="United States">United States</option>
+                                    <option value="United Kingdom">United Kingdom</option>
+                                    <option value="Afghanistan">Afghanistan</option>
+                                    <option value="Aland Islands">Aland Islands</option>
+                                    <option value="Albania">Albania</option>
+                                    <option value="Algeria">Algeria</option>
+                                    <option value="American Samoa">American Samoa</option>
+                                    <option value="Andorra">Andorra</option>
+                                    <option value="Angola">Angola</option>
+                                    <option value="Anguilla">Anguilla</option>
+                                    <option value="Antarctica">Antarctica</option>
+                                    <option value="Antigua and Barbuda">Antigua and Barbuda</option>
+                                    <option value="Argentina">Argentina</option>
+                                    <option value="Armenia">Armenia</option>
+                                    <option value="Aruba">Aruba</option>
+                                    <option value="Australia">Australia</option>
+                                    <option value="Austria">Austria</option>
+                                    <option value="Azerbaijan">Azerbaijan</option>
+                                    <option value="Bahamas">Bahamas</option>
+                                    <option value="Bahrain">Bahrain</option>
+                                    <option value="Bangladesh">Bangladesh</option>
+                                    <option value="Barbados">Barbados</option>
+                                    <option value="Belarus">Belarus</option>
+                                    <option value="Belgium">Belgium</option>
+                                    <option value="Belize">Belize</option>
+                                </select>
+
+                                <input type="text" class="form-control" >
+
+
+                                <select class="form-control">
+                                    <option>全部</option>
+                                    <option>履约保障</option>
+                                    <option>撮合</option>
+                                </select>
+
+                                <button type="button" class="btn btn-info">查询</button>
+
+                                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#addModal">新增</button>
+
+                            </div>
+
+
+
+
+
+
+                        </div>
+
+                    </section>
+
+
+                    <section class="panel">
+                        <header class="panel-heading">
+                            企业列表 （共 xx 条 ）
+                        </header>
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-striped ">
+                                    <thead>
+                                    <tr>
+                                        <th>序号</th>
+                                        <th>企业编码</th>
+                                        <th>企业简称</th>
+                                        <th>企业全称</th>
+                                        <th>状态</th>
+                                        <th>银企绑定状态</th>
+                                        <th>操作</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+
+                                    <tr>
+                                        <td>1</td>
+                                        <td>0000500</td>
+                                        <td>企业简称</td>
+                                        <td>企业名称企业名称</td>
+                                        <td class="text-info">启用</td>
+                                        <td><a class="link-text">已注册</a></td>
+                                        <td>
+                                            <button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#editModal">修改</button>
+                                            <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#settingModal">特殊设定</button>
+                                            <button type="button" class="btn btn-danger btn-xs">禁用</button>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>2</td>
+                                        <td>0000501</td>
+                                        <td>企业简称</td>
+                                        <td>企业名称企业名称</td>
+                                        <td class="text-danger">禁用</td>
+                                        <td>未注册</td>
+                                        <td>
+                                            <button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#editModal">修改</button>
+                                            <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#settingModal">特殊设定</button>
+                                            <button type="button" class="btn btn-danger btn-xs">禁用</button>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>2</td>
+                                        <td>0000501</td>
+                                        <td>企业简称</td>
+                                        <td>企业名称企业名称</td>
+                                        <td class="text-danger">禁用</td>
+                                        <td>已签约</td>
+                                        <td>
+                                            <button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#editModal">修改</button>
+                                            <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#settingModal">特殊设定</button>
+                                            <button type="button" class="btn btn-warning btn-xs">启用</button>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>2</td>
+                                        <td>0000501</td>
+                                        <td>企业简称</td>
+                                        <td>企业名称企业名称</td>
+                                        <td class="text-danger">禁用</td>
+                                        <td>已解约</td>
+                                        <td>
+                                            <button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#editModal">修改</button>
+                                            <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#settingModal">特殊设定</button>
+                                            <button type="button" class="btn btn-warning btn-xs">启用</button>
+                                        </td>
+                                    </tr>
+
+
+                                    </tbody>
+                                </table>
+
+
+                                <div class="pagination-col">
+                                    <div id="Pagination" class="pagination">
+
+                                    </div>
+                                </div>
+
+
+                               <!-- <div class="pagination-col">
+
+                                    <ul class="pagination">
+                                        <li><a>&laquo;</a></li>
+                                        <li><a href="#">1</a></li>
+                                        <li><a href="#">2</a></li>
+                                        <li><a href="#">3</a></li>
+                                        <li><a href="#">4</a></li>
+                                        <li><a href="#">5</a></li>
+                                        <li><a href="#">&raquo;</a></li>
+                                    </ul>
+
+                                </div>-->
+
+                            </div>
+                        </div>
+                    </section>
+
+                </div>
+            </div>
+
+        </section>
+    </section>
+    <!--main content end-->
+
+
+
+</section>
+
+
+<!-- 出金审核处理（Modal） -->
+<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">出金审核处理</h4>
+            </div>
+
+
+            <ul class="withdraw-col">
+
+                 <li>
+                <div class="modal-body">
+
+
+                    <div class="withdraw-col-top">
+                        <span class="active">盯市价格录入</span>
+                        <i class="fa fa-long-arrow-right"></i>
+                        <span>盯市价格录入</span>
+                        <i class="fa fa-long-arrow-right"></i>
+                        <span>盯市价格录入</span>
+                    </div>
+
+
+                    <div class="row">
+
+
+                        <div style="padding:8px 0 2px 50px;">请输入以下客户持仓合约的盯市价格：</div>
+
+                        <div class="clearfix">
+                            <div class="detail-col">
+                                <div class="detail-title"><span></span>SM</div>
+                                <div class="detail-list">
+                                    <div class="detail-list-col">
+                                        <span>1801合约</span><input type="text" /><span>元/吨</span>
+                                    </div>
+                                    <div class="detail-list-col">
+                                        <span>1801合约</span><input type="text" /><span>元/吨</span>
+                                    </div>
+                                    <div class="detail-list-col">
+                                        <span>1801合约</span><input type="text" /><span>元/吨</span>
+                                    </div>
+                                    <div class="detail-list-col">
+                                        <span>1801合约</span><input type="text" /><span>元/吨</span>
+                                    </div>
+                                    <div class="detail-list-col">
+                                        <span>1801合约</span><input type="text" /><span>元/吨</span>
+                                    </div>
+                                    <div class="detail-list-col">
+                                        <span>1801合约</span><input type="text" /><span>元/吨</span>
+                                    </div>
+                                    <div class="detail-list-col">
+                                        <span>1801合约</span><input type="text" /><span>元/吨</span>
+                                    </div>
+                                    <div class="detail-list-col">
+                                        <span>1801合约</span><input type="text" /><span>元/吨</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="detail-col">
+                                <div class="detail-title"><span></span>SM</div>
+                                <div class="detail-list">
+                                    <div class="detail-list-col">
+                                        <span>1801合约</span><input type="text" /><span>元/吨</span>
+                                    </div>
+                                    <div class="detail-list-col">
+                                        <span>1801合约</span><input type="text" /><span>元/吨</span>
+                                    </div>
+                                    <div class="detail-list-col">
+                                        <span>1801合约</span><input type="text" /><span>元/吨</span>
+                                    </div>
+                                    <div class="detail-list-col">
+                                        <span>1801合约</span><input type="text" /><span>元/吨</span>
+                                    </div>
+                                    <div class="detail-list-col">
+                                        <span>1801合约</span><input type="text" /><span>元/吨</span>
+                                    </div>
+                                    <div class="detail-list-col">
+                                        <span>1801合约</span><input type="text" /><span>元/吨</span>
+                                    </div>
+                                    <div class="detail-list-col">
+                                        <span>1801合约</span><input type="text" /><span>元/吨</span>
+                                    </div>
+                                    <div class="detail-list-col">
+                                        <span>1801合约</span><input type="text" /><span>元/吨</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="detail-col">
+                                <div class="detail-title"><span></span>SM</div>
+                                <div class="detail-list">
+                                    <div class="detail-list-col">
+                                        <span>1801合约</span><input type="text" /><span>元/吨</span>
+                                    </div>
+                                    <div class="detail-list-col">
+                                        <span>1801合约</span><input type="text" /><span>元/吨</span>
+                                    </div>
+                                    <div class="detail-list-col">
+                                        <span>1801合约</span><input type="text" /><span>元/吨</span>
+                                    </div>
+                                    <div class="detail-list-col">
+                                        <span>1801合约</span><input type="text" /><span>元/吨</span>
+                                    </div>
+                                    <div class="detail-list-col">
+                                        <span>1801合约</span><input type="text" /><span>元/吨</span>
+                                    </div>
+                                    <div class="detail-list-col">
+                                        <span>1801合约</span><input type="text" /><span>元/吨</span>
+                                    </div>
+                                    <div class="detail-list-col">
+                                        <span>1801合约</span><input type="text" /><span>元/吨</span>
+                                    </div>
+                                    <div class="detail-list-col">
+                                        <span>1801合约</span><input type="text" /><span>元/吨</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-info next-step">下一步</button>
+                </div>
+            </li>
+
+
+                <li style="display: none;">
+                    <div class="modal-body">
+
+
+                        <div class="withdraw-col-top">
+                            <span>盯市价格录入</span>
+                            <i class="fa fa-long-arrow-right"></i>
+                            <span class="active">盯市价格录入</span>
+                            <i class="fa fa-long-arrow-right"></i>
+                            <span>盯市价格录入</span>
+                        </div>
+
+
+
+
+                        <div style="width:600px;margin:0 auto;">
+
+                        <div class="row">
+
+
+                            <label class="label-text">申请出金金额：</label>
+                            <span><span class="text-danger">99,999,999</span>元</span>
+
+                            <label class="label-text">交易商子账户余额：</label>
+                            <span><span class="text-danger">99,999,999</span>元</span>
+
+
+                        </div>
+
+
+                        <div class="row middle-col">
+
+
+                                <div>
+                                <label class="label-text">申请出金金额：</label>
+                                <span><span class="text-success">-9,999,999</span>元</span>
+
+                                <label class="label-text">其他待补金额：</label>
+                                <span><span class="text-success">99,999,999</span>元</span>
+                                </div>
+                                 <div>
+                                <label class="label-text">申请出金金额：</label>
+                                <span><span class="text-success">-9,999,999</span>元</span>
+                                </div>
+
+
+
+                            </div>
+
+                        <div class="row">
+
+
+                                <label class="label-text">申请出金金额：</label>
+
+
+                                <span><span class="text-danger">99,999,999</span>元</span>
+
+
+                        </div>
+
+
+                        <div class="row">
+
+
+                                <label class="label-text">可出金金额：</label>
+
+                                <input type="text"><span style="margin:0 20px 0 5px;">元</span>
+
+                                <span>
+                                    <input  value="1" type="checkbox"> 确认需要部分出金
+                                </span>
+
+
+                        </div>
+
+                        </div>
+
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default prev-step">上一步</button>
+                        <button type="button" class="btn btn-info next-step">出金通过</button>
+                    </div>
+                </li>
+
+
+                <li style="display: none;">
+                    <div class="modal-body">
+
+
+                        <div class="withdraw-col-top">
+                            <span>盯市价格录入</span>
+                            <i class="fa fa-long-arrow-right"></i>
+                            <span class="active">盯市价格录入</span>
+                            <i class="fa fa-long-arrow-right"></i>
+                            <span>盯市价格录入</span>
+                        </div>
+
+
+
+
+                        <div style="width:500px;margin:0 auto;text-align: center;line-height: 24px;font-size:16px;">
+
+
+
+                            <div style="font-weight: bold;font-size:20px;padding:10px 0 16px 0;">出金审核处理完成。</div>
+
+                            <div>
+                            申请出金金额：99,999,999元
+                            </div>
+
+                            <div>
+                            确认出金金额：99,999,999元
+                            </div>
+
+
+                        </div>
+
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-info" data-dismiss="modal">关闭</button>
+                    </div>
+                </li>
+
+
+            </ul>
+
+
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+<!-- 出金审核处理（Modal）结束 -->
+
+
+
+<script src="assets/lib/jquery.js"></script>
+<script src="assets/lib/bootstrap.min.js"></script>
+
+<script src="assets/lib/jquery.scrollTo.min.js"></script>
+<script src="assets/lib/bootstrap-datepicker.min.js"></script>
+<script src="assets/lib/bootstrap-datepicker.zh-CN.min.js"></script>
+
+<!--common script for all pages-->
+<script src="assets/lib/common-scripts.js"></script>
+
+<script src="assets/lib/jquery.pagination.js"></script>
+
+<script src="assets/lib/jquery-ui.js"></script>
+
+<script src="assets/lib/chosen/chosen.jquery.min.js"></script>
+
+<script>
+
+
+    $(".chosen-select").chosen({disable_search_threshold: 10,width:100,allow_single_deselect:true});
+
+    //分页
+    var initPagination = function() {
+        var num_entries =100;
+        // 创建分页
+        $("#Pagination").pagination(num_entries, {
+            num_edge_entries: 1, //边缘页数
+            num_display_entries: 4, //主体页数
+            callback: pageselectCallback,
+            items_per_page:1 //每页显示1项
+        });
+    }();
+
+    function pageselectCallback(page_index, jq){
+
+        //回调函数 写ajax 添加数据
+
+    }
+
+    $(".next-step").click(function()
+    {
+
+        $(this).parent().parent().hide();
+        $(this).parent().parent().next().show();
+    });
+
+    $(".prev-step").click(function()
+    {
+
+
+        $(this).parent().parent().hide();
+        $(this).parent().parent().prev().show();
+
+    });
+
+
+</script>
+
+
+</body>
+</html>

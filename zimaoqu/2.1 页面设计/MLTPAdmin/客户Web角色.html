@@ -1,0 +1,332 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>客户Web角色</title>
+
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/fonts/font-awesome.min.css" rel="stylesheet" />
+    <link href="assets/css/datepicker.css" rel="stylesheet">
+    <link href="assets/css/mltp.theme.css" rel="stylesheet">
+    <link href="assets/css/main.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+<section id="container">
+    <!--头部 开始-->
+
+    <header class="header blue-bg">
+        <div class="sidebar-toggle-box">
+            <i class="fa fa-bars"></i>
+        </div>
+
+        <!--logo start-->
+        <a href="index.html" class="logo" >MLTP 后台管理系统</a>
+        <!--logo end-->
+
+        <div class="nav notify-row" id="top_menu">
+
+        </div>
+        <div class="top-nav ">
+            <ul class="nav pull-right top-menu">
+
+                <!-- user login dropdown start-->
+                <li class="dropdown">
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                        <span class="username">管理员</span>
+                        <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu extended logout">
+                        <div class="log-arrow-up"></div>
+                        <li><a href="#">设置</a></li>
+                        <li><a href="#">修改密码</a></li>
+                        <li><a href="###">退出</a></li>
+                    </ul>
+                </li>
+
+            </ul>
+        </div>
+    </header>
+    <!--头部 结束-->
+
+    <!-- 菜单开始 -->
+    <aside>
+        <div id="sidebar"  class="nav-collapse ">
+            <!-- sidebar menu start-->
+            <ul class="sidebar-menu" id="nav-accordion">
+                <li>
+                    <a href="###">
+                        <i class="fa fa-home"></i>
+                        <span>首页</span>
+                    </a>
+                </li>
+
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-laptop"></i>
+                        <span>菜单一</span>
+                    </a>
+                    <ul class="sub">
+                        <li><a  href="###">子菜单</a></li>
+                        <li><a  href="###">子菜单</a></li>
+                        <li><a  href="###">子菜单</a></li>
+                        <li><a  href="###">子菜单</a></li>
+                        <li><a  href="###">子菜单</a></li>
+                    </ul>
+                </li>
+
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-book"></i>
+                        <span>菜单二</span>
+                    </a>
+                    <ul class="sub">
+                        <li><a  href="###">子菜单</a></li>
+                        <li><a  href="###">子菜单</a></li>
+                        <li><a  href="###">子菜单</a></li>
+                        <li><a  href="###">子菜单</a></li>
+                        <li><a  href="###">子菜单</a></li>
+                    </ul>
+                </li>
+
+
+
+            </ul>
+            <!-- sidebar menu end-->
+        </div>
+    </aside>
+    <!-- 菜单结束 -->
+
+
+
+    <!--main content start-->
+    <section id="main-content">
+        <section class="wrapper">
+
+            <ol class="breadcrumb">
+                <li><a href="#">客户角色管理</a></li>
+                <li class="active">客户角色管理</li>
+            </ol>
+
+            <!-- page start-->
+            <div class="row">
+                <div class="col-lg-4">
+
+
+                    <section class="panel">
+                        <header class="panel-heading">
+                            角色列表
+                        </header>
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-striped role-table">
+                                    <thead>
+                                    <tr>
+
+                                        <th class="tc">查看权限</th>
+                                        <th>ID</th>
+                                        <th>角色名称</th>
+                                        <th>操作</th>
+
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td class="tc"><input name="permission" type="radio" checked /></td>
+                                        <td>1</td>
+                                        <td>角色1</td>
+                                        <td>
+                                            <button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#myModal">编辑</button>
+                                            <button type="button" class="btn btn-danger btn-xs">删除</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="tc"><input name="permission" type="radio"/></td>
+                                        <td>1</td>
+                                        <td>角色1</td>
+                                        <td>
+                                            <button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#myModal">编辑</button>
+                                            <button type="button" class="btn btn-danger btn-xs">删除</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="tc"><input name="permission" type="radio"/></td>
+                                        <td>1</td>
+                                        <td>角色1</td>
+                                        <td>
+                                            <button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#myModal">编辑</button>
+                                            <button type="button" class="btn btn-danger btn-xs">删除</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="tc"><input name="permission" type="radio"/></td>
+                                        <td>1</td>
+                                        <td>角色1</td>
+                                        <td>
+                                            <button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#myModal">编辑</button>
+                                            <button type="button" class="btn btn-danger btn-xs">删除</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="tc"><input name="permission" type="radio"/></td>
+                                        <td>1</td>
+                                        <td>角色1</td>
+                                        <td>
+                                            <button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#myModal">编辑</button>
+                                            <button type="button" class="btn btn-danger btn-xs">删除</button>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="tc"><input name="permission" type="radio"/></td>
+                                        <td>1</td>
+                                        <td>角色1</td>
+                                        <td>
+                                            <button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#myModal">编辑</button>
+                                            <button type="button" class="btn btn-danger btn-xs">删除</button>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="tc"><input name="permission" type="radio"/></td>
+                                        <td>1</td>
+                                        <td>角色1</td>
+                                        <td>
+                                            <button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#myModal">编辑</button>
+                                            <button type="button" class="btn btn-danger btn-xs">删除</button>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="tc"><input name="permission" type="radio"/></td>
+                                        <td>1</td>
+                                        <td>角色1</td>
+                                        <td>
+                                            <button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#myModal">编辑</button>
+                                            <button type="button" class="btn btn-danger btn-xs">删除</button>
+                                        </td>
+                                    </tr>
+
+
+
+
+                                    </tbody>
+                                </table>
+
+
+                            </div>
+                        </div>
+                    </section>
+
+                </div>
+                <div class="col-lg-8">
+
+
+                    <section class="panel">
+                        <header class="panel-heading">
+                            角色功能权限
+                        </header>
+                        <div class="panel-body">
+                            <div class="table-responsive">
+
+                                <ul>
+                                    <li>
+                                        <label class="label_radio r_on" for="radio1">
+                                            <input id="radio1" value="1" type="checkbox"> 管理员1
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <label class="label_radio r_on" for="radio2">
+                                            <input id="radio2" value="1" type="checkbox"> 管理员2
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <label class="label_radio r_on" for="radio3">
+                                            <input id="radio3" value="1" type="checkbox"> 管理员3
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <label class="label_radio r_on" for="radio4">
+                                            <input id="radio4" value="1" type="checkbox"> 管理员4
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <label class="label_radio r_on" for="radio5">
+                                            <input id="radio5" value="1" type="checkbox"> 管理员5
+                                        </label>
+                                    </li>
+
+                                </ul>
+
+
+                            </div>
+                        </div>
+                    </section>
+
+                </div>
+
+            </div>
+
+        </section>
+    </section>
+    <!--main content end-->
+
+
+
+</section>
+
+
+<!-- 模态框（Modal） -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">编辑角色</h4>
+            </div>
+            <div class="modal-body">
+
+
+
+                <div class="row">
+
+                    <div class="form-group col-lg-6">
+                        <label  class="control-label col-lg-4">角色名称：</label>
+                        <div class="col-lg-8">
+                            <input class=" form-control" type="text" />
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-info">提交更改</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+<!-- 模态框（Modal）结束 -->
+
+
+
+<script src="assets/lib/jquery.js"></script>
+<script src="assets/lib/bootstrap.min.js"></script>
+
+<script src="assets/lib/jquery.scrollTo.min.js"></script>
+<script src="assets/lib/bootstrap-datepicker.min.js"></script>
+<script src="assets/lib/bootstrap-datepicker.zh-CN.min.js"></script>
+
+<!--common script for all pages-->
+<script src="assets/lib/common-scripts.js"></script>
+
+</body>
+</html>

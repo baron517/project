@@ -14,7 +14,9 @@
 					<tr>
 						<th width="50">ID</th>
 						<th>姓名</th>
+						<th>手机号码</th>
 						<th>所属中队</th>
+						<th>微信昵称</th>
 						<th width="150">是否为第一审核员</th>
 						<th width="150">是否为高级审核员</th>
 						<th>操作</th>
@@ -25,7 +27,9 @@
 					<tr>
 						<td>{$vo.uid}</td>
 						<td>{$vo.uname}</td>
+						<td>{$vo.phone}</td>
 						<td>{$vo.udepartment}</td>
+						<td>{$vo.nickname}</td>
 						<td>{$ufrist[$vo['ufrist_auditor']]}</td>
 						<td>{$usenior[$vo['usenior_auditor']]}</td>
 						<td>

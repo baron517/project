@@ -9,10 +9,10 @@
           <navigator url="../details/details">
      <view class='config'>
      <view class='config-box'>
-     <view class='config-icon'>
+     <!--<view class='config-icon'>
      <image src="/image/config.png"></image>
      </view>
-     <view class='config-text'>编辑资料</view>
+     <view class='config-text'>编辑资料</view>-->
 </view>
      </view>
       </navigator>
@@ -28,8 +28,8 @@
       
        </view>  
       </navigator>
-
-	  <navigator url="../quan/quan">
+<!--  -->
+	  <navigator url="../quan/quan" wx:if='{{test.ufrist_auditor=="1"}}'>
         <view class="picute">
          <image class="inco" src="/image/jilu.png"></image>
          <view class="text">
@@ -40,7 +40,7 @@
       </navigator>
 
 
-       <navigator url="../quan2/quan2">
+       <navigator url="../quan2/quan2" wx:if='{{test.usenior_auditor=="1"}}'>
         <view class="picute">
          <image class="inco" src="/image/jilu.png"></image>
          <view class="text">

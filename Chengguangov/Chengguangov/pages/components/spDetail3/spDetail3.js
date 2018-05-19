@@ -2,6 +2,7 @@
 var app = getApp()
 Page({
   data: {
+    api: 'https://chengguangov.diguikeji.com/data/upload/',
     detail:'',
     rid:'',
     approvalIndex: 0,
@@ -22,7 +23,15 @@ Page({
 
 
     var that=this;
-
+    var first = that.data.api + that.data.frist_img;
+    var second = that.data.api + that.data.second_img
+    var detail = that.data.detail;
+    detail.frist_img = first;
+    detail.second_img = second;
+    var newJson = JSON.stringify(detail)
+    console.log('--------')
+    console.log(detail)
+    console.log('--------')
     wx.request({
       url: 'https://chengguangov.diguikeji.com/shengchengDoc/wordHandle.php',
       method: "GET",
@@ -30,10 +39,7 @@ Page({
         'content-type': 'application/json'
       },
       data: {
-        rid: ridIndex,
-        statusValue: idIndex,
-        typestr:1,
-        erji: erji
+        detail:newJson
       },
       success: function (res) {
 		  
@@ -41,35 +47,50 @@ Page({
         console.log(res.data);
         console.log("测试测试");
 			
-		 wx.showModal({
-			title: '提示',
-			content: '测试版暂时不支持下载功能',
-			success: function (res) {
-			  if (res.confirm) {
-				console.log('用户点击确定')
-			  }
-			}
-		  })
-			
-		/*
-        if (res.data)
+		    if (res.data)
         {
-			  wx.downloadFile({
-			  url: 'res.data', //仅为示例，并非真实的资源
-			  success: function(res) {
-			
-				if (res.statusCode === 200) {
-					wx.playVoice({
-					  filePath: res.tempFilePath
-					})
-				}
-			  }
-			})
 
-        }
-		*/
-        
+          console.log("######123");
 
+          wx.downloadFile({
+            url: res.data, //仅为示例，并非真实的资源
+            success: function (res) {
+
+              console.log(res.tempFilePath);
+
+              if (res.statusCode === 200) {
+
+
+                wx.saveFile({
+                  tempFilePath: res.tempFilePath,
+                  success: function (res) {
+                    var savedFilePath = res.savedFilePath;
+                    console.log("保存成功");
+                    wx.showModal({
+                      title: '下载成功',
+                      content: '点击确定打开文件，请自行利用手机截图功能进行截图以后打印(可以使用两只手指将表格放大)',
+                      success: function (res) {
+
+                        if (res.confirm) {
+                          console.log('用户点击确定')
+                          wx.openDocument({
+                            filePath: savedFilePath,
+                            success:function(){
+                              console.log('打开成功')
+                            }
+                          })
+                        }
+                      }
+                    })
+                    console.log("###"+savedFilePath);
+                  }
+                })
+
+              }
+            }
+          })
+
+         }
       }
     })
 
@@ -119,7 +140,9 @@ Page({
             console.log(res.data);
             console.log("####");
             that.setData({
-              detail: res.data
+              frist_img: res.data.frist_img,
+              second_img: res.data.second_img,
+              detail: res.data.userList
             })
 
           }

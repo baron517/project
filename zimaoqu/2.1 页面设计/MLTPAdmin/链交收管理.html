@@ -1,0 +1,1063 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>链交收管理</title>
+
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/fonts/font-awesome.min.css" rel="stylesheet" />
+    <link href="assets/css/datepicker.css" rel="stylesheet">
+    <link href="assets/css/mltp.theme.css" rel="stylesheet">
+    <link href="assets/css/jquery-ui.css" rel="stylesheet">
+    <link href="assets/css/main.css" rel="stylesheet">
+
+    <link href="assets/lib/chosen/chosen.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+<section id="container" class="">
+    <!--头部 开始-->
+
+    <header class="header blue-bg">
+        <div class="sidebar-toggle-box">
+            <i class="fa fa-bars"></i>
+        </div>
+
+        <!--logo start-->
+        <a href="index.html" class="logo" >MLTP 后台管理系统</a>
+        <!--logo end-->
+
+        <div class="nav notify-row" id="top_menu">
+
+        </div>
+        <div class="top-nav ">
+            <ul class="nav pull-right top-menu">
+
+                <!-- user login dropdown start-->
+                <li class="dropdown">
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                        <span class="username">管理员</span>
+                        <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu extended logout">
+                        <div class="log-arrow-up"></div>
+                        <li><a href="#">设置</a></li>
+                        <li><a href="#">修改密码</a></li>
+                        <li><a href="###">退出</a></li>
+                    </ul>
+                </li>
+
+            </ul>
+        </div>
+    </header>
+    <!--头部 结束-->
+
+    <!-- 菜单开始 -->
+    <aside>
+        <div id="sidebar"  class="nav-collapse ">
+            <!-- sidebar menu start-->
+            <ul class="sidebar-menu" id="nav-accordion">
+                <li>
+                    <a href="###">
+                        <i class="fa fa-home"></i>
+                        <span>首页</span>
+                    </a>
+                </li>
+
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-laptop"></i>
+                        <span>菜单一</span>
+                    </a>
+                    <ul class="sub">
+                        <li><a  href="###">子菜单</a></li>
+                        <li><a  href="###">子菜单</a></li>
+                        <li><a  href="###">子菜单</a></li>
+                        <li><a  href="###">子菜单</a></li>
+                        <li><a  href="###">子菜单</a></li>
+                    </ul>
+                </li>
+
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-book"></i>
+                        <span>菜单二</span>
+                    </a>
+                    <ul class="sub">
+                        <li><a  href="###">子菜单</a></li>
+                        <li><a  href="###">子菜单</a></li>
+                        <li><a  href="###">子菜单</a></li>
+                        <li><a  href="###">子菜单</a></li>
+                        <li><a  href="###">子菜单</a></li>
+                    </ul>
+                </li>
+
+
+
+            </ul>
+            <!-- sidebar menu end-->
+        </div>
+    </aside>
+    <!-- 菜单结束 -->
+
+
+
+    <!--main content start-->
+    <section id="main-content">
+        <section class="wrapper">
+
+            <ol class="breadcrumb">
+                <li><a href="#">链交收管理</a></li>
+                <li class="active">链交收管理</li>
+            </ol>
+
+            <!-- page start-->
+            <div class="row">
+                <div class="col-lg-12">
+
+                    <section class="panel">
+                        <header class="panel-heading">
+                            查询条件
+                        </header>
+
+                        <div class="panel-body form-inline search-col" >
+
+                            <div class="form-group">
+
+
+                                <ul class="top-table-tab clearfix">
+                                    <li class="active">交收链条待生成<div>（999）</div></li>
+                                    <li>交收链条待发送<div>（999）</div></li>
+                                    <li>交收中-待确认仓单<div>（999）</div></li>
+                                    <li>交收中-待支付<div>（999）</div></li>
+                                    <li>交收中-待过户<div>（999）</div></li>
+
+                                    <li>交收异常<div>（999）</div></li>
+                                    <li>交收完成<div>（999）</div></li>
+                                </ul>
+
+
+                            </div>
+
+
+
+
+
+
+                        </div>
+
+                    </section>
+
+
+                    <section class="panel">
+                        <header class="panel-heading">
+                            企业列表 （共 xx 条 ）
+                        </header>
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-striped ">
+                                    <thead>
+                                    <tr>
+                                        <th><input type="checkbox" /></th>
+                                        <th>交易链编号</th>
+                                        <th>链头客户（出货）</th>
+                                        <th>链尾客户（出钱）</th>
+                                        <th>品名</th>
+                                        <th>交收期</th>
+
+
+                                        <th>交收标准<br/> （吨/笔）</th>
+                                        <th>交易链图</th>
+                                        <th>链/环</th>
+                                        <th>操作</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+
+                                    <tr>
+                                        <td><input type="checkbox" /></td>
+                                        <td>XXXXXXX</td>
+                                        <td>客户名称-联系人<div class="text-info">QB123456</div></td>
+                                        <td>客户名称-联系人<div class="text-info">QB123456</div></td>
+                                        <td>MEG</td>
+                                        <td>1712</td>
+                                        <td>500</td>
+                                        <td>
+                                            <a style="cursor: pointer;" data-toggle="modal" data-target="#tradeChainModal"><i class="fa fa-link text-info"></i></a>
+                                        </td>
+                                        <td class="text-danger">环</td>
+                                        <td>
+                                            <button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#generateChainModal">生成交收链</button>
+                                            <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#breachModal">违约处理</button>
+                                        </td>
+                                    </tr>
+
+
+                                    </tbody>
+                                </table>
+
+
+                                <div class="pagination-col">
+                                    <div id="Pagination" class="pagination">
+
+                                    </div>
+                                </div>
+
+
+                               <!-- <div class="pagination-col">
+
+                                    <ul class="pagination">
+                                        <li><a>&laquo;</a></li>
+                                        <li><a href="#">1</a></li>
+                                        <li><a href="#">2</a></li>
+                                        <li><a href="#">3</a></li>
+                                        <li><a href="#">4</a></li>
+                                        <li><a href="#">5</a></li>
+                                        <li><a href="#">&raquo;</a></li>
+                                    </ul>
+
+                                </div>-->
+
+                            </div>
+                        </div>
+                    </section>
+
+                </div>
+            </div>
+
+        </section>
+    </section>
+    <!--main content end-->
+
+
+
+</section>
+
+
+
+<div class="modal fade" id="tradeChainModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="width:1000px;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">交易链图</h4>
+            </div>
+            <div class="modal-body">
+
+
+
+
+                <div class="trade-chain-col clearfix">
+
+
+
+                    <div class="detail-col">
+                        <div class="detail-col-top">
+
+                                <span class="operate-col">
+                                <i class="add">+</i>
+                                <i class="remove">×</i>
+                                </span>
+
+                            <div class="detail-col-text">
+                                <div>DL180116133453787260</div>
+                                <div>18-11-01 15:16:01</div>
+                            </div>
+
+                            <div class="clearfix">
+                                <div class="col-lg-6">
+                                    远大能化
+                                    <div>（卖出）</div>
+                                </div>
+                                <div class="col-lg-6">
+                                    江苏益顺泰
+                                    <div>（买入）</div>
+                                </div>
+                            </div>
+                        </div>
+                        <span class="circle-col">1</span>
+                    </div>
+                    <div class="detail-col">
+                        <div class="detail-col-top second">
+
+                                <span class="operate-col">
+                                <i class="add">+</i>
+                                <i class="remove">×</i>
+                                </span>
+
+                            <div class="detail-col-text">
+                                <div>DL180116133453787260</div>
+                                <div>18-11-01 15:16:01</div>
+                            </div>
+
+                            <div class="clearfix">
+                                <div class="col-lg-6">
+                                    远大能化
+                                    <div>（卖出）</div>
+                                </div>
+                                <div class="col-lg-6">
+                                    江苏益顺泰
+                                    <div>（买入）</div>
+                                </div>
+                            </div>
+                        </div>
+                        <span class="circle-col">2</span>
+                    </div>
+                    <div class="detail-col">
+                        <div class="detail-col-top">
+
+                                <span class="operate-col">
+                                <i class="add">+</i>
+                                <i class="remove">×</i>
+                                </span>
+
+                            <div class="detail-col-text">
+                                <div>DL180116133453787260</div>
+                                <div>18-11-01 15:16:01</div>
+                            </div>
+
+                            <div class="clearfix">
+                                <div class="col-lg-6">
+                                    远大能化远大能化远大能化
+                                    <div>（卖出）</div>
+                                </div>
+                                <div class="col-lg-6">
+                                    江苏益顺泰远大能化
+                                    <div>（买入）</div>
+                                </div>
+                            </div>
+                        </div>
+                        <span class="circle-col">3</span>
+                    </div>
+                    <div class="detail-col">
+                        <div class="detail-col-top">
+
+                                <span class="operate-col">
+                                <i class="add">+</i>
+                                <i class="remove">×</i>
+                                </span>
+
+                            <div class="detail-col-text">
+                                <div>DL180116133453787260</div>
+                                <div>18-11-01 15:16:01</div>
+                            </div>
+
+                            <div class="clearfix">
+                                <div class="col-lg-6">
+                                    远大能化
+                                    <div>（卖出）</div>
+                                </div>
+                                <div class="col-lg-6">
+                                    江苏益顺泰
+                                    <div>（买入）</div>
+                                </div>
+                            </div>
+                        </div>
+                        <span class="circle-col">4</span>
+                    </div>
+                    <div class="detail-col">
+                        <div class="detail-col-top">
+
+                                <span class="operate-col">
+                                <i class="add">+</i>
+                                <i class="remove">×</i>
+                                </span>
+
+                            <div class="detail-col-text">
+                                <div>DL180116133453787260</div>
+                                <div>18-11-01 15:16:01</div>
+                            </div>
+
+                            <div class="clearfix">
+                                <div class="col-lg-6">
+                                    远大能化
+                                    <div>（卖出）</div>
+                                </div>
+                                <div class="col-lg-6">
+                                    江苏益顺泰
+                                    <div>（买入）</div>
+                                </div>
+                            </div>
+                        </div>
+                        <span class="circle-col">5</span>
+                    </div>
+                    <div class="detail-col">
+                        <div class="detail-col-top">
+
+                                <span class="operate-col">
+                                <i class="add">+</i>
+                                <i class="remove">×</i>
+                                </span>
+
+                            <div class="detail-col-text">
+                                <div>DL180116133453787260</div>
+                                <div>18-11-01 15:16:01</div>
+                            </div>
+
+                            <div class="clearfix">
+                                <div class="col-lg-6">
+                                    远大能化
+                                    <div>（卖出）</div>
+                                </div>
+                                <div class="col-lg-6">
+                                    江苏益顺泰
+                                    <div>（买入）</div>
+                                </div>
+                            </div>
+                        </div>
+                        <span class="circle-col">6</span>
+                    </div>
+                    <div class="detail-col">
+                        <div class="detail-col-top">
+
+                                <span class="operate-col">
+                                <i class="add">+</i>
+                                <i class="remove">×</i>
+                                </span>
+
+                            <div class="detail-col-text">
+                                <div>DL180116133453787260</div>
+                                <div>18-11-01 15:16:01</div>
+                            </div>
+
+                            <div class="clearfix">
+                                <div class="col-lg-6">
+                                    远大能化
+                                    <div>（卖出）</div>
+                                </div>
+                                <div class="col-lg-6">
+                                    江苏益顺泰
+                                    <div>（买入）</div>
+                                </div>
+                            </div>
+                        </div>
+                        <span class="circle-col">7</span>
+                    </div>
+                    <div class="detail-col">
+                        <div class="detail-col-top">
+
+                                <span class="operate-col">
+                                <i class="add">+</i>
+                                <i class="remove">×</i>
+                                </span>
+
+                            <div class="detail-col-text">
+                                <div>DL180116133453787260</div>
+                                <div>18-11-01 15:16:01</div>
+                            </div>
+
+                            <div class="clearfix">
+                                <div class="col-lg-6">
+                                    远大能化
+                                    <div>（卖出）</div>
+                                </div>
+                                <div class="col-lg-6">
+                                    江苏益顺泰
+                                    <div>（买入）</div>
+                                </div>
+                            </div>
+                        </div>
+                        <span class="circle-col">8</span>
+                    </div>
+
+
+
+
+
+                </div>
+
+
+
+
+
+            </div>
+
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+
+<div class="modal fade" id="generateChainModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="width:800px;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">手动配对交收链条</h4>
+            </div>
+            <div class="modal-body">
+
+
+                <table class="modal-table">
+                    <thead>
+                        <tr>
+                            <th>交易链编号</th>
+                            <th>链头客户（出货）</th>
+                            <th>链尾客户（出钱）</th>
+                            <th>成交笔数</th>
+                            <th>链/环</th>
+                            <th>特殊指定</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>XXXXXXX</td>
+                            <td>客户名称-联系人<div class="text-info">QB123456</div></td>
+                            <td>客户名称-联系人<div class="text-info">QB123456</div></td>
+                            <td>10</td>
+                            <td>环</td>
+                            <td>
+                                <span class="radio-list">
+                                <input type="radio" /><label>任意</label>
+                                <input type="radio" /><label>出货</label>
+                                <input type="radio" /><label>出款</label>
+                                </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>XXXXXXX</td>
+                            <td>客户名称-联系人<div class="text-info">QB123456</div></td>
+                            <td>客户名称-联系人<div class="text-info">QB123456</div></td>
+                            <td>10</td>
+                            <td>环</td>
+                            <td>
+                                <span class="radio-list">
+                                <input type="radio" /><label>任意</label>
+                                <input type="radio" /><label>出货</label>
+                                <input type="radio" /><label>出款</label>
+                                </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>XXXXXXX</td>
+                            <td>客户名称-联系人<div class="text-info">QB123456</div></td>
+                            <td>客户名称-联系人<div class="text-info">QB123456</div></td>
+                            <td>10</td>
+                            <td>环</td>
+                            <td>
+                                <span class="radio-list">
+                                <input type="radio" /><label>任意</label>
+                                <input type="radio" /><label>出货</label>
+                                <input type="radio" /><label>出款</label>
+                                </span>
+                            </td>
+                        </tr>
+                    </tbody>
+
+                </table>
+
+
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-info">生成交收链</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+
+
+<!--违约处理-->
+<div class="modal fade" id="breachModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="width:700px;">
+
+
+        <div class="step-list-col">
+            <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">违约处理</h4>
+            </div>
+            <div class="modal-body">
+
+
+                <ul class="breach-form-list">
+
+                    <li>
+                        <label class="head-text">交易链位置：</label>
+
+                        <div>
+
+                            <label class="label_radio r_on" for="radio1">
+                                <input id="radio1" value="1" name="chain_position" type="radio"> 头（出货方）
+                            </label>
+
+                            <label class="label_radio r_on" for="radio2">
+                                <input id="radio2" value="1" name="chain_position" type="radio"> 尾（出钱方）
+                            </label>
+
+                        </div>
+                    </li>
+
+                    <li>
+                        <label class="head-text">违约方：</label>
+
+                        <div>
+
+                            <div>
+                            <label class="label_radio r_on" for="radio3">
+                                <input id="radio3" value="1" name="default_party" type="radio"> 卖家
+                            </label>
+                            <span class="text-info">（企业简称-联系人    PIC：某某某）</span>
+                            </div>
+
+                            <div>
+                            <label class="label_radio r_on" for="radio4">
+                                <input id="radio4" value="1" name="default_party" type="radio"> 买家
+                            </label>
+                                <span class="text-info">（企业简称-联系人    PIC：某某某）</span>
+                            </div>
+
+                        </div>
+                    </li>
+
+
+                    <li>
+                        <label class="head-text">处理方式：</label>
+
+                        <div>
+
+                            <div>
+                                <label class="label_radio r_on" for="radio5">
+                                    <input id="radio5" value="1" name="default_party" type="radio"> 违约方赔付对方
+                                </label>
+                            </div>
+
+                            <div>
+                                <label class="label_radio r_on" for="radio6">
+                                    <input id="radio6" value="1" name="default_party" type="radio"> 各自退回保证金
+                                </label>
+                            </div>
+
+                        </div>
+                    </li>
+
+
+                    <li style="padding-top:20px;border-top:1px dashed #ddd;margin-top:20px;"></li>
+                    <li>
+                        <label class="head-text">处理备注：</label>
+
+                        <div>
+
+                         <textarea style="resize: none;width:460px;height:60px;"></textarea>
+
+                        </div>
+                    </li>
+
+
+
+                </ul>
+
+
+
+
+
+
+            </div>
+
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-info" id="nextStep">下一步</button>
+            </div>
+
+
+        </div>
+            <div class="modal-content" style="display: none;">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">违约处理确认</h4>
+                </div>
+                <div class="modal-body">
+
+
+                    <ul class="breach-list-info">
+
+                        <li>
+                            <label class="head-text">卖家：</label>
+                            <span class="two-span">
+                                企业简称-联系人
+                            </span>
+                            <label class="head-text">PIC：</label>
+                            <span class="two-span">
+                                某某某
+                            </span>
+                        </li>
+                        <li>
+                            <label class="head-text">买家：</label>
+                            <span class="two-span">
+                                企业简称-联系人
+                            </span>
+                            <label class="head-text">PIC：</label>
+                            <span class="two-span">
+                                某某某
+                            </span>
+                        </li>
+
+
+                        <li>
+                            <label class="head-text">细节：</label>
+                            <span >
+                              产品 类型 交货时间 价格 数量T 先款后货 交货方式
+                            </span>
+                        </li>
+
+                        <li>
+                            <label class="head-text">订单备注：</label>
+                            <span >
+                              10%保证金 库区 提单 进口货 免仓7天 手续费 3 元 / 吨
+                            </span>
+                        </li>
+
+
+                        <li style="padding-top:10px;border-top:1px dashed #ddd;margin-top:10px;"></li>
+
+                        <li>
+                            <label class="head-text">违约方：</label>
+                            <span >
+                              公司简称-联系人
+                            </span>
+                        </li>
+
+                        <li>
+                            <label class="head-text">处理备注：</label>
+                            <span >
+                              备注备注备注备注备注备注
+                            </span>
+                        </li>
+
+
+
+
+
+                    </ul>
+
+
+
+                    <div class="breach-info-col">
+
+                        <i class="fa fa-cny text-danger"></i>
+
+                        <div class="breach-info-row">
+
+                            违约方 <span class="text-danger">实付总额：780000</span>
+                            <div>(赔付金:<span class="orange-text">780000</span> 交易手续费：<span class="orange-text">7800</span> 交收手续费：<span class="orange-text">7800</span> 退回：<span class="orange-text">0</span>)</div>
+
+                        </div>
+                        <div class="breach-info-row">
+
+                            非违约 <span class="text-danger">实收总额：780000</span>
+                            <div>(补偿金：<span class="orange-text">780000</span> 交易手续费：<span class="orange-text">7800</span> 交收手续费：<span class="orange-text">7800</span> 退回:<span class="orange-text">780000</span>)</div>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" id="prevStep">返回上一步</button>
+                    <button type="button" class="btn btn-info" id="confirmBtn">确认处理</button>
+                </div>
+
+
+            </div>
+        </div>
+
+
+
+    </div>
+</div>
+
+
+
+<script src="assets/lib/jquery.js"></script>
+<script src="assets/lib/bootstrap.min.js"></script>
+
+<script src="assets/lib/jquery.scrollTo.min.js"></script>
+<script src="assets/lib/bootstrap-datepicker.min.js"></script>
+<script src="assets/lib/bootstrap-datepicker.zh-CN.min.js"></script>
+
+<!--common script for all pages-->
+<script src="assets/lib/common-scripts.js"></script>
+
+<script src="assets/lib/jquery.pagination.js"></script>
+
+<script src="assets/lib/jquery-ui.js"></script>
+
+<script src="assets/lib/layer/layer.js"></script>
+
+<script src="assets/lib/chosen/chosen.jquery.min.js"></script>
+
+<script>
+
+    $("#confirmBtn").click(function()
+    {
+
+        $('#breachModal').modal('hide')
+
+        layer.open({
+            content: "违约处理完成",
+            area: ['500px', 'auto'],
+            title: '违约处理完成',
+            btn: ['返回交收链条待生成列表'],
+            yes: function (index) {
+                layer.close(index);
+            }
+
+        });
+
+    });
+
+   /* layer.open({
+        content: "违约处理完成",
+        area: ['500px', 'auto'],
+        title: '违约处理完成',
+        btn: ['测试1','测试2'],
+        yes: function (index) {
+            layer.close(index);
+        },
+        btn2:function(index)
+        {
+            alert(2);
+            layer.close(index);
+        }
+
+    });*/
+
+
+    $("#prevStep").click(function()
+    {
+        $(".step-list-col .modal-content").eq(1).hide();
+        $(".step-list-col .modal-content").eq(0).show();
+
+    });
+
+
+    $("#nextStep").click(function()
+    {
+        $(".step-list-col .modal-content").eq(0).hide();
+        $(".step-list-col .modal-content").eq(1).show();
+
+    });
+
+
+    $(".top-table-tab li").click(function()
+    {
+        $(".top-table-tab li").removeClass("active");
+        $(this).addClass("active");
+
+    });
+
+    $(".trade-chain-col").on("click",".remove",function()
+    {
+
+        var $that=$(this);
+        layer.confirm("是否删除此节点？",function(index)
+        {
+            layer.close(index);
+            $that.parent().parent().parent().remove();
+        })
+
+
+    });
+
+
+    $(".trade-chain-col").on("click",".add",function()
+    {
+
+
+        var $that=$(this).parent().parent().parent();
+
+         var html="<div style='font-weight: normal;color:#333;font-size:14px;width:380px;margin:0 auto;text-align: left;'>" +
+         "<div><label style='width:100px;text-align: right;display: inline-block;'><em class='red'>*</em>信息：</label><input style='width:200px;' type='text' /></div>" +
+         "<div style='margin-top:18px;'><label style='width:100px;text-align: right;display: inline-block;'><em class='red'>*</em>卖出公司：</label><input id='saleInput' style='width:200px;' type='text' /></div>" +
+         "<div style='margin-top:18px;'><label style='width:100px;text-align: right;display: inline-block;'><em class='red'>*</em>买入公司：</label><input id='' style='width:200px;' type='text' /></div>" +
+         "</div>"
+
+         layer.open( {
+         content: html,
+         area:['500px', 'auto'],
+         title:'此节点后面新增节点',
+         btn: ['确定添加','取消'],
+         yes:function(index)
+         {
+
+
+             var html='<div class="detail-col">'+
+                 '<div class="detail-col-top">'+
+                     '<span class="operate-col">'+
+                     '<i class="add">+</i>'+
+                     ' <i class="remove">×</i>'+
+                     '  </span>'+
+                     ' <div class="detail-col-text">'+
+                     ' <div>DL180116133453787260</div>'+
+                     '<div>18-11-01 15:16:01</div>'+
+                     ' </div>'+
+                     '<div class="clearfix">'+
+                     '<div class="col-lg-6">'+
+                     '远大能化'+
+                     ' <div>（卖出）</div>'+
+                     ' </div>'+
+                     '<div class="col-lg-6">'+
+                     '江苏益顺泰'+
+                     '<div>（买入）</div>'+
+                     '</div>'+
+                     ' </div>'+
+                     '</div>'+
+                     '<span class="circle-col">1</span>'+
+                     '</div>';
+
+             $that.after(html);
+
+
+             $(".trade-chain-col .circle-col").each(function(index)
+             {
+                $(this).text(parseInt(index)+1);
+             });
+
+
+         layer.close(index);
+
+         }
+
+         });
+
+    });
+
+
+    //分页
+    var initPagination = function() {
+        var num_entries =100;
+        // 创建分页
+        $("#Pagination").pagination(num_entries, {
+            num_edge_entries: 1, //边缘页数
+            num_display_entries: 4, //主体页数
+            callback: pageselectCallback,
+            items_per_page:1 //每页显示1项
+        });
+    }();
+
+    function pageselectCallback(page_index, jq){
+
+        //回调函数 写ajax 添加数据
+
+    }
+
+    $(".small-table-tab>li").click(function()
+    {
+
+        $(this).parent().find("li").removeClass("active");
+        $(this).addClass("active");
+
+    });
+
+
+
+    $("#companyName").autocomplete({
+        source: function( request, response ) {
+
+            $.ajax({
+                url: "data.json",
+                dataType: "json",
+                data:{
+                    q: request.term
+                },
+                success: function( data ) {
+                    response( $.map( data, function( item ) {
+
+                        console.log(item);
+
+                        return {
+                            label:item.name,
+                            value:item.to
+
+                        }
+                    }));
+                }
+            });
+        },
+
+      /*  source: [
+            { label: "Chinese", value: 1, sayHi: "你好" },
+            { label: "English", value: 2, sayHi: "Hello" },
+            { label: "Spanish", value: 3, sayHi: "Hola" },
+            { label: "Russian", value: 4, sayHi: "Привет" },
+            { label: "French", value: 5, sayHi: "Bonjour" },
+            { label: "Japanese", value: 6, sayHi: "Bonjour" },
+        ],
+*/
+        minLength: 1,
+        select: function( event, ui ) {
+
+            alert();
+
+        }
+    });
+
+
+    var dataObj = [
+        "ActionScript",
+        "AppleScript",
+        "Asp",
+        "BASIC",
+        "C",
+        "C++",
+        "Clojure",
+        "COBOL",
+        "ColdFusion",
+        "Erlang",
+        "Fortran",
+        "Groovy",
+        "Haskell",
+        "Java",
+        "JavaScript",
+        "Lisp",
+        "Perl",
+        "PHP",
+        "Python",
+        "Ruby",
+        "Scala",
+        "Scheme"
+    ];
+
+    $("#companyNo").autocomplete({
+        /*source: function( request, response ) {
+            $.ajax({
+                url: "data.json",
+                dataType: "json",
+                data:{
+                    q: request.term
+                },
+                success: function( data ) {
+                    response( $.map( data, function( item ) {
+
+                        console.log(item);
+
+                        return {
+                            label:item.name,
+                            value:item.to
+
+                        }
+                    }));
+                }
+            });
+        },*/
+        source:dataObj,
+        minLength: 1,
+        select: function( event, ui ) {
+
+        }
+    });
+
+</script>
+
+
+</body>
+</html>

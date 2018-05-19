@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="../css/font/iconfont.css">
+    <link rel="stylesheet" href="../css/resert.css">
+    <link rel="stylesheet" href="../css/public.css">
+    <link rel="stylesheet" href="../lib/laydate/need/laydate.css">
+    <link rel="stylesheet" href="../css/register.css">
+    <link rel="stylesheet" href="../css/best_price.css">
+    <link rel="stylesheet" href="../css/history_market.css">
+    <link rel="stylesheet" href="../css/history_market2.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <title>历史价差</title>
+</head>
+<body>
+    <!-- 页面设定 -->
+    <div class="Public_main pr" style="min-height: 754.2px;">
+        <!-- 公共头 -->
+        <div class="Public_header PC">    
+            <div class="header">
+                    <h1 class="Public_logo fl"><a href="./log_in.html">易贸</a></h1>
+                    <ul class="Public_nav clearfix">
+                        <li class="fl"><a class="iconfont icon-fenlei " href="./best_price.html"> <span>&nbsp&nbsp最优价格</span></a></li>
+                        <li class="fl "><a class="iconfont icon-gupiao" href="./actual_time_market.html"> <span>&nbsp&nbsp实时行情</span></a></li>
+                        <li class="fl border_bottom"><a class="iconfont icon-lishijilu" href="./history_market.html">  <span>&nbsp&nbsp历史行情</span></a></li>
+                        <li class="fl "><a class="iconfont icon-fuzhi " href="./easy_circulate_Myspic.html">  <span>&nbsp&nbsp易通指数</span></a></li>
+                        <li class="fr exit"><a href="#"class="db"></a></li>
+                        <li class="fr personage pr"><i class="pa"></i><a href="#"class="db"></a></li>
+                    </ul>
+                </div>
+        </div>
+        <!-- 409 85  -->
+        <div class="PC_title clearfix">
+           <a href="./history_market.html" class="fl ">历史量价</a>
+           <a href="./history_market.1.html" class="fl a">历史价差</a>
+        </div>
+        <div class="market_details">
+                <div class="date2">
+                    <i class="iconfont icon-rili1"></i>
+                    <i class="iconfont icon-rili1"></i>
+                    <input type="text" onclick="laydate();">
+                    <input type="text"  onclick="laydate();">
+                </div>
+            <div class="marquee">
+                <div class="marquee_add clearfix">
+                    <span class="iconfont icon-jia fl"></span>
+                    <span class="fr">配对设置</span>
+                </div>
+                <div class="marquee_div">
+                    <i class="fl dian1"></i>
+                    <div class="marquee_content1">MEG人民币3月</div>
+                    <div class="marquee_content2">MEG人民币4月</div>
+                </div>
+                <div class="marquee_div">
+                    <i class="fl dian2"></i>
+                    <div class="marquee_content1">MEG人民币4月</div>
+                    <div class="marquee_content2">MEG人民币5月</div>
+                </div>
+                <div class="marquee_div">
+                    <i class="fl dian3"></i>
+                    <div class="marquee_content1">MEG人民币5月</div>
+                    <div class="marquee_content2">MEG人民币6月</div>
+                </div>
+                <div class="marquee_div">
+                    <i class="fl dian3"></i>
+                    <div class="marquee_content1">MEG人民币5月</div>
+                    <div class="marquee_content2">MEG人民币6月</div>
+                </div>
+                <div class="marquee_div">
+                    <i class="fl dian3"></i>
+                    <div class="marquee_content1">MEG人民币5月</div>
+                    <div class="marquee_content2">MEG人民币6月</div>
+                </div>
+            </div>
+
+            <div class="charts_main1">
+                <div class="guides_titile">SMvolume</div>
+                <div class="guides">
+                    <span>95%</span>
+                    <span class="guides_active">80%</span>
+                    <span>60%</span>
+                </div>
+                <div class="l"></div>
+                <div class="b"></div>
+                <div class="guides95 guides_bottom"><span>95%</span></div>
+                <div class="guides80 guides_bottom"><span>80%</span></div>
+                <div class="guides65 guides_bottom"><span>65%</span></div>
+                <div>
+                <div id="main1" style="border: 1px solid #ccc;background:#fff;;width: 972px;height:443px;position: relative;right: -180px;padding-top:77px"></div>
+            </div>
+            </div>
+
+
+        </div>
+        
+        <div class="masking">
+            <div class="price_Difference">
+                <div class="modal-header">
+                    设置
+                    <span class="close-modal">×</span>
+                </div>
+                <div class="price_head clearfix">
+                    <div class="price_title fl">价差合约选择</div>
+                    <div class="price_add iconfont icon-jia fr">&nbsp;&nbsp;添加合约</div>
+                </div>
+                <div class="price_middle clearfix">
+                    <div class="display fl">显示&nbsp;&nbsp; <label class="checkbox-col"><input type="checkbox" class="mgc mgc-info"  /></label></div>
+                    <div class="start fl">第一腿</div>
+                    <div class="end fl">第二腿</div>
+                </div>
+                <div class="price_details">
+                    <div class="row">
+                        <i></i>
+                        <label class="checkbox-col"><input type="checkbox" class="mgc mgc-info"  /></label>
+                        <div class="type first fl">
+                                <div class="type1 active">现货RMB1 <i class="iconfont icon-plus-select-down fr"></i></div>
+                                <div class="type1">现货RMB2 <i class="iconfont icon-plus-select-down fr"></i></div>
+                                <div class="type1">现货RMB3 <i class="iconfont icon-plus-select-down fr"></i></div>
+                        </div>
+                        <div class="type second fl">
+                                <div class="type1 active">MEG1 <i class="iconfont icon-plus-select-down fr"></i></div>
+                                <div class="type1">MEG2 <i class="iconfont icon-plus-select-down fr"></i></div>
+                                <div class="type1">MEG3 <i class="iconfont icon-plus-select-down fr"></i></div>
+                        </div>
+                        <div class="type third fl">
+                                <div class="type1 active">四月上 <i class="iconfont icon-plus-select-down fr"></i></div>
+                                <div class="type1">四月下 <i class="iconfont icon-plus-select-down fr"></i></div>
+                                <div class="type1">五月上 <i class="iconfont icon-plus-select-down fr"></i></div>
+                        </div>
+                        <span></span>
+                        <div class="type four fl">
+                                <div class="type1 fo active">现货RMB1 <i class="iconfont icon-plus-select-down fr"></i></div>
+                                <div class="type1">现货RMB2 <i class="iconfont icon-plus-select-down fr"></i></div>
+                                <div class="type1">现货RMB3 <i class="iconfont icon-plus-select-down fr"></i></div>
+                        </div>
+                        <div class="type five fl">
+                                <div class="type1 active">MEG1 <i class="iconfont icon-plus-select-down fr"></i></div>
+                                <div class="type1">MEG2 <i class="iconfont icon-plus-select-down fr"></i></div>
+                                <div class="type1">MEG3 <i class="iconfont icon-plus-select-down fr"></i></div>
+                        </div>
+                        <div class="type six fl">
+                                <div class="type1 active">四月上 <i class="iconfont icon-plus-select-down fr"></i></div>
+                                <div class="type1">四月下 <i class="iconfont icon-plus-select-down fr"></i></div>
+                                <div class="type1">五月上 <i class="iconfont icon-plus-select-down fr"></i></div>
+                        </div>
+                        <div class="price_details_delete iconfont icon-icon7">
+
+                        </div>                    
+                    </div>
+                    <div class="row">
+                            <i></i>
+                        <label class="checkbox-col"><input type="checkbox" class="mgc mgc-info"  /></label>
+                            <div class="type first fl">
+                                    <div class="type1 active">现货RMB1 <i class="iconfont icon-plus-select-down fr"></i></div>
+                                    <div class="type1">现货RMB2 <i class="iconfont icon-plus-select-down fr"></i></div>
+                                    <div class="type1">现货RMB3 <i class="iconfont icon-plus-select-down fr"></i></div>
+                            </div>
+                            <div class="type second fl">
+                                    <div class="type1 active">MEG1 <i class="iconfont icon-plus-select-down fr"></i></div>
+                                    <div class="type1">MEG2 <i class="iconfont icon-plus-select-down fr"></i></div>
+                                    <div class="type1">MEG3 <i class="iconfont icon-plus-select-down fr"></i></div>
+                            </div>
+                            <div class="type third fl">
+                                    <div class="type1 active">四月上 <i class="iconfont icon-plus-select-down fr"></i></div>
+                                    <div class="type1">四月下 <i class="iconfont icon-plus-select-down fr"></i></div>
+                                    <div class="type1">五月上 <i class="iconfont icon-plus-select-down fr"></i></div>
+                            </div>
+                            <span></span>
+                            <div class="type four fl">
+                                    <div class="type1 fo active">现货RMB1 <i class="iconfont icon-plus-select-down fr"></i></div>
+                                    <div class="type1">现货RMB2 <i class="iconfont icon-plus-select-down fr"></i></div>
+                                    <div class="type1">现货RMB3 <i class="iconfont icon-plus-select-down fr"></i></div>
+                            </div>
+                            <div class="type five fl">
+                                    <div class="type1 active">MEG1 <i class="iconfont icon-plus-select-down fr"></i></div>
+                                    <div class="type1">MEG2 <i class="iconfont icon-plus-select-down fr"></i></div>
+                                    <div class="type1">MEG3 <i class="iconfont icon-plus-select-down fr"></i></div>
+                            </div>
+                            <div class="type six fl">
+                                    <div class="type1 active">四月上 <i class="iconfont icon-plus-select-down fr"></i></div>
+                                    <div class="type1">四月下 <i class="iconfont icon-plus-select-down fr"></i></div>
+                                    <div class="type1">五月上 <i class="iconfont icon-plus-select-down fr"></i></div>
+                            </div>
+                            <div class="price_details_delete iconfont icon-icon7">
+    
+                            </div>                    
+                        </div>
+                    <div class="row">
+                        <i></i>
+                        <label class="checkbox-col"><input type="checkbox" class="mgc mgc-info"  /></label>
+                        <div class="type first fl">
+                                <div class="type1 active">现货RMB1 <i class="iconfont icon-plus-select-down fr"></i></div>
+                                <div class="type1">现货RMB2 <i class="iconfont icon-plus-select-down fr"></i></div>
+                                <div class="type1">现货RMB3 <i class="iconfont icon-plus-select-down fr"></i></div>
+                        </div>
+                        <div class="type second fl">
+                                <div class="type1 active">MEG1 <i class="iconfont icon-plus-select-down fr"></i></div>
+                                <div class="type1">MEG2 <i class="iconfont icon-plus-select-down fr"></i></div>
+                                <div class="type1">MEG3 <i class="iconfont icon-plus-select-down fr"></i></div>
+                        </div>
+                        <div class="type third fl">
+                                <div class="type1 active">四月上 <i class="iconfont icon-plus-select-down fr"></i></div>
+                                <div class="type1">四月下 <i class="iconfont icon-plus-select-down fr"></i></div>
+                                <div class="type1">五月上 <i class="iconfont icon-plus-select-down fr"></i></div>
+                        </div>
+                        <span></span>
+                        <div class="type four fl">
+                                <div class="type1 fo active">现货RMB1 <i class="iconfont icon-plus-select-down fr"></i></div>
+                                <div class="type1">现货RMB2 <i class="iconfont icon-plus-select-down fr"></i></div>
+                                <div class="type1">现货RMB3 <i class="iconfont icon-plus-select-down fr"></i></div>
+                        </div>
+                        <div class="type five fl">
+                                <div class="type1 active">MEG1 <i class="iconfont icon-plus-select-down fr"></i></div>
+                                <div class="type1">MEG2 <i class="iconfont icon-plus-select-down fr"></i></div>
+                                <div class="type1">MEG3 <i class="iconfont icon-plus-select-down fr"></i></div>
+                        </div>
+                        <div class="type six fl">
+                                <div class="type1 active">四月上 <i class="iconfont icon-plus-select-down fr"></i></div>
+                                <div class="type1">四月下 <i class="iconfont icon-plus-select-down fr"></i></div>
+                                <div class="type1">五月上 <i class="iconfont icon-plus-select-down fr"></i></div>
+                        </div>
+                        <div class="price_details_delete iconfont icon-icon7">
+
+                    </div>                    
+                    </div>
+                    <div class="confirm"><div class="confirm_box">
+                        确定
+                    </div>
+                </div>
+                            
+                
+                </div>
+
+
+            </div>
+          
+        </div>
+
+        <div class="telephone">
+           
+        </div>
+    </div>
+    <div class="Public_footer ma clearfix">
+            <a href="#">友情链接</a>
+            <span>|</span>
+            <a href="#">易贸集团</a>
+            <span>|</span>
+            <a href="#">上海自贸区</a>
+            <span>|</span>
+            <a href="#">上海化交</a>
+            <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            
+        <!-- login_footer -->
+        <a href="#">友情链接</a>
+        <a href="#">易贸集团</a>
+        <a href="#">上海自贸区</a>
+        <a href="#">上海化交</a>
+    </div>
+    <div class="Public_footer_bottom">
+        <!-- Public_footer -->
+        Copyright 2018 ENMORE 易贸    沪ICP备10003311号-12
+    </div>
+    </body>
+    <script src="../lib/jquery-3.3.1.min.js"></script>
+    <script src="../lib/echarts.js"></script>
+    <script src="../js/market1.js"></script>
+    <script src="../lib/laydate/laydate.js"></script>
+    <script>
+        $(".close-modal").click(function()
+        {
+            $(".masking").hide();
+        });
+    </script>
+
+</html> 

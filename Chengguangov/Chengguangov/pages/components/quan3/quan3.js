@@ -6,9 +6,16 @@ Page({
     currentTab: 0, //预设当前项的值
     scrollLeft: 0, //tab标题的滚动条位置
     expertList: [{ //假数据
-     
-     
-    }]
+      rsquad : "asd",
+      rmeal_time : '1980-3-5'
+     },
+      { //假数据
+        rsquad: "asd",
+        rmeal_time: '1980-3-5'
+
+      }],
+    itemArr :[
+    ]
   },
   // 滚动切换标签样式
   switchTab: function (e) {
@@ -64,22 +71,22 @@ Page({
         console.log(openid);
         console.log("获取openid");
 
-       wx.request({
-         url: 'https://chengguangov.diguikeji.com/index.php?g=Api&m=CommonApi&a=getMyShenpi',
-         method: 'GET',
-         header: {
-           'content-type': 'application/json'
-         },
-         data: {
-           openid: openid
-         },
-         success: function (res) {
-           console.log(res.data);
-           that.setData({
-             itemArr: res.data
+        wx.request({
+          url: 'https://chengguangov.diguikeji.com/index.php?g=Api&m=CommonApi&a=getMyShenpi',
+          method: 'GET',
+          header: {
+            'content-type': 'application/json'
+          },
+          data: {
+            openid: openid
+          },
+          success: function (res) {
+            console.log(res.data);
+            that.setData({
+              itemArr: res.data
            })
-         }
-       })
+          }
+        })
 
       },
     })

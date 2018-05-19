@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>订单管理-履约保障成交</title>
+    <link rel="stylesheet" href="../assets/css/base.css" />
+    <link rel="stylesheet" href="../assets/css/main.css" />
+    <link rel="stylesheet" href="../assets/fonts/iconfont.css" />
+    <link rel="stylesheet" href="../assets/lib/layer/skin/layer.css" />
+
+
+</head>
+<body class="gray-bg">
+
+
+<div class="header">
+
+    <img src="../assets/img/logo.png" />
+
+    <ul class="header-menu clearfix">
+        <li class="has-dropdown">
+            <a href="###">实时报盘
+                <i class="iconfont icon-arrow-down"></i>
+            </a>
+            <div class="dropdown-list">
+                <a href="###">菜单一</a>
+                <a href="###">菜单一</a>
+            </div>
+        </li>
+
+        <li class="has-dropdown">
+            <a href="###">
+                订单管理
+                <i class="iconfont icon-arrow-down"></i>
+            </a>
+            <div class="dropdown-list">
+                <a href="###">菜单一</a>
+                <a href="###">菜单一</a>
+            </div>
+        </li>
+
+        <li class="has-dropdown active">
+            <a href="###">
+                资金管理
+                <i class="iconfont icon-arrow-down"></i>
+            </a>
+            <div class="dropdown-list">
+                <a href="###">菜单一</a>
+                <a href="###">菜单一</a>
+            </div>
+        </li>
+
+        <li>
+            <a href="###">我是管理员</a>
+        </li>
+    </ul>
+
+
+    <div class="header-right">
+
+        <span class="blue">[企业全称公司名]</span>
+
+        <div class="username has-dropdown">
+            用户名，您好！<i class="iconfont icon-arrow-down"></i>
+            <div class="dropdown-list">
+                <a href="###">个人设置</a>
+                <a href="###">修改密码</a>
+            </div>
+        </div>
+
+        <span class="login-out">安全退出<i class="icon-login-out iconfont"></i></span>
+
+    </div>
+
+</div>
+
+<div class="menu">
+
+    <ul class="menu-list">
+
+        <li>
+            <a href="###" class="active">履约保障<br/>成交</a>
+        </li>
+        <li>
+            <a href="###">履约保障<br/>交割</a>
+        </li>
+
+
+    </ul>
+
+
+</div>
+
+
+<div class="main">
+
+
+    <div class="main-col">
+
+
+        <div class="main-table">
+
+            <div class="main-table-col">
+                <div class="title-col">
+                    我的履约保障成交订单
+                </div>
+
+                <div class="search-col">
+
+
+                    <div class="row mt12 clearfix">
+
+                        <div class="col">
+                            <label>产品</label>
+                            <select>
+                                <option>全部</option>
+                                <option>SM</option>
+                            </select>
+                        </div>
+
+                        <div class="col">
+                            <label>成交时间</label>
+                            <span class="has-icon"><input type="text"></span>
+                            -
+                            <span class="has-icon"><input type="text"></span>
+                        </div>
+
+                        <div class="col">
+                            <ul class="search-tab clearfix">
+                                <li class="first">今天</li>
+                                <li class="active">最近一周</li>
+                                <li class="last">最近一个月</li>
+                            </ul>
+                        </div>
+
+
+                        <div class="col">
+                            <button type="button" class="btn green-btn">查询</button>
+                            <button type="button" class="btn gray-border-btn">重置</button>
+                        </div>
+
+                    </div>
+
+                    <div class="row mt12 clearfix">
+
+                        <div class="col">
+                            <label>盈亏</label>
+                            <select>
+                                <option>全部</option>
+                                <option>仅盈利</option>
+                                <option>仅亏损</option>
+                            </select>
+                        </div>
+
+                        <div class="col">
+                            <label>业务员</label>
+                            <input type="text" />
+                        </div>
+
+                        <div class="col checkbox-col">
+                            <input type="checkbox"><span>查看所有交易员订单</span>
+                        </div>
+
+                        <div class="col checkbox-col">
+                            <input type="checkbox"><span>仅看PIC成交</span>
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            <div class="main-table-col">
+                <div class="title-col blue-bg">成交订单列表
+                    <span class="date-range white-border">共 <span class="red">25607</span> 条数据</span>
+
+                    <span class="fr">注：结算盈亏不含税</span>
+
+                </div>
+                <table>
+                    <thead>
+                    <tr>
+                        <th>序号</th>
+                        <th>产品</th>
+                        <th>交收期</th>
+                        <th>数量</th>
+                        <th class="long-th warehouse">
+                             <div>开仓信息</div>
+                            <ul class="clearfix">
+                                <li class="first">开仓时间</li>
+                                <li class="second">开仓价格</li>
+                                <li class="fourth">已扣保证金</li>
+                            </ul>
+
+                        </th>
+
+                        <th class="long-th liquidate">
+                            <div>平仓信息</div>
+                            <ul class="clearfix">
+                                <li class="first">平仓时间</li>
+                                <li class="second">平仓价格</li>
+                                <li class="third">释放保证金</li>
+                            </ul>
+                        </th>
+                        <th>已扣手续费</th>
+                        <th>业务员</th>
+
+
+                    </tr>
+                    </thead>
+
+                    <tbody>
+
+                    <tr>
+
+                        <td>1</td>
+                        <td>
+                            SM
+                        </td>
+                        <td>
+                            1706
+                        </td>
+                        <td>500</td>
+                        <td class="long-td warehouse">
+
+                            <ul class="clearfix">
+                            <li class="first">2016-11-10<br/>10：15</li>
+                            <li class="second">
+                                <span class="tag red-bg">买</span>
+                                7,800
+                            </li>
+                            <li class="third">780,000</li>
+                            </ul>
+
+                        </td>
+                        <td class="long-td liquidate">
+                            <ul class="clearfix">
+                                <li class="first">2016-11-10<br/>10：15</li>
+                                <li class="second">
+                                    <span class="tag blue-bg">卖</span>
+                                    7,800
+                                </li>
+                                <li class="third">780,000</li>
+                            </ul>
+
+                        </td>
+                        <td>3,000</td>
+                        <td>某某某</td>
+                    </tr>
+                    <tr>
+
+                        <td>1</td>
+                        <td>
+                            SM
+                        </td>
+                        <td>
+                            1706
+                        </td>
+                        <td>500</td>
+                        <td class="long-td warehouse">
+
+                            <ul class="clearfix">
+                                <li class="first">2016-11-10<br/>10：15</li>
+                                <li class="second">
+                                    <span class="tag red-bg">买</span>
+                                    7,800
+                                </li>
+                                <li class="third">780,000</li>
+                            </ul>
+
+                        </td>
+                        <td class="long-td liquidate">
+                            <ul class="clearfix">
+                                <li class="first">2016-11-10<br/>10：15</li>
+                                <li class="second">
+                                    <span class="tag blue-bg">卖</span>
+                                    7,800
+                                </li>
+                                <li class="third">780,000</li>
+                            </ul>
+
+                        </td>
+                        <td>3,000</td>
+                        <td>某某某</td>
+                    </tr>
+
+
+
+
+                    </tbody>
+
+                </table>
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+</div>
+
+
+<script src="../assets/lib/jquery.js"></script>
+<script src="../assets/lib/layer/layer.js"></script>
+<script src="../assets/js/common.js"></script>
+
+<script>
+
+    $(".trade-no").mouseover(function()
+    {
+
+        $(this).find("table").show();
+
+    }).mouseout(function()
+    {
+        $(this).find("table").hide();
+    });
+
+</script>
+
+</body>
+</html>

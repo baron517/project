@@ -1,0 +1,563 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>交收订单列表</title>
+
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/fonts/font-awesome.min.css" rel="stylesheet" />
+    <link href="assets/css/datepicker.css" rel="stylesheet">
+    <link href="assets/css/mltp.theme.css" rel="stylesheet">
+    <link href="assets/css/main.css" rel="stylesheet">
+    <link href="assets/lib/layer/skin/layer.css" rel="stylesheet">
+
+
+</head>
+
+<body>
+
+<section id="container">
+    <!--头部 开始-->
+
+    <header class="header blue-bg">
+        <div class="sidebar-toggle-box">
+            <i class="fa fa-bars"></i>
+        </div>
+
+        <!--logo start-->
+        <a href="index.html" class="logo" >MLTP 后台管理系统</a>
+        <!--logo end-->
+
+        <div class="nav notify-row" id="top_menu">
+
+        </div>
+        <div class="top-nav ">
+            <ul class="nav pull-right top-menu">
+
+                <!-- user login dropdown start-->
+                <li class="dropdown">
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                        <span class="username">管理员</span>
+                        <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu extended logout">
+                        <div class="log-arrow-up"></div>
+                        <li><a href="#">设置</a></li>
+                        <li><a href="#">修改密码</a></li>
+                        <li><a href="###">退出</a></li>
+                    </ul>
+                </li>
+
+            </ul>
+        </div>
+    </header>
+    <!--头部 结束-->
+
+    <!-- 菜单开始 -->
+    <aside>
+        <div id="sidebar"  class="nav-collapse ">
+            <!-- sidebar menu start-->
+            <ul class="sidebar-menu" id="nav-accordion">
+                <li>
+                    <a href="###">
+                        <i class="fa fa-home"></i>
+                        <span>首页</span>
+                    </a>
+                </li>
+
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-laptop"></i>
+                        <span>菜单一</span>
+                    </a>
+                    <ul class="sub">
+                        <li><a  href="###">子菜单</a></li>
+                        <li><a  href="###">子菜单</a></li>
+                        <li><a  href="###">子菜单</a></li>
+                        <li><a  href="###">子菜单</a></li>
+                        <li><a  href="###">子菜单</a></li>
+                    </ul>
+                </li>
+
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-book"></i>
+                        <span>菜单二</span>
+                    </a>
+                    <ul class="sub">
+                        <li><a  href="###">子菜单</a></li>
+                        <li><a  href="###">子菜单</a></li>
+                        <li><a  href="###">子菜单</a></li>
+                        <li><a  href="###">子菜单</a></li>
+                        <li><a  href="###">子菜单</a></li>
+                    </ul>
+                </li>
+
+
+
+            </ul>
+            <!-- sidebar menu end-->
+        </div>
+    </aside>
+    <!-- 菜单结束 -->
+
+
+
+    <!--main content start-->
+    <section id="main-content">
+        <section class="wrapper">
+
+            <ol class="breadcrumb">
+                <li><a href="#">交收订单列表</a></li>
+                <li class="active">交收订单列表</li>
+            </ol>
+
+            <!-- page start-->
+            <div class="row">
+                <div class="col-lg-12">
+
+                    <section class="panel">
+                        <header class="panel-heading">
+                            订单查询
+                        </header>
+
+                        <div class="panel-body form-inline search-col" >
+
+                            <div class="form-group">
+                                <label>交收时间：</label>
+                                <select class="form-control">
+                                    <option>全部</option>
+                                    <option>2016-10下</option>
+                                </select>
+
+                                <label>交收单号：</label>
+                                <input type="text" class="form-control" >
+
+                                <label>客户名称：</label>
+                                <input type="text" class="form-control" >
+
+                                <label>交收状态：</label>
+
+                                <select class="form-control">
+                                    <option>交收中</option>
+                                    <option>代付款</option>
+                                    <option>代发货</option>
+                                    <option>代收货</option>
+                                    <option>已完成</option>
+                                </select>
+
+                                <button type="button" class="btn btn-info">查询</button>
+
+
+                            </div>
+
+
+
+
+
+
+                        </div>
+
+                    </section>
+
+
+                    <section class="panel">
+                        <header class="panel-heading">
+                            交收订单列表 （共 xx 条 ）
+                        </header>
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-striped ">
+                                    <thead>
+                                    <tr>
+                                        <th>交收单号</th>
+                                        <th>品名</th>
+                                        <th>交收期</th>
+                                        <th>上家客户</th>
+                                        <th>下家客户</th>
+                                        <th>数量（吨）</th>
+                                        <th>交收价格（元/吨）</th>
+                                        <th>总价（元）</th>
+                                        <th>交收状态</th>
+                                        <th>违约方</th>
+                                        <th>赔付金额（元）</th>
+                                        <th>发票截图</th>
+                                        <th>是否超期</th>
+                                        <th>操作</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+
+                                    <tr>
+                                        <td>D201612001</td>
+                                        <td>SM</td>
+                                        <td>2016-10 下</td>
+                                        <td>卖方客户-联系人<i class="tip-col fa fa-user" ></i></td>
+                                        <td>买方客户-联系人<i class="tip-col fa fa-user" ></i></td>
+
+                                        <td>1000</td>
+                                        <td>7,800</td>
+                                        <td>7,800,000</td>
+                                        <td>待付款</td>
+
+                                        <td>买方</td>
+                                        <td>780,000</td>
+
+                                        <td>暂无</td>
+
+                                        <td class="text-danger">是</td>
+
+                                        <td>
+                                            <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#renegeModal">处理</button>
+                                            <button type="button" class="btn btn-danger btn-xs">下载合同</button>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>D201612001</td>
+                                        <td>SM</td>
+                                        <td>2016-10 下</td>
+                                        <td>卖方客户-联系人</td>
+                                        <td>买方客户-联系人</td>
+
+                                        <td>1000</td>
+                                        <td>7,800</td>
+                                        <td>7,800,000</td>
+                                        <td>待付款</td>
+
+                                        <td>买方</td>
+                                        <td>780,000</td>
+                                        <td><a href="###" class="screenshot"><i class="fa fa-file-picture-o"></i></a></td>
+                                        <td>否</td>
+
+                                        <td>
+                                            <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#renegeModal">处理</button>
+                                            <button type="button" class="btn btn-danger btn-xs">下载合同</button>
+                                        </td>
+                                    </tr>
+
+                                    </tbody>
+                                </table>
+
+
+                                <div class="pagination-col">
+                                    <div id="Pagination" class="pagination">
+
+                                    </div>
+                                </div>
+
+
+                               <!-- <div class="pagination-col">
+
+                                    <ul class="pagination">
+                                        <li><a>&laquo;</a></li>
+                                        <li><a href="#">1</a></li>
+                                        <li><a href="#">2</a></li>
+                                        <li><a href="#">3</a></li>
+                                        <li><a href="#">4</a></li>
+                                        <li><a href="#">5</a></li>
+                                        <li><a href="#">&raquo;</a></li>
+                                    </ul>
+
+                                </div>-->
+
+                            </div>
+                        </div>
+                    </section>
+
+                </div>
+            </div>
+
+        </section>
+    </section>
+    <!--main content end-->
+
+
+
+</section>
+
+
+<!-- 模态框（Modal） -->
+<div class="modal fade" id="renegeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">违约处理</h4>
+            </div>
+            <div class="modal-body">
+
+
+
+
+                <div class="row">
+                    <div class="col-lg-6">
+                        <label  class="control-label col-lg-4">交收状态：</label>
+                        <div class="col-lg-8">
+                           <span class="text-col"> 待付款 &nbsp;&nbsp; 超期/未超期</span>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <label  class="control-label col-lg-4">当前保证金：</label>
+                        <div class="col-lg-8">
+                            <span class="text-col">780,000 元</span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-6">
+                        <label  class="control-label col-lg-4">卖家：</label>
+                        <div class="col-lg-8">
+                            <span class="text-col"> 企业简称-联系人</span>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <label  class="control-label col-lg-4">PIC：</label>
+                        <div class="col-lg-8">
+                            <span class="text-col">某某某</span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-6">
+                        <label  class="control-label col-lg-4">买家：</label>
+                        <div class="col-lg-8">
+                            <span class="text-col"> 企业简称-联系人</span>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <label  class="control-label col-lg-4">PIC：</label>
+                        <div class="col-lg-8">
+                            <span class="text-col">某某某</span>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <label  class="control-label col-lg-2" style="width:86px;">细节：</label>
+                        <div class="col-lg-8">
+                            <span class="text-col"> 品名 类型 交货时间 价格 数量T 先款后货 交货方式</span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <label  class="control-label col-lg-2" style="width:86px;">订单备注：</label>
+                        <div class="col-lg-8">
+                            <span class="text-col"> 10%保证金 库区 提单 进口货 免仓7天 手续费 3 元 / 吨</span>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <ul class="step-list">
+                    <li>
+
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <label  class="control-label col-lg-2" style="width:86px;">违约方：</label>
+                                <div class="col-lg-8">
+                                    <span class="text-col">
+
+                                        <label class="label_radio r_on" for="radio-02">
+                                            <input id="radio-02" name="type" type="radio" checked> 卖家
+                                        </label>
+                                        &nbsp; &nbsp;
+                                        <label class="label_radio r_on" for="radio-03">
+                                            <input id="radio-03" name="type" type="radio"> 买家
+                                        </label>
+
+                                    </span>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <label  class="control-label col-lg-2" style="width:86px;">处理方式：</label>
+                                <div class="col-lg-8">
+                                    <div>
+
+                                        <label class="label_radio r_on" for="radio-04">
+                                            <input id="radio-04" name="type" type="radio" checked> 违约方赔付对方
+                                        </label>
+
+                                    </div>
+                                     <div style="margin-top:-10px;">
+
+                                        <label class="label_radio r_on" for="radio-05">
+                                            <input id="radio-05" name="type" type="radio"> 各自退回保证金
+                                        </label>
+
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <label  class="control-label col-lg-2" style="width:86px;">处理备注：</label>
+                                <div class="col-lg-8">
+
+                                    <textarea style="width:100%;height:60px;resize: none;"></textarea>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </li>
+
+                    <li style="display: none;">
+
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <label  class="control-label col-lg-2" style="width:86px;">违约方：</label>
+                                <div class="col-lg-8">
+                                    <span class="text-col">
+
+                                     公司简称-联系人
+
+                                    </span>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <label  class="control-label col-lg-2" style="width:86px;">违约方：</label>
+                                <div class="col-lg-8">
+                                    <span class="text-col">
+
+                                    备注备注备注备注备注备注
+
+                                    </span>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="bottom-list">
+
+
+                            <div class="row-col">
+                                <strong>违约方</strong>
+                                <label>赔付金：</label>
+                                <span class="text-danger">780000元</span>
+                                <label>退回：</label>
+                                <span class="text-danger">0元</span>
+                            </div>
+
+                            <div class="row-col">
+                                <strong>非违约</strong>
+                                <label>补偿金：</label>
+                                <span class="text-danger">780000元</span>
+                                <label>退回：</label>
+                                <span class="text-danger">780000元</span>
+                            </div>
+
+                        </div>
+
+
+                    </li>
+                </ul>
+
+
+
+
+            </div>
+            <div class="modal-footer modal-btn-list">
+                <div class="step">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-info" id="nextBtn">下一步</button>
+                </div>
+
+                <div class="step" style="display: none;">
+                <button type="button" class="btn btn-default">返回上一步</button>
+                <button type="button" class="btn btn-info">确认处理</button>
+                </div>
+
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+<!-- 模态框（Modal）结束 -->
+
+
+
+
+
+<script src="assets/lib/jquery.js"></script>
+<script src="assets/lib/bootstrap.min.js"></script>
+
+<script src="assets/lib/jquery.scrollTo.min.js"></script>
+<script src="assets/lib/bootstrap-datepicker.min.js"></script>
+<script src="assets/lib/bootstrap-datepicker.zh-CN.min.js"></script>
+
+<!--common script for all pages-->
+<script src="assets/lib/common-scripts.js"></script>
+
+<script src="assets/lib/jquery.pagination.js"></script>
+<script src="assets/lib/layer/layer.js"></script>
+<script>
+
+    $("#nextBtn").click(function()
+    {
+
+        $(".step-list li").hide();
+        $(".step-list li").eq(1).show();
+        $('.modal-btn-list .step').hide();
+        $('.modal-btn-list .step').eq(1).show();
+
+    });
+
+    $(".table-responsive").on("click",".tip-col",function()
+    {
+        layer.tips('默认就是向右的', $(this),{
+            tips: [2, '#299bf4'] //还可配置颜色
+        });
+    })
+
+    //分页
+    var initPagination = function() {
+        var num_entries =100;
+        // 创建分页
+        $("#Pagination").pagination(num_entries, {
+            num_edge_entries: 1, //边缘页数
+            num_display_entries: 4, //主体页数
+            callback: pageselectCallback,
+            items_per_page:1 //每页显示1项
+        });
+    }();
+
+    function pageselectCallback(page_index, jq){
+
+        //回调函数 写ajax 添加数据
+
+    }
+
+
+</script>
+
+
+</body>
+</html>

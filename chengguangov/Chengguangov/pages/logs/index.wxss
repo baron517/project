@@ -1,0 +1,25 @@
+.main {
+  width : 700rpx;
+  height : 400rpx;
+  margin : 0 auto;
+  margin-top : 250rpx;
+  padding-top : 100rpx
+
+}
+.input {
+  width : 600rpx;
+  height : 80rpx;
+  font-size: 70rpx;
+  color : #666;
+  margin : 0 auto ;
+  margin-top : 40rpx;
+}
+input {
+  width : 600rpx;
+  height : 80rpx;
+  border-bottom : 1rpx solid #666;
+}
+.btn {
+  margin-top : 100rpx;
+  width : 600rpx;
+}

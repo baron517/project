@@ -1,0 +1,307 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>客户账户信息-订单列表</title>
+
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/fonts/font-awesome.min.css" rel="stylesheet" />
+    <link href="assets/css/datepicker.css" rel="stylesheet">
+    <link href="assets/css/mltp.theme.css" rel="stylesheet">
+    <link href="assets/css/main.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+<section id="container">
+    <!--头部 开始-->
+
+    <header class="header blue-bg">
+        <div class="sidebar-toggle-box">
+            <i class="fa fa-bars"></i>
+        </div>
+
+        <!--logo start-->
+        <a href="index.html" class="logo" >MLTP 后台管理系统</a>
+        <!--logo end-->
+
+        <div class="nav notify-row" id="top_menu">
+
+        </div>
+        <div class="top-nav ">
+            <ul class="nav pull-right top-menu">
+
+                <!-- user login dropdown start-->
+                <li class="dropdown">
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                        <span class="username">管理员</span>
+                        <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu extended logout">
+                        <div class="log-arrow-up"></div>
+                        <li><a href="#">设置</a></li>
+                        <li><a href="#">修改密码</a></li>
+                        <li><a href="###">退出</a></li>
+                    </ul>
+                </li>
+
+            </ul>
+        </div>
+    </header>
+    <!--头部 结束-->
+
+    <!-- 菜单开始 -->
+    <aside>
+        <div id="sidebar"  class="nav-collapse ">
+            <!-- sidebar menu start-->
+            <ul class="sidebar-menu" id="nav-accordion">
+                <li>
+                    <a href="###">
+                        <i class="fa fa-home"></i>
+                        <span>首页</span>
+                    </a>
+                </li>
+
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-laptop"></i>
+                        <span>菜单一</span>
+                    </a>
+                    <ul class="sub">
+                        <li><a  href="###">子菜单</a></li>
+                        <li><a  href="###">子菜单</a></li>
+                        <li><a  href="###">子菜单</a></li>
+                        <li><a  href="###">子菜单</a></li>
+                        <li><a  href="###">子菜单</a></li>
+                    </ul>
+                </li>
+
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-book"></i>
+                        <span>菜单二</span>
+                    </a>
+                    <ul class="sub">
+                        <li><a  href="###">子菜单</a></li>
+                        <li><a  href="###">子菜单</a></li>
+                        <li><a  href="###">子菜单</a></li>
+                        <li><a  href="###">子菜单</a></li>
+                        <li><a  href="###">子菜单</a></li>
+                    </ul>
+                </li>
+
+
+
+            </ul>
+            <!-- sidebar menu end-->
+        </div>
+    </aside>
+    <!-- 菜单结束 -->
+
+
+
+    <!--main content start-->
+    <section id="main-content">
+        <section class="wrapper">
+
+            <ol class="breadcrumb">
+                <li><a href="#">业务offline</a></li>
+                <li class="active">订单列表</li>
+            </ol>
+
+            <!-- page start-->
+            <div class="row">
+                <div class="col-lg-12">
+
+                    <section class="panel">
+                        <header class="panel-heading">
+
+                            企业名称企业名称【1234567】
+
+                            <span class="info-col">结算价格最新更新时间：<span class="text-danger">2016-11-28 11：10</span></span>
+
+                        </header>
+
+                        <div class="panel-body form-inline search-col order-top-col" >
+
+                            <div class="form-group">
+
+                                <label class="long">账户状态：</label>
+                                <span class="col short"><span class="tag blue-bg">正常</span></span>
+
+                                <label><strong>上日结算：</strong></label>
+                                <label>冻结保证金：</label>
+                                <span class="col"><span class="text-danger">5,432,100</span>元</span>
+
+                                <label>浮动盈亏：</label>
+                                <span class="col"><span class="text-danger">999,999,999.99</span>元</span>
+
+                                <label>可用资金：</label>
+                                <span class="col"><span class="text-danger">5,432,100</span>元</span>
+
+                            </div>
+
+                            <div class="form-group">
+
+                                <label class="long">上日待补金额：</label>
+                                <span class="col short">0 元</span>
+
+                                <label><strong>当日结算：</strong></label>
+                                <label>冻结保证金：</label>
+                                <span class="col"><span class="text-danger">5,432,100</span>元</span>
+
+                                <label>浮动盈亏：</label>
+                                <span class="col"><span class="text-success">-5,432,100</span>元</span>
+
+                                <label>可用资金：</label>
+                                <span class="col"><span class="text-danger">5,432,100</span>元</span>
+
+                                <label>风险度：</label>
+                                <span class="col short"><span class="text-danger">1.60</span></span>
+
+
+                            </div>
+
+
+
+
+
+                        </div>
+
+                    </section>
+
+
+                    <section class="panel">
+                        <header class="panel-heading">
+                            订单列表 （共 xx 条 ）
+                        </header>
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-striped">
+                                    <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>成交单号</th>
+                                        <th>成交时间</th>
+                                        <th>品名</th>
+
+                                        <th>交收期</th>
+                                        <th>数量（吨）</th>
+                                        <th>开仓价格（元/吨）</th>
+                                        <th>冻结保证金（元）</th>
+                                        <th>上日结算价格（元/吨）</th>
+
+                                        <th>上日盈亏（元）</th>
+
+                                        <th>当前结算价格（元/吨）
+                                        </th>
+
+                                        <th>当前盈亏（元）</th>
+
+                                        <th width="45">操作</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td><span class="tag red-bg">买</span></td>
+                                        <td>XXXXXXXXXXXXX</td>
+                                        <td>2016-11-10</td>
+                                        <td>SM</td>
+                                        <td>2016-11 下</td>
+                                        <td>8,800</td>
+                                        <td>8,800</td>
+                                        <td>8,800</td>
+                                        <td>8,800</td>
+                                        <td class="text-danger">+500,000</td>
+                                        <td>8,300</td>
+                                        <td class="text-danger">+500,000</td>
+                                        <td>
+                                            <button type="button" class="btn btn-success btn-xs">强平</button>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td><span class="tag blue-bg">卖</span></td>
+                                        <td>XXXXXXXXXXXXX</td>
+                                        <td>2016-11-10</td>
+                                        <td>SM</td>
+                                        <td>2016-11 下</td>
+                                        <td>8,800</td>
+                                        <td>8,800</td>
+                                        <td>8,800</td>
+                                        <td>8,800</td>
+                                        <td class="text-success">- 500,000</td>
+                                        <td>8,300</td>
+                                        <td class="text-success">- 500,000</td>
+                                        <td>
+                                            <button type="button" class="btn btn-success btn-xs">强平</button>
+                                        </td>
+                                    </tr>
+
+
+
+
+
+
+                                    </tbody>
+                                </table>
+
+                                <div class="pagination-col">
+                                    <ul class="pagination">
+                                        <li><a href="#">&laquo;</a></li>
+                                        <li><a href="#">1</a></li>
+                                        <li><a href="#">2</a></li>
+                                        <li><a href="#">3</a></li>
+                                        <li><a href="#">4</a></li>
+                                        <li><a href="#">5</a></li>
+                                        <li><a href="#">&raquo;</a></li>
+                                    </ul>
+                                </div>
+
+                            </div>
+                        </div>
+                    </section>
+
+                </div>
+            </div>
+
+        </section>
+    </section>
+    <!--main content end-->
+
+
+
+</section>
+
+
+
+
+
+<script src="assets/lib/jquery.js"></script>
+<script src="assets/lib/bootstrap.min.js"></script>
+<script src="assets/lib/jquery.validate.min.js"></script>
+<script src="assets/lib/jquery.scrollTo.min.js"></script>
+<script src="assets/lib/bootstrap-datepicker.min.js"></script>
+<script src="assets/lib/bootstrap-datepicker.zh-CN.min.js"></script>
+
+<!--common script for all pages-->
+<script src="assets/lib/common-scripts.js"></script>
+
+<script>
+
+    $(function()
+    {
+        $("#addUserForm").validate();
+
+        $("#commentForm").validate();
+    });
+
+
+
+</script>
+
+</body>
+</html>

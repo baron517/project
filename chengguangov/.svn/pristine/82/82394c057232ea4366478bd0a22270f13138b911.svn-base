@@ -1,0 +1,81 @@
+<!--person.wxml-->
+
+  <view  bindtap="bindViewTap" class="userinfo">
+  <view class='userinfo-avatar-box'>
+    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+</view>
+    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    <text class='mycenter'>我的中心</text>
+          <navigator url="../details/details">
+     <view class='config'>
+     <view class='config-box'>
+     <!--<view class='config-icon'>
+     <image src="/image/config.png"></image>
+     </view>
+     <view class='config-text'>编辑资料</view>-->
+</view>
+     </view>
+      </navigator>
+  </view>
+  
+  <view class="shoucang">
+      <navigator url="../quan3/quan3">
+        <view class="picute">
+         <image class="inco" src="/image/jilu.png"></image>
+         <view class="text">
+          我的记录
+         </view>
+      
+       </view>  
+      </navigator>
+<!--  -->
+	  <navigator url="../quan/quan" wx:if='{{test.ufrist_auditor=="1"}}'>
+        <view class="picute">
+         <image class="inco" src="/image/jilu.png"></image>
+         <view class="text">
+            第一审批记录
+         </view>
+      
+       </view>  
+      </navigator>
+
+
+       <navigator url="../quan2/quan2" wx:if='{{test.usenior_auditor=="1"}}'>
+        <view class="picute">
+         <image class="inco" src="/image/jilu.png"></image>
+         <view class="text">
+          第二审批记录
+         </view>
+      
+       </view>  
+      </navigator>
+
+    </view>
+
+    <view class="shoucang">
+      <navigator url="../select/select">
+        <view class="picute">
+         <image class="inco" src="/image/center.png"></image>
+         <view class="text">
+          个人中心
+         </view>
+      
+       </view>  
+      </navigator>
+    </view>
+
+ 
+
+   
+
+
+
+<!--  <view class="foot">
+    <view class="iphone">
+      <image class="server" src="/image/iphone.png"></image>
+
+      <view class="number">0551-64931983</view>
+    </view>
+   
+</view>
+-->

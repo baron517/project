@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="../css/font/iconfont.css">
+    <link rel="stylesheet" href="../css/resert.css">
+    <link rel="stylesheet" href="../css/public.css">
+    <link rel="stylesheet" href="../css/register.css">
+    <link rel="stylesheet" href="../css/personal_center.css">    
+    <link rel="stylesheet" href="../css/jquery.dad.css">
+    <link rel="stylesheet" href="../css/realtime.css">
+    <link rel="stylesheet" href="../css/scrollBar.css">
+    <link rel="stylesheet" href="../css/history_market2.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <title>实时行情</title>
+    <SCRIPT language=javascript> 
+    window.onerror=function(){return true;} 
+    </SCRIPT> 
+</head>
+<style>
+    .PC_title{
+        overflow: hidden;
+    }
+
+
+</style>
+<body>
+    <!-- 页面设定 -->
+    <div class="Public_main pr">
+        <!-- 公共头 -->
+        <div class="Public_header PC">    
+            <div class="header">
+                <h1 class="Public_logo fl"><a href="./log_in.html">易贸</a></h1>
+                <ul class="Public_nav clearfix">
+                    <li class="fl"><a class="iconfont icon-fenlei " href="./best_price.html"> <span>&nbsp&nbsp最优价格</span></a></li>
+                    <li class="fl border_bottom"><a class="iconfont icon-gupiao" href="./actual_time_market.html"> <span>&nbsp&nbsp实时行情</span></a></li>
+                    <li class="fl"><a class="iconfont icon-lishijilu" href="./history_market.html">  <span>&nbsp&nbsp历史行情</span></a></li>
+                    <li class="fl"><a class="iconfont icon-fuzhi " href="./easy_circulate_Myspic.html">  <span>&nbsp&nbsp易通指数</span></a></li>
+                    <li class="fr exit"><a href="#"class="db"></a></li>
+                    <li class="fr personage pr"><i class="pa"></i><a href="#"class="db"></a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- 409 85  -->
+        <div class="PC_title">
+            <div class="fl"><span class="iconfont icon-dakaisanshu open"></span><span class="iconfont icon-sanheng"></span></div>
+            <div class="fr add"><i>＋</i>添加行情</div>
+            <div class="fr">
+                    <div class="pos">
+                        <div class="l"></div>
+                        <i class="iconfont icon-plus-select-down"></i>
+                            <div class="type affiliation fl">
+                                <div class="type1 active">自贸区 </div>
+                                <div class="type1">现货行情 </div>
+                                <div class="type1">掉期上清所 </div>
+                            </div>
+                            <div class="type varieties fl">
+                                <div class="type1 active">MEG </div>
+                                <div class="type1">MA </div>
+                                <div class="type1">SM </div>
+                            </div>
+                    </div>
+                
+            </div>
+        </div>
+        
+
+
+
+        <div class="jq22">
+            
+                <div class="item item1" >
+                    <div class="shezhi">
+                        <i class="iconfont icon-shezhi"></i>
+                    </div>
+                    <div class="close"></div>
+                    <h4>
+                        <i class="iconfont"></i>
+                        <i class="title">现货 (纯苯)</i>
+                        <i>详情请询
+                            <i>021-5155 XXXX</i>
+                           
+                        </i>
+                            <i class="delete iconfont icon-guanbi"></i>
+                    </h4>
+                    
+                    <span class="iconfont icon-zuidahua"></span>
+                    <div class="table-col">
+
+                            <ul class="header-col">
+                            <li>
+                                <span>币种</span>
+                                <span>交易期限</span>
+                                <span></span>
+                                <span>数量</span>
+                                <span>价格</span>
+                                <span>时间</span>
+                                <span class="kq">库区</span>
+                                <span class="kq">保证金</span>
+                                <span class="kq">备注</span>
+                            </li>
+                            </ul>
+
+                            <div id="scroll1" class="scroll-col" >
+                            <ul >
+                            <li>
+                                <span>人民币</span>
+                                <span>1803</span>
+                                <span>买</span>
+                                <span>999</span>
+                                <span>10101</span>
+                                <span>10.26</span>
+                                <span  class="kq">张家港主流</span>
+                                <span class="kq">99,999</span>
+                                <span  class="kq">现货96%</span>
+                            </li>
+                                <li>
+                                    <span>人民币</span>
+                                    <span>1803</span>
+                                    <span>买</span>
+                                    <span>999</span>
+                                    <span>10101</span>
+                                    <span>10.26</span>
+                                    <span  class="kq">张家港主流</span>
+                                    <span class="kq">99,999</span>
+                                    <span  class="kq">现货96%</span>
+                                </li>
+                                <li>
+                                    <span>人民币</span>
+                                    <span>1803</span>
+                                    <span>买</span>
+                                    <span>999</span>
+                                    <span>10101</span>
+                                    <span>10.26</span>
+                                    <span  class="kq">张家港主流</span>
+                                    <span class="kq">99,999</span>
+                                    <span  class="kq">现货96%</span>
+                                </li>
+                                <li>
+                                    <span>人民币</span>
+                                    <span>1803</span>
+                                    <span>买</span>
+                                    <span>999</span>
+                                    <span>10101</span>
+                                    <span>10.26</span>
+                                    <span  class="kq">张家港主流</span>
+                                    <span class="kq">99,999</span>
+                                    <span  class="kq">现货96%</span>
+                                </li>
+                                <li>
+                                    <span>人民币</span>
+                                    <span>1803</span>
+                                    <span>买</span>
+                                    <span>999</span>
+                                    <span>10101</span>
+                                    <span>10.26</span>
+                                    <span  class="kq">张家港主流</span>
+                                    <span class="kq">99,999</span>
+                                    <span  class="kq">现货96%</span>
+                                </li>
+                                <li>
+                                    <span>人民币</span>
+                                    <span>1803</span>
+                                    <span>买</span>
+                                    <span>999</span>
+                                    <span>10101</span>
+                                    <span>10.26</span>
+                                    <span  class="kq">张家港主流</span>
+                                    <span class="kq">99,999</span>
+                                    <span  class="kq">现货96%</span>
+                                </li>
+                                <li>
+                                    <span>人民币</span>
+                                    <span>1803</span>
+                                    <span>买</span>
+                                    <span>999</span>
+                                    <span>10101</span>
+                                    <span>10.26</span>
+                                    <span  class="kq">张家港主流</span>
+                                    <span class="kq">99,999</span>
+                                    <span  class="kq">现货96%</span>
+                                </li>
+                                <li class="has-border">
+                                    <span>人民币</span>
+                                    <span>1803</span>
+                                    <span class="red-text">卖</span>
+                                    <span>999</span>
+                                    <span>10101</span>
+                                    <span>10.26</span>
+                                    <span  class="kq">张家港主流</span>
+                                    <span class="kq">99,999</span>
+                                    <span  class="kq">现货96%</span>
+                                </li>
+                                <li>
+                                    <span>人民币</span>
+                                    <span>1803</span>
+                                    <span class="red-text">卖</span>
+                                    <span>999</span>
+                                    <span>10101</span>
+                                    <span>10.26</span>
+                                    <span  class="kq">张家港主流</span>
+                                    <span class="kq">99,999</span>
+                                    <span  class="kq">现货96%</span>
+                                </li>
+                                <li>
+                                    <span>人民币</span>
+                                    <span>1803</span>
+                                    <span class="red-text">卖</span>
+                                    <span>999</span>
+                                    <span>10101</span>
+                                    <span>10.26</span>
+                                    <span  class="kq">张家港主流</span>
+                                    <span class="kq">99,999</span>
+                                    <span  class="kq">现货96%</span>
+                                </li>
+                                <li>
+                                    <span>人民币</span>
+                                    <span>1803</span>
+                                    <span class="red-text">卖</span>
+                                    <span>999</span>
+                                    <span>10101</span>
+                                    <span>10.26</span>
+                                    <span  class="kq">张家港主流</span>
+                                    <span class="kq">99,999</span>
+                                    <span  class="kq">现货96%</span>
+                                </li>
+                                <li>
+                                    <span>人民币</span>
+                                    <span>1803</span>
+                                    <span class="red-text">卖</span>
+                                    <span>999</span>
+                                    <span>10101</span>
+                                    <span>10.26</span>
+                                    <span  class="kq">张家港主流</span>
+                                    <span class="kq">99,999</span>
+                                    <span  class="kq">现货96%</span>
+                                </li>
+                                <li>
+                                    <span>人民币</span>
+                                    <span>1803</span>
+                                    <span class="red-text">卖</span>
+                                    <span>999</span>
+                                    <span>10101</span>
+                                    <span>10.26</span>
+                                    <span  class="kq">张家港主流</span>
+                                    <span class="kq">99,999</span>
+                                    <span  class="kq">现货96%</span>
+                                </li>
+
+                            </ul>
+                            </div>
+
+                    </div>
+
+                </div>
+                <div class="item item2" >
+                    <div class="shezhi">
+                        <i class="iconfont icon-shezhi"></i>
+                    </div>
+                    <div class="close"></div>
+                    <h4>
+                        <i class="iconfont"></i>
+                        <i class="title">掉期 (甲醇)</i>
+                        <i>详情请询
+                            <i>021-5155 XXXX</i>
+                        </i>
+                        <i class="delete iconfont icon-guanbi"></i>
+                    </h4>
+                    <span class="iconfont icon-zuidahua"></span>
+                    <div class="table-col">
+
+                        <ul class="header-col">
+                            <li>
+                                <span>币种</span>
+                                <span>交易期限</span>
+                                <span></span>
+                                <span>数量</span>
+                                <span>价格</span>
+                                <span>时间</span>
+                            </li>
+                        </ul>
+
+                        <div id="scroll2" class="scroll-col" >
+                            <ul >
+                                <li>
+                                    <span>人民币</span>
+                                    <span>1803</span>
+                                    <span>买</span>
+                                    <span>999</span>
+                                    <span>10101</span>
+                                    <span>10.26</span>
+                                </li>
+                                <li>
+                                    <span>人民币</span>
+                                    <span>1803</span>
+                                    <span>买</span>
+                                    <span>999</span>
+                                    <span>10101</span>
+                                    <span>10.26</span>
+                                </li>
+                                <li>
+                                    <span>人民币</span>
+                                    <span>1803</span>
+                                    <span>买</span>
+                                    <span>999</span>
+                                    <span>10101</span>
+                                    <span>10.26</span>
+                                </li>
+                                <li>
+                                    <span>人民币</span>
+                                    <span>1803</span>
+                                    <span>买</span>
+                                    <span>999</span>
+                                    <span>10101</span>
+                                    <span>10.26</span>
+                                </li>
+                                <li>
+                                    <span>人民币</span>
+                                    <span>1803</span>
+                                    <span>买</span>
+                                    <span>999</span>
+                                    <span>10101</span>
+                                    <span>10.26</span>
+                                </li>
+                                <li>
+                                    <span>人民币</span>
+                                    <span>1803</span>
+                                    <span>买</span>
+                                    <span>999</span>
+                                    <span>10101</span>
+                                    <span>10.26</span>
+                                </li>
+                                <li>
+                                    <span>人民币</span>
+                                    <span>1803</span>
+                                    <span>买</span>
+                                    <span>999</span>
+                                    <span>10101</span>
+                                    <span>10.26</span>
+                                </li>
+                                <li>
+                                    <span>人民币</span>
+                                    <span>1803</span>
+                                    <span>买</span>
+                                    <span>999</span>
+                                    <span>10101</span>
+                                    <span>10.26</span>
+                                </li>
+                                <li>
+                                    <span>人民币</span>
+                                    <span>1803</span>
+                                    <span>买</span>
+                                    <span>999</span>
+                                    <span>10101</span>
+                                    <span>10.26</span>
+                                </li>
+                                <li>
+                                    <span>人民币</span>
+                                    <span>1803</span>
+                                    <span>买</span>
+                                    <span>999</span>
+                                    <span>10101</span>
+                                    <span>10.26</span>
+                                </li>
+
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="item item3">
+                    <div class="shezhi">
+                        <i class="iconfont icon-shezhi"></i>
+                    </div>
+                    <div class="close"></div>
+                    <h4>
+                        <i class="iconfont"></i>
+                        <i class="title">自贸区(苯乙烯)</i>
+                        <i>详情请询
+                            <i>021-5155 XXXX</i>
+                        </i>
+                        <i class="delete iconfont icon-guanbi"></i>
+                    </h4>
+                    <span class="iconfont icon-zuidahua"></span>
+                    <div class="table-col">
+
+                        <ul class="header-col">
+                            <li>
+                                <span>币种</span>
+                                <span>交易期限</span>
+                                <span></span>
+                                <span>数量</span>
+                                <span>价格</span>
+                                <span>时间</span>
+                            </li>
+                        </ul>
+
+                        <div id="scroll3" class="scroll-col" >
+                            <ul >
+                                <li>
+                                    <span>人民币</span>
+                                    <span>1803</span>
+                                    <span>买</span>
+                                    <span>999</span>
+                                    <span>10101</span>
+                                    <span>10.26</span>
+                                </li>
+                                <li>
+                                    <span>人民币</span>
+                                    <span>1803</span>
+                                    <span>买</span>
+                                    <span>999</span>
+                                    <span>10101</span>
+                                    <span>10.26</span>
+                                </li>
+                                <li>
+                                    <span>人民币</span>
+                                    <span>1803</span>
+                                    <span>买</span>
+                                    <span>999</span>
+                                    <span>10101</span>
+                                    <span>10.26</span>
+                                </li>
+                                <li>
+                                    <span>人民币</span>
+                                    <span>1803</span>
+                                    <span>买</span>
+                                    <span>999</span>
+                                    <span>10101</span>
+                                    <span>10.26</span>
+                                </li>
+                                <li>
+                                    <span>人民币</span>
+                                    <span>1803</span>
+                                    <span>买</span>
+                                    <span>999</span>
+                                    <span>10101</span>
+                                    <span>10.26</span>
+                                </li>
+                                <li>
+                                    <span>人民币</span>
+                                    <span>1803</span>
+                                    <span>买</span>
+                                    <span>999</span>
+                                    <span>10101</span>
+                                    <span>10.26</span>
+                                </li>
+                                <li>
+                                    <span>人民币</span>
+                                    <span>1803</span>
+                                    <span>买</span>
+                                    <span>999</span>
+                                    <span>10101</span>
+                                    <span>10.26</span>
+                                </li>
+                                <li>
+                                    <span>人民币</span>
+                                    <span>1803</span>
+                                    <span>买</span>
+                                    <span>999</span>
+                                    <span>10101</span>
+                                    <span>10.26</span>
+                                </li>
+                                <li>
+                                    <span>人民币</span>
+                                    <span>1803</span>
+                                    <span>买</span>
+                                    <span>999</span>
+                                    <span>10101</span>
+                                    <span>10.26</span>
+                                </li>
+                                <li>
+                                    <span>人民币</span>
+                                    <span>1803</span>
+                                    <span>买</span>
+                                    <span>999</span>
+                                    <span>10101</span>
+                                    <span>10.26</span>
+                                </li>
+
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="item item4" >
+                    <div class="shezhi">
+                        <i class="iconfont icon-shezhi"></i>
+                    </div>
+                    <div class="close"></div>
+                    <h4>
+                        <i class="iconfont"></i>
+                        <i class="title">实时价差</i>
+                        <i>详情请询
+                            <i>021-5155 XXXX</i>
+                        </i>
+                        <i class="delete iconfont icon-guanbi"></i>
+                    </h4>
+                    <span class="iconfont icon-zuidahua"></span>
+
+                    <div class="table-col two-cell-col">
+
+                        <ul class="header-col">
+                            <li>
+                                <span>配对</span>
+                                <span>最新价差</span>
+                            </li>
+                        </ul>
+
+                        <div id="scroll4" class="scroll-col" >
+                            <ul >
+                                <li>
+                                    <span>MEG人民币 3月 - MEG人民币 4月</span>
+                                    <span>9,999</span>
+                                </li>
+                                <li>
+                                    <span>MEG人民币 3月 - MEG人民币 4月</span>
+                                    <span>9,999</span>
+                                </li>
+                                <li>
+                                    <span>MEG人民币 3月 - MEG人民币 4月</span>
+                                    <span>9,999</span>
+                                </li>
+                                <li>
+                                    <span>MEG人民币 3月 - MEG人民币 4月</span>
+                                    <span>9,999</span>
+                                </li>
+                                <li>
+                                    <span>MEG人民币 3月 - MEG人民币 4月</span>
+                                    <span>9,999</span>
+                                </li>
+                                <li>
+                                    <span>MEG人民币 3月 - MEG人民币 4月</span>
+                                    <span>9,999</span>
+                                </li>
+                                <li>
+                                    <span>MEG人民币 3月 - MEG人民币 4月</span>
+                                    <span>9,999</span>
+                                </li>
+                                <li>
+                                    <span>MEG人民币 3月 - MEG人民币 4月</span>
+                                    <span>9,999</span>
+                                </li>
+                                <li>
+                                    <span>MEG人民币 3月 - MEG人民币 4月</span>
+                                    <span>9,999</span>
+                                </li>
+                                <li>
+                                    <span>MEG人民币 3月 - MEG人民币 4月</span>
+                                    <span>9,999</span>
+                                </li>
+                                <li>
+                                    <span>MEG人民币 3月 - MEG人民币 4月</span>
+                                    <span>9,999</span>
+                                </li>
+                                <li>
+                                    <span>MEG人民币 3月 - MEG人民币 4月</span>
+                                    <span>9,999</span>
+                                </li>
+                                <li>
+                                    <span>MEG人民币 3月 - MEG人民币 4月</span>
+                                    <span>9,999</span>
+                                </li>
+
+                            </ul>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+    <div class="masking">
+
+
+            <div class="price_Difference">
+                <div class="modal-header">
+                    设置
+                    <span class="close-modal">×</span>
+                </div>
+                <div class="price_head clearfix">
+                    <div class="price_title fl">价差合约选择</div>
+                    <div class="price_add iconfont icon-jia fr">&nbsp;&nbsp;添加合约</div>
+                </div>
+                <div class="price_middle">
+                    <div class="start fl">第一腿</div>
+                    <div class="end fl">第二腿</div>
+                </div>
+                <div class="price_details">
+                    <div class="row">
+                        <div class="type first fl">
+                                <div class="type1 active">现货RMB1 <i class="iconfont icon-plus-select-down fr"></i></div>
+                                <div class="type1">现货RMB2 <i class="iconfont icon-plus-select-down fr"></i></div>
+                                <div class="type1">现货RMB3 <i class="iconfont icon-plus-select-down fr"></i></div>
+                        </div>
+                        <div class="type second fl">
+                                <div class="type1 active">MEG1 <i class="iconfont icon-plus-select-down fr"></i></div>
+                                <div class="type1">MEG2 <i class="iconfont icon-plus-select-down fr"></i></div>
+                                <div class="type1">MEG3 <i class="iconfont icon-plus-select-down fr"></i></div>
+                        </div>
+                        <div class="type third fl">
+                                <div class="type1 active">四月上 <i class="iconfont icon-plus-select-down fr"></i></div>
+                                <div class="type1">四月下 <i class="iconfont icon-plus-select-down fr"></i></div>
+                                <div class="type1">五月上 <i class="iconfont icon-plus-select-down fr"></i></div>
+                        </div>
+                        <span></span>
+                        <div class="type four fl">
+                                <div class="type1 fo active">现货RMB1 <i class="iconfont icon-plus-select-down fr"></i></div>
+                                <div class="type1">现货RMB2 <i class="iconfont icon-plus-select-down fr"></i></div>
+                                <div class="type1">现货RMB3 <i class="iconfont icon-plus-select-down fr"></i></div>
+                        </div>
+                        <div class="type five fl">
+                                <div class="type1 active">MEG1 <i class="iconfont icon-plus-select-down fr"></i></div>
+                                <div class="type1">MEG2 <i class="iconfont icon-plus-select-down fr"></i></div>
+                                <div class="type1">MEG3 <i class="iconfont icon-plus-select-down fr"></i></div>
+                        </div>
+                        <div class="type six fl">
+                                <div class="type1 active">四月上 <i class="iconfont icon-plus-select-down fr"></i></div>
+                                <div class="type1">四月下 <i class="iconfont icon-plus-select-down fr"></i></div>
+                                <div class="type1">五月上 <i class="iconfont icon-plus-select-down fr"></i></div>
+                        </div>
+                        <div class="price_details_delete iconfont icon-icon7">
+
+                        </div>                    
+                    </div>
+                    <div class="row">
+                            <div class="type first fl">
+                                    <div class="type1 active">现货RMB1 <i class="iconfont icon-plus-select-down fr"></i></div>
+                                    <div class="type1">现货RMB2 <i class="iconfont icon-plus-select-down fr"></i></div>
+                                    <div class="type1">现货RMB3 <i class="iconfont icon-plus-select-down fr"></i></div>
+                            </div>
+                            <div class="type second fl">
+                                    <div class="type1 active">MEG1 <i class="iconfont icon-plus-select-down fr"></i></div>
+                                    <div class="type1">MEG2 <i class="iconfont icon-plus-select-down fr"></i></div>
+                                    <div class="type1">MEG3 <i class="iconfont icon-plus-select-down fr"></i></div>
+                            </div>
+                            <div class="type third fl">
+                                    <div class="type1 active">四月上 <i class="iconfont icon-plus-select-down fr"></i></div>
+                                    <div class="type1">四月下 <i class="iconfont icon-plus-select-down fr"></i></div>
+                                    <div class="type1">五月上 <i class="iconfont icon-plus-select-down fr"></i></div>
+                            </div>
+                            <span></span>
+                            <div class="type four fl">
+                                    <div class="type1 fo active">现货RMB1 <i class="iconfont icon-plus-select-down fr"></i></div>
+                                    <div class="type1">现货RMB2 <i class="iconfont icon-plus-select-down fr"></i></div>
+                                    <div class="type1">现货RMB3 <i class="iconfont icon-plus-select-down fr"></i></div>
+                            </div>
+                            <div class="type five fl">
+                                    <div class="type1 active">MEG1 <i class="iconfont icon-plus-select-down fr"></i></div>
+                                    <div class="type1">MEG2 <i class="iconfont icon-plus-select-down fr"></i></div>
+                                    <div class="type1">MEG3 <i class="iconfont icon-plus-select-down fr"></i></div>
+                            </div>
+                            <div class="type six fl">
+                                    <div class="type1 active">四月上 <i class="iconfont icon-plus-select-down fr"></i></div>
+                                    <div class="type1">四月下 <i class="iconfont icon-plus-select-down fr"></i></div>
+                                    <div class="type1">五月上 <i class="iconfont icon-plus-select-down fr"></i></div>
+                            </div>
+                            <div class="price_details_delete iconfont icon-icon7">
+    
+                            </div>                    
+                        </div>
+                    <div class="row">
+                        <div class="type first fl">
+                                <div class="type1 active">现货RMB1 <i class="iconfont icon-plus-select-down fr"></i></div>
+                                <div class="type1">现货RMB2 <i class="iconfont icon-plus-select-down fr"></i></div>
+                                <div class="type1">现货RMB3 <i class="iconfont icon-plus-select-down fr"></i></div>
+                        </div>
+                        <div class="type second fl">
+                                <div class="type1 active">MEG1 <i class="iconfont icon-plus-select-down fr"></i></div>
+                                <div class="type1">MEG2 <i class="iconfont icon-plus-select-down fr"></i></div>
+                                <div class="type1">MEG3 <i class="iconfont icon-plus-select-down fr"></i></div>
+                        </div>
+                        <div class="type third fl">
+                                <div class="type1 active">四月上 <i class="iconfont icon-plus-select-down fr"></i></div>
+                                <div class="type1">四月下 <i class="iconfont icon-plus-select-down fr"></i></div>
+                                <div class="type1">五月上 <i class="iconfont icon-plus-select-down fr"></i></div>
+                        </div>
+                        <span></span>
+                        <div class="type four fl">
+                                <div class="type1 fo active">现货RMB1 <i class="iconfont icon-plus-select-down fr"></i></div>
+                                <div class="type1">现货RMB2 <i class="iconfont icon-plus-select-down fr"></i></div>
+                                <div class="type1">现货RMB3 <i class="iconfont icon-plus-select-down fr"></i></div>
+                        </div>
+                        <div class="type five fl">
+                                <div class="type1 active">MEG1 <i class="iconfont icon-plus-select-down fr"></i></div>
+                                <div class="type1">MEG2 <i class="iconfont icon-plus-select-down fr"></i></div>
+                                <div class="type1">MEG3 <i class="iconfont icon-plus-select-down fr"></i></div>
+                        </div>
+                        <div class="type six fl">
+                                <div class="type1 active">四月上 <i class="iconfont icon-plus-select-down fr"></i></div>
+                                <div class="type1">四月下 <i class="iconfont icon-plus-select-down fr"></i></div>
+                                <div class="type1">五月上 <i class="iconfont icon-plus-select-down fr"></i></div>
+                        </div>
+                        <div class="price_details_delete iconfont icon-icon7">
+
+                    </div>                    
+                    </div>
+                    <div class="confirm"><div class="confirm_box">
+                        确定
+                    </div>
+                </div>
+                            
+                
+                </div>
+
+
+            </div>
+          
+        </div>
+
+        
+    </div>
+    <div class="Public_footer ma clearfix">
+            <a href="#">友情链接</a>
+            <span>|</span>
+            <a href="#">易贸集团</a>
+            <span>|</span>
+            <a href="#">上海自贸区</a>
+            <span>|</span>
+            <a href="#">上海化交</a>
+            <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            
+        <!-- login_footer -->
+        <a href="#">友情链接</a>
+        <a href="#">易贸集团</a>
+        <a href="#">上海自贸区</a>
+        <a href="#">上海化交</a>
+    </div>
+    <div class="Public_footer_bottom">
+        <!-- Public_footer -->
+        Copyright 2018 ENMORE 易贸    沪ICP备10003311号-12
+    </div>
+        <script src="../lib/jquery-3.3.1.min.js"></script>
+    <script src="../lib/jquery.dad.min.js"></script>
+    <script src="../lib/scrollBar.js"></script>
+    <script src="../js/drag.js"></script>
+    <script src="../lib/jquery.showLoading.min.js"></script>
+    <script>
+    $(function(){
+        console.log($('.masking> .price_Difference>.price_details > .row  > span'))
+
+        $("#scroll1").showLoading();
+        $("#scroll2").showLoading();
+        $("#scroll3").showLoading();
+        $("#scroll4").showLoading();
+
+        setTimeout(function()
+        {
+            $("#scroll1").hideLoading();
+            $("#scroll2").hideLoading();
+            $("#scroll3").hideLoading();
+            $("#scroll4").hideLoading();
+        },2000)
+
+
+    })
+
+        $(".close-modal").click(function()
+        {
+            $(".masking").hide();
+        });
+
+    </script>
+
+</body>
+    
+</html> 

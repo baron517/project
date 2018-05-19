@@ -1,0 +1,565 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>结算价格维护</title>
+
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/fonts/font-awesome.min.css" rel="stylesheet" />
+    <link href="assets/css/datepicker.css" rel="stylesheet">
+    <link href="assets/css/mltp.theme.css" rel="stylesheet">
+    <link href="assets/css/main.css" rel="stylesheet">
+
+
+</head>
+
+<body>
+
+<section id="container" class="">
+    <!--头部 开始-->
+
+    <header class="header blue-bg">
+        <div class="sidebar-toggle-box">
+            <i class="fa fa-bars"></i>
+        </div>
+
+        <!--logo start-->
+        <a href="index.html" class="logo" >MLTP 后台管理系统</a>
+        <!--logo end-->
+
+        <div class="nav notify-row" id="top_menu">
+
+        </div>
+        <div class="top-nav ">
+            <ul class="nav pull-right top-menu">
+
+                <!-- user login dropdown start-->
+                <li class="dropdown">
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                        <span class="username">管理员</span>
+                        <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu extended logout">
+                        <div class="log-arrow-up"></div>
+                        <li><a href="#">设置</a></li>
+                        <li><a href="#">修改密码</a></li>
+                        <li><a href="###">退出</a></li>
+                    </ul>
+                </li>
+
+            </ul>
+        </div>
+    </header>
+    <!--头部 结束-->
+
+    <!-- 菜单开始 -->
+    <aside>
+        <div id="sidebar"  class="nav-collapse ">
+            <!-- sidebar menu start-->
+            <ul class="sidebar-menu" id="nav-accordion">
+                <li>
+                    <a href="###">
+                        <i class="fa fa-home"></i>
+                        <span>首页</span>
+                    </a>
+                </li>
+
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-laptop"></i>
+                        <span>菜单一</span>
+                    </a>
+                    <ul class="sub">
+                        <li><a  href="###">子菜单</a></li>
+                        <li><a  href="###">子菜单</a></li>
+                        <li><a  href="###">子菜单</a></li>
+                        <li><a  href="###">子菜单</a></li>
+                        <li><a  href="###">子菜单</a></li>
+                    </ul>
+                </li>
+
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-book"></i>
+                        <span>菜单二</span>
+                    </a>
+                    <ul class="sub">
+                        <li><a  href="###">子菜单</a></li>
+                        <li><a  href="###">子菜单</a></li>
+                        <li><a  href="###">子菜单</a></li>
+                        <li><a  href="###">子菜单</a></li>
+                        <li><a  href="###">子菜单</a></li>
+                    </ul>
+                </li>
+
+
+
+            </ul>
+            <!-- sidebar menu end-->
+        </div>
+    </aside>
+    <!-- 菜单结束 -->
+
+
+
+    <!--main content start-->
+    <section id="main-content">
+        <section class="wrapper">
+
+            <ol class="breadcrumb">
+                <li><a href="#">结算价格维护</a></li>
+                <li class="active">结算价格维护</li>
+            </ol>
+
+            <!-- page start-->
+            <div class="row">
+                <div class="col-lg-12">
+
+                    <section class="panel">
+                        <header class="panel-heading">
+                            当日结算价格
+
+                            <div class="pull-right table-operation">
+
+                                <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#importModal">批量导入</button>
+
+
+                                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#priceModal">价格录入</button>
+
+                                <button type="button" class="btn btn-info" data-toggle="modal" data-target="#exportModal">导出excel</button>
+
+                            </div>
+
+                        </header>
+                        <div class="panel-body">
+
+                            <ul class="table-tab clearfix">
+                                <li class="active">SM</li>
+                                <li>甲醇</li>
+                            </ul>
+
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-striped price-table">
+                                    <thead>
+                                    <tr>
+                                        <th>序号</th>
+                                        <th>交收时间</th>
+                                        <th>结算日期</th>
+                                        <th>日终结算（元）</th>
+                                        <th>更新时间</th>
+                                        <th>盘中盯市（元）</th>
+                                        <th>更新时间</th>
+                                        <th>操作</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+
+                                    <tr>
+                                        <td>1</td>
+                                        <td>2017-04 下</td>
+                                        <td>2017-04-20</td>
+                                        <td>8200</td>
+                                        <td>17：10</td>
+                                        <td>8150</td>
+                                        <td>17：10</td>
+
+
+
+                                        <td>
+                                            <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#editModal">修改</button>
+                                        </td>
+                                    </tr>
+
+
+
+
+                                    </tbody>
+                                </table>
+
+
+                                <div class="pagination-col">
+                                    <div id="Pagination" class="pagination">
+
+                                    </div>
+                                </div>
+
+
+                               <!-- <div class="pagination-col">
+
+                                    <ul class="pagination">
+                                        <li><a>&laquo;</a></li>
+                                        <li><a href="#">1</a></li>
+                                        <li><a href="#">2</a></li>
+                                        <li><a href="#">3</a></li>
+                                        <li><a href="#">4</a></li>
+                                        <li><a href="#">5</a></li>
+                                        <li><a href="#">&raquo;</a></li>
+                                    </ul>
+
+                                </div>-->
+
+                            </div>
+                        </div>
+                    </section>
+
+                </div>
+            </div>
+
+        </section>
+    </section>
+    <!--main content end-->
+
+
+
+</section>
+
+
+<!-- 模态框（Modal） -->
+<div class="modal fade" id="importModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">批量导入</h4>
+            </div>
+            <div class="modal-body">
+
+
+                <div class="row">
+
+                    <div class="form-group col-lg-12" style="position: relative;z-index:10;">
+
+
+
+
+                            <input style="width:240px;display: inline-block;margin-left:40px;" class="form-control" type="text">
+
+                            <span class="upload-col btn-info">
+                            <input type="file" />
+                                选择文件
+                            </span>
+                            <input type="button" value="上传" class="btn btn-success"/>
+
+
+
+                    </div>
+
+                    <div style="margin-left:60px;position: relative;top:-8px;color:#299bf4;"><span style="position: relative;top:3px;margin-right:2px;">*</span>文件大小不能超过15M</div>
+
+                </div>
+
+
+
+
+
+            </div>
+
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+<!-- 模态框（Modal）结束 -->
+
+
+<!-- 模态框（Modal） -->
+<div class="modal fade" id="priceModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">价格录入</h4>
+            </div>
+            <div class="modal-body">
+
+
+                <div class="row">
+
+                    <div class="form-group col-lg-12">
+                        <label  class="control-label col-lg-3">价格录入：</label>
+                        <div class="col-lg-6">
+                            <select class="form-control">
+                                <option>盘中盯市</option>
+                            </select>
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row">
+
+                    <div class="form-group col-lg-12">
+                        <label  class="control-label col-lg-3">品名：</label>
+                        <div class="col-lg-6">
+                            <select class="form-control">
+                                <option>SM</option>
+                            </select>
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="row">
+
+                    <div class="form-group col-lg-12">
+                        <label  class="control-label col-lg-3">2016-11 下： 价格：</label>
+                        <div class="col-lg-6">
+
+                            <input class="form-control" type="text" />
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row">
+
+                    <div class="form-group col-lg-12">
+                        <label  class="control-label col-lg-3">2016-11 下： 价格：</label>
+                        <div class="col-lg-6">
+
+                            <input class="form-control" type="text" />
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row">
+
+                    <div class="form-group col-lg-12">
+                        <label  class="control-label col-lg-3">2016-01 下： 价格：</label>
+                        <div class="col-lg-6">
+
+                            <input class="form-control" type="text" />
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row">
+
+                    <div class="form-group col-lg-12">
+                        <label  class="control-label col-lg-3">2016-02 下： 价格：</label>
+                        <div class="col-lg-6">
+
+                            <input class="form-control" type="text" />
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row">
+
+                    <div class="form-group col-lg-12">
+                        <label  class="control-label col-lg-3">2016-03 下： 价格：</label>
+                        <div class="col-lg-6">
+
+                            <input class="form-control" type="text" />
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row">
+
+                    <div class="form-group col-lg-12">
+                        <label  class="control-label col-lg-3">2016-04 下： 价格：</label>
+                        <div class="col-lg-6">
+
+                            <input class="form-control" type="text" />
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-info">保存</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+<!-- 模态框（Modal）结束 -->
+
+
+
+<!-- 模态框（Modal） -->
+<div class="modal fade" id="exportModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">导出历史价格</h4>
+            </div>
+            <div class="modal-body">
+
+                <div class="row">
+
+
+
+                    <div class="form-group col-lg-12">
+
+                        <label  class="control-label col-lg-2">交收时间：</label>
+                        <div class="col-lg-4">
+                            <input type="text" class="form-control">
+                        </div>
+
+
+
+                        <label  class="control-label col-lg-2">品名：</label>
+                        <div class="col-lg-4">
+                            <select class="form-control">
+                                <option>SM</option>
+                            </select>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-info">导出</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+<!-- 模态框（Modal）结束 -->
+
+
+<!-- 模态框（Modal） -->
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">修改</h4>
+            </div>
+            <div class="modal-body">
+
+
+
+                <div class="row">
+
+                <div class="col-lg-12">
+                    <label  class="control-label col-lg-3">品名：</label>
+                    <div class="col-lg-6">
+                        <span class="text-col">SM</span>
+
+                    </div>
+                </div>
+
+            </div>
+
+                <div class="row">
+
+                    <div class="col-lg-12">
+                        <label  class="control-label col-lg-3">交收时间：</label>
+                        <div class="col-lg-6">
+                            <span class="text-col">2017-04 下</span>
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="row">
+
+                    <div class="form-group col-lg-12">
+                        <label  class="control-label col-lg-3">盘中盯市价</label>
+                        <div class="col-lg-6">
+                            <input class="form-control" type="text" />
+                        </div>
+                        <div class="col-lg-3" style="padding-left:0"><span class="text-col">元/吨</span></div>
+                    </div>
+
+                </div>
+
+                <div class="row">
+
+                    <div class="form-group col-lg-12">
+                        <label  class="control-label col-lg-3">日终结算价</label>
+                        <div class="col-lg-6">
+
+                            <input  class="form-control" type="text" />
+
+                        </div>
+
+                        <div class="col-lg-3" style="padding-left:0"><span class="text-col">元/吨</span></div>
+
+
+
+                    </div>
+
+                </div>
+
+
+
+
+
+
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-info">保存</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+<!-- 模态框（Modal）结束 -->
+
+
+<script src="assets/lib/jquery.js"></script>
+<script src="assets/lib/bootstrap.min.js"></script>
+
+<script src="assets/lib/jquery.scrollTo.min.js"></script>
+<script src="assets/lib/bootstrap-datepicker.min.js"></script>
+<script src="assets/lib/bootstrap-datepicker.zh-CN.min.js"></script>
+
+<!--common script for all pages-->
+<script src="assets/lib/common-scripts.js"></script>
+
+<script src="assets/lib/jquery.pagination.js"></script>
+
+<script>
+
+    //分页
+    var initPagination = function() {
+        var num_entries =100;
+        // 创建分页
+        $("#Pagination").pagination(num_entries, {
+            num_edge_entries: 1, //边缘页数
+            num_display_entries: 4, //主体页数
+            callback: pageselectCallback,
+            items_per_page:1 //每页显示1项
+        });
+    }();
+
+    function pageselectCallback(page_index, jq){
+
+        //回调函数 写ajax 添加数据
+
+    }
+
+
+</script>
+
+
+</body>
+</html>

@@ -4,8 +4,39 @@ App({
     //调用API从本地缓存中获取数据
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
-    wx.setStorageSync('logs', logs)
-  },
+    wx.setStorageSync('logs', logs);
+    // 获取到当前用户的openid
+    var that = this;
+    wx.login({
+      success:function (res) {
+        var code = res.code;
+        console.log('code is' + code)
+        wx.request({
+          
+          url: 'https://chengguangov.diguikeji.com/index.php?g=Api&m=CommonApi&a=wxdata',
+          method: "GET",
+          header:{
+            'content-type': 'application/json'
+          },
+          data: {
+            code: code,
+          },
+          success: function (e) {
+            console.log('获取到了openid')
+            console.log( e.data)
+            var openid = e.data;
+            console.log(openid);
+            wx.setStorage({
+              key: 'openid',
+              data: openid,
+            })
+        
+      }
+    })
+  }
+    })
+  }
+,
   onShow: function(){
     console.log('onShow');
   },
@@ -65,7 +96,7 @@ App({
                       openid: openid
                     },
                     method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
-                    // header: {}, // 设置请求的 header
+                     header: {}, // 设置请求的 header
                     success: function (res) {
                       console.log(res.data);
                     },
@@ -86,9 +117,6 @@ App({
           })
 
 
-
-
-
         },
 
       fail:function(e){
@@ -98,6 +126,11 @@ App({
     }
   },
   globalData:{
-    userInfo:null
+    userInfo:null,
+    cid:'',
+    nameList:[],
+    perNum:'',
+    price:'',
+    moneySum:'',
   }
 })

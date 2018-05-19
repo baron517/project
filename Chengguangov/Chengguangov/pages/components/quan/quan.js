@@ -54,12 +54,11 @@ Page({
     });
 
 
-
     wx.getStorage({
       key: 'userInfo',
       success: function (res) {
    
-        var uid = res.data[0].uid;
+        var uid = res.data.uid;
         console.log("####");
         console.log(uid);
         console.log("####");

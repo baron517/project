@@ -25,6 +25,8 @@
 
 <view>就餐地点：{{detail.rmeal_place}}</view>
 
+<view>领导审批：{{detail.uname}}</view>
+
 
 
 

@@ -24,7 +24,10 @@ class UsersController extends AdminbaseController{
 
     public function index(){
 
-        $users = $this->users_model->select();
+        $users = $this->users_model
+        ->alias("a")
+       
+        ->select();
         $this->assign("users",$users);
         $this->display();
     }
@@ -54,7 +57,7 @@ class UsersController extends AdminbaseController{
 
     public function edit(){
         $id=I("get.id",0,'intval');
-        $users=$this->users_model->where(array('ad_id'=>$id))->find();
+        $users=$this->users_model->where(array('uid'=>$id))->find();
         $department = $this->squadron_model->select();
         $this->assign("department",$department);
         $this->assign($users);

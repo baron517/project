@@ -1,0 +1,54 @@
+.dad-noSelect,.dad-noSelect *{
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: -webkit-grabbing !important;
+    cursor: -moz-grabbing !important;
+}
+
+.dad-container{
+    position: relative;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.dad-container::after{
+    content: '';
+    clear: both !important;
+    display: block;
+}
+.dad-active .dad-draggable-area{
+    cursor: -webkit-grab;
+    cursor: -moz-grab;
+}
+.dads-children-clone{
+    opacity: 0.8;
+    z-index: 9;
+    pointer-events: none;
+
+}
+.dads-children-placeholder{
+    overflow: hidden;
+    position: absolute ;
+    box-sizing: border-box;
+    border:4px dashed #639BF6;
+    margin:5px;
+    text-align: center;
+    color: #639BF6;
+    font-weight: bold;
+}
+.jq22 { position: relative;  width: 1280px; margin: 0 auto; font-family: arial,SimSun; font-size: 0;}
+.jq22 .item { display: inline-block; width: 49.1%; margin: 10px 10px 10px 0px; background-color: #ccc;position: relative;}
+.jq22 h4 { margin: 0; padding: 0.5rem; border-bottom: 1px solid #ccc; font-size: 0.75rem; color: #fff;}
+.jq22 div { display: block; line-height: 100px; font-size: 2rem; text-align: center; color: #fff;}
+.item span{ position: absolute; right: 0;top: 0;font-size: 12px;}
+.jq22>.too{width: 98%;height: 400px;}
+.dads-children{
+    height: 458px;
+}

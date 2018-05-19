@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>价差图</title>
+    <link rel="stylesheet" href="assets/css/base.css" type="text/css" />
+    <link rel="stylesheet" href="assets/css/main.css" type="text/css" />
+    <link rel="stylesheet" href="assets/font/iconfont.css" type="text/css" />
+    <link rel="stylesheet" href="assets/lib/layer/skin/layer.css" type="text/css" />
+</head>
+<body>
+
+
+
+<div class="home-col">
+
+    <div class="header-col clearfix">
+
+
+        <img style="width:100px;display: block;float:left;padding:8px 0 0 8px;" src="assets/img/logo.png">
+
+
+        <div class="header-col-right">
+
+             <span style="margin-right:20px;">欢迎您：某某某</span>
+
+            <span class="icon-col"><i class="icon iconfont icon-subscribe-1-copy"></i></span>
+
+
+            <span class="icon-col"><i class="icon iconfont icon-caozuo-quanping-zhankai" style="font-weight: bold;"></i></span>
+
+            <span class="icon-col"><i class="icon iconfont icon-tuichu1" style="font-weight: bold;"></i></span>
+
+        </div>
+
+    </div>
+
+    <div class="left-col">
+
+
+        <ul>
+
+            <li>
+                <a href="###" class="active">
+                    <i class="icon iconfont icon-barchart"></i>
+                </a>
+            </li>
+
+            <li>
+                <a href="###">
+                    <i class="icon iconfont icon-dingyue"></i>
+                </a>
+            </li>
+
+            <li>
+                <a href="###">
+                    <i class="icon iconfont icon-shezhi"></i>
+                </a>
+            </li>
+
+            <li>
+                <a href="###">
+                    <i class="icon iconfont icon-youjian"></i>
+                </a>
+            </li>
+
+
+        </ul>
+
+
+
+    </div>
+
+
+    <div class="combine-list-col">
+
+    <button type="button" class="btn btn-default" id="addCombine">添加组合</button>
+
+    <ul class="combine-list">
+
+        <li class="clearfix">
+            <div> 苯乙烯-3中</div> <div> 苯乙烯-3上</div>
+            <div>当前值：<span class="price">9000</span>/年均值：<span class="price">20000</span></div>
+
+            <div class="operate">
+                <i class="icon iconfont icon-bianji"></i>
+                <i class="icon iconfont icon-shanchu"></i>
+            </div>
+
+        </li>
+        <li class="clearfix">
+            <div> 苯乙烯-3中</div> <div> 苯乙烯-3上</div>
+            <div>当前值：<span class="price">9000</span>/年均值：<span class="price">20000</span></div>
+
+            <div class="operate">
+                <i class="icon iconfont icon-bianji"></i>
+                <i class="icon iconfont icon-shanchu"></i>
+            </div>
+
+        </li>
+        <li class="clearfix">
+            <div> 苯乙烯-3中</div> <div> 苯乙烯-3上</div>
+            <div>当前值：<span class="price">9000</span>/年均值：<span class="price">20000</span></div>
+
+            <div class="operate">
+                <i class="icon iconfont icon-bianji"></i>
+                <i class="icon iconfont icon-shanchu"></i>
+            </div>
+
+        </li>
+        <li class="clearfix">
+            <div> 苯乙烯-3中</div> <div> 苯乙烯-3上</div>
+            <div>当前值：<span class="price">9000</span>/年均值：<span class="price">20000</span></div>
+
+            <div class="operate">
+                <i class="icon iconfont icon-bianji"></i>
+                <i class="icon iconfont icon-shanchu"></i>
+            </div>
+
+        </li>
+        <li class="clearfix">
+            <div> 苯乙烯-3中</div> <div> 苯乙烯-3上</div>
+            <div>当前值：<span class="price">9000</span>/年均值：<span class="price">20000</span></div>
+
+            <div class="operate">
+                <i class="icon iconfont icon-bianji"></i>
+                <i class="icon iconfont icon-shanchu"></i>
+            </div>
+
+        </li>
+
+
+
+    </ul>
+
+    </div>
+
+
+    <div class="chart-col-right">
+
+        <div class="chart-col-right-col">
+
+
+            <span class="close-col" id="closeCol">
+            <i class="icon iconfont icon-close"></i>
+            </span>
+
+
+            <ul class="chart-col-right-list">
+                <li>
+                    <span class="warning-value"><span>47387</span>元</span>
+                    <i class="icon iconfont icon-close"></i>
+                </li>
+                <li>
+                    <span class="warning-value"><span>900</span>元</span>
+                    <i class="icon iconfont icon-close"></i>
+                </li>
+
+
+            </ul>
+
+            <button type="button" class="btn btn-default" id="addWarningValue">添加</button>
+
+
+        </div>
+
+
+    </div>
+
+
+
+    <div class="chart-col">
+
+
+        <div class="chart-col-top">
+
+
+            <div class="top-tab" id="topTab1">
+            <span data-type="1" class="active">分时图</span>
+            <span data-type="2">5分</span>
+            <span data-type="3">15分</span>
+            <span data-type="4">20分</span>
+            <span data-type="5">日</span>
+            <span data-type="6">周</span>
+            <span data-type="7">月</span>
+            </div>
+
+            <div class="top-tab" id="topTab2" style="margin-left:10px;">
+                <span data-type="1">95%线</span>
+                <span data-type="2">80%线</span>
+                <span data-type="3">65%线</span>
+                <span data-type="4">年均线</span>
+            </div>
+
+            <button type="button" class="btn btn-default" id="warningValueBtn">显示警示线</button>
+
+            <button type="button" class="btn btn-info" id="addWarningValueBtn">添加警示价</button>
+
+
+        </div>
+
+        <div class="chart-main" >
+
+            <div class="chart-detail" style="z-index:10;" id="chartMain1"></div>
+
+            <div class="chart-detail"  id="chartMain2"></div>
+
+
+        </div>
+
+
+    </div>
+
+
+</div>
+
+
+<!--透明阴影层-->
+<div class="shadow hide"></div>
+
+<!--添加组合-->
+<div class="modal hide" id="addCombineModal">
+
+    <div class="modal-dialog" style="width:800px;">
+
+        <div class="modal-header">
+
+            <h4 class="modal-title">添加组合</h4>
+            <span class="close cancel-modal">×</span>
+
+        </div>
+
+
+        <div class="dialog-body clearfix">
+
+
+            <div style="width:50%;float:left;">
+
+            <div style="text-align: center;font-weight: bold;padding-bottom:8px;">第一腿</div>
+
+            <ul class="info-list">
+                <li>
+                    <label> 市场：</label>
+
+                        <select>
+                            <option value="1">现货</option>
+                            <option value="2">期货</option>
+                            <option value="3">掉期</option>
+                        </select>
+                </li>
+
+
+                <li>
+                    <label> 品类：</label>
+                    <select>
+                        <option value="苯乙烯">苯乙烯</option>
+                        <option value="乙二醇">乙二醇</option>
+                        <option value="甲醇">甲醇</option>
+                    </select>
+
+
+                </li>
+
+                <li>
+                    <label> 时间：</label>
+                    <select>
+                        <option value="1月上旬">1月上旬</option>
+                        <option value="1月中旬">1月中旬</option>
+                        <option value="1月下旬">1月下旬</option>
+                    </select>
+
+
+                </li>
+
+
+                <li>
+                    <label> 配比：</label>
+                    <input type="text" />
+                </li>
+
+
+
+
+
+
+
+            </ul>
+
+            </div>
+
+            <div style="width:50%;float:right;">
+
+                <div style="text-align: center;font-weight: bold;padding-bottom:8px;">第一腿</div>
+
+                <ul class="info-list">
+                    <li>
+                        <label> 市场：</label>
+
+                        <select>
+                            <option value="1">现货</option>
+                            <option value="2">期货</option>
+                            <option value="3">掉期</option>
+                        </select>
+                    </li>
+
+
+                    <li>
+                        <label> 品类：</label>
+                        <select>
+                            <option value="苯乙烯">苯乙烯</option>
+                            <option value="乙二醇">乙二醇</option>
+                            <option value="甲醇">甲醇</option>
+                        </select>
+
+
+                    </li>
+
+                    <li>
+                        <label> 时间：</label>
+                        <select>
+                            <option value="1月上旬">1月上旬</option>
+                            <option value="1月中旬">1月中旬</option>
+                            <option value="1月下旬">1月下旬</option>
+                        </select>
+
+
+                    </li>
+
+
+                    <li>
+                        <label> 配比：</label>
+                        <input type="text" />
+                    </li>
+
+
+
+
+
+
+
+
+
+                </ul>
+
+            </div>
+
+
+        </div>
+        <div class="dialog-footer">
+
+            <button type="button" class="btn btn-default cancel-modal">取消</button>
+            <button type="button" class="btn btn-info" id="confirmPayBtn">确认</button>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+<!--修改组合-->
+<div class="modal hide" id="editCombineModal">
+
+    <div class="modal-dialog" style="width:800px;">
+
+        <div class="modal-header">
+
+            <h4 class="modal-title">编辑组合</h4>
+            <span class="close cancel-modal">×</span>
+
+        </div>
+
+
+        <div class="dialog-body clearfix">
+
+
+            <div style="width:50%;float:left;">
+
+                <div style="text-align: center;font-weight: bold;padding-bottom:8px;">第一腿</div>
+
+                <ul class="info-list">
+                    <li>
+                        <label> 市场：</label>
+
+                        <select>
+                            <option value="1">现货</option>
+                            <option value="2">期货</option>
+                            <option value="3">掉期</option>
+                        </select>
+                    </li>
+
+
+                    <li>
+                        <label> 品类：</label>
+                        <select>
+                            <option value="苯乙烯">苯乙烯</option>
+                            <option value="乙二醇">乙二醇</option>
+                            <option value="甲醇">甲醇</option>
+                        </select>
+
+
+                    </li>
+
+                    <li>
+                        <label> 时间：</label>
+                        <select>
+                            <option value="1月上旬">1月上旬</option>
+                            <option value="1月中旬">1月中旬</option>
+                            <option value="1月下旬">1月下旬</option>
+                        </select>
+
+
+                    </li>
+
+
+                    <li>
+                        <label> 配比：</label>
+                        <input type="text" />
+                    </li>
+
+
+
+
+
+
+
+                </ul>
+
+            </div>
+
+            <div style="width:50%;float:right;">
+
+                <div style="text-align: center;font-weight: bold;padding-bottom:8px;">第一腿</div>
+
+                <ul class="info-list">
+                    <li>
+                        <label> 市场：</label>
+
+                        <select>
+                            <option value="1">现货</option>
+                            <option value="2">期货</option>
+                            <option value="3">掉期</option>
+                        </select>
+                    </li>
+
+
+                    <li>
+                        <label> 品类：</label>
+                        <select>
+                            <option value="苯乙烯">苯乙烯</option>
+                            <option value="乙二醇">乙二醇</option>
+                            <option value="甲醇">甲醇</option>
+                        </select>
+
+
+                    </li>
+
+                    <li>
+                        <label> 时间：</label>
+                        <select>
+                            <option value="1月上旬">1月上旬</option>
+                            <option value="1月中旬">1月中旬</option>
+                            <option value="1月下旬">1月下旬</option>
+                        </select>
+
+
+                    </li>
+
+
+                    <li>
+                        <label> 配比：</label>
+                        <input type="text" />
+                    </li>
+
+
+
+
+
+
+
+
+
+                </ul>
+
+            </div>
+
+
+        </div>
+        <div class="dialog-footer">
+
+            <button type="button" class="btn btn-default cancel-modal">取消</button>
+            <button type="button" class="btn btn-info">确认</button>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+<script src="assets/lib/jquery.js"></script>
+<script src="assets/js/common.js"></script>
+<script src="assets/lib/echarts.min.js"></script>
+<script src="assets/lib/layer/layer.js"></script>
+<script src="assets/js/home.js"></script>
+
+</body>
+</html>

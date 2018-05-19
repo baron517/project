@@ -101,11 +101,13 @@ Page({
 
 
   },
-
+// 
   infor: function (e) {
     //console.log(openid);
       var infor = e.detail.value;
       console.log(infor);
+      var teamIndex = parseInt(this.data.areaIndex) + 1;
+
       wx.getStorage({
         key: 'openid',
         success: function (res) {
@@ -121,7 +123,7 @@ Page({
               uname: infor.name,
               phone: infor.phone,
               openid: openid,
-              udepartment: infor.t_address
+              udepartment: teamIndex
              
             },
             header: {

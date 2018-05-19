@@ -7,7 +7,8 @@ Page({
     approvalIndex: 0,
     approval: ["张三", "李四", "王小二", "李翠花"],
     appdata: [],
-    approvalid: []
+    approvalid: [],
+    uname : ''
 
   },
 
@@ -33,7 +34,8 @@ Page({
         rid: ridIndex,
         statusValue: idIndex,
         typestr:1,
-        erji: erji
+        erji: erji,
+        frist_img : that.data.firstImg
       },
       success: function (res) {
         console.log("####");
@@ -85,7 +87,15 @@ Page({
       })
     })
 
-
+    wx.getStorage({
+      key: 'userInfo',
+      success: function (res) {
+        
+        that.setData({
+          uname: res.data[0].uname
+        })
+      },
+    })
 
     wx.getStorage({
       key: 'openid',
@@ -106,10 +116,12 @@ Page({
           },
           success: function (res) {
             console.log("####");
-            console.log(res.data);
+            console.log(res);
             console.log("####");
+            var first = 'frist_img'
             that.setData({
-              detail: res.data
+              detail: res.data.userList,
+              ['detail.' + first]: res.data.frist_img
             })
 
           }

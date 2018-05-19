@@ -1,0 +1,43 @@
+[ 2018-01-15T14:24:54+08:00 ] 60.168.149.11 /index.php?g=Api&m=CommonApi&a=wxdata&code=003iWgvj2EuH9F0atnuj2Ifbvj2iWgvl
+ERR: Think\Controller:curl_https方法不存在！
+
+[ 2018-01-15T15:35:07+08:00 ] 60.168.149.11 /index.php?g=Api&m=CommonApi&a=inforadd&openid=oM0Ds0Kl5XNqOov6FKGg-oSqn8Jg
+ERR: 非法操作:inforadd
+
+[ 2018-01-15T15:40:11+08:00 ] 60.168.149.11 /index.php?g=Api&m=CommonApi&a=inforadd&nickname=Limbo&openid=oM0Ds0Kl5XNqOov6FKGg-oSqn8Jg
+ERR: 非法操作:inforadd
+
+[ 2018-01-15T17:03:04+08:00 ] 60.168.149.11 /index.php?g=Api&m=CommonApi&a=apply&zhongdui=%E5%AE%89%E6%88%90%E4%B8%AD%E9%98%9F&jingban=%E7%BB%8F%E5%8A%9E%E4%BA%BA&liyou=%E5%8A%A0%E7%8F%AD%E4%BA%8B%E7%94%B1&renshu=3&renyuan=%E7%8E%8B%E4%BA%8C%2C%E5%BC%A0%E4%B8%89%2C%E6%9D%8E%E5%9B%9B&canting=%E9%87%91%E9%A5%AD%E7%A2%97&biaozhun=%E5%B0%B1%E9%A4%90%E6%A0%87%E5%87%86&money=%E5%B0%B1%E9%A4%90%E9%87%91%E9%A2%9D&anpai=%E5%8A%9E%E5%85%AC%E5%AE%A4%E5%B0%B1%E9%A4%90%E5%AE%89%E6%8E%92&fristshenpi=%E8%B5%B5%E5%A4%A7
+ERR: 1048:Column 'rmeal_time' cannot be null
+ [ SQL语句 ] : INSERT INTO `dg_requisition` (`rsquad`,`rhandler`,`rword`,`rpeonum`,`rperson`,`rmeal_time`,`rmeal_class`,`rmeal_place`,`rmeal_amount`) VALUES ('安成中队','经办人','加班事由','3','王二,张三,李四',NULL,'就餐标准','金饭碗','安成中队')
+
+[ 2018-01-15T17:03:27+08:00 ] 60.168.149.11 /index.php?g=Api&m=CommonApi&a=apply&zhongdui=%E5%AE%89%E6%88%90%E4%B8%AD%E9%98%9F&jingban=%E7%BB%8F%E5%8A%9E%E4%BA%BA&liyou=%E5%8A%A0%E7%8F%AD%E4%BA%8B%E7%94%B1&renshu=3&renyuan=%E7%8E%8B%E4%BA%8C%2C%E5%BC%A0%E4%B8%89%2C%E6%9D%8E%E5%9B%9B&canting=%E9%87%91%E9%A5%AD%E7%A2%97&biaozhun=%E5%B0%B1%E9%A4%90%E6%A0%87%E5%87%86&money=%E5%B0%B1%E9%A4%90%E9%87%91%E9%A2%9D&anpai=%E5%8A%9E%E5%85%AC%E5%AE%A4%E5%B0%B1%E9%A4%90%E5%AE%89%E6%8E%92&fristshenpi=%E8%B5%B5%E5%A4%A7
+ERR: 1048:Column 'rmeal_time' cannot be null
+ [ SQL语句 ] : INSERT INTO `dg_requisition` (`rsquad`,`rhandler`,`rword`,`rpeonum`,`rperson`,`rmeal_time`,`rmeal_class`,`rmeal_place`,`rmeal_amount`) VALUES ('安成中队','经办人','加班事由','3','王二,张三,李四',NULL,'就餐标准','金饭碗','安成中队')
+
+[ 2018-01-15T20:52:26+08:00 ] 60.168.149.11 /index.php?g=Api&m=CommonApi&a=shenqing&openid=oM0Ds0Kl5XNqOov6FKGg-oSqn8Jg
+ERR: 非法操作:shenqing
+
+[ 2018-01-15T20:53:09+08:00 ] 60.168.149.11 /index.php?g=Api&m=CommonApi&a=shenqing&openid=oM0Ds0Kl5XNqOov6FKGg-oSqn8Jg
+ERR: 非法操作:shenqing
+
+[ 2018-01-15T20:57:12+08:00 ] 60.168.149.11 /index.php?g=Api&m=CommonApi&a=applychakan&openid=oM0Ds0Kl5XNqOov6FKGg-oSqn8Jg
+ERR: 1052:Column 'openid' in where clause is ambiguous
+ [ SQL语句 ] : SELECT * FROM dg_requisition a INNER JOIN dg_user on a.openid = dg_user.openid  WHERE `openid` = 'oM0Ds0Kl5XNqOov6FKGg-oSqn8Jg' 
+
+[ 2018-01-15T20:57:20+08:00 ] 60.168.149.11 /index.php?g=Api&m=CommonApi&a=applychakan&openid=oM0Ds0Kl5XNqOov6FKGg-oSqn8Jg
+ERR: 1052:Column 'openid' in where clause is ambiguous
+ [ SQL语句 ] : SELECT * FROM dg_requisition a INNER JOIN dg_user on a.openid = dg_user.openid  WHERE `openid` = 'oM0Ds0Kl5XNqOov6FKGg-oSqn8Jg' 
+
+[ 2018-01-15T21:04:44+08:00 ] 60.168.149.11 /index.php?g=Api&m=CommonApi&a=applychakan&openid=oM0Ds0Kl5XNqOov6FKGg-oSqn8Jg
+ERR: 1054:Unknown column 'oM0Ds0Kl5XNqOov6FKGg' in 'where clause'
+ [ SQL语句 ] : SELECT * FROM dg_requisition a WHERE ( r_openid = oM0Ds0Kl5XNqOov6FKGg-oSqn8Jg ) 
+
+[ 2018-01-15T21:04:52+08:00 ] 60.168.149.11 /index.php?g=Api&m=CommonApi&a=applychakan&openid=oM0Ds0Kl5XNqOov6FKGg-oSqn8Jg
+ERR: 1054:Unknown column 'oM0Ds0Kl5XNqOov6FKGg' in 'where clause'
+ [ SQL语句 ] : SELECT * FROM dg_requisition a WHERE ( r_openid = oM0Ds0Kl5XNqOov6FKGg-oSqn8Jg ) 
+
+[ 2018-01-15T21:05:18+08:00 ] 60.168.149.11 /index.php?g=Api&m=CommonApi&a=applychakan&openid=oM0Ds0Kl5XNqOov6FKGg-oSqn8Jg
+ERR: 1054:Unknown column 'oM0Ds0Kl5XNqOov6FKGg' in 'where clause'
+ [ SQL语句 ] : SELECT * FROM dg_requisition a WHERE ( r_openid = oM0Ds0Kl5XNqOov6FKGg-oSqn8Jg ) 
+

@@ -1,0 +1,397 @@
+[ 2018-01-10T10:12:57+08:00 ] 60.168.149.11 /index.php?g=admin&m=public&a=login
+ERR: SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: YES)
+
+[ 2018-01-10T10:13:58+08:00 ] 60.168.149.11 /index.php?g=admin&m=public&a=login
+ERR: SQLSTATE[HY000] [1049] Unknown database 'chenguan'
+
+[ 2018-01-10T10:14:40+08:00 ] 60.168.149.11 /index.php?g=Admin&m=public&a=dologin
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000038s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000189s ]
+INFO: Run Common\Behavior\UrldecodeGetBehavior [ RunTime:0.000041s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000353s ]
+INFO: [ admin_begin ] --START--
+INFO: Run Common\Behavior\AdminDefaultLangBehavior [ RunTime:0.000168s ]
+INFO: [ admin_begin ] --END-- [ RunTime:0.000199s ]
+SQL: SHOW COLUMNS FROM `dg_users` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `dg_users` WHERE `user_login` = 'admin' LIMIT 1   [ RunTime:0.0009s ]
+SQL: SHOW COLUMNS FROM `dg_role_user` [ RunTime:0.0003s ]
+SQL: SELECT `role_id` FROM dg_role_user a INNER JOIN dg_role as b on a.role_id =b.id  WHERE `user_id` = '1' AND `status` = 1  [ RunTime:0.0008s ]
+SQL: UPDATE `dg_users` SET `user_login`='admin',`user_pass`='###a852818edbecc3ec5a7d4e734e3709b8',`user_nicename`='admin',`user_email`='1048240588@qq.com',`user_url`='',`avatar`=NULL,`sex`='0',`birthday`='2000-01-01',`signature`=NULL,`last_login_ip`='60.168.149.11',`last_login_time`='2018-01-10 10:14:40',`create_time`='2017-11-09 10:39:24',`user_activation_key`='',`user_status`='1',`score`='0',`user_type`='1',`coin`='0',`mobile`='' WHERE `id` = '1' [ RunTime:0.0002s ]
+
+[ 2018-01-10T10:14:59+08:00 ] 60.168.149.11 /index.php?g=Admin&m=Users&a=index
+NOTIC: D方法实例化没找到模型类Common\Model\UserModel
+NOTIC: D方法实例化没找到模型类Common\Model\SquadronModel
+
+[ 2018-01-10T10:15:02+08:00 ] 60.168.149.11 /index.php?g=Admin&m=users&a=delete&id=1
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000046s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000170s ]
+INFO: Run Common\Behavior\UrldecodeGetBehavior [ RunTime:0.000047s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000358s ]
+INFO: [ admin_begin ] --START--
+INFO: Run Common\Behavior\AdminDefaultLangBehavior [ RunTime:0.000186s ]
+INFO: [ admin_begin ] --END-- [ RunTime:0.000219s ]
+SQL: SHOW COLUMNS FROM `dg_users` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `dg_users` WHERE `id` = '1' LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: D方法实例化没找到模型类Common\Model\UserModel
+SQL: SHOW COLUMNS FROM `dg_user` [ RunTime:0.0003s ]
+NOTIC: D方法实例化没找到模型类Common\Model\SquadronModel
+SQL: SHOW COLUMNS FROM `dg_squadron` [ RunTime:0.0003s ]
+SQL: DELETE FROM `dg_user` WHERE `uid` = 1 [ RunTime:0.0002s ]
+
+[ 2018-01-10T10:15:02+08:00 ] 60.168.149.11 /index.php?g=Admin&m=Users&a=index
+NOTIC: D方法实例化没找到模型类Common\Model\UserModel
+NOTIC: D方法实例化没找到模型类Common\Model\SquadronModel
+
+[ 2018-01-10T11:44:23+08:00 ] 60.168.149.11 /index.php?g=Admin&m=users&a=add
+NOTIC: D方法实例化没找到模型类Common\Model\UserModel
+NOTIC: D方法实例化没找到模型类Common\Model\SquadronModel
+
+[ 2018-01-10T11:45:35+08:00 ] 60.168.149.11 /index.php?g=Admin&m=users&a=add
+NOTIC: D方法实例化没找到模型类Common\Model\UserModel
+NOTIC: D方法实例化没找到模型类Common\Model\SquadronModel
+
+[ 2018-01-10T11:45:38+08:00 ] 60.168.149.11 /index.php?g=Admin&m=users&a=index
+NOTIC: D方法实例化没找到模型类Common\Model\UserModel
+NOTIC: D方法实例化没找到模型类Common\Model\SquadronModel
+
+[ 2018-01-10T14:27:49+08:00 ] 60.168.149.11 /index.php?g=Admin&m=Squadron&a=index
+NOTIC: D方法实例化没找到模型类Common\Model\SquadronModel
+
+[ 2018-01-10T14:27:53+08:00 ] 60.168.149.11 /index.php?g=Admin&m=squadron&a=edit&id=1
+NOTIC: D方法实例化没找到模型类Common\Model\SquadronModel
+
+[ 2018-01-10T14:28:02+08:00 ] 60.168.149.11 /index.php?g=Admin&m=squadron&a=edit_post
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000037s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000164s ]
+INFO: Run Common\Behavior\UrldecodeGetBehavior [ RunTime:0.000053s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000339s ]
+INFO: [ admin_begin ] --START--
+INFO: Run Common\Behavior\AdminDefaultLangBehavior [ RunTime:0.000169s ]
+INFO: [ admin_begin ] --END-- [ RunTime:0.000202s ]
+SQL: SHOW COLUMNS FROM `dg_users` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `dg_users` WHERE `id` = '1' LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: D方法实例化没找到模型类Common\Model\SquadronModel
+SQL: SHOW COLUMNS FROM `dg_squadron` [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: validate /alidata/www/chengguangov/simplewind/Core/Library/Think/Model.class.php 第 1185 行.
+NOTIC: [8] Undefined index: auto /alidata/www/chengguangov/simplewind/Core/Library/Think/Model.class.php 第 1128 行.
+SQL: UPDATE `dg_squadron` SET `sname`='安成中队',`sdesc`='没有描述' WHERE `sid` = 1 [ RunTime:0.0002s ]
+
+[ 2018-01-10T14:28:02+08:00 ] 60.168.149.11 /index.php?g=Admin&m=squadron&a=index
+NOTIC: D方法实例化没找到模型类Common\Model\SquadronModel
+
+[ 2018-01-10T14:28:04+08:00 ] 60.168.149.11 /index.php?g=Admin&m=squadron&a=edit&id=2
+NOTIC: D方法实例化没找到模型类Common\Model\SquadronModel
+
+[ 2018-01-10T14:28:09+08:00 ] 60.168.149.11 /index.php?g=Admin&m=squadron&a=edit&id=3
+NOTIC: D方法实例化没找到模型类Common\Model\SquadronModel
+
+[ 2018-01-10T14:28:21+08:00 ] 60.168.149.11 /index.php?g=Admin&m=squadron&a=edit_post
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000058s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000192s ]
+INFO: Run Common\Behavior\UrldecodeGetBehavior [ RunTime:0.000042s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000376s ]
+INFO: [ admin_begin ] --START--
+INFO: Run Common\Behavior\AdminDefaultLangBehavior [ RunTime:0.000212s ]
+INFO: [ admin_begin ] --END-- [ RunTime:0.000246s ]
+SQL: SHOW COLUMNS FROM `dg_users` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `dg_users` WHERE `id` = '1' LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: D方法实例化没找到模型类Common\Model\SquadronModel
+SQL: SHOW COLUMNS FROM `dg_squadron` [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: validate /alidata/www/chengguangov/simplewind/Core/Library/Think/Model.class.php 第 1185 行.
+NOTIC: [8] Undefined index: auto /alidata/www/chengguangov/simplewind/Core/Library/Think/Model.class.php 第 1128 行.
+SQL: UPDATE `dg_squadron` SET `sname`='曹庵中队',`sdesc`='略略略' WHERE `sid` = 3 [ RunTime:0.0002s ]
+
+[ 2018-01-10T14:28:21+08:00 ] 60.168.149.11 /index.php?g=Admin&m=squadron&a=index
+NOTIC: D方法实例化没找到模型类Common\Model\SquadronModel
+
+[ 2018-01-10T14:28:23+08:00 ] 60.168.149.11 /index.php?g=Admin&m=squadron&a=edit&id=1
+NOTIC: D方法实例化没找到模型类Common\Model\SquadronModel
+
+[ 2018-01-10T14:28:25+08:00 ] 60.168.149.11 /index.php?g=Admin&m=squadron&a=edit_post
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000048s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000165s ]
+INFO: Run Common\Behavior\UrldecodeGetBehavior [ RunTime:0.000037s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000332s ]
+INFO: [ admin_begin ] --START--
+INFO: Run Common\Behavior\AdminDefaultLangBehavior [ RunTime:0.000147s ]
+INFO: [ admin_begin ] --END-- [ RunTime:0.000174s ]
+SQL: SHOW COLUMNS FROM `dg_users` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `dg_users` WHERE `id` = '1' LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: D方法实例化没找到模型类Common\Model\SquadronModel
+SQL: SHOW COLUMNS FROM `dg_squadron` [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: validate /alidata/www/chengguangov/simplewind/Core/Library/Think/Model.class.php 第 1185 行.
+NOTIC: [8] Undefined index: auto /alidata/www/chengguangov/simplewind/Core/Library/Think/Model.class.php 第 1128 行.
+SQL: UPDATE `dg_squadron` SET `sname`='安成中队',`sdesc`='' WHERE `sid` = 1 [ RunTime:0.0002s ]
+
+[ 2018-01-10T14:28:25+08:00 ] 60.168.149.11 /index.php?g=Admin&m=squadron&a=index
+NOTIC: D方法实例化没找到模型类Common\Model\SquadronModel
+
+[ 2018-01-10T14:28:26+08:00 ] 60.168.149.11 /index.php?g=Admin&m=squadron&a=edit&id=2
+NOTIC: D方法实例化没找到模型类Common\Model\SquadronModel
+
+[ 2018-01-10T14:28:27+08:00 ] 60.168.149.11 /index.php?g=Admin&m=squadron&a=edit_post
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000028s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000169s ]
+INFO: Run Common\Behavior\UrldecodeGetBehavior [ RunTime:0.000034s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000305s ]
+INFO: [ admin_begin ] --START--
+INFO: Run Common\Behavior\AdminDefaultLangBehavior [ RunTime:0.000139s ]
+INFO: [ admin_begin ] --END-- [ RunTime:0.000169s ]
+SQL: SHOW COLUMNS FROM `dg_users` [ RunTime:0.0014s ]
+SQL: SELECT * FROM `dg_users` WHERE `id` = '1' LIMIT 1   [ RunTime:0.0004s ]
+NOTIC: D方法实例化没找到模型类Common\Model\SquadronModel
+SQL: SHOW COLUMNS FROM `dg_squadron` [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: validate /alidata/www/chengguangov/simplewind/Core/Library/Think/Model.class.php 第 1185 行.
+NOTIC: [8] Undefined index: auto /alidata/www/chengguangov/simplewind/Core/Library/Think/Model.class.php 第 1128 行.
+SQL: UPDATE `dg_squadron` SET `sname`='朝阳中队',`sdesc`='' WHERE `sid` = 2 [ RunTime:0.0002s ]
+
+[ 2018-01-10T14:28:27+08:00 ] 60.168.149.11 /index.php?g=Admin&m=squadron&a=index
+NOTIC: D方法实例化没找到模型类Common\Model\SquadronModel
+
+[ 2018-01-10T14:28:29+08:00 ] 60.168.149.11 /index.php?g=Admin&m=squadron&a=edit&id=3
+NOTIC: D方法实例化没找到模型类Common\Model\SquadronModel
+
+[ 2018-01-10T14:28:30+08:00 ] 60.168.149.11 /index.php?g=Admin&m=squadron&a=edit_post
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000034s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000144s ]
+INFO: Run Common\Behavior\UrldecodeGetBehavior [ RunTime:0.000063s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000347s ]
+INFO: [ admin_begin ] --START--
+INFO: Run Common\Behavior\AdminDefaultLangBehavior [ RunTime:0.000144s ]
+INFO: [ admin_begin ] --END-- [ RunTime:0.000173s ]
+SQL: SHOW COLUMNS FROM `dg_users` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `dg_users` WHERE `id` = '1' LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: D方法实例化没找到模型类Common\Model\SquadronModel
+SQL: SHOW COLUMNS FROM `dg_squadron` [ RunTime:0.0003s ]
+NOTIC: [8] Undefined index: validate /alidata/www/chengguangov/simplewind/Core/Library/Think/Model.class.php 第 1185 行.
+NOTIC: [8] Undefined index: auto /alidata/www/chengguangov/simplewind/Core/Library/Think/Model.class.php 第 1128 行.
+SQL: UPDATE `dg_squadron` SET `sname`='曹庵中队',`sdesc`='' WHERE `sid` = 3 [ RunTime:0.0002s ]
+
+[ 2018-01-10T14:28:30+08:00 ] 60.168.149.11 /index.php?g=Admin&m=squadron&a=index
+NOTIC: D方法实例化没找到模型类Common\Model\SquadronModel
+
+[ 2018-01-10T14:28:31+08:00 ] 60.168.149.11 /index.php?g=Admin&m=squadron&a=add
+NOTIC: D方法实例化没找到模型类Common\Model\SquadronModel
+
+[ 2018-01-10T14:28:39+08:00 ] 60.168.149.11 /index.php?g=Admin&m=squadron&a=add_post
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000034s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000160s ]
+INFO: Run Common\Behavior\UrldecodeGetBehavior [ RunTime:0.000038s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000312s ]
+INFO: [ admin_begin ] --START--
+INFO: Run Common\Behavior\AdminDefaultLangBehavior [ RunTime:0.000192s ]
+INFO: [ admin_begin ] --END-- [ RunTime:0.000234s ]
+SQL: SHOW COLUMNS FROM `dg_users` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `dg_users` WHERE `id` = '1' LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: D方法实例化没找到模型类Common\Model\SquadronModel
+SQL: SHOW COLUMNS FROM `dg_squadron` [ RunTime:0.0003s ]
+NOTIC: [8] Undefined index: validate /alidata/www/chengguangov/simplewind/Core/Library/Think/Model.class.php 第 1185 行.
+NOTIC: [8] Undefined index: auto /alidata/www/chengguangov/simplewind/Core/Library/Think/Model.class.php 第 1128 行.
+SQL: INSERT INTO `dg_squadron` (`sname`,`sdesc`) VALUES ('督察中队','') [ RunTime:0.0002s ]
+
+[ 2018-01-10T14:28:39+08:00 ] 60.168.149.11 /index.php?g=Admin&m=squadron&a=index
+NOTIC: D方法实例化没找到模型类Common\Model\SquadronModel
+
+[ 2018-01-10T14:28:48+08:00 ] 60.168.149.11 /index.php?g=Admin&m=Restaurant&a=index
+NOTIC: D方法实例化没找到模型类Common\Model\RestaurantModel
+
+[ 2018-01-10T14:28:50+08:00 ] 60.168.149.11 /index.php?g=Admin&m=restaurant&a=edit&id=1
+NOTIC: D方法实例化没找到模型类Common\Model\RestaurantModel
+
+[ 2018-01-10T14:28:54+08:00 ] 60.168.149.11 /index.php?g=Admin&m=restaurant&a=edit_post
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000054s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000187s ]
+INFO: Run Common\Behavior\UrldecodeGetBehavior [ RunTime:0.000039s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000364s ]
+INFO: [ admin_begin ] --START--
+INFO: Run Common\Behavior\AdminDefaultLangBehavior [ RunTime:0.000143s ]
+INFO: [ admin_begin ] --END-- [ RunTime:0.000172s ]
+SQL: SHOW COLUMNS FROM `dg_users` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `dg_users` WHERE `id` = '1' LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: D方法实例化没找到模型类Common\Model\RestaurantModel
+SQL: SHOW COLUMNS FROM `dg_restaurant` [ RunTime:0.0003s ]
+NOTIC: [8] Undefined index: validate /alidata/www/chengguangov/simplewind/Core/Library/Think/Model.class.php 第 1185 行.
+NOTIC: [8] Undefined index: auto /alidata/www/chengguangov/simplewind/Core/Library/Think/Model.class.php 第 1128 行.
+SQL: UPDATE `dg_restaurant` SET `rname`='金饭碗',`rdesc`='' WHERE `rid` = 1 [ RunTime:0.0002s ]
+
+[ 2018-01-10T14:28:54+08:00 ] 60.168.149.11 /index.php?g=Admin&m=restaurant&a=index
+NOTIC: D方法实例化没找到模型类Common\Model\RestaurantModel
+
+[ 2018-01-10T14:28:56+08:00 ] 60.168.149.11 /index.php?g=Admin&m=Users&a=index
+NOTIC: D方法实例化没找到模型类Common\Model\UserModel
+NOTIC: D方法实例化没找到模型类Common\Model\SquadronModel
+
+[ 2018-01-10T14:28:57+08:00 ] 60.168.149.11 /index.php?g=Admin&m=users&a=add
+NOTIC: D方法实例化没找到模型类Common\Model\UserModel
+NOTIC: D方法实例化没找到模型类Common\Model\SquadronModel
+
+[ 2018-01-10T14:29:03+08:00 ] 60.168.149.11 /index.php?g=Admin&m=users&a=add_post
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000032s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000157s ]
+INFO: Run Common\Behavior\UrldecodeGetBehavior [ RunTime:0.000037s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000303s ]
+INFO: [ admin_begin ] --START--
+INFO: Run Common\Behavior\AdminDefaultLangBehavior [ RunTime:0.000174s ]
+INFO: [ admin_begin ] --END-- [ RunTime:0.000206s ]
+SQL: SHOW COLUMNS FROM `dg_users` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `dg_users` WHERE `id` = '1' LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: D方法实例化没找到模型类Common\Model\UserModel
+SQL: SHOW COLUMNS FROM `dg_user` [ RunTime:0.0003s ]
+NOTIC: D方法实例化没找到模型类Common\Model\SquadronModel
+SQL: SHOW COLUMNS FROM `dg_squadron` [ RunTime:0.0003s ]
+NOTIC: [8] Undefined index: validate /alidata/www/chengguangov/simplewind/Core/Library/Think/Model.class.php 第 1185 行.
+NOTIC: [8] Undefined index: auto /alidata/www/chengguangov/simplewind/Core/Library/Think/Model.class.php 第 1128 行.
+SQL: INSERT INTO `dg_user` (`uname`,`udepartment`) VALUES ('赵大','安成中队') [ RunTime:0.0237s ]
+
+[ 2018-01-10T14:29:03+08:00 ] 60.168.149.11 /index.php?g=Admin&m=users&a=index
+NOTIC: D方法实例化没找到模型类Common\Model\UserModel
+NOTIC: D方法实例化没找到模型类Common\Model\SquadronModel
+
+[ 2018-01-10T14:29:05+08:00 ] 60.168.149.11 /index.php?g=Admin&m=users&a=add
+NOTIC: D方法实例化没找到模型类Common\Model\UserModel
+NOTIC: D方法实例化没找到模型类Common\Model\SquadronModel
+
+[ 2018-01-10T14:29:09+08:00 ] 60.168.149.11 /index.php?g=Admin&m=users&a=add_post
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000033s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000158s ]
+INFO: Run Common\Behavior\UrldecodeGetBehavior [ RunTime:0.000037s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000305s ]
+INFO: [ admin_begin ] --START--
+INFO: Run Common\Behavior\AdminDefaultLangBehavior [ RunTime:0.000176s ]
+INFO: [ admin_begin ] --END-- [ RunTime:0.000209s ]
+SQL: SHOW COLUMNS FROM `dg_users` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `dg_users` WHERE `id` = '1' LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: D方法实例化没找到模型类Common\Model\UserModel
+SQL: SHOW COLUMNS FROM `dg_user` [ RunTime:0.0003s ]
+NOTIC: D方法实例化没找到模型类Common\Model\SquadronModel
+SQL: SHOW COLUMNS FROM `dg_squadron` [ RunTime:0.0003s ]
+NOTIC: [8] Undefined index: validate /alidata/www/chengguangov/simplewind/Core/Library/Think/Model.class.php 第 1185 行.
+NOTIC: [8] Undefined index: auto /alidata/www/chengguangov/simplewind/Core/Library/Think/Model.class.php 第 1128 行.
+SQL: INSERT INTO `dg_user` (`uname`,`udepartment`) VALUES ('王二','安成中队') [ RunTime:0.0002s ]
+
+[ 2018-01-10T14:29:09+08:00 ] 60.168.149.11 /index.php?g=Admin&m=users&a=index
+NOTIC: D方法实例化没找到模型类Common\Model\UserModel
+NOTIC: D方法实例化没找到模型类Common\Model\SquadronModel
+
+[ 2018-01-10T14:29:10+08:00 ] 60.168.149.11 /index.php?g=Admin&m=users&a=add
+NOTIC: D方法实例化没找到模型类Common\Model\UserModel
+NOTIC: D方法实例化没找到模型类Common\Model\SquadronModel
+
+[ 2018-01-10T14:29:13+08:00 ] 60.168.149.11 /index.php?g=Admin&m=users&a=add_post
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000034s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000160s ]
+INFO: Run Common\Behavior\UrldecodeGetBehavior [ RunTime:0.000037s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000309s ]
+INFO: [ admin_begin ] --START--
+INFO: Run Common\Behavior\AdminDefaultLangBehavior [ RunTime:0.000147s ]
+INFO: [ admin_begin ] --END-- [ RunTime:0.000176s ]
+SQL: SHOW COLUMNS FROM `dg_users` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `dg_users` WHERE `id` = '1' LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: D方法实例化没找到模型类Common\Model\UserModel
+SQL: SHOW COLUMNS FROM `dg_user` [ RunTime:0.0003s ]
+NOTIC: D方法实例化没找到模型类Common\Model\SquadronModel
+SQL: SHOW COLUMNS FROM `dg_squadron` [ RunTime:0.0003s ]
+NOTIC: [8] Undefined index: validate /alidata/www/chengguangov/simplewind/Core/Library/Think/Model.class.php 第 1185 行.
+NOTIC: [8] Undefined index: auto /alidata/www/chengguangov/simplewind/Core/Library/Think/Model.class.php 第 1128 行.
+SQL: INSERT INTO `dg_user` (`uname`,`udepartment`) VALUES ('张三','安成中队') [ RunTime:0.0002s ]
+
+[ 2018-01-10T14:29:13+08:00 ] 60.168.149.11 /index.php?g=Admin&m=users&a=index
+NOTIC: D方法实例化没找到模型类Common\Model\UserModel
+NOTIC: D方法实例化没找到模型类Common\Model\SquadronModel
+
+[ 2018-01-10T14:29:14+08:00 ] 60.168.149.11 /index.php?g=Admin&m=users&a=add
+NOTIC: D方法实例化没找到模型类Common\Model\UserModel
+NOTIC: D方法实例化没找到模型类Common\Model\SquadronModel
+
+[ 2018-01-10T14:29:17+08:00 ] 60.168.149.11 /index.php?g=Admin&m=users&a=add_post
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000037s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000161s ]
+INFO: Run Common\Behavior\UrldecodeGetBehavior [ RunTime:0.000067s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000370s ]
+INFO: [ admin_begin ] --START--
+INFO: Run Common\Behavior\AdminDefaultLangBehavior [ RunTime:0.000146s ]
+INFO: [ admin_begin ] --END-- [ RunTime:0.000176s ]
+SQL: SHOW COLUMNS FROM `dg_users` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `dg_users` WHERE `id` = '1' LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: D方法实例化没找到模型类Common\Model\UserModel
+SQL: SHOW COLUMNS FROM `dg_user` [ RunTime:0.0003s ]
+NOTIC: D方法实例化没找到模型类Common\Model\SquadronModel
+SQL: SHOW COLUMNS FROM `dg_squadron` [ RunTime:0.0003s ]
+NOTIC: [8] Undefined index: validate /alidata/www/chengguangov/simplewind/Core/Library/Think/Model.class.php 第 1185 行.
+NOTIC: [8] Undefined index: auto /alidata/www/chengguangov/simplewind/Core/Library/Think/Model.class.php 第 1128 行.
+SQL: INSERT INTO `dg_user` (`uname`,`udepartment`) VALUES ('李四','安成中队') [ RunTime:0.0002s ]
+
+[ 2018-01-10T14:29:17+08:00 ] 60.168.149.11 /index.php?g=Admin&m=users&a=index
+NOTIC: D方法实例化没找到模型类Common\Model\UserModel
+NOTIC: D方法实例化没找到模型类Common\Model\SquadronModel
+
+[ 2018-01-10T14:29:18+08:00 ] 60.168.149.11 /index.php?g=Admin&m=users&a=add
+NOTIC: D方法实例化没找到模型类Common\Model\UserModel
+NOTIC: D方法实例化没找到模型类Common\Model\SquadronModel
+
+[ 2018-01-10T14:29:25+08:00 ] 60.168.149.11 /index.php?g=Admin&m=users&a=add_post
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000032s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000157s ]
+INFO: Run Common\Behavior\UrldecodeGetBehavior [ RunTime:0.000036s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000299s ]
+INFO: [ admin_begin ] --START--
+INFO: Run Common\Behavior\AdminDefaultLangBehavior [ RunTime:0.000192s ]
+INFO: [ admin_begin ] --END-- [ RunTime:0.000224s ]
+SQL: SHOW COLUMNS FROM `dg_users` [ RunTime:0.0007s ]
+SQL: SELECT * FROM `dg_users` WHERE `id` = '1' LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: D方法实例化没找到模型类Common\Model\UserModel
+SQL: SHOW COLUMNS FROM `dg_user` [ RunTime:0.0003s ]
+NOTIC: D方法实例化没找到模型类Common\Model\SquadronModel
+SQL: SHOW COLUMNS FROM `dg_squadron` [ RunTime:0.0003s ]
+NOTIC: [8] Undefined index: validate /alidata/www/chengguangov/simplewind/Core/Library/Think/Model.class.php 第 1185 行.
+NOTIC: [8] Undefined index: auto /alidata/www/chengguangov/simplewind/Core/Library/Think/Model.class.php 第 1128 行.
+SQL: INSERT INTO `dg_user` (`uname`,`udepartment`) VALUES ('金五','安成中队') [ RunTime:0.0001s ]
+
+[ 2018-01-10T14:29:25+08:00 ] 60.168.149.11 /index.php?g=Admin&m=users&a=index
+NOTIC: D方法实例化没找到模型类Common\Model\UserModel
+NOTIC: D方法实例化没找到模型类Common\Model\SquadronModel
+
+[ 2018-01-10T14:29:26+08:00 ] 60.168.149.11 /index.php?g=Admin&m=users&a=add
+NOTIC: D方法实例化没找到模型类Common\Model\UserModel
+NOTIC: D方法实例化没找到模型类Common\Model\SquadronModel
+
+[ 2018-01-10T14:29:29+08:00 ] 60.168.149.11 /index.php?g=Admin&m=users&a=add_post
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000032s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000160s ]
+INFO: Run Common\Behavior\UrldecodeGetBehavior [ RunTime:0.000039s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000306s ]
+INFO: [ admin_begin ] --START--
+INFO: Run Common\Behavior\AdminDefaultLangBehavior [ RunTime:0.000152s ]
+INFO: [ admin_begin ] --END-- [ RunTime:0.000183s ]
+SQL: SHOW COLUMNS FROM `dg_users` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `dg_users` WHERE `id` = '1' LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: D方法实例化没找到模型类Common\Model\UserModel
+SQL: SHOW COLUMNS FROM `dg_user` [ RunTime:0.0003s ]
+NOTIC: D方法实例化没找到模型类Common\Model\SquadronModel
+SQL: SHOW COLUMNS FROM `dg_squadron` [ RunTime:0.0003s ]
+NOTIC: [8] Undefined index: validate /alidata/www/chengguangov/simplewind/Core/Library/Think/Model.class.php 第 1185 行.
+NOTIC: [8] Undefined index: auto /alidata/www/chengguangov/simplewind/Core/Library/Think/Model.class.php 第 1128 行.
+SQL: INSERT INTO `dg_user` (`uname`,`udepartment`) VALUES ('赵六','安成中队') [ RunTime:0.0001s ]
+
+[ 2018-01-10T14:29:29+08:00 ] 60.168.149.11 /index.php?g=Admin&m=users&a=index
+NOTIC: D方法实例化没找到模型类Common\Model\UserModel
+NOTIC: D方法实例化没找到模型类Common\Model\SquadronModel
+
+[ 2018-01-10T19:54:52+08:00 ] 60.168.149.11 /index.php?g=Admin&m=CommonApi&a=squadron
+ERR: 无法加载控制器:CommonApi
+

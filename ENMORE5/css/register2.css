@@ -1,0 +1,13 @@
+.cbox.checked:after {
+  font-size: 18px;
+}
+.register_menu {
+  padding-top: 65px ;
+}
+.register_menu div {
+  padding-left: 55px ;
+  margin-top: 14px;
+}
+.register_menu div a {
+  vertical-align: middle;
+}

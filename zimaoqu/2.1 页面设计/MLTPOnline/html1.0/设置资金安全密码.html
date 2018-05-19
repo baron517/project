@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>安全设置</title>
+    <link rel="stylesheet" href="../assets/css/base.css" />
+    <link rel="stylesheet" href="../assets/css/main.css" />
+    <link rel="stylesheet" href="../assets/fonts/iconfont.css" />
+    <link rel="stylesheet" href="../assets/lib/layer/skin/layer.css" />
+
+</head>
+<body class="gray-bg">
+
+
+<div class="header">
+
+    <img src="../assets/img/logo.png" />
+
+    <ul class="header-menu clearfix">
+        <li class="has-dropdown">
+            <a href="###">实时报盘
+                <i class="iconfont icon-arrow-down"></i>
+            </a>
+            <div class="dropdown-list">
+                <a href="###">菜单一</a>
+                <a href="###">菜单一</a>
+            </div>
+        </li>
+
+        <li class="has-dropdown">
+            <a href="###">
+                订单管理
+                <i class="iconfont icon-arrow-down"></i>
+            </a>
+            <div class="dropdown-list">
+                <a href="###">菜单一</a>
+                <a href="###">菜单一</a>
+            </div>
+        </li>
+
+        <li class="has-dropdown active">
+            <a href="###">
+                资金管理
+                <i class="iconfont icon-arrow-down"></i>
+            </a>
+            <div class="dropdown-list">
+                <a href="###">菜单一</a>
+                <a href="###">菜单一</a>
+            </div>
+        </li>
+
+        <li>
+            <a href="###">我是管理员</a>
+        </li>
+    </ul>
+
+
+    <div class="header-right">
+
+        <span class="blue">[企业全称公司名]</span>
+
+        <div class="username has-dropdown">
+            用户名，您好！<i class="iconfont icon-arrow-down"></i>
+            <div class="dropdown-list">
+                <a href="###">个人设置</a>
+                <a href="###">修改密码</a>
+            </div>
+        </div>
+
+        <span class="login-out">安全退出<i class="icon-login-out iconfont"></i></span>
+
+    </div>
+
+</div>
+
+<div class="menu">
+
+        <ul class="menu-list">
+
+            <li>
+                <a href="###">
+                    <i class="iconfont icon-wode"></i>
+                    个人中心
+                </a>
+            </li>
+            <li>
+                <a href="###" class="active">
+                    <i class="iconfont icon-shezhi"></i>
+                    安全设置
+                </a>
+            </li>
+
+
+        </ul>
+
+
+</div>
+
+
+<div class="main">
+
+
+    <div class="main-col">
+
+        <div class="main-table">
+
+            <div class="my-col setting-col">
+
+                <div class="top-title-col blue-bg">安全设置-设置资金安全密码</div>
+
+                <div class="form-col">
+
+
+                    <ul id="stepList">
+
+                        <li>
+                            <div class="step-col">
+
+
+                                <div class="step1"></div>
+
+                                <ul class="clearfix">
+                                    <li class="active">发送验证码</li>
+                                    <li>修改密码</li>
+                                    <li>完成</li>
+                                </ul>
+
+                            </div>
+
+
+                            <div class="row">
+                                <label>手机号码</label>
+                                <input type="password" disabled id="mobile" placeholder="手机号码">
+                            </div>
+
+                            <div class="row clearfix">
+                                <label>验证码</label>
+                                <input type="password" class="short" id="msgCode" placeholder="验证码">
+
+                                <input type="button" class="get-msg-code" value="获取验证码">
+
+                            </div>
+
+                            <div class="row">
+                                <button type="button" class="blue-btn" id="stepBtn1" >下一步</button>
+                            </div>
+
+                        </li>
+
+                        <li class="hide">
+                            <div class="step-col">
+
+
+                                <div class="step2"></div>
+
+                                <ul class="clearfix">
+                                    <li class="active">发送验证码</li>
+                                    <li>设置密码</li>
+                                    <li>完成</li>
+                                </ul>
+
+                            </div>
+
+                            <div class="row">
+                                <label>设置密码</label>
+                                <input type="password" id="settingPass" placeholder="设置密码">
+                            </div>
+
+                            <div class="row">
+                                <label>确认密码</label>
+                                <input type="password"  placeholder="确认密码">
+                            </div>
+
+                            <div class="row">
+                                <button type="button" class="blue-btn" id="submitBtn" >提交</button>
+                            </div>
+                        </li>
+
+                        <li class="hide">
+                            <div class="step-col">
+
+
+                                <div class="step3"></div>
+
+                                <ul class="clearfix">
+                                    <li>发送验证码</li>
+                                    <li>修改密码</li>
+                                    <li class="active">完成</li>
+                                </ul>
+
+                            </div>
+
+
+                            <div class="row">
+
+                                <div class="success clearfix">
+
+                                    <i class="iconfont icon-yes"></i>
+
+                                    <div>
+                                        新密码设置成功！<br>
+                                        请您牢记新密码
+                                    </div>
+                                </div>
+
+                                <button type="button" style="width:182px;margin-left:150px;" class="blue-btn" id="stepBtn3" >完成</button>
+                            </div>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+
+            </div>
+
+
+
+
+        </div>
+
+    </div>
+
+
+</div>
+
+<script src="../assets/lib/jquery.js"></script>
+<script src="../assets/lib/layer/layer.js"></script>
+<script src="../assets/lib/jquery.pure.tooltips.js"></script>
+<script src="../assets/js/common.js"></script>
+<script>
+
+    $("#settingPass").on("input",function()
+    {
+        passStrength($(this))
+    });
+
+    function passStrength($obj)
+    {
+        if($obj.val().length<=6&&$obj.val().length>=0)
+        {
+            var strengthHtml1='<div class="strength"><span class="orange"></span><span class="orange"></span><span class="orange"></span> 低</div>';
+        }
+
+        if($obj.val().length>6&&$obj.val().length<8)
+        {
+            var strengthHtml1='<div class="strength"><span class="light-orange"></span><span class="light-orange"></span><span class="light-orange"></span> 中</div>';
+        }
+
+        if($obj.val().length>=8)
+        {
+            var strengthHtml1='<div class="strength"><span class="green"></span><span class="green"></span><span class="green"></span> 高</div>';
+        }
+
+        $.pt({
+            target: $obj,
+            position: 'r',
+            autoClose:false,
+            width:130,
+            content: strengthHtml1
+        });
+
+    }
+
+    $("#submitBtn").click(function()
+    {
+        /*$.pt({
+         target: $("#password"),
+         position: 'r',
+         autoClose:false,
+         width:80,
+         content: "不能为空！"
+         });*/
+
+        $("#stepList>li").hide();
+        $("#stepList>li").eq(2).show();
+
+    });
+
+
+    $("#stepBtn1").click(function()
+    {
+
+        $("#stepList>li").hide();
+        $("#stepList>li").eq(1).show();
+
+    });
+
+</script>
+
+
+</body>
+</html>

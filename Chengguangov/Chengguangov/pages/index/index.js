@@ -1,5 +1,6 @@
 // pages/components/train/train.js
 var app = getApp();
+var util = require('../../utils/util.js');
 
 Page({
   
@@ -11,6 +12,15 @@ Page({
     areaIndex: 0,
     area: [],
     areadata: [],
+
+
+    priseIndex: 0,
+    prise: [],
+    prisedata: [],
+
+   typleIndex: 0,
+    typle: [],
+   typledata: [],
 
 
     resIndex: 0,
@@ -28,14 +38,31 @@ Page({
     pernum:[],
     pername:[],
 
+    person: ['张三', '张三', '张三', '张三']
+
 
 
   },
   bindPickerChange: function (e) {
+    // this.setData({
+    //   pernum : 0,
+    //   pername : '',
+    //   // person : '',
+    //   moneySum : 0,
+      
+    // })
+    // app.globalData.perNum = 0;
+    // app.globalData.nameList = [];
+
+
+    // console.log(e.currentTarget)
     var dataList = e.currentTarget.dataset.id;
+
     var xiabiao = e.detail.value;
     //console.log(dataList[xiabiao].sid);
     var sid = dataList[xiabiao].sid;
+    app.globalData.cid = sid;
+   
     var that = this;
     //加班人员
     wx.request({
@@ -46,10 +73,37 @@ Page({
       },
       dataType:"JSON",
       success:function(e){
+
+
+        var gouxuanList = JSON.parse(e.data);
+        
+
+        for (var i = 0; i < app.globalData.nameList.length;i++)
+        {
+
+          if (app.globalData.cid == app.globalData.nameList[i].cid)
+          {
+            for (var j=0;j<app.globalData.nameList[i].nameList.length;j++)
+            {
+              for (var h = 0; h < gouxuanList.length;h++)
+              {
+                if(app.globalData.nameList[i].nameList[j] == gouxuanList[h].uname)
+                {
+                  gouxuanList[h].selected=true;
+                }
+              }
+            }
+          }
+
+        }
+
+        console.log(gouxuanList);
+
+
         that.setData({
-         person:JSON.parse(e.data)
+          person: gouxuanList
         })
-        console.log(JSON.parse(e.data));
+      
       }
     })
 
@@ -59,12 +113,58 @@ Page({
   },
 
   checkboxChange:function(e){
-    var xuan = e.detail.value;
-    this.setData({
-      pernum: xuan.length,
-      pername:xuan
-    });
-    console.log(xuan);
+    
+    var _this = this;
+
+    if (app.globalData.nameList.length==0)
+    {
+      var nameObj = {};
+      nameObj.cid = app.globalData.cid;
+      nameObj.nameList = e.detail.value;
+      app.globalData.nameList.push(nameObj);
+    }
+    else{
+
+      var flag=0;
+      for (var i = 0; i < app.globalData.nameList.length; i++) {
+
+        if (app.globalData.cid == app.globalData.nameList[i].cid) {
+          app.globalData.nameList[i].nameList = e.detail.value;
+          flag=1;
+        }
+
+      }
+
+     if(flag==0)
+     {
+       var nameObj = {};
+       nameObj.cid = app.globalData.cid;
+       nameObj.nameList = e.detail.value;
+       app.globalData.nameList.push(nameObj);
+     }
+
+    }
+
+    var pernum=0;
+    var pername = [];
+    for (var i = 0; i < app.globalData.nameList.length;i++){
+      pernum = pernum+app.globalData.nameList[i].nameList.length;
+
+      pername = pername.concat(app.globalData.nameList[i].nameList);
+    }
+    console.log(pernum);
+    //console.log(pername);
+    app.globalData.perNum = pernum;
+    // 直接根据点击人数计算总共金额
+    var price = _this.data.typle[_this.data.typleIndex];
+    var moneySum = pernum * price;
+    // 
+      this.setData({
+        pernum: pernum,
+        pername: pername,
+        moneySum : moneySum
+      });
+ 
   },
 
   bindPickerChange1: function (e) {
@@ -77,6 +177,32 @@ Page({
     console.log(e.detail.value)
     this.setData({
       dates: e.detail.value
+    })
+  },
+
+  bindPickerChange4: function (e) {
+    this.setData({
+      priseIndex: e.detail.value
+    })
+  },
+
+  bindPickerChange5: function (e) {
+
+    var dataList = e.currentTarget.dataset.id;
+    //console.log(dataList);
+    var xiabiao = e.detail.value;
+    //console.log(dataList[xiabiao].cprise);
+    var price = dataList[xiabiao].cprise;
+
+    var pernum = app.globalData.perNum
+    
+    console.log("###" + pernum);
+
+    var moneySum = pernum * price;
+
+    this.setData({
+      typleIndex: e.detail.value,
+      moneySum:moneySum
     })
   },
 
@@ -96,6 +222,11 @@ Page({
   form: function (e) {
     console.log(e.detail.value);
     var form = e.detail.value;
+   
+    var that = this;
+    var zongrenshu = that.data.pername.join(',');
+    var jiucan = that.data.prise[that.data.priseIndex];
+    console.log(jiucan)
 
 
     wx.getStorage({
@@ -109,14 +240,16 @@ Page({
             jingban: form.jingban,
             liyou: form.liyou,
             renshu: form.renshu,
-            renyuan: form.renyuan,
+            renyuan: zongrenshu,
             canting: form.canting,
-            time: form.time,
-            biaozhun: form.biaozhun,
-            money: form.money,
-            anpai: form.anpai,
+            time: that.data.dates,
+            // 以下值都没有
+            biaozhun: that.data.typle[that.data.typleIndex],
+            money: that.data.moneySum,
+            anpai: that.data.pername,
             fristshenpi: form.fristshenpi,
-            openid:openid
+            openid:openid,
+            'rmeal_stand' : that.data.prise[that.data.priseIndex]
           
 
           },
@@ -170,6 +303,8 @@ Page({
       }
     });
   },
+
+ 
 
 
 
@@ -229,6 +364,57 @@ Page({
       }
     }),
 
+      //就餐类型
+      wx.request({
+        url: 'https://chengguangov.diguikeji.com/index.php?g=Api&m=CommonApi&a=prise',
+        success: function (e) {
+          var arrayrest = [];
+
+          var data1 = e.data;
+          //console.log(data1);
+          for (var i = 0; i < e.data.length; i++) {
+            //arrayArea.push(e.data[i].sid);
+            arrayrest.push(e.data[i].cname);
+
+          }
+
+          //console.log(arrayArea);
+          that.setData({
+            prise: arrayrest,
+            prisedata: data1
+
+          })
+        }
+      }),
+
+
+      //就餐金额
+      wx.request({
+        url: 'https://chengguangov.diguikeji.com/index.php?g=Api&m=CommonApi&a=money',
+        success: function (e) {
+          var arrayrest = [];
+
+          var data1 = e.data;
+          //console.log(data1);
+          for (var i = 0; i < e.data.length; i++) {
+            //arrayArea.push(e.data[i].sid);
+            arrayrest.push(e.data[i].cprise);
+
+          }
+
+          //console.log(arrayrest);
+          that.setData({
+            typle: arrayrest,
+            typledata: data1,
+
+          })
+        }
+      }),
+
+
+    
+
+
       //第一审批人
       wx.request({
       url: 'https://chengguangov.diguikeji.com/index.php?g=Api&m=CommonApi&a=fristper',
@@ -261,6 +447,7 @@ Page({
           app.getUserInfo(function (userInfo) {
             console.log(openid);
             var name = userInfo.nickName;
+            console.log('名字是' + name)
             wx.request({
               url: 'https://chengguangov.diguikeji.com/index.php?g=Api&m=CommonApi&a=inforadd',
               data: {
@@ -271,7 +458,8 @@ Page({
               // header: {}, // 设置请求的 header
               success: function (res) {
 
-               
+               console.log('----收到的setStorage-----')
+               console.log(res.data)
 
                 wx.setStorage({
                   key: 'userInfo',
@@ -322,6 +510,8 @@ Page({
 
   },
 
+  
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -333,6 +523,61 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    var that = this;
+    var time = util.formatTime(new Date());
+    var year = time.substr(0,4);
+    var mon = time.substr(5,2);
+    var day = time.substr(8,2);
+
+    var arr = [year,mon,day].join('-')
+    this.setData({
+      'dates' : arr
+    });
+
+    // 初始中队
+    wx.request({
+      type: "GET",
+      url: 'https://chengguangov.diguikeji.com/index.php?g=Api&m=CommonApi&a=person',
+      data: {
+        sid: 1
+      },
+      dataType: "JSON",
+      success: function (e) {
+
+
+        var gouxuanList = JSON.parse(e.data);
+
+
+        for (var i = 0; i < app.globalData.nameList.length; i++) {
+
+          if (app.globalData.cid == app.globalData.nameList[i].cid) {
+            for (var j = 0; j < app.globalData.nameList[i].nameList.length; j++) {
+              for (var h = 0; h < gouxuanList.length; h++) {
+                if (app.globalData.nameList[i].nameList[j] == gouxuanList[h].uname) {
+                  gouxuanList[h].selected = true;
+                }
+              }
+            }
+          }
+
+        }
+
+        console.log(gouxuanList);
+
+
+        that.setData({
+          person: gouxuanList
+          // person: [
+          //   { uname : '张三'},
+          //   { uname: '张三' },
+          //   { uname: '张三' },
+          //   { uname: '张三' },
+          //   { uname: '张三' },
+          // ]
+        })
+
+      }
+    })
 
   },
 
