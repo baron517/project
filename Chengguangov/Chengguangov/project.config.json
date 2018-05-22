@@ -1,14 +1,14 @@
 {
 	"description": "项目配置文件。",
 	"setting": {
-		"urlCheck": true,
+		"urlCheck": false,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
 		"newFeature": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "1.5.4",
+	"libVersion": "1.9.93",
 	"appid": "wx2073627ee3a2d7e4",
 	"projectname": "chengguan",
 	"condition": {

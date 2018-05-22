@@ -1,5 +1,5 @@
- {
-  "pages":[
+{
+  "pages": [
     "pages/logs/index",
     "pages/index/index",
     "pages/components/inquiry/inquiry",
@@ -9,34 +9,35 @@
     "pages/components/quan/quan",
     "pages/components/spDetail2/spDetail2",
     "pages/components/quan2/quan2",
-	"pages/components/spDetail3/spDetail3",
-    "pages/components/quan3/quan3"
-     
-  
+    "pages/components/spDetail3/spDetail3",
+    "pages/components/quan3/quan3",
+    "pages/components/webView/webView"
   ],
-  "window":{
-    "backgroundColor":"#f4f4f4",
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundColor": "#f4f4f4",
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#33485D",
     "navigationBarTitleText": "加班就餐申请单",
-    "navigationBarTextStyle":"white"
+    "navigationBarTextStyle": "white"
   },
   "tabBar": {
     "color": "#dddddd",
     "selectedColor": "#000000",
     "borderStyle": "black",
     "backgroundColor": "#ffffff",
-    "list": [{
-      "pagePath": "pages/index/index",
-      "iconPath": "image/baoming2.png",
-      "selectedIconPath": "image/baoming1.png",
-      "text": "首页"
-    }, {
-      "pagePath": "pages/components/inquiry/inquiry",
-      "iconPath": "image/yuyue2.png",
-      "selectedIconPath": "image/yuyue1.png",
-      "text": "查询"
-    }
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "image/baoming2.png",
+        "selectedIconPath": "image/baoming1.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/components/inquiry/inquiry",
+        "iconPath": "image/yuyue2.png",
+        "selectedIconPath": "image/yuyue1.png",
+        "text": "查询"
+      }
     ]
   },
   "networkTimeout": {

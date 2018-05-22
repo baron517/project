@@ -220,12 +220,14 @@ Page({
 
 
   form: function (e) {
-    console.log(e.detail.value);
+    console.log("###"+e.detail.formId);
+    var formId = e.detail.formId;
     var form = e.detail.value;
    
     var that = this;
     var zongrenshu = that.data.pername.join(',');
     var jiucan = that.data.prise[that.data.priseIndex];
+    var fristshenpi = form.fristshenpi;
     console.log(jiucan)
 
 
@@ -259,7 +261,7 @@ Page({
           method: 'GET',
           success: function (res) {
             var rest = res.data;
-            console.log(rest);
+            console.log("###"+rest+"###");
 
             if (rest == 1) {
               wx.showModal({
@@ -269,6 +271,78 @@ Page({
                   if (res.confirm) {
                     console.log('用户点击确定')
                   }
+
+                  wx.request({
+                    url: 'https://chengguangov.diguikeji.com/index.php?g=Api&m=CommonApi&a=muban',
+                    data: {
+                      fristshenpi:fristshenpi
+                      },
+                    header: {
+                      'content-type': 'application/json'
+                    },
+                    success: function (e) {
+                      var is_open = e.data;
+                      console.log("###" + e.data["openid"] + "###");
+                      console.log(e.data);
+                      if(is_open == 2){
+                        wx.showModal({
+                          title: '提示',
+                          content: '对方还未开通此系统账号，请通知对方进入系统',
+                          success: function (res) {
+                            if (res.confirm) {
+                              console.log("用户点击确定")
+                            }
+                          }
+                        })
+                      }else{
+
+                        var frist_openid = e.data["openid"];
+                        var access_token = e.data["access_token"];
+                        //console.log("###"+frist_openid+"###");
+                        //console.log("###"+access_token+"###");
+                        var url = 'https://api.weixin.qq.com/cgi-bin/message/wxopen/template/send?access_token='+access_token;
+                        
+                        var jsonData = {
+                          access_token: access_token,
+                          touser: 'oM0Ds0NBPzdJAYqMT_58crA6nx9g',
+                          template_id: 'bH0dUSRvrLcZLWDkp1qBQGfURlOjWiW__DzvH3bRFkU',
+                          form_id: formId,
+                          page: "pages/index/index",
+                          data: {
+                            "keyword1": { "value": "测试数据一", "color": "#173177" },
+                            "keyword2": { "value": "测试数据二", "color": "#173177" },
+                          }
+                        }
+                        
+                        wx.request({
+                          url: url,
+                          data:jsonData,
+                          method: 'POST',
+                          success: function (res) {
+                            console.log(res)
+                          },
+                          fail: function (err) {
+                            console.log('request fail ', err);
+                          },
+                          complete: function (res) {
+                            console.log("request completed!");
+                          }
+
+                        })
+
+                        wx.showModal({
+                          title: '提示',
+                          content: '对方已经接收到，如长时间无回应，请电话提示一下',
+                          success: function (res) {
+                            if (res.confirm) {
+                              console.log("用户点击确定")
+                            }
+                          }
+                        })
+                      }
+                      //console.log(e.data);
+                    }
+                  })
                 }
               })
             } else if (rest == 2) {
@@ -302,6 +376,8 @@ Page({
         })
       }
     });
+
+    
   },
 
  
@@ -451,7 +527,7 @@ Page({
             wx.request({
               url: 'https://chengguangov.diguikeji.com/index.php?g=Api&m=CommonApi&a=inforadd',
               data: {
-                nickname: name,
+                //nickname: name,
                 openid: openid
               },
               method: 'GET', 

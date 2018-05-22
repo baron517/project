@@ -32,67 +32,72 @@ Page({
     console.log('--------')
     console.log(detail)
     console.log('--------')
-    wx.request({
-      url: 'https://chengguangov.diguikeji.com/shengchengDoc/wordHandle.php',
-      method: "GET",
-      header: {
-        'content-type': 'application/json'
-      },
-      data: {
-        detail:newJson
-      },
-      success: function (res) {
-		  
-        console.log("测试测试");
-        console.log(res.data);
-        console.log("测试测试");
-			
-		    if (res.data)
-        {
+    var rid = detail.rid;
 
-          console.log("######123");
-
-          wx.downloadFile({
-            url: res.data, //仅为示例，并非真实的资源
-            success: function (res) {
-
-              console.log(res.tempFilePath);
-
-              if (res.statusCode === 200) {
-
-
-                wx.saveFile({
-                  tempFilePath: res.tempFilePath,
-                  success: function (res) {
-                    var savedFilePath = res.savedFilePath;
-                    console.log("保存成功");
-                    wx.showModal({
-                      title: '下载成功',
-                      content: '点击确定打开文件，请自行利用手机截图功能进行截图以后打印(可以使用两只手指将表格放大)',
-                      success: function (res) {
-
-                        if (res.confirm) {
-                          console.log('用户点击确定')
-                          wx.openDocument({
-                            filePath: savedFilePath,
-                            success:function(){
-                              console.log('打开成功')
-                            }
-                          })
-                        }
-                      }
-                    })
-                    console.log("###"+savedFilePath);
-                  }
-                })
-
-              }
-            }
-          })
-
-         }
-      }
+    wx.navigateTo({
+      url: '../webView/webView?rid='+rid,
     })
+    // wx.request({
+    //   url: 'https://chengguangov.diguikeji.com/shengchengDoc/wordHandle.php',
+    //   method: "GET",
+    //   header: {
+    //     'content-type': 'application/json'
+    //   },
+    //   data: {
+    //     detail:newJson
+    //   },
+    //   success: function (res) {
+		  
+    //     console.log("测试测试");
+    //     console.log(res.data);
+    //     console.log("测试测试");
+			
+		//     if (res.data)
+    //     {
+
+    //       console.log("######123");
+
+    //       wx.downloadFile({
+    //         url: res.data, //仅为示例，并非真实的资源
+    //         success: function (res) {
+
+    //           console.log(res.tempFilePath);
+
+    //           if (res.statusCode === 200) {
+
+
+    //             wx.saveFile({
+    //               tempFilePath: res.tempFilePath,
+    //               success: function (res) {
+    //                 var savedFilePath = res.savedFilePath;
+    //                 console.log("保存成功");
+    //                 wx.showModal({
+    //                   title: '下载成功',
+    //                   content: '点击确定打开文件，请自行利用手机截图功能进行截图以后打印(可以使用两只手指将表格放大)',
+    //                   success: function (res) {
+
+    //                     if (res.confirm) {
+    //                       console.log('用户点击确定')
+    //                       wx.openDocument({
+    //                         filePath: savedFilePath,
+    //                         success:function(){
+    //                           console.log('打开成功')
+    //                         }
+    //                       })
+    //                     }
+    //                   }
+    //                 })
+    //                 console.log("###"+savedFilePath);
+    //               }
+    //             })
+
+    //           }
+    //         }
+    //       })
+
+    //      }
+    //   }
+    // })
 
 
 

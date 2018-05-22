@@ -10,7 +10,7 @@ App({
     wx.login({
       success:function (res) {
         var code = res.code;
-        console.log('code is' + code)
+        console.log('code is###' + code)
         wx.request({
           
           url: 'https://chengguangov.diguikeji.com/index.php?g=Api&m=CommonApi&a=wxdata',

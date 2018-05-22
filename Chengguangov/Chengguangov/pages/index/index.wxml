@@ -1,8 +1,9 @@
 <!--pages/components/shixue/shixue.wxml-->
+<button class='userBtn' open-type='getUserInfo'>点击获取信息</button>
 <view class='title'>加班就餐申请单</view>
    <view class="main">
     <view class="form-box">
-        <form bindsubmit="form">
+        <form bindsubmit="form" report-submit='true'>
       
           <picker bindchange="bindPickerChange" name="zhongdui" data-id='{{areadata}}' value="{{area[areaIndex]}}" range="{{area}}">  
              <view class="picker">  
