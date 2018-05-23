@@ -3,7 +3,7 @@
 <view class='title'>加班就餐申请单</view>
    <view class="main">
     <view class="form-box">
-        <form bindsubmit="form" report-submit='true'>
+        <form bindsubmit="form" report-submit="true">
       
           <picker bindchange="bindPickerChange" name="zhongdui" data-id='{{areadata}}' value="{{area[areaIndex]}}" range="{{area}}">  
              <view class="picker">  

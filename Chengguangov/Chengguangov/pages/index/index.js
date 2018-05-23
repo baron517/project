@@ -220,7 +220,7 @@ Page({
 
 
   form: function (e) {
-    console.log("###"+e.detail.formId);
+    console.log("###测试测试测试"+e.detail.formId);
     var formId = e.detail.formId;
     var form = e.detail.value;
    
@@ -298,13 +298,12 @@ Page({
 
                         var frist_openid = e.data["openid"];
                         var access_token = e.data["access_token"];
-                        //console.log("###"+frist_openid+"###");
-                        //console.log("###"+access_token+"###");
-                        var url = 'https://api.weixin.qq.com/cgi-bin/message/wxopen/template/send?access_token='+access_token;
+                        console.log("###access_token" + access_token+"###");
+                        console.log("###formId:" + formId+"###");
+                        var url = 'https://chengguangov.diguikeji.com/index.php?g=Api&m=commonApi&a=pushMsg&access_token=' + access_token;
                         
                         var jsonData = {
-                          access_token: access_token,
-                          touser: 'oM0Ds0NBPzdJAYqMT_58crA6nx9g',
+                          touser: frist_openid,
                           template_id: 'bH0dUSRvrLcZLWDkp1qBQGfURlOjWiW__DzvH3bRFkU',
                           form_id: formId,
                           page: "pages/index/index",
@@ -313,11 +312,17 @@ Page({
                             "keyword2": { "value": "测试数据二", "color": "#173177" },
                           }
                         }
+
+                        console.log(JSON.stringify(jsonData));
+
                         
                         wx.request({
                           url: url,
-                          data:jsonData,
+                          data:{info:JSON.stringify(jsonData)},
                           method: 'POST',
+                          header: {
+                            'content-type': 'application/x-www-form-urlencoded',
+                          },
                           success: function (res) {
                             console.log(res)
                           },
