@@ -1,0 +1,257 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>现场作业记录查看</title>
+    <link rel="stylesheet" type="text/css" href="../css/aui.css?v=1"/>
+    <link rel="stylesheet" type="text/css" href="../css/main.css"/>
+
+</head>
+<style>
+    .box{
+        margin-top: 0.5rem;
+        width: 100%;
+        height: 3rem;
+        text-align: center;
+        font-size: 1rem;
+        font-weight: bold;
+        padding-top: 0.8rem;
+        -webkit-box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+        -moz-box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+        box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+    }
+    
+</style>
+<body>
+
+
+<div style="width: 100%;height: auto;margin-top: 2rem">
+    <div class="aui-card-list-footer" style="margin-bottom: 1rem">
+        <span id="zuoyeren">作业人：</span>
+        <span id="zuoyeshijian">作业时间：</span>
+    </div>
+
+    <ul class="aui-list aui-form-list" id="list">
+
+        <li class="aui-list-item">
+            <div class="aui-list-item-inner">
+                <div class="aui-list-item-label"style="width:55%; ">
+                    标题:<span id="wname" style="margin: 0 auto;"></span>
+                </div>
+                <div class="aui-list-item-input">
+                    <input type="text" readonly id="atitle" style="border: 1px solid gainsboro;height: 1.5rem;padding-left: 0.5rem;border:0;">
+                </div>
+            </div>
+        </li>
+
+    </ul>
+
+    <ul class="aui-list aui-media-list" >
+        <li class="aui-list-item">
+            <div class="aui-list-item-inner">
+                <div class="aui-list-item-title"  style="font-size: 0.8rem">设备作业相片:</div>
+                <div class="aui-row aui-row-padded" id="w_image">
+
+                </div>
+            </div>
+        </li>
+
+    </ul>
+
+   <!--
+    <div class="aui-btn aui-btn-info aui-btn-block"  id="submitBtn" tapmode   style="margin-top:2rem;background: #0389d0!important;">
+        申请提交
+    </div>-->
+<!--    <div class="aui-btn aui-btn-info aui-btn-block"  id="erweima" tapmode   style="margin-top:1rem;background: #0389d0!important;">
+        二维码申请
+    </div>
+    -->
+    
+    
+</div>
+
+
+
+</body>
+</html>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/jquery-1.8.1.min.js"></script>
+<script type="text/javascript" src="../script/common.js"></script>
+<script type="text/javascript" src="../script/aui-dialog.js" ></script>
+<script type="text/javascript" src="../script/toast.js"></script>
+<script type="text/javascript">
+
+
+
+
+/*    var  jsonList=JSON.parse(localStorage.work_json);*/
+   var wid = localStorage.work_wid;
+
+/*    alert(JSON.stringify(jsonList));*/
+        $.ajax({
+            type: 'GET',
+            url: serveUrl + 'index.php?g=Api&m=My&a=workcontent',
+            data: {
+             wid:wid
+            },
+            dataType: "json",
+            success: function (data) {
+                console.log(data);
+                //alert(JSON.stringify(data));
+                //console.log(data);
+                var work_json = JSON.parse(data.wcontent);
+                //console.log(JSON.parse(work_json));
+                //$("#jsontext").append(work_json);
+
+                $("#wname").text(data.wname);
+
+              //  var json = JSON.parse($("#jsontext").text());
+                var jsonHtml="";
+                for(var i=0;i<work_json.length;i++)
+
+                {
+
+                    jsonHtml=jsonHtml+ '<li class="aui-list-item">'+
+                            '<div class="aui-list-item-inner">'+
+                            '<span type="text" class="aui-list-item-label"   style="width:55%;">'+work_json[i].wdname+'：'+
+                            '</span>'+
+                            '<div class="aui-list-item-input">'+
+                            ' <input type="text" readonly data-value="'+work_json[i].wdname+'" value="'+work_json[i].wdvalue+'" id="1" class="shuju" name="cvalue"  style="border: 1px solid gainsboro;height: 1.5rem;padding-left: 0.5rem;border:0;"/>'+
+                            ' </div>'+
+                            ' </div>'+
+                            '</li>';
+
+
+                }
+
+                //设备作业相片
+                var w_imgHtml="";
+
+                if (data.workcontent.w_image) {
+                    var w_imageUrl = JSON.parse(data.workcontent.w_image);
+
+                    for (var j = 0; j < w_imageUrl.length; j++)
+                    {
+                        w_imgHtml = w_imgHtml + '<div class="aui-col-xs-4">' +
+                                '<img style="height: 111.66px" src="' + w_imageUrl[j].img + '"/>' +
+                                '</div>';
+                    }
+                }
+
+                $("#w_image").append(w_imgHtml);
+                $("#list").append(jsonHtml);
+                $("#zuoyeren").append(data.zuoyeren);
+                $("#zuoyeshijian").append(data.workcontent.wdate);
+                $("#wname").append(data.workcontent.wname);
+
+            },
+            error: function (msg) {
+                //alert(msg);
+            }
+        });
+
+
+
+
+/*
+    $("#list").append(jsonHtml);
+*/
+
+
+ $("#submitBtn").click(function()
+ {
+
+
+     var wid= userObj.wid;
+     // alert(JSON.stringify(uid));
+     var param=$("#cname").val();
+     
+     
+      var array = [];
+      var flag = false;
+        $(".shuju").each(function()
+        {
+
+            if($(this).val() ==  ""){
+
+                flag = true;
+
+            }else {
+                var pObj = {};
+                pObj.wdname = $(this).attr("data-value");
+                pObj.wdvalue = $(this).val();
+                array.push(pObj);
+            }
+
+        });
+
+        if(flag==true)
+
+        {
+            alert('请输入值！');
+            return;
+        }
+
+
+        var wcontent=JSON.stringify(array);
+        
+     
+     var param={
+             a_weid:1,
+             a_content:wcontent,
+             asid:userObj.id,
+             atitle:$("#atitle").val(),
+             aeid:localStorage.work_w_sid,
+             awid:localStorage.work_wid,
+             acode:userObj.scode
+         };
+         
+     
+
+     $.ajax({
+         type: 'POST',
+         url: serveUrl+'index.php?g=Api&m=CommonApi&a=applyPost' ,
+         data: param,
+         success: function(data)
+         {
+             
+             //alert(data);
+             
+             //console.log(JSON.stringify(data));
+             if(data==1)
+             {
+                 showMessage('申请提交成功！',1500);
+                 
+                 setTimeout(
+                         function() {
+                        
+                         api.closeWin({
+                        });
+                        
+                    },1000);
+
+             }
+             
+
+
+         },
+         error:function(msg)
+         {
+             //alert(msg);
+         }
+     });
+
+
+
+
+
+ });
+
+
+
+
+
+
+</script>

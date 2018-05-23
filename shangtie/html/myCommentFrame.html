@@ -1,0 +1,273 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>我的评论</title>
+    <link rel="stylesheet" type="text/css" href="../css/aui.css?v=1"/>
+    <link rel="stylesheet" type="text/css" href="../css/main.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/bbs.css">
+    <link rel="stylesheet" type="text/css" href="../css/iconfont.css">
+    <style>
+        body{background: #f5f5f5;}
+        .aui-card-list-header{padding-bottom:0;}
+        .aui-card-list-footer{padding-top:0;}
+
+    </style>
+</head>
+<body>
+
+
+
+    <div class="wrap" >
+        <ul id="list">
+
+        </ul>
+</div>
+
+
+    <div class="foot-fabiao" id="respond" autofocus="autofocus" style="z-index: 9999;display: none">
+        <ul class="huifu">
+            <li class="aui-list-item2" >
+                <i class="aui-iconfont aui-icon-pencil"></i>
+                <input type="text" id="fabiaoText" placeholder="回复楼主" >
+            </li>
+        </ul>
+        <button class="fabiao">发表</button>
+    </div>
+
+    <div class="nonedata" id="nonedata" style="width: 100%;height: 6rem;text-align: center;font-size: 1rem;position: absolute;top: 40%">
+        <i class="iconfont icon-tttt" style="font-size: 2rem;color: #FEE46B"></i><br>&nbsp;&nbsp;暂无更多数据！
+    </div>
+
+<footer class="aui-bar aui-bar-tab" id="footer" style="border-top:1px solid #eee;">
+    <div class="aui-bar-tab-item" tapmode data-link="bbsWin">
+        <i class="aui-iconfont aui-icon-home"></i>
+        <div class="aui-bar-tab-label">论坛首页</div>
+    </div>
+    <div class="aui-bar-tab-item" tapmode data-link="myPublishWin">
+        <i class="aui-iconfont aui-icon-star"></i>
+        <div class="aui-bar-tab-label">我的发帖</div>
+    </div>
+    <div class="aui-bar-tab-item aui-active" tapmode>
+        <i class="aui-iconfont aui-icon-comment"></i>
+        <div class="aui-bar-tab-label">我的评论</div>
+    </div>
+    <div class="aui-bar-tab-item" tapmode data-link="relateMyWin">
+        <i class="aui-iconfont aui-icon-my"></i>
+        <div class="aui-bar-tab-label">我的回复</div>
+    </div>
+</footer>
+
+
+</body>
+</html>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/jquery-1.8.1.min.js"></script>
+<script type="text/javascript" src="../script/common.js"></script>
+<script type="text/javascript" src="../script/toast.js"></script>
+<script type="text/javascript">
+
+
+
+
+    apiready = function(){
+
+        api.setStatusBarStyle({
+            style: 'dark',
+            color: '#666'
+        });
+        api.parseTapmode();
+
+
+    };
+
+
+    //获取评论
+    $.ajax({
+        type: 'GET',
+        url: serveUrl+'index.php?g=Api&m=CommonApi&a=getMyPinglun' ,
+        data: {r_uid:userObj.id} ,
+        dataType: "json",
+        success: function(data)
+        {
+              if(data.length == 0){
+                  $("#nonedata").show();
+              }else {
+                  $("#nonedata").hide();
+              }
+
+            console.log(data);
+            //alert(JSON.stringify(data));
+
+            if(data)
+            {
+                var relateHtml="";
+                for(var i=0;i<data.length;i++)
+                {
+
+
+                    var avatarUrl='../image/touxiang1.png';
+                    if(userObj.avatar)
+                    {
+                        avatarUrl=serveUrl+userObj.avatar;
+                    }
+
+
+                    var rcontentList=data[i].rcontent.split(",");
+                    var is_publish=data[i].is_publish.split(",");
+
+                    var rcontentHtml="";
+                    for(var j=0;j<rcontentList.length;j++)
+                    {
+                        if(is_publish[j]=="0")
+                        {
+                            rcontentHtml=rcontentHtml+'<p >回复&nbsp;@'+data[i].sname.split(",")[j]+'：'+rcontentList[j]+'</p>';
+                        }
+                        else {
+
+                            rcontentHtml=rcontentHtml+'<p class="content" style="font-size: 0.75rem;color:grey;padding: 0 0 0 0.2rem;margin-top:0;">'+
+                                    '回复&nbsp;@'+ data[i].sname.split(",")[j]+'：'+rcontentList[j]+'</p>';
+
+                        }
+
+                    }
+
+                    var huifuHtml="";
+
+                    console.log(is_publish[is_publish.length-1]);
+
+                    if(is_publish[is_publish.length-1]=="1")
+                    {
+                        huifuHtml= ' <div class="click_hf" data-p_reply_id="'+data[i].p_reply_id+'" data-sname="'+data[i].sname.split(",")[0]+'" data-r_f_id="'+data[i].r_f_id+'" style="color:#999; ">'+
+                                '<i class="aui-iconfont aui-icon-comment" style="font-size: 1rem;color:#005FBD;"></i>'+
+                                '<span style="color: grey;font-size: 0.7rem;z-index: 999" id="huifu">回复</span>'+
+                                '</div>';
+                    }
+
+
+
+                    relateHtml=relateHtml+'<li class="box" >'+
+                            '<div class="author">'+
+                            '<a><img src="'+avatarUrl+'"></a>'+
+                            '<p class="author_name">'+userObj.sname+'</p>'+
+                            '<p class="author_time">'+data[i].rdate+'</p>'+
+                            '</div>'+
+                            '<div class="topic"><div class="topic-col">'+rcontentHtml+'</div>'+
+                            '<div class="aui-row aui-row-padded" style="padding: 0.5rem 0.2rem 0.5rem 0.5rem;background-color: #F5F5F5;width: 100%;font-size: 0.75rem;color: black;margin: 0;color: grey">'+
+                            '原贴：'+data[i].fname+
+                            '</div>'+
+                            '</div>'+huifuHtml+
+                            '</li>';
+
+                }
+
+                $("#list").append(relateHtml);
+
+
+
+
+            }
+
+
+
+        },
+        error:function(msg)
+        {
+            //alert(msg);
+        }
+    });
+
+
+    var p_reply_id;
+    var r_f_id;
+    var snameText;
+
+    $("#list").on("click",".click_hf",function()
+    {
+
+        $click_hf=$(this);
+
+        var obj = document.getElementById("respond");
+        obj.style.display= "block";
+
+        snameText=$(this).attr("data-sname");
+
+        var obj = document.getElementById("respond");
+        obj.style.display= "block";
+
+        p_reply_id=$(this).attr("data-p_reply_id");
+        r_f_id=$(this).attr("data-r_f_id");
+
+
+
+    });
+
+
+    $(".fabiao").click(function()
+    {
+
+
+        var fabiaoText=$("#fabiaoText").val();
+        var rdate=new Date().format("yyyy-MM-dd hh:mm:ss");
+
+        if($("#fabiaoText").val()=="")
+        {
+            showMessage('回复不能为空！',1500);
+            return;
+        }
+
+        $.ajax({
+            type: 'POST',
+            url: serveUrl + 'index.php?g=Api&m=CommonApi&a=pinglunHuifu',
+            data: {
+                p_reply_id: p_reply_id,
+                rcontent:$("#fabiaoText").val(),
+                r_uid:userObj.id,
+                rdate:rdate,
+                is_publish:0,
+                r_f_id:r_f_id
+            },
+            dataType: "json",
+            success: function (data) {
+
+                if(data.code="1000")
+                {
+                    showMessage('回复成功！',1500);
+
+                    $click_hf.prev().find(".topic-col").append('<p class="content" style="font-size: 0.75rem;color:grey;padding: 0 0 0 0.2rem;margin-top:0;">回复&nbsp;@'+snameText+'：'+$("#fabiaoText").val()+'</p>');
+
+                    $click_hf.remove();
+                    $("#fabiaoText").val("");
+
+                }
+
+            }
+        });
+
+
+    });
+
+    $(window).scroll(function() {
+        var h1 = $.browser.webkit ? $("body").scrollTop() : $(document)
+                .scrollTop();
+        if (h1 > 20) { //页面下拉高度达到20像素 就隐藏
+            $("#respond").hide();
+
+        } else {
+            /*$("#respond").show();*/
+        }
+    });
+
+    /*  $('body').click(function(e) {
+          if (e.target.tagName == 'BODY') {
+              var obj = document.getElementById("respond");
+              obj.style.display= "none";
+
+          }
+      });
+  */
+
+
+</script>

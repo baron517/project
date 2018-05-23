@@ -1,0 +1,129 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>技通学习详情</title>
+    <link rel="stylesheet" type="text/css" href="../css/aui.css?v=1"/>
+    <link rel="stylesheet" type="text/css" href="../css/main.css"/>
+    <style>
+        body{background: #fff;}
+.content{
+    width: 100%;
+    height: auto;
+    margin-top: 0.4rem;
+    padding: 0.2rem;
+    word-break: break-all;
+    overflow-x:hidden;
+    box-sizing: border-box;
+
+}
+        .aui-card-list-content-padded img{
+            max-width: 100%!important;
+        }
+    </style>
+</head>
+<body>
+
+
+
+
+
+<section >
+    <div class="content" style="" id="cardList" >
+
+
+
+               <div class="aui-card-list-content-padded" id="detail">
+
+               </div>
+        <div class="aui-card-list-footer">
+            <span id="bperson">作：</span>
+            <span id="bdate">日期：</span>
+        </div>
+
+    </div>
+
+
+</section>
+
+
+
+
+
+
+</body>
+</html>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/jquery-1.8.1.min.js"></script>
+<script type="text/javascript" src="../script/common.js"></script>
+<script type="text/javascript">
+
+    apiready = function(){
+        api.setStatusBarStyle({
+            style: 'dark',
+            color: '#666'
+        });
+       // api.parseTapmode();
+    };
+
+    var bid = localStorage.bid;
+    var page=0;
+    $.ajax({
+        type: 'GET',
+        url: serveUrl+'index.php?g=Api&m=CommonApi&a=getBookListDetail' ,
+        data: {page:page,bstatus:3,bid:bid} ,
+        dataType: "json",
+        success: function(data)
+        {
+
+            $("#detail").append(data.bcontent);
+            $("#bperson").append(data.bperson);
+            $("#bdate").append(data.bdate);
+
+            if(!($.inArray( userObj.id, data.busers.split("#"))>-1))
+            {
+                updateStatus(data.busers,data.bscode);
+            }
+
+
+        },
+        error:function(msg)
+        {
+            //alert(msg);
+        }
+    });
+
+
+
+
+    function updateStatus(str,bscode_str)
+    {
+        str=str+"#"+userObj.id;
+        bscode_str=bscode_str+"#"+userObj.scode;
+
+        $.ajax({
+            type: 'GET',
+            url: serveUrl+'index.php?g=Api&m=CommonApi&a=updateStatus' ,
+            data: {
+                busers:str,
+                bscode:bscode_str,
+                bid:bid
+            } ,
+            success: function(data)
+            {
+                console.log(data);
+            },
+            error:function(msg)
+            {
+                //alert(msg);
+            }
+        });
+
+
+    }
+
+
+
+</script>

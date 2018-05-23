@@ -1,0 +1,857 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>我的</title>
+    <link rel="stylesheet" type="text/css" href="../css/aui.css?v=1"/>
+    <link rel="stylesheet" type="text/css" href="../css/main.css"/>
+
+</head>
+<body>
+
+
+
+<div class="aui-content aui-margin-b-15">
+
+    <div class="mine" style="width: 100%;height: 8rem;background-color: #0389d0">
+                <div id="touxiang" class="aui-list-item-media" style="width: 4rem;margin: 0 auto;padding-top: 1rem">
+                    <img  id="imgtouxiang" src="../image/touxiang.png" style="border-radius: 50%;height: 4rem;width: 4rem"  class="aui-list-img-sm">
+                </div>
+                <div style="color: white;text-align: center;padding-top: 0.8rem">
+                    <h2 id="name"></h2>
+                </div>
+    </div>
+
+    <ul class="aui-list aui-form-list aui-list aui-list-in" style="border-top:0!important;">
+        <li class="aui-list-item asset">
+            <div class="aui-list-item-inner aui-list-item-arrow" id="query">
+                <div class="aui-list-item-title"><i class="aui-iconfont aui-icon-cert aui-text-indigo"  style="padding-right: 0.8rem"></i>作业学习进度查询</div>
+            </div>
+        </li>
+        <li class="aui-list-item asset">
+            <div class="aui-list-item-inner aui-list-item-arrow" id="shenpi">
+                <div class="aui-list-item-title"><i class="aui-iconfont aui-icon-cert aui-text-pink "  style="padding-right: 0.8rem"></i>修改申请审批</div>
+            </div>
+        </li>
+        <li class="aui-list-item">
+            <div class="aui-list-item-inner aui-list-item-arrow" id="equi">
+                <div class="aui-list-item-title"><i class="aui-iconfont aui-icon-info aui-text-danger"  style="padding-right: 0.8rem"></i>我的设备</div>
+            </div>
+        </li>
+        <li class="aui-list-item">
+            <div class="aui-list-item-inner aui-list-item-arrow" id="weiji">
+                <div class="aui-list-item-title"><i class="aui-iconfont aui-icon-gear aui-text-purple"  style="padding-right: 0.8rem"></i>微机监测</div>
+            </div>
+        </li>
+
+        <li class="aui-list-item aui-list-item-middle" id="work">
+                    <div class="aui-list-item-inner aui-list-item-arrow" >
+                        <div class="aui-list-item-title" > <i class="aui-iconfont aui-icon-display aui-text-danger" style="padding-right: 0.8rem"></i>现场作业记录</div>
+                </div>
+                </li>
+        <li class="aui-list-item">
+            <div class="aui-list-item-inner aui-list-item-arrow" id="info">
+                <div class="aui-list-item-title"> <i class="aui-iconfont aui-icon-flag aui-text-info"  style="padding-right: 0.8rem"></i>设备缺点单</div>
+                <div class="aui-list-item-right">
+                </div>
+            </div>
+
+        </li>
+    <!--    <li class="aui-list-item">
+            <div class="aui-list-item-inner aui-list-item-arrow" id="kefu">
+                <div class="aui-list-item-title"> <i class="aui-iconfont aui-icon-cert aui-text-success"  style="padding-right: 0.8rem"></i>缺点克服</div>
+                <div class="aui-list-item-right">
+                </div>
+            </div>
+
+        </li>-->
+                <li class="aui-list-item" id="shenqingXiugai">
+                    <div class="aui-list-item-inner aui-list-item-arrow" id="xiugai">
+                        <div class="aui-list-item-title">  <i class="aui-iconfont aui-icon-pencil"  style="padding-right: 0.8rem"></i>申请修改记录</div>
+
+                    </div>
+                </li>
+
+
+              <li class="aui-list-item" style="display:none;" id="wodeshenpi">
+            <div class="aui-list-item-inner aui-list-item-arrow" >
+                <div class="aui-list-item-title"> <i class="aui-iconfont aui-icon-cert aui-text-danger"  style="padding-right: 0.8rem"></i>我的审批</div>
+                <div class="aui-list-item-right">
+                </div>
+            </div>
+
+            </li>
+
+
+             <li class="aui-list-item" style="display:none;" id="xiaohao">
+            <div class="aui-list-item-inner aui-list-item-arrow" >
+                <div class="aui-list-item-title"> <i class="aui-iconfont aui-icon-paper aui-text-info"  style="padding-right: 0.8rem"></i>我的销号</div>
+                <div class="aui-list-item-right">
+                </div>
+            </div>
+
+            </li>
+            
+            
+              <li class="aui-list-item" style="display:none;" id="pingjia">
+            <div class="aui-list-item-inner aui-list-item-arrow" >
+                <div class="aui-list-item-title"> <i class="aui-iconfont aui-icon-comment aui-text-purple"  style="padding-right: 0.8rem"></i>我的评价</div>
+                <div class="aui-list-item-right">
+                </div>
+            </div>
+
+            </li>
+
+
+        <li class="aui-list-item">
+            <div class="aui-list-item-inner aui-list-item-arrow" id="defen">
+                <div class="aui-list-item-title"> <i class="aui-iconfont aui-icon-star aui-text-danger"  style="padding-right: 0.8rem"></i>我的得分</div>
+
+                <span  style="color:#666;font-size:0.7rem;display: inline-block;margin-right:1.5rem;position:relative;top:0.05rem;">总分：<span id="zongfen"></span></span>
+
+            </div>
+        </li>
+        
+         <li class="aui-list-item" style="display:none;" id="defenList">
+            <div class="aui-list-item-inner aui-list-item-arrow" >
+                <div class="aui-list-item-title"> <i class="aui-iconfont aui-icon-paper aui-text-info"  style="padding-right: 0.8rem"></i>得分列表</div>
+
+                
+
+            </div>
+        </li>
+
+        <li class="aui-list-item" id="update">
+            <div class="aui-list-item-inner aui-list-item-arrow" >
+                <div class="aui-list-item-title"> <i class="aui-iconfont aui-icon-refresh aui-text-purple"  style="padding-right: 0.8rem"></i>检查更新</div>
+                 <span  style="color:#666;font-size:0.7rem;display: inline-block;margin-right:1.5rem;position:relative;top:0.05rem;"><span id="banben"></span></span>
+
+            </div>
+        </li>
+
+
+                <li class="aui-list-item">
+                    <div class="aui-list-item-inner aui-list-item-arrow" id="person">
+                        <div class="aui-list-item-title"> <i class="aui-iconfont aui-icon-edit aui-text-warning"  style="padding-right: 0.8rem"></i>个人中心</div>
+                    </div>
+                </li>
+
+
+            
+
+                <!--<li class="aui-list-item">
+                    <div class="aui-list-item-inner aui-list-item-arrow" id="about">
+                        <div class="aui-list-item-title"><i class="aui-iconfont aui-icon-my aui-text-primary"  style="padding-right: 0.8rem"></i>关于我们</div>
+                    </div>
+                </li>-->
+            </ul>
+</div>
+
+
+
+
+
+
+</body>
+</html>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/jquery-1.8.1.min.js"></script>
+<script type="text/javascript" src="../script/common.js"></script>
+<script type="text/javascript" src="../script/toast.js"></script>
+
+<script type="text/javascript">
+
+
+    $(document).ajaxSend(function(event, jqxhr, settings) {
+
+        $("#loadEffectCol").remove();
+
+    });
+
+    var type = userObj.user_type;
+   //alert(type);
+    if (type == 1){
+        $(".asset").show();
+        $("#shenqingXiugai").hide();
+    }else {
+        $(".asset").hide();
+    };
+   
+    if(userObj.status=="1")
+    {
+        
+        $("#pingjia").show();
+        $("#xiaohao").show();
+        
+    }
+    
+    if(userObj.rclass=="3")
+    {
+        
+        $("#wodeshenpi").show();
+        $("#defenList").show();
+        
+    }
+    
+    if(userObj.rclass==2)
+    {
+        $("#defenList").show();
+    }
+
+
+    apiready = function() {
+
+    $("#banben").text(api.appVersion);
+
+
+
+        api.setStatusBarStyle({
+            style: 'dark',
+            color: '#666'
+        });
+        api.parseTapmode();
+        api.addEventListener({
+            name: 'viewappear'
+        }, function (ret, err)
+        {
+            // alert('window显示');
+            // window.location.reload();
+            $.ajax({
+                type: 'GET',
+                url: serveUrl + 'index.php?g=Api&m=My&a=personinfor',
+                data: {uid: uid, type: type},
+                dataType: "json",
+                success: function (data) {
+                    if (data[0].avatar) {
+                        $("#imgtouxiang").attr("src", serveUrl + data[0].avatar);
+                    }
+                },
+                error: function (msg) {
+                }
+            });
+        });
+
+        function checkUpdate() {
+            var mam = api.require('mam');
+            mam.checkUpdate(function(ret, err) {
+                if (ret) {
+                    var result = ret.result;
+
+                    //alert(JSON.stringify(ret.result));
+
+                    if (result.update == true) {
+                        //var str = '新版本型号:' + result.version + ';更新提示语:' + result.updateTip + ';下载地址:' + result.source + ';发布时间:' + result.time;
+
+                        var str = '新版本型号:' + result.version + ';更新提示语:' + result.updateTip + ';发布时间:' + result.time;
+
+                        api.confirm({
+                            title : '有新的版本,是否下载并安装 ',
+                            msg : str,
+                            buttons : ['确定', '取消']
+                        }, function(ret, err) {
+                            if (ret.buttonIndex == 1) {
+                                if (api.systemType == "android") {
+                                    api.download({
+                                        url : result.source,
+                                        report : true
+                                    }, function(ret, err) {
+                                        if (ret && 0 == ret.state) {/* 下载进度 */
+                                            api.toast({
+                                                msg : "正在下载应用" + ret.percent + "%",
+                                                duration : 2000
+                                            });
+                                        }
+                                        if (ret && 1 == ret.state) {/* 下载完成 */
+                                            var savePath = ret.savePath;
+                                            api.installApp({
+                                                appUri : savePath
+                                            });
+                                        }
+                                    });
+                                }
+                                if (api.systemType == "ios") {
+                                    api.installApp({
+                                        appUri : result.source
+                                    });
+                                }
+                            }
+                        });
+                    } else {
+                        api.alert({
+                         msg : "暂无更新"
+                         });
+                    }
+                } else {
+                    /* api.alert({
+                     msg : err.msg
+                     });*/
+                }
+            });
+        }
+
+        $("#update").click(function()
+        {
+
+            checkUpdate();
+
+        });
+
+    };
+
+
+    var uid = userObj.id;
+
+    $.ajax({
+        type: 'GET',
+        url: serveUrl + 'index.php?g=Api&m=My&a=getFenshu',
+        data: {uid: uid},
+        success: function (data) {
+            
+            if(data)
+            {
+                $("#zongfen").text(data);
+            }
+            else{
+                 $("#zongfen").text("0");
+            }
+            
+        },
+        error: function (msg) {
+        }
+    });
+
+
+
+
+
+        //alert(type);
+        //var type = userObj.user_type;
+
+            $.ajax({
+                type: 'GET',
+                url: serveUrl + 'index.php?g=Api&m=My&a=personinfor',
+                data: {uid: uid, type: type},
+                dataType: "json",
+                success: function (data) {
+                    //alert(JSON.stringify(data));
+                    if (type == 1) {
+                        $("#name").append(data[0].sname);
+                        $("#phone").append(data[0].user_login);
+                        $("#newphone").append(data[0].user_login);
+                    }
+                    else if (type == 2) {
+                        $("#name").append(data[0].sname);
+                        $("#phone").append(data[0].snum);
+                        /*      $("#newphone").append(data[0].snum);*/
+                    }
+
+                    if (data[0].avatar) {
+                        $("#imgtouxiang").attr("src", serveUrl + data[0].avatar);
+                    }
+
+                },
+                error: function (msg) {
+                    //alert(msg);
+                }
+            });
+
+
+        $("#defen").click(function()
+        {
+
+            api.openWin({
+                name: "defenInfoWin",
+                url: 'defenInfoWin.html',
+                bounces: false,allowEdit:true, 
+                slidBackEnabled: true,
+                vScrollBarEnabled: false,
+                progress: {
+                    type: "page"
+                }
+            });
+
+        });
+        
+        
+        $("#defenList").click(function()
+        {
+
+            api.openWin({
+                name: "defenInfoListWin",
+                url: 'defenInfoListWin.html',
+                bounces: false,allowEdit:true, 
+                slidBackEnabled: true,
+                vScrollBarEnabled: false,
+                progress: {
+                    type: "page"
+                }
+            });
+
+        });
+        
+        
+        
+
+        $("#work").click(function() {
+
+
+            if(userObj.user_type==2)
+            {
+                if(userObj.status==0)
+                {
+                    api.openWin({
+                        name: "workWin",
+                        url: 'workWin.html',
+                        bounces: false,allowEdit:true, 
+                        slidBackEnabled: true,
+                        vScrollBarEnabled: false,
+                        progress: {
+                            type: "page"
+                        }
+                    });
+
+                }
+                else
+                {
+                    localStorage.gongqu_scode=userObj.scode;
+
+                    api.openWin({
+                        name: "gongquWorkWin",
+                        url: 'gongquWorkWin.html',
+                        bounces:false,
+                        slidBackEnabled:true,
+                        vScrollBarEnabled:false,
+                        progress:{
+                            type:"page"
+                        }
+                    });
+                }
+
+            }
+            else
+            {
+
+                if(userObj.rclass==3)
+                {
+
+                    localStorage.quanxianType=1;  //1代表现场作业 2代表设备缺点单 3代表我的设备  4代表审批审查
+
+                    api.openWin({
+                        name: "gongquWin",
+                        url: 'gongquWin.html',
+                        bounces:false,
+                        slidBackEnabled:true,
+                        vScrollBarEnabled:false,
+                        progress:{
+                            type:"page"
+                        }
+                    });
+                }
+                else if(userObj.rclass==2)
+                {
+
+                    localStorage.quanxianType=1;  //1代表现场作业 2代表设备缺点单 3代表我的设备  4代表审批审查
+
+                    api.openWin({
+                        name: "chejianWin",
+                        url: 'chejianWin.html',
+                        bounces:false,
+                        slidBackEnabled:true,
+                        vScrollBarEnabled:false,
+                        progress:{
+                            type:"page"
+                        }
+                    });
+                }
+                else
+                {
+                    showMessage('不支持查看！',1500);
+                }
+
+
+            }
+
+        });
+
+        $("#xiugai").click(function()
+        {
+
+            api.openWin({
+                name: "modifyWin",
+                url: 'modifyWin.html',
+                bounces:false,
+                slidBackEnabled:true,
+                vScrollBarEnabled:false,
+                progress:{
+                    type:"page"
+                }
+            });
+
+        });
+
+
+        $("#wodeshenpi").click(function()
+        {
+
+            localStorage.quanxianType=5;  //1代表现场作业 2代表设备缺点单 3代表我的设备  4代表审批审查  5 设备缺点单
+
+            api.openWin({
+                name: "gongquWin",
+                url: 'gongquWin.html',
+                bounces:false,
+                slidBackEnabled:true,
+                vScrollBarEnabled:false,
+                progress:{
+                    type:"page"
+                }
+            });
+
+            
+        });
+
+
+    $("#pingjia").click(function()
+    {
+
+        api.openWin({
+            name: "wodepingjiaWin",
+            url: 'wodepingjiaWin.html',
+            bounces:false,
+            slidBackEnabled:true,
+            vScrollBarEnabled:false,
+            progress:{
+                type:"page"
+            }
+        });
+
+    });
+
+        
+        $("#xiaohao").click(function()
+        {
+            
+             api.openWin({
+                        name: "wodexiaohaoWin",
+                        url: 'wodexiaohaoWin.html',
+                        bounces:false,
+                        slidBackEnabled:true,
+                        vScrollBarEnabled:false,
+                        progress:{
+                            type:"page"
+                        }
+                    });
+            
+        });
+
+        $("#info").click(function()
+        {
+
+            if(userObj.user_type==2)
+            {
+                if(userObj.status==0)
+                {
+                    api.openWin({
+                        name: "infoWin",
+                        url: 'infoWin.html',
+                        bounces:false,
+                        slidBackEnabled:true,
+                        vScrollBarEnabled:false,
+                        progress:{
+                            type:"page"
+                        }
+                    });
+
+                }
+                else
+                {
+                    localStorage.gongqu_scode=userObj.scode;
+
+                    api.openWin({
+                        name: "gongquInfoWin",
+                        url: 'gongquInfoWin.html',
+                        bounces:false,
+                        slidBackEnabled:true,
+                        vScrollBarEnabled:false,
+                        progress:{
+                            type:"page"
+                        }
+                    });
+                }
+
+            }
+
+            else
+            {
+
+                if(userObj.rclass==3)
+                {
+
+                    localStorage.quanxianType=2;  //1代表现场作业 2代表设备缺点单 3代表我的设备  4代表审批审查
+
+                    api.openWin({
+                        name: "gongquWin",
+                        url: 'gongquWin.html',
+                        bounces:false,
+                        slidBackEnabled:true,
+                        vScrollBarEnabled:false,
+                        progress:{
+                            type:"page"
+                        }
+                    });
+                }
+                else if(userObj.rclass==2)
+                {
+
+                    localStorage.quanxianType=2;  //1代表现场作业 2代表设备缺点单 3代表我的设备  4代表审批审查
+
+                    api.openWin({
+                        name: "chejianWin",
+                        url: 'chejianWin.html',
+                        bounces:false,
+                        slidBackEnabled:true,
+                        vScrollBarEnabled:false,
+                        progress:{
+                            type:"page"
+                        }
+                    });
+                }
+                else
+                {
+                    showMessage('不支持查看！',1500);
+                }
+
+
+            }
+
+
+
+        });
+
+        $("#equi").click(function()
+        {
+
+          //  alert(userObj.user_type);
+            if(userObj.user_type==2)
+            {
+                if(userObj.status==0)
+                {
+                    api.openWin({
+                        name: "equipmentWin",
+                        url: 'equipmentWin.html',
+                        bounces:false,
+                        slidBackEnabled:true,
+                        vScrollBarEnabled:false,
+                        progress:{
+                            type:"page"
+                        }
+                    });
+
+                }
+                else
+                {
+                    localStorage.gongqu_scode=userObj.scode;
+
+                    api.openWin({
+                        name: "gongquShebeiWin",
+                        url: 'gongquShebeiWin.html',
+                        bounces:false,
+                        slidBackEnabled:true,
+                        vScrollBarEnabled:false,
+                        progress:{
+                            type:"page"
+                        }
+                    });
+                }
+
+            }
+
+            else
+            {
+
+                if(userObj.rclass==3)
+                {
+
+                    localStorage.quanxianType=3;  //1代表现场作业 2代表设备缺点单 3代表我的设备  4代表审批审查
+
+                    api.openWin({
+                        name: "gongquWin",
+                        url: 'gongquWin.html',
+                        bounces:false,
+                        slidBackEnabled:true,
+                        vScrollBarEnabled:false,
+                        progress:{
+                            type:"page"
+                        }
+                    });
+                }
+                else if(userObj.rclass==2)
+                {
+
+                    localStorage.quanxianType=3;  //1代表现场作业 2代表设备缺点单 3代表我的设备  4代表审批审查
+
+                    api.openWin({
+                        name: "chejianWin",
+                        url: 'chejianWin.html',
+                        bounces:false,
+                        slidBackEnabled:true,
+                        vScrollBarEnabled:false,
+                        progress:{
+                            type:"page"
+                        }
+                    });
+                }
+                else
+                {
+                    showMessage('不支持查看！',1500);
+                }
+
+
+            }
+
+
+        });
+
+        $("#person").click(function()
+        {
+
+            api.openWin({
+                name: "personalityWin",
+                url: 'personalityWin.html',
+                bounces:false,
+                slidBackEnabled:true,
+                vScrollBarEnabled:false,
+                progress:{
+                    type:"page"
+                }
+            });
+
+        });
+
+    $("#weiji").click(function()
+    {
+
+        var titleText=$(this).find(".aui-list-item-title").text().trim();
+        localStorage.titleText=titleText;
+        //alert(localStorage.titleText)
+        api.openWin({
+            name: "problemweijiWin",
+            url: 'problemweijiWin.html',
+            bounces:false,
+            slidBackEnabled:true,
+            vScrollBarEnabled:false,
+            progress:{
+                type:"page"
+            }
+        });
+
+    });
+
+        $("#query").click(function()
+        {
+
+            api.openWin({
+                name: "queryWin",
+                url: 'queryWin.html',
+                bounces:false,
+                slidBackEnabled:true,
+                vScrollBarEnabled:false,
+                progress:{
+                    type:"page"
+                }
+            });
+
+        });
+
+       localStorage.userObj_u_rid=userObj.u_rid;
+
+        $("#shenpi").click(function()
+        {
+
+            if(userObj.rclass==3)
+            {
+
+                localStorage.quanxianType=4;  //1代表现场作业 2代表设备缺点单 3代表我的设备  4代表审批审查
+
+                api.openWin({
+                    name: "gongquWin",
+                    url: 'gongquWin.html',
+                    bounces:false,
+                    slidBackEnabled:true,
+                    vScrollBarEnabled:false,
+                    progress:{
+                        type:"page"
+                    }
+                });
+            }
+            else if(userObj.rclass==2)
+            {
+
+                localStorage.quanxianType=4;  //1代表现场作业 2代表设备缺点单 3代表我的设备  4代表审批审查
+
+                api.openWin({
+                    name: "chejianWin",
+                    url: 'chejianWin.html',
+                    bounces:false,
+                    slidBackEnabled:true,
+                    vScrollBarEnabled:false,
+                    progress:{
+                        type:"page"
+                    }
+                });
+            }
+
+        });
+
+        $("#about").click(function()
+        {
+
+            api.openWin({
+                name: "aboutWin",
+                url: 'aboutWin.html',
+                bounces:false,
+                slidBackEnabled:true,
+                vScrollBarEnabled:false,
+                progress:{
+                    type:"page"
+                }
+            });
+
+        });
+
+
+
+    $("#kefu").click(function()
+    {
+
+        api.openWin({
+            name: "problemkefuWin",
+            url: 'problemkefuWin.html',
+            bounces:false,
+            slidBackEnabled:true,
+            vScrollBarEnabled:false,
+            progress:{
+                type:"page"
+            }
+        });
+
+    });
+
+
+
+    /*
+
+        $("#touxiang").click(function()
+        {
+
+
+
+        });
+
+    */
+    
+
+
+
+</script>

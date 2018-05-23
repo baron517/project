@@ -1,0 +1,202 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>论坛首页</title>
+    <link rel="stylesheet" type="text/css" href="../css/aui.css?v=1"/>
+    <link rel="stylesheet" type="text/css" href="../css/main.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/bbs.css">
+    <link rel="stylesheet" type="text/css" href="../css/aui-pull-refresh.css" />
+    <style>
+        body{background: #f5f5f5;}
+        .aui-card-list-header{padding-bottom:0;}
+        .aui-card-list-footer{padding-top:0;}
+    </style>
+</head>
+<body>
+
+
+<div class="main" >
+    <div class="wrap">
+        <section class="aui-refresh-content"  >
+            <div class="aui-content">
+                <div id="demo">
+                    <ul id="cardList">
+
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+
+    </div>
+</div>
+<a href="javascript:void(0);" onclick="javascript:document.getElementsByTagName('body')[0].scrollTop=0;">
+<div class="recovery" id="recovery">
+    <i class="aui-iconfont aui-icon-recovery" style="font-size: 1.3rem;position: absolute;right: 0.45rem;top: 0.15rem;color: #3879D9;font-weight: bold"></i>
+</div></a>
+
+    <div style="height:2.5rem;"></div>
+    <footer class="aui-bar aui-bar-tab" id="footer" style="border-top:1px solid #eee;">
+        <div class="aui-bar-tab-item aui-active" tapmode >
+            <i class="aui-iconfont aui-icon-home"></i>
+            <div class="aui-bar-tab-label">论坛首页</div>
+        </div>
+        <div class="aui-bar-tab-item" tapmode data-link="myPublishWin">
+            <i class="aui-iconfont aui-icon-star"></i>
+            <div class="aui-bar-tab-label">我的发帖</div>
+        </div>
+        <div class="aui-bar-tab-item" tapmode  data-link="myCommentWin">
+            <i class="aui-iconfont aui-icon-comment"></i>
+            <div class="aui-bar-tab-label">我的评论</div>
+        </div>
+        <div class="aui-bar-tab-item" tapmode data-link="relateMyWin">
+            <i class="aui-iconfont aui-icon-my"></i>
+            <div class="aui-bar-tab-label">我的回复</div>
+        </div>
+    </footer>
+
+</body>
+</html>
+<script type="text/javascript" src="../script/jquery-1.8.1.min.js"></script>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/common.js"></script>
+<script type="text/javascript" src="../script/aui-pull-refresh.js"></script>
+<script type="text/javascript">
+
+    apiready = function(){
+
+        api.setStatusBarStyle({
+            style: 'dark',
+            color: '#666'
+        });
+        api.parseTapmode();
+
+
+        api.addEventListener({
+            name:'viewappear'
+        }, function(ret, err){
+           // alert('window显示');
+           // window.location.reload();
+            $("li").detach();
+            getData1(page);
+        });
+
+
+    };
+
+
+
+    var pullRefresh = new auiPullToRefresh({
+        container: document.querySelector('.aui-refresh-content'),
+        triggerDistance: 100
+    },function(ret){
+        if(ret.status=="success"){
+            setTimeout(function(){
+                window.location.reload();
+                pullRefresh.cancelLoading(); //刷新成功后调用此方法隐藏
+            },1500)
+        }
+    });
+
+    $("#recovery").click(function()
+    {
+        window.location.reload();
+    });
+
+
+
+
+    var page=0;
+    function getData1(page) {
+        $.ajax({
+            type: 'GET',
+            url: serveUrl + 'index.php?g=Api&m=My&a=forum',
+            data: {page: page, type: 0},
+            dataType: "json",
+            success: function (data) {
+
+                console.log(data);
+
+                var html = "";
+                for (var i = 0; i < data.length; i++) {
+
+
+                    var imgHtml = "";
+
+                    if (data[i].fimg) {
+                        var fimgUrl = JSON.parse(data[i].fimg);
+
+                        for (var j = 0; j < fimgUrl.length; j++) {
+                            imgHtml = imgHtml + '<div class="aui-col-xs-4">' +
+                                    '<img src="' + fimgUrl[j].img + '"/>' +
+                                    '</div>';
+
+                        }
+
+                    }
+
+
+                    var avatarUrl = "../image/touxiang1.png";
+
+                    console.log(data[i].avatar);
+
+                    if (data[i].avatar) {
+                        avatarUrl = serveUrl + data[i].avatar;
+                    }
+
+                    html = html + '<li class="box"  data-id="' + data[i].fid + '">' +
+                            '<div class="author">' +
+                            '<img src="' + avatarUrl + '">' +
+                            '<p class="author_name">' + data[i].fperson +
+                            '</p>' +
+                            '<p class="author_time">' + data[i].fdate +
+                            '</p>' +
+                            '</div>' +
+                            '<div class="topic">' +
+                            '<p>' + data[i].fname +
+                            '</p>' +
+                            '<p class="content" style="font-size: 0.75rem;color:grey;padding: 0 0 0.3rem 0.2rem;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 2;overflow: hidden;">' + data[i].fcontent +
+                            '</p>' +
+                            '<div class="aui-row aui-row-padded" style="padding: 0 0.5rem 0.5rem 0.5rem">' + imgHtml +
+                            '</div>' +
+                            '</div>' +
+                            '</li>';
+                }
+
+                $("#cardList").append(html);
+
+            },
+            error: function (msg) {
+                //alert(msg);
+            }
+        });
+    }
+    getData1(page);
+
+</script>
+
+<script type="text/javascript">
+
+        $("#cardList").on("click",".box",function()
+        {
+
+            var tieziId=$(this).attr("data-id");
+            localStorage.tieziId=tieziId;
+
+            api.openWin({
+                name: "bbsDetailWin",
+                url: 'bbsDetailWin.html',
+                bounces:false,
+                slidBackEnabled:true,
+                vScrollBarEnabled:false,
+                progress:{
+                    type:"page"
+                }
+            });
+
+        });
+
+</script>

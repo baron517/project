@@ -1,0 +1,274 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>注册</title>
+    <link rel="stylesheet" type="text/css" href="../css/aui.css?v=1"/>
+    <link rel="stylesheet" type="text/css" href="../css/main.css"/>
+
+</head>
+<body>
+
+
+
+
+<div class="aui-content aui-margin-b-15" style="padding:0 0.5rem;">
+
+
+    <ul class="aui-list aui-form-list" style="margin-top:3rem;border-top:0!important;">
+
+        <li class="aui-list-item">
+            <div class="aui-list-item-inner">
+                <div class="aui-list-item-label-icon aui-text-info">
+                    <i class="aui-iconfont aui-icon-my"></i>
+                </div>
+                <div class="aui-list-item-input ">
+                    <input type="text" id="name" placeholder="请输入姓名">
+                </div>
+            </div>
+        </li>
+        <li class="aui-list-item">
+            <div class="aui-list-item-inner" >
+                <div class="aui-list-item-label-icon aui-text-default ">
+                    <i class="aui-iconfont aui-icon-flag"></i>
+                </div>
+                <div class="aui-list-item-input">
+                    <input type="text" id="gonghao" placeholder="请输入工号">
+                </div>
+            </div>
+        </li>
+        <li class="aui-list-item">
+            <div class="aui-list-item-inner">
+                <div class="aui-list-item-label-icon aui-text-success">
+                    <i class="aui-iconfont aui-icon-star"></i>
+                </div>
+                <div class="aui-list-item-input">
+                    <input type="text" id="danwei" placeholder="请输入所属单位">
+                </div>
+            </div>
+        </li>
+        <li class="aui-list-item">
+            <div class="aui-list-item-inner">
+                <div class="aui-list-item-label-icon aui-text-warning">
+                    <i class="aui-iconfont aui-icon-calendar"></i>
+                </div>
+                <div class="aui-list-item-input">
+                    <input type="text" id="bianma" placeholder="请输入企业编码">
+                </div>
+            </div>
+        </li>
+        <li class="aui-list-item">
+            <div class="aui-list-item-inner">
+                <div class="aui-list-item-label-icon aui-text-danger">
+                    <i class="aui-iconfont aui-icon-cert"></i>
+                </div>
+                <div class="aui-list-item-input">
+                    <input type="text" id="shenfenzheng" placeholder="请输入身份证号码">
+                </div>
+            </div>
+        </li>
+
+
+
+        <li class="aui-list-item">
+            <div class="aui-list-item-inner">
+                <div class="aui-list-item-label-icon aui-text-pink">
+                    <i class="aui-iconfont aui-icon-mobile"></i>
+                </div>
+                <div class="aui-list-item-input">
+                    <input type="text"  id="phone" placeholder="请输入手机号码">
+                </div>
+            </div>
+        </li>
+        <li class="aui-list-item">
+            <div class="aui-list-item-inner">
+                <div class="aui-list-item-label-icon aui-text-indigo">
+                    <i class="aui-iconfont aui-icon-lock"></i>
+                </div>
+                <div class="aui-list-item-input">
+                    <input type="password" id="password" placeholder="请输入密码">
+                </div>
+            </div>
+        </li>
+    </ul>
+
+    <div class="aui-btn aui-btn-info aui-btn-block"  id="submitBtn" style="margin-top:2rem;background: #0389d0!important;">提交</div>
+
+    <div class="clearfix" style="color:#999;">
+        <span style="padding:0.5rem 0.3rem;display: inline-block;" id="forget">忘记密码</span>
+        <span style="float:right;display: inline-block;padding:0.5rem 0.3rem;" id="login">登录</span>
+
+    </div>
+
+
+</div>
+
+
+
+
+
+
+</body>
+</html>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/jquery-1.8.1.min.js"></script>
+<script type="text/javascript" src="../script/common.js"></script>
+<script type="text/javascript" src="../script/toast.js"></script>
+<script type="text/javascript">
+
+
+
+
+    apiready = function(){
+
+
+
+        api.setStatusBarStyle({
+            style: 'dark',
+            color: '#666'
+        });
+        api.parseTapmode();
+
+
+
+        $("#login").click(function()
+        {
+
+            api.openWin({
+                name: "loginWin",
+                url: 'loginWin.html',
+                bounces:false,
+                slidBackEnabled:true,
+                vScrollBarEnabled:false,
+                progress:{
+                    type:"page"
+                }
+            });
+
+        });
+
+        $("#forget").click(function()
+        {
+
+            api.openWin({
+                name: "forgetWin",
+                url: 'forgetWin.html',
+                bounces:false,
+                slidBackEnabled:true,
+                vScrollBarEnabled:false,
+                progress:{
+                    type:"page"
+                }
+            });
+
+        });
+    };
+
+
+    $("#submitBtn").click(function()
+    {
+        if($("#name").val()=="")
+        {
+
+            showMessage('姓名不能为空！',1500);
+            return;
+        }
+        if($("#gonghao").val()=="")
+        {
+
+            showMessage('工号不能为空！',1500);
+            return;
+        }
+        if($("#danwei").val()=="")
+        {
+
+            showMessage('单位不能为空！',1500);
+            return;
+        }
+        if($("#bianma").val()=="")
+        {
+
+            showMessage('企业能为空！',1500);
+            return;
+        }
+        if($("#shenfenzheng").val()=="")
+        {
+
+            showMessage('身份证号不能为空！',1500);
+            return;
+        }
+        if($("#phone").val()=="")
+        {
+
+            showMessage('手机号码不能为空！',1500);
+            return;
+        }
+
+        if($("#password").val()=="")
+        {
+
+            showMessage('密码不能为空！',1500);
+            return;
+        }
+
+        var param=JSON.stringify({
+            sname:$("#name").val(),
+            sjunm:$("#gonghao").val(),
+            sunit:$("#danwei").val(),
+            scode:$("#bianma").val(),
+            sidnum:$("#shenfenzheng").val(),
+            snum:$("#phone").val(),
+            spassword:$("#password").val(),
+            u_rid:0
+
+        });
+
+
+        $.ajax({
+            type: 'POST',
+            url: serveUrl+'index.php?g=Api&m=CommonApi&a=reg' ,
+            data: {param:param} ,
+            dataType: "json",
+            success: function(data)
+            {
+                //alert(JSON.stringify(data));
+                if(data.code==1000)
+                {
+                    showMessage('注册成功！',1500);
+                 /*   localStorage.userObj=JSON.stringify(data.data);*/
+                    setTimeout(function() {
+
+                        api.openWin({
+                            name: "loginWin",
+                            url: 'loginWin.html',
+                            bounces:false,
+                            slidBackEnabled:true,
+                            vScrollBarEnabled:false,
+                            progress:{
+                                type:"page"
+                            }
+                        });
+
+                    }, 1000);
+
+                }
+                else
+                {
+                    showMessage(data.msg,1500);
+                }
+
+            },
+            error:function(msg)
+            {
+                //alert(msg);
+            }
+        });
+
+    });
+
+
+
+
+</script>

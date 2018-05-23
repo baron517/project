@@ -1,0 +1,526 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>我的</title>
+    <link rel="stylesheet" type="text/css" href="../css/aui.css?v=1"/>
+    <link rel="stylesheet" type="text/css" href="../css/main.css"/>
+
+</head>
+<body>
+
+
+
+<div class="aui-content aui-margin-b-15">
+
+    <div class="mine" style="width: 100%;height: 8rem;background-color: #0389d0">
+                <div id="touxiang" class="aui-list-item-media" style="width: 4rem;margin: 0 auto;padding-top: 1rem">
+                    <img  id="imgtouxiang" src="../image/touxiang.png" style="border-radius: 50%;height: 4rem;width: 4rem"  class="aui-list-img-sm">
+                </div>
+                <div style="color: white;text-align: center;padding-top: 0.8rem">
+                    <h2 id="name"></h2>
+                </div>
+    </div>
+
+    <ul class="aui-list aui-form-list aui-list aui-list-in" style="border-top:0!important;">
+        <li class="aui-list-item asset">
+            <div class="aui-list-item-inner aui-list-item-arrow" id="query">
+                <div class="aui-list-item-title"><i class="aui-iconfont aui-icon-cert aui-text-indigo"  style="padding-right: 0.8rem"></i>作业学习进度查询</div>
+            </div>
+        </li>
+        <li class="aui-list-item asset">
+            <div class="aui-list-item-inner aui-list-item-arrow" id="shenpi">
+                <div class="aui-list-item-title"><i class="aui-iconfont aui-icon-cert aui-text-pink "  style="padding-right: 0.8rem"></i>修改申请审批</div>
+            </div>
+        </li>
+        <li class="aui-list-item">
+            <div class="aui-list-item-inner aui-list-item-arrow" id="equi">
+                <div class="aui-list-item-title"><i class="aui-iconfont aui-icon-info aui-text-danger"  style="padding-right: 0.8rem"></i>我的设备</div>
+            </div>
+        </li>
+        <li class="aui-list-item">
+            <div class="aui-list-item-inner aui-list-item-arrow" id="weiji">
+                <div class="aui-list-item-title"><i class="aui-iconfont aui-icon-gear aui-text-purple"  style="padding-right: 0.8rem"></i>微机监测</div>
+            </div>
+        </li>
+
+        <li class="aui-list-item aui-list-item-middle" id="work">
+                    <div class="aui-list-item-inner aui-list-item-arrow" >
+                        <div class="aui-list-item-title" > <i class="aui-iconfont aui-icon-display aui-text-danger" style="padding-right: 0.8rem"></i>现场作业记录</div>
+                </div>
+                </li>
+        <li class="aui-list-item">
+            <div class="aui-list-item-inner aui-list-item-arrow" id="info">
+                <div class="aui-list-item-title"> <i class="aui-iconfont aui-icon-comment aui-text-info"  style="padding-right: 0.8rem"></i>设备缺点单</div>
+                <div class="aui-list-item-right">
+                </div>
+            </div>
+
+        </li>
+                <li class="aui-list-item" id="shenqingXiugai">
+                    <div class="aui-list-item-inner aui-list-item-arrow" id="xiugai">
+                        <div class="aui-list-item-title">  <i class="aui-iconfont aui-icon-pencil"  style="padding-right: 0.8rem"></i>申请修改记录</div>
+
+                    </div>
+                </li>
+
+
+
+                <li class="aui-list-item">
+                    <div class="aui-list-item-inner aui-list-item-arrow" id="person">
+                        <div class="aui-list-item-title"> <i class="aui-iconfont aui-icon-edit aui-text-warning"  style="padding-right: 0.8rem"></i>个人中心</div>
+                    </div>
+                </li>
+
+                <!--<li class="aui-list-item">
+                    <div class="aui-list-item-inner aui-list-item-arrow" id="about">
+                        <div class="aui-list-item-title"><i class="aui-iconfont aui-icon-my aui-text-primary"  style="padding-right: 0.8rem"></i>关于我们</div>
+                    </div>
+                </li>-->
+            </ul>
+</div>
+
+
+
+
+
+
+</body>
+</html>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/jquery-1.8.1.min.js"></script>
+<script type="text/javascript" src="../script/common.js"></script>
+<script type="text/javascript" src="../script/toast.js"></script>
+
+<script type="text/javascript">
+
+    var type = userObj.user_type;
+   //alert(type);
+    if (type == 1){
+        $(".asset").show();
+        $("#shenqingXiugai").hide();
+    }else {
+        $(".asset").hide();
+    };
+
+
+    apiready = function() {
+
+
+        api.setStatusBarStyle({
+            style: 'dark',
+            color: '#666'
+        });
+        api.parseTapmode();
+        api.addEventListener({
+            name: 'viewappear'
+        }, function (ret, err) {
+            // alert('window显示');
+            // window.location.reload();
+
+        });
+    };
+
+
+
+        var uid = userObj.id;
+        //alert(type);
+        //var type = userObj.user_type;
+
+
+
+
+
+
+
+
+        $("#work").click(function() {
+
+
+            if(userObj.user_type==2)
+            {
+                if(userObj.status==0)
+                {
+                    api.openWin({
+                        name: "workWin",
+                        url: 'workWin.html',
+                        bounces: false,allowEdit:true, 
+                        slidBackEnabled: true,
+                        vScrollBarEnabled: false,
+                        progress: {
+                            type: "page"
+                        }
+                    });
+
+                }
+                else
+                {
+                    localStorage.gongqu_scode=userObj.scode;
+
+                    api.openWin({
+                        name: "gongquWorkWin",
+                        url: 'gongquWorkWin.html',
+                        bounces:false,
+                        slidBackEnabled:true,
+                        vScrollBarEnabled:false,
+                        progress:{
+                            type:"page"
+                        }
+                    });
+                }
+
+            }
+            else
+            {
+
+                if(userObj.rclass==3)
+                {
+
+                    localStorage.quanxianType=1;  //1代表现场作业 2代表设备缺点单 3代表我的设备  4代表审批审查
+
+                    api.openWin({
+                        name: "gongquWin",
+                        url: 'gongquWin.html',
+                        bounces:false,
+                        slidBackEnabled:true,
+                        vScrollBarEnabled:false,
+                        progress:{
+                            type:"page"
+                        }
+                    });
+                }
+                else if(userObj.rclass==2)
+                {
+
+                    localStorage.quanxianType=1;  //1代表现场作业 2代表设备缺点单 3代表我的设备  4代表审批审查
+
+                    api.openWin({
+                        name: "chejianWin",
+                        url: 'chejianWin.html',
+                        bounces:false,
+                        slidBackEnabled:true,
+                        vScrollBarEnabled:false,
+                        progress:{
+                            type:"page"
+                        }
+                    });
+                }
+                else
+                {
+                    showMessage('不支持查看！',1500);
+                }
+
+
+            }
+
+        });
+
+        $("#xiugai").click(function()
+        {
+
+            api.openWin({
+                name: "modifyWin",
+                url: 'modifyWin.html',
+                bounces:false,
+                slidBackEnabled:true,
+                vScrollBarEnabled:false,
+                progress:{
+                    type:"page"
+                }
+            });
+
+        });
+
+        $("#info").click(function()
+        {
+
+            if(userObj.user_type==2)
+            {
+                if(userObj.status==0)
+                {
+                    api.openWin({
+                        name: "infoWin",
+                        url: 'infoWin.html',
+                        bounces:false,
+                        slidBackEnabled:true,
+                        vScrollBarEnabled:false,
+                        progress:{
+                            type:"page"
+                        }
+                    });
+
+                }
+                else
+                {
+                    localStorage.gongqu_scode=userObj.scode;
+
+                    api.openWin({
+                        name: "gongquInfoWin",
+                        url: 'gongquInfoWin.html',
+                        bounces:false,
+                        slidBackEnabled:true,
+                        vScrollBarEnabled:false,
+                        progress:{
+                            type:"page"
+                        }
+                    });
+                }
+
+            }
+
+            else
+            {
+
+                if(userObj.rclass==3)
+                {
+
+                    localStorage.quanxianType=2;  //1代表现场作业 2代表设备缺点单 3代表我的设备  4代表审批审查
+
+                    api.openWin({
+                        name: "gongquWin",
+                        url: 'gongquWin.html',
+                        bounces:false,
+                        slidBackEnabled:true,
+                        vScrollBarEnabled:false,
+                        progress:{
+                            type:"page"
+                        }
+                    });
+                }
+                else if(userObj.rclass==2)
+                {
+
+                    localStorage.quanxianType=2;  //1代表现场作业 2代表设备缺点单 3代表我的设备  4代表审批审查
+
+                    api.openWin({
+                        name: "chejianWin",
+                        url: 'chejianWin.html',
+                        bounces:false,
+                        slidBackEnabled:true,
+                        vScrollBarEnabled:false,
+                        progress:{
+                            type:"page"
+                        }
+                    });
+                }
+                else
+                {
+                    showMessage('不支持查看！',1500);
+                }
+
+
+            }
+
+
+
+        });
+
+        $("#equi").click(function()
+        {
+
+          //  alert(userObj.user_type);
+            if(userObj.user_type==2)
+            {
+                if(userObj.status==0)
+                {
+                    api.openWin({
+                        name: "equipmentWin",
+                        url: 'equipmentWin.html',
+                        bounces:false,
+                        slidBackEnabled:true,
+                        vScrollBarEnabled:false,
+                        progress:{
+                            type:"page"
+                        }
+                    });
+
+                }
+                else
+                {
+                    localStorage.gongqu_scode=userObj.scode;
+
+                    api.openWin({
+                        name: "gongquShebeiWin",
+                        url: 'gongquShebeiWin.html',
+                        bounces:false,
+                        slidBackEnabled:true,
+                        vScrollBarEnabled:false,
+                        progress:{
+                            type:"page"
+                        }
+                    });
+                }
+
+            }
+
+            else
+            {
+
+                if(userObj.rclass==3)
+                {
+
+                    localStorage.quanxianType=3;  //1代表现场作业 2代表设备缺点单 3代表我的设备  4代表审批审查
+
+                    api.openWin({
+                        name: "gongquWin",
+                        url: 'gongquWin.html',
+                        bounces:false,
+                        slidBackEnabled:true,
+                        vScrollBarEnabled:false,
+                        progress:{
+                            type:"page"
+                        }
+                    });
+                }
+                else if(userObj.rclass==2)
+                {
+
+                    localStorage.quanxianType=3;  //1代表现场作业 2代表设备缺点单 3代表我的设备  4代表审批审查
+
+                    api.openWin({
+                        name: "chejianWin",
+                        url: 'chejianWin.html',
+                        bounces:false,
+                        slidBackEnabled:true,
+                        vScrollBarEnabled:false,
+                        progress:{
+                            type:"page"
+                        }
+                    });
+                }
+                else
+                {
+                    showMessage('不支持查看！',1500);
+                }
+
+
+            }
+
+
+        });
+
+        $("#person").click(function()
+        {
+
+            api.openWin({
+                name: "personalityWin",
+                url: 'personalityWin.html',
+                bounces:false,
+                slidBackEnabled:true,
+                vScrollBarEnabled:false,
+                progress:{
+                    type:"page"
+                }
+            });
+
+        });
+
+    $("#weiji").click(function()
+    {
+
+        var titleText=$(this).find(".aui-list-item-title").text().trim();
+        localStorage.titleText=titleText;
+        //alert(localStorage.titleText)
+        api.openWin({
+            name: "problemweijiWin",
+            url: 'problemweijiWin.html',
+            bounces:false,
+            slidBackEnabled:true,
+            vScrollBarEnabled:false,
+            progress:{
+                type:"page"
+            }
+        });
+
+    });
+
+        $("#query").click(function()
+        {
+
+            api.openWin({
+                name: "queryWin",
+                url: 'queryWin.html',
+                bounces:false,
+                slidBackEnabled:true,
+                vScrollBarEnabled:false,
+                progress:{
+                    type:"page"
+                }
+            });
+
+        });
+
+       localStorage.userObj_u_rid=userObj.u_rid;
+
+        $("#shenpi").click(function()
+        {
+
+            if(userObj.rclass==3)
+            {
+
+                localStorage.quanxianType=4;  //1代表现场作业 2代表设备缺点单 3代表我的设备  4代表审批审查
+
+                api.openWin({
+                    name: "gongquWin",
+                    url: 'gongquWin.html',
+                    bounces:false,
+                    slidBackEnabled:true,
+                    vScrollBarEnabled:false,
+                    progress:{
+                        type:"page"
+                    }
+                });
+            }
+            else if(userObj.rclass==2)
+            {
+
+                localStorage.quanxianType=4;  //1代表现场作业 2代表设备缺点单 3代表我的设备  4代表审批审查
+
+                api.openWin({
+                    name: "chejianWin",
+                    url: 'chejianWin.html',
+                    bounces:false,
+                    slidBackEnabled:true,
+                    vScrollBarEnabled:false,
+                    progress:{
+                        type:"page"
+                    }
+                });
+            }
+
+        });
+
+        $("#about").click(function()
+        {
+
+            api.openWin({
+                name: "aboutWin",
+                url: 'aboutWin.html',
+                bounces:false,
+                slidBackEnabled:true,
+                vScrollBarEnabled:false,
+                progress:{
+                    type:"page"
+                }
+            });
+
+        });
+
+/*
+
+    $("#touxiang").click(function()
+    {
+
+
+
+    });
+
+*/
+
+
+
+
+
+</script>

@@ -1,0 +1,356 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>现场作业记录修改</title>
+    <link rel="stylesheet" type="text/css" href="../css/aui.css?v=1"/>
+    <link rel="stylesheet" type="text/css" href="../css/main.css"/>
+
+</head>
+<style>
+    .box{
+        margin-top: 0.5rem;
+        width: 100%;
+        height: 3rem;
+        text-align: center;
+        font-size: 1rem;
+        font-weight: bold;
+        padding-top: 0.8rem;
+        -webkit-box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+        -moz-box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+        box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+    }
+    
+</style>
+<body>
+
+<!--
+
+<div style="width: 100%;height: auto;margin-top: 1rem">
+    <div class="aui-card-list-footer" style="margin-bottom: 1rem">
+        <span id="zuoyeren">作业人：</span>
+        <span id="zuoyeshijian">作业时间：</span>
+    </div>
+    <ul class="aui-list aui-form-list" id="list">
+
+        <li class="aui-list-item">
+            <div class="aui-list-item-inner">
+                <div class="aui-list-item-label" style="width:55%;">
+                    标题:
+                </div>
+                <div class="aui-list-item-input"  style="width:45%;" >
+                    <input type="text" id="atitle" placeholder="请输入标题" style="border: 1px solid gainsboro;height: 1.5rem;padding-left: 0.5rem;">
+                </div>
+            </div>
+        </li>
+
+    </ul>
+-->
+
+
+
+    <section >
+
+        <div class="aui-card-list" >
+
+            <ul class="aui-list aui-form-list" id="list">
+
+                <li class="aui-list-item">
+                    <div class="aui-list-item-inner aui-text-default ">
+                        <div class="aui-list-item-label" style="border-right: 1px solid gainsboro;font-weight: bold">
+                            作业人：
+                        </div>
+                        <div class="aui-list-item-input" >
+                            <div id="zuoyeren"  style="padding-left: 0.5rem;color: #e51c23;" ></div>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="aui-list-item">
+                    <div class="aui-list-item-inner aui-text-default ">
+                        <div class="aui-list-item-label" style="border-right: 1px solid gainsboro;font-weight: bold">
+                            作业时间：
+                        </div>
+                        <div class="aui-list-item-input" >
+                            <div id="zuoyeshijian"  style="padding-left: 0.5rem;color:  #03a9f4" ></div>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="aui-list-item">
+                    <div class="aui-list-item-inner aui-text-default ">
+                        <div class="aui-list-item-label" style="border-right: 1px solid gainsboro;font-weight: bold">
+                            标题：
+                        </div>
+                        <div class="aui-list-item-input" >
+                            <input id="atitle"   placeholder="请输入标题" style="padding-left: 0.5rem;color:  black;width: 100%" >
+                        </div>
+                    </div>
+                </li>
+
+
+
+
+
+            </ul>
+
+        </div>
+
+    </section>
+
+    <ul class="aui-list aui-media-list" >
+        <li class="aui-list-item">
+            <div class="aui-list-item-inner">
+                <div class="aui-list-item-title"  style="font-size: 0.8rem">设备作业相片:</div>
+                <div class="aui-row aui-row-padded" id="w_image">
+
+                </div>
+            </div>
+        </li>
+
+    </ul>
+
+
+    <div class="aui-btn aui-btn-info aui-btn-block"  id="submitBtn" tapmode   style="margin-top:2rem;background: #0389d0!important;">
+        申请提交
+    </div>
+<!--    <div class="aui-btn aui-btn-info aui-btn-block"  id="erweima" tapmode   style="margin-top:1rem;background: #0389d0!important;">
+        二维码申请
+    </div>
+    -->
+    <div id="jsonList" style="display:none;"></div>
+    
+</div>
+
+
+
+</body>
+</html>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/jquery-1.8.1.min.js"></script>
+<script type="text/javascript" src="../script/common.js"></script>
+<script type="text/javascript" src="../script/aui-dialog.js" ></script>
+<script type="text/javascript" src="../script/toast.js"></script>
+<script type="text/javascript">
+
+
+    apiready = function(){
+
+        api.setStatusBarStyle({
+            style: 'dark',
+            color: '#666'
+        });
+        api.parseTapmode();
+
+    };
+
+
+    $("#w_image").on("click","img",function()
+    {
+        var imgUrl= $(this).attr("src");
+        openPicView(imgUrl);
+    });
+
+
+
+    /*    var  jsonList=JSON.parse(localStorage.work_json);*/
+   var wid = localStorage.work_wid;
+   //alert(wid);
+
+        $.ajax({
+            type: 'GET',
+            url: serveUrl + 'index.php?g=Api&m=My&a=workcontent',
+            data: {
+             wid:wid
+            },
+            dataType: "json",
+            success: function (data) {
+                console.log(data.workcontent.w_image);
+                $("#jsonList").html(data.wcontent);
+                //alert(JSON.stringify(data));
+                //console.log(data);
+                var work_json = JSON.parse($("#jsonList").text());
+
+                var jsonHtml="";
+                for(var i=0;i<work_json.length;i++)
+
+                {
+                    
+                    var warninghtml="";
+                    
+                   
+                        
+                        if(work_json[i].wdvalue>work_json[i].maxValue&&work_json[i].wdvalue<work_json[i].minValue&&isRealNum(work_json[i].minValue)&&isRealNum(work_json[i].maxValue))
+                        {
+                             warninghtml='<input class="shuju warning-text"  data-value="'+work_json[i].wdname+'" data-maxValue="'+work_json[i].maxValue+'" data-minValue="'+work_json[i].minValue+'" value="'+work_json[i].wdvalue+'" id="1" name="cvalue"  placeholder="输入数据"  style="height: 2rem;width: 100%;display: -webkit-box;display: -ms-flexbox;display: -webkit-flex;display: flex;-webkit-box-align: center;-ms-flex-align: center;-webkit-align-items: center;align-items: center;padding-left: 0.5rem;">';
+                        }
+                        else
+                        {
+                             warninghtml='<input class="shuju"  data-value="'+work_json[i].wdname+'" data-maxValue="'+work_json[i].maxValue+'" data-minValue="'+work_json[i].minValue+'" value="'+work_json[i].wdvalue+'" id="1" name="cvalue"  placeholder="输入数据"  style="height: 2rem;width: 100%;display: -webkit-box;display: -ms-flexbox;display: -webkit-flex;display: flex;-webkit-box-align: center;-ms-flex-align: center;-webkit-align-items: center;align-items: center;padding-left: 0.5rem;">';
+                        }
+                        
+                    
+                    var biaozhunzhi="";
+                    
+                    if(work_json[i].minValue!="undefined")
+                    {
+                        biaozhunzhi=' <font style="color: #009688 ;font-size: 0.7rem">'+'标准值：'+work_json[i].minValue+"~"+work_json[i].maxValue+' </font>';
+                    }
+                    else
+                    {
+                        biaozhunzhi=' <font style="color: #009688 ;font-size: 0.7rem">'+'标准值：无</font>';
+                    }
+
+                    jsonHtml=jsonHtml+
+                            ' <li class="aui-list-item" style="height: 4rem">'+
+                            '<div class="aui-list-item-inner aui-text-default ">'+
+                            '<div class="aui-list-item-label" style="width: 49.85%;border-right: 1px solid gainsboro;font-weight: bold;height: 4rem;padding-right: 0.25rem">' +work_json[i].wdname+
+                            ' </div>'+
+                            '<div class="default-detail" style="width: 49.85%;float: right;border-bottom: 1px solid gainsboro">'+
+                            '<div style="height: 2rem;border-bottom: 1px solid gainsboro;width: 100%;display: -webkit-box;display: -ms-flexbox;display: -webkit-flex;display: flex;-webkit-box-align: center;-ms-flex-align: center;-webkit-align-items: center;align-items: center;padding-left: 0.5rem;">'+biaozhunzhi+
+                            
+                            '</div>'+warninghtml+
+                            '</div>'+
+                            '</div>'+
+                            '</li>';
+
+
+                }
+
+                //设备作业相片
+                var w_imgHtml="";
+
+                if (data.workcontent.w_image) {
+                    var w_imageUrl = JSON.parse(data.workcontent.w_image);
+
+                    for (var j = 0; j < w_imageUrl.length; j++)
+                    {
+                        w_imgHtml = w_imgHtml + '<div class="aui-col-xs-4">' +
+                                '<img style="height: 111.66px" src="' + w_imageUrl[j].img + '"/>' +
+                                '</div>';
+                    }
+                }
+
+                $("#w_image").append(w_imgHtml);
+                $("#list").append(jsonHtml);
+                $("#zuoyeren").append(data.zuoyeren);
+                $("#zuoyeshijian").append(data.workcontent.wdate);
+
+            },
+            error: function (msg) {
+                //alert(msg);
+            }
+        });
+
+        $("#list").on("input","input",function()
+        {
+            var minValue=$(this).attr("data-minValue");
+            var maxValue=$(this).attr("data-maxValue");
+            
+            
+            if(isRealNum(minValue)&&isRealNum(maxValue))
+            {
+                if($(this).val()<=maxValue&&$(this).val()>=minValue)
+                {
+                    $(this).removeClass("warning-text");
+                }
+                else
+                {
+                    $(this).addClass("warning-text");
+                }
+            }
+            else
+            {
+                 $(this).removeClass("warning-text");
+            }
+            
+            
+            
+        });
+
+
+
+/*
+    $("#list").append(jsonHtml);
+*/
+
+
+ $("#submitBtn").click(function()
+ {
+
+
+     var wid= userObj.wid;
+     var param=$("#cname").val();
+
+     
+      var array = [];
+
+        $(".shuju").each(function()
+        {
+
+                var pObj = {};
+                pObj.wdname = $(this).attr("data-value");
+                pObj.wdvalue = $(this).val();
+                pObj.minValue=$(this).attr("data-minValue");
+                pObj.maxValue=$(this).attr("data-maxValue");
+                array.push(pObj);
+
+
+        });
+
+        var wcontent=JSON.stringify(array);
+
+     $.ajax({
+         type: 'POST',
+         url: serveUrl+'index.php?g=Api&m=My&a=applyPost' ,
+         data:{
+             a_content:wcontent,
+             asid:userObj.id,
+             atitle:$("#atitle").val(),
+             aeid:localStorage.work_w_sid,
+             awid:localStorage.work_wid,
+             acode:userObj.scode,
+         },
+         success: function(data)
+         {
+             
+             //alert(data);
+             
+             //console.log(JSON.stringify(data));
+             if(data==1)
+             {
+                 showMessage('申请提交成功！',1500);
+                 
+                 setTimeout(
+                         function() {
+                        
+                         api.closeWin({
+                        });
+                        
+                    },1000);
+
+             }
+             
+
+
+         },
+         error:function(msg)
+         {
+             showMessage('提交失败！',1500);
+         }
+     });
+
+
+
+
+
+ });
+
+
+
+
+
+
+</script>

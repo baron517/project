@@ -1,0 +1,316 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>申请修改审批</title>
+    <link rel="stylesheet" type="text/css" href="../css/aui.css?v=1"/>
+    <link rel="stylesheet" type="text/css" href="../css/main.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/swiper.min.css"/>
+
+</head>
+<body>
+
+
+<div class="aui-searchbar" id="search" style="position: fixed;top: 0;width: 100%;z-index: 99999">
+    <div class="aui-searchbar-input aui-border-radius">
+        <i class="aui-iconfont aui-icon-search"></i>
+        <input type="search" placeholder="请输入搜索内容" id="search-input">
+        <div class="aui-searchbar-clear-btn" id="">
+            <i class="aui-iconfont aui-icon-close"></i>
+        </div>
+    </div>
+    <div class="aui-searchbar-btn" tapmode >取消</div>
+</div>
+<div class="main-box" style="margin-top: 2.2rem">
+ <!--   <ul class="aui-list aui-form-list aui-list aui-list-in" style="margin-top:0.2rem;border-top:0!important;position: fixed;top: 2rem;width: 100%;z-index: 999">
+        <div class="aui-tab clearfix">
+            <div class="aui-tab-item aui-active">二维码申请修改审批</div>
+            <div class="aui-tab-item ">数据申请修改审批</div>
+        </div>
+    </ul>-->
+    <div class="swiper-container swiper-tab">
+        <div class="swiper-wrapper">
+       <!--     <div class="swiper-slide">
+                <div class="content">
+
+                    <ul class="aui-list aui-media-list" id="swiperSlide1">
+
+
+                    </ul>
+
+                </div>
+            </div>-->
+            <div class="swiper-slide" >
+                <div class="content">
+
+                    <ul class="aui-list aui-media-list" id="swiperSlide2">
+
+
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>
+<script type="text/javascript" src="../script/jquery-1.8.1.min.js"></script>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/common.js"></script>
+<script type="text/javascript" src="../script/toast.js"></script>
+
+<script type="text/javascript">
+    apiready = function(){
+        api.setStatusBarStyle({
+            style: 'dark',
+            color: '#666'
+        });
+        api.parseTapmode();
+
+
+        api.addEventListener({
+            name:'viewappear'
+        }, function(ret, err){
+
+            $("#swiperSlide2").empty();
+ /*           $("#swiperSlide1").empty();
+            getData1();*/
+            getData2();
+        });
+
+    };
+
+
+
+   /* function getData1()
+    {
+        $.ajax({
+            type: 'GET',
+            url: serveUrl + 'index.php?g=Api&m=CommonApi&a=applyGet',
+            data: {acode: userObj.scode, a_weid: 2},
+            dataType: "json",
+            success: function (data) {
+                console.log(data);
+
+                var html="";
+                for(var i=0;i<data.length;i++)
+                {
+
+                    if(data[i].astatus=="0")
+                    {
+                        var statusHtml=  '<div class="aui-list-item-right aui-text-danger">待审核</div>';
+                    }
+                    else if(data[i].astatus=="1")
+                    {
+                        var statusHtml=  '<div class="aui-list-item-right aui-text-success">已审批</div>';
+                    }
+                    else {
+                        var statusHtml=  '<div class="aui-list-item-right" style="color:#999;">已拒绝</div>';
+                    }
+
+
+
+                    html=html+'<li class="aui-list-item aui-list-item-arrow" data-aid="'+data[i].aid+'" style="border-bottom:1px solid #DDDDDD;">'+
+                            '<div class="aui-media-list-item-inner">'+
+                            '<div class="aui-list-item-inner">'+
+                            '<div class="aui-list-item-text">'+
+                            '<div class="aui-list-item-title">'+data[i].atitle+'</div>'+statusHtml+
+
+
+                            '</div>'+
+                            '<div class="aui-list-item-text aui-ellipsis-2">'+data[i].adate+
+                            '</div>'+
+                            '</div>'+
+                            '</div>'+
+                            '</li>';
+
+                }
+
+                $("#swiperSlide1").append(html);
+
+
+            }
+        });
+    }
+*/
+
+    function getData2()
+    {
+        $.ajax({
+            type: 'GET',
+            url: serveUrl + 'index.php?g=Api&m=CommonApi&a=applyGet',
+            data: {acode: localStorage.gongqu_scode, a_weid: 1},
+            dataType: "json",
+            success: function (data) {
+                console.log(data);
+
+                var html="";
+                for(var i=0;i<data.length;i++)
+                {
+
+                    if(data[i].astatus=="0")
+                    {
+                        var statusHtml=  '<div class="aui-list-item-right aui-text-danger">待审核</div>';
+                    }
+                    else if(data[i].astatus=="1")
+                    {
+                        var statusHtml=  '<div class="aui-list-item-right aui-text-success">已审批</div>';
+                    }
+                    else {
+                        var statusHtml=  '<div class="aui-list-item-right" style="color:#999;">已拒绝</div>';
+                    }
+
+
+
+                    html=html+'<li class="aui-list-item aui-list-item-arrow" data-aid="'+data[i].aid+'" style="border-bottom:1px solid #DDDDDD;">'+
+                            '<div class="aui-media-list-item-inner">'+
+                            '<div class="aui-list-item-inner">'+
+                            '<div class="aui-list-item-text">'+
+                            '<div class="aui-list-item-title">'+data[i].atitle+'</div>'+statusHtml+
+
+
+                            '</div>'+
+                            '<div class="aui-list-item-text aui-ellipsis-2">'+data[i].adate+
+                            '</div>'+
+                            '</div>'+
+                            '</div>'+
+                            '</li>';
+
+                }
+
+                $("#swiperSlide2").append(html);
+
+
+            }
+        });
+    }
+
+
+  /*  getData1();*/
+    getData2();
+
+
+
+
+    $(".aui-tab .aui-tab-item").click(function()
+    {
+
+        $(".aui-tab .aui-tab-item").removeClass("aui-active");
+        $(this).addClass("aui-active");
+        $(".swiper-wrapper .swiper-slide").hide();
+        $(".swiper-wrapper .swiper-slide").eq($(this).index()).show();
+
+    });
+
+    $("#swiperSlide2").on("click",".aui-list-item",function()
+    {
+
+        localStorage.shenpi_aid=$(this).attr("data-aid");
+
+        api.openWin({
+            name: "shujuSQWin",
+            url: 'shujuSQWin.html',
+            bounces:false,
+            slidBackEnabled:true,
+            vScrollBarEnabled:false,
+            progress:{
+                type:"page"
+            }
+        });
+
+    });
+
+
+
+
+
+    $("#swiperSlide1").on("click",".aui-list-item",function()
+    {
+
+        localStorage.shenpi_aid=$(this).attr("data-aid");
+
+        api.openWin({
+            name: "ewmshenpiDetailWin",
+            url: 'ewmshenpiDetailWin.html',
+            bounces:false,
+            slidBackEnabled:true,
+            vScrollBarEnabled:false,
+            progress:{
+                type:"page"
+            }
+        });
+
+    });
+
+
+
+
+
+
+</script>
+<!--搜索框-->
+<script type="text/javascript">
+
+    var searchBar = document.querySelector(".aui-searchbar");
+    var searchBarInput = document.querySelector(".aui-searchbar input");
+    var searchBarBtn = document.querySelector(".aui-searchbar .aui-searchbar-btn");
+    var searchBarClearBtn = document.querySelector(".aui-searchbar .aui-searchbar-clear-btn");
+    if(searchBar){
+        searchBarInput.onclick = function(){
+            searchBarBtn.style.marginRight = 0;
+        };
+        searchBarInput.oninput = function(){
+            if(this.value.length){
+                searchBarClearBtn.style.display = 'block';
+                searchBarBtn.classList.add("aui-text-info");
+                searchBarBtn.textContent = "搜索";
+            }else{
+                searchBarClearBtn.style.display = 'none';
+                searchBarBtn.classList.remove("aui-text-info");
+                searchBarBtn.textContent = "取消";
+            }
+        }
+    }
+    searchBarClearBtn.onclick = function(){
+        this.style.display = 'none';
+        searchBarInput.value = '';
+        searchBarBtn.classList.remove("aui-text-info");
+        searchBarBtn.textContent = "取消";
+    };
+    searchBarBtn.onclick = function(){
+        var keywords = searchBarInput.value;
+        if(keywords.length){
+            /*searchBarInput.blur();*/
+            $.ajax({
+                type:"GET",
+                url:serveUrl+'' ,
+                data:{
+                    keyword:keywords
+                },
+                dataType:"json",
+                success:function(data){
+                    console.log(data);
+
+                }
+
+            });
+
+
+
+            //document.getElementById("search-keywords").textContent = keywords;
+        }else{
+            this.style.marginRight = "-"+this.offsetWidth+"px";
+            searchBarInput.value = '';
+            searchBarInput.blur();
+        }
+    };
+
+
+</script>
+
+

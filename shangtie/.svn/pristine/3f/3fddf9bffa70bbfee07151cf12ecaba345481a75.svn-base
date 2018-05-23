@@ -1,0 +1,703 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>作业学习查询</title>
+    <link rel="stylesheet" type="text/css" href="../css/aui.css?v=1"/>
+    <link rel="stylesheet" type="text/css" href="../css/main.css"/>
+    <script type="text/javascript" src="../script/echarts.simple.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/swiper.min.css"/>
+
+</head>
+<body>
+
+
+
+<div class="main-box">
+    <ul class="aui-list aui-form-list aui-list aui-list-in" style="border-top:0!important;position: fixed;top: 0rem;width: 100%;z-index: 999">
+        <div class="aui-tab clearfix">
+            <div class="aui-tab-item aui-active">作业完成情况</div>
+            <div class="aui-tab-item ">学习完成情况</div>
+        </div>
+    </ul>
+    <div class="swiper-container swiper-tab">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <div class="content" style="height: 100%">
+
+                        <div class="aui-content aui-margin-b-15"  style="margin-top: 2rem;" >
+
+
+                            <ul class="aui-list aui-form-list" style="" id="workList">
+                                <li class="aui-list-item" style="border-bottom: 1px solid #EEEEEE">
+                                    <div class="aui-list-item-inner">
+                                        <div class="aui-list-item-label">
+                                            请选择段：
+                                        </div>
+                                        <div class="aui-list-item-input"  >
+                                            <select >
+
+                                            </select>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                            <ul class="aui-list aui-form-list" style=""  id="workList1">
+                                <li class="aui-list-item" style="border-bottom: 1px solid #EEEEEE">
+                                    <div class="aui-list-item-inner">
+                                        <div class="aui-list-item-label">
+                                            请选择车间：
+                                        </div>
+                                        <div class="aui-list-item-input">
+                                            <select id="select2" >
+                                                <option>请选择</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                            <ul class="aui-list aui-form-list" style="" id="workList2">
+                                <li class="aui-list-item" style="border-bottom: 1px solid #EEEEEE">
+                                    <div class="aui-list-item-inner">
+                                        <div class="aui-list-item-label">
+                                            请选择工区：
+                                        </div>
+                                        <div class="aui-list-item-input">
+                                            <select id="select3">
+                                                <option>请选择</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                            <ul class="aui-list aui-form-list" style="" id="workList3">
+                                <li class="aui-list-item" style="border-bottom: 1px solid #EEEEEE">
+                                    <div class="aui-list-item-inner">
+                                        <div class="aui-list-item-label">
+                                            请选择作业：
+                                        </div>
+                                        <div class="aui-list-item-input">
+                                            <select id="select4">
+                                                <option>请选择</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+
+
+                        </div>
+                        <div style="width: 100%;height: 2rem;text-align: center;margin-top: 3em;">
+                            <ul>
+                                <li style="font-size: 1rem;font-weight: bold">作业完成情况</li>
+                                <li style="font-size:0.5rem;color: grey">实时数据</li>
+                            </ul>
+                        </div>
+                        <div id="zuoye" style="width: 300px;height:300px;margin: 0 auto;margin-bottom: 5rem"></div>
+                        <div class="aui-btn aui-btn-info aui-btn-block " id="comradio" style="background: #3366CC!important;position: fixed;bottom: 2rem;width: 100%;">已完成&nbsp;</div>
+
+                        <div class="aui-btn aui-btn-info aui-btn-block " id="noradio"  style="background: #DC3912!important;position: fixed;bottom: 0px;width: 100%;">未完成&nbsp;</div>
+
+
+
+                    </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="content">
+
+                    <div class="aui-content aui-margin-b-15"  style="margin-top: 2rem;">
+
+
+                        <ul class="aui-list aui-form-list" style="" id="workList-0">
+                            <li class="aui-list-item" style="border-bottom: 1px solid #EEEEEE">
+                                <div class="aui-list-item-inner">
+                                    <div class="aui-list-item-label">
+                                        请选择段：
+                                    </div>
+                                    <div class="aui-list-item-input"  >
+                                        <select >
+
+                                        </select>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                        <ul class="aui-list aui-form-list" style=""  id="workList1-1">
+                            <li class="aui-list-item" style="border-bottom: 1px solid #EEEEEE">
+                                <div class="aui-list-item-inner">
+                                    <div class="aui-list-item-label">
+                                        请选择车间：
+                                    </div>
+                                    <div class="aui-list-item-input">
+                                        <select id="select2-2" >
+
+                                        </select>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                        <ul class="aui-list aui-form-list" style="" id="workList2-2">
+                            <li class="aui-list-item" style="border-bottom: 1px solid #EEEEEE">
+                                <div class="aui-list-item-inner">
+                                    <div class="aui-list-item-label">
+                                        请选择工区：
+                                    </div>
+                                    <div class="aui-list-item-input">
+                                        <select id="select3-3">
+
+                                        </select>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                        
+                         <ul class="aui-list aui-form-list" style="" id="workList3-3">
+                                <li class="aui-list-item" style="border-bottom: 1px solid #EEEEEE">
+                                    <div class="aui-list-item-inner">
+                                        <div class="aui-list-item-label">
+                                            请选择文件：
+                                        </div>
+                                        <div class="aui-list-item-input">
+                                            <select id="select4-4">
+
+                                            </select>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+
+
+
+                    </div>
+                    <div style="width: 100%;height: 2rem;text-align: center;margin-top: 3em;">
+                        <ul>
+                            <li style="font-size: 1rem;font-weight: bold">学习完成情况</li>
+                            <li style="font-size:0.5rem;color: grey">实时数据</li>
+                        </ul>
+                    </div>
+                    <div id="xuexi" style="width: 300px;height:300px;margin: 0 auto;margin-bottom: 5rem"></div>
+                    <div class="aui-btn aui-btn-info aui-btn-block " id="comradio-1" style="background: #3366CC!important;position: fixed;bottom: 2rem;width: 100%;">已完成&nbsp;</div>
+                    <div class="aui-btn aui-btn-info aui-btn-block " id="noradio-1"  style="background: #DC3912!important;position: fixed;bottom: 0px;width: 100%;">未完成&nbsp;</div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>
+<script type="text/javascript" src="../script/jquery-1.8.1.min.js"></script>
+<script type="text/javascript" src="../script/swiper.min.js"></script>
+<script type="text/javascript" src="../script/common.js"></script>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/toast.js"></script>
+<!--滑动切换-->
+<script>
+
+    $(function(){
+        //swiper tab切换
+        var tabSwiper = $('.swiper-tab').swiper({
+            autoHeight: true, //高度随内容变化
+            onSlideChangeStart: function(swiper){
+                $('.aui-tab div.aui-active').removeClass('aui-active');
+                $('.aui-tab div').eq(swiper.activeIndex).addClass('aui-active');
+                //alert(swiper.activeIndex);
+            }
+        });
+
+        $('.aui-tab div').click(function(){
+            var index = $(this).index();
+            $('.aui-tab div.aui-active').removeClass('aui-active');
+            $(this).addClass('aui-active');
+            tabSwiper.slideTo(index,200,false);
+        });
+
+    });
+</script>
+<!--二级联动-->
+<script>
+    var rclass = userObj.rclass;
+
+    if(rclass == 3){
+        $("#workList1").hide();
+        $("#workList").hide();
+        //车间select数据
+        var rid = userObj.u_rid;
+        getGongqu(rid);
+
+    }else if (rclass == 2){
+        $("#workList").hide()
+
+        //工区select数据
+        var urid = userObj.u_rid;
+        getChejian(urid);
+
+    };
+
+
+    function getChejian(uridParam)
+    {
+
+        $.ajax({
+            type: 'GET',
+            url: serveUrl+'index.php?g=Api&m=My&a=workasset' ,
+            data: {urid:uridParam} ,
+            dataType: "json",
+            success: function(data)
+            {
+
+                var html='';
+                for(var i=0;i<data.length;i++)
+                {
+                    html=html+'<option value="'+data[i].rid+'">' +data[i].rname +
+                            '</option>';
+                }
+                $("#select2").append(html);
+
+
+
+            },
+            error:function(msg)
+            {
+                //alert(msg);
+            }
+        });
+
+
+
+    }
+
+    function getGongqu(ridParam)
+    {
+        $.ajax({
+            type: 'GET',
+            url: serveUrl+'index.php?g=Api&m=My&a=workasset' ,
+            data: {urid:ridParam} ,
+            dataType: "json",
+            success: function(data)
+            {
+                $("#select3").empty();
+                var html= '<option>请选择</option>';
+
+                for(var i=0;i<data.length;i++)
+                {
+                    html=html+/*'<option>请选择' +
+                             '</option>' +*/
+                            '<option value="'+data[i].code+'">' +data[i].rname +
+                            '</option>';
+                }
+
+                $("#select3").append(html);
+
+            },
+            error:function(msg)
+            {
+                //alert(msg);
+            }
+        });
+    }
+
+    function getZuoye()
+    {
+        //作业分类select数据
+
+        $.ajax({
+            type: 'GET',
+            url: serveUrl + 'index.php?g=Api&m=My&a=shanxingwc',
+            data: {uid: $("#select2").val()},
+            dataType: "json",
+            success: function (data) {
+
+                var html= '<option>请选择</option>';
+                $("#select4").empty();
+                for (var i = 0; i < data.length; i++) {
+                    html = html + /*'<option>请选择' +
+                             '</option>' +*/
+                            '<option value="' + data[i].wc_id + '">' + data[i].wc_name +
+                            '</option>';
+                }
+                $("#select4").append(html);
+            },
+            error: function (msg) {
+                //alert(msg);
+            }
+        });
+    }
+
+
+
+    $("#select2").on('change',function() {
+        var rid = $("#select2").val();
+        getGongqu(rid);
+        getZuoye();
+    })
+
+
+
+
+
+</script>
+<!--作业完成情况-->
+<script>
+
+    apiready = function(){
+        api.setStatusBarStyle({
+            style: 'dark',
+            color: '#666'
+        });
+        api.parseTapmode();
+    };
+
+
+    $("#select3").on('change',function() {
+        var code = $("#select3").val();
+
+    });
+
+    $("#select4").on('change', function () {
+        var cid = $("#select4").val();
+        var code = $("#select3").val();
+        localStorage.wc_id = $("#select4").val();
+
+
+
+        //获取数据总数和已完成数目接口
+        $.ajax({
+            type: 'GET',
+            url: serveUrl + 'index.php?g=Api&m=My&a=workpic',
+            data: {
+                code: code,
+                cid:cid
+            },
+            dataType: "json",
+            success: function (data) {
+
+
+                console.log(data);
+
+                var countall = data.countall;   //总数
+                var countcom = data.countcom;   //已完成数目
+                var countno = countall - countcom;  //未完成数目
+                var comradio = (countcom/countall) * 100 + '%';   //已经完成的百分比
+                var noradio = (countno/countall) * 100 + '%';     //未完成的百分比
+
+                if(countall!=0)
+                {
+                    $("#comradio").text(comradio);
+                    $("#noradio").text(noradio);
+                }
+                else {
+                    $("#comradio").text("0%");
+                    $("#noradio").text("0%");
+                }
+
+
+                var myChart = echarts.init(document.getElementById('zuoye'));
+                option = {
+                    title: {
+                        text: '作业完成情况',
+                        subtext: '实时数据',
+                        left: 'center'
+                    },
+
+                    color:['#3366CC', '#DC3912'],
+                    series : [
+                        {
+                            name: '访问来源',
+                            type: 'pie',
+                            radius: '55%',
+                            data:[
+                                {value:countcom, name:'已完成'},
+                                {value:countno, name:'未完成'},
+
+                            ]
+                        }
+                    ]
+                };
+                myChart.setOption(option);
+            },
+            error: function (msg) {
+                //alert(msg);
+            }
+
+        });
+
+    });
+
+    $("#comradio").click(function() {
+
+
+        var pcompleate_id =1;
+        localStorage.pcompleateid=pcompleate_id;
+
+        api.openWin({
+            name: "comradioWin",
+            url: 'comradioWin.html',
+            bounces: false,allowEdit:true,
+            slidBackEnabled: true,
+            vScrollBarEnabled: false,
+            progress: {
+                type: "page"
+            }
+        });
+
+    });
+
+    $("#noradio").click(function()
+    {
+        var pcompleate_id =0;
+        localStorage.pcompleateid=pcompleate_id;
+        api.openWin({
+            name: "comradioWin",
+            url: 'comradioWin.html',
+            bounces:false,
+            slidBackEnabled:true,
+            vScrollBarEnabled:false,
+            progress:{
+                type:"page"
+            }
+        });
+
+    });
+
+
+
+
+
+    var rclass = userObj.rclass;
+    if(rclass == 3){
+        $("#workList1-1").hide();
+        $("#workList-0").hide();
+        //车间select数据
+        var rid = userObj.u_rid;
+        $.ajax({
+            type: 'GET',
+            url: serveUrl+'index.php?g=Api&m=My&a=workasset' ,
+            data: {urid:rid} ,
+            dataType: "json",
+            success: function(data)
+            {
+
+                var html= '<option value="">请选择' +
+                        '</option>' +"";
+                for(var i=0;i<data.length;i++)
+                {
+                    html=html+/*'<option>请选择' +
+                             '</option>' +*/
+                            '<option value="'+data[i].code+'">' +data[i].rname +
+                            '</option>';
+                }
+
+                $("#select3-3").append(html);
+
+            },
+            error:function(msg)
+            {
+                //alert(msg);
+            }
+        });
+    }else if (rclass == 2){
+        $("#workList-0").hide()
+
+        //工区select数据
+        var urid = userObj.u_rid;
+
+        $.ajax({
+            type: 'GET',
+            url: serveUrl+'index.php?g=Api&m=My&a=workasset' ,
+            data: {urid:urid} ,
+            dataType: "json",
+            success: function(data)
+            {
+
+                var html='<option>请选择' +
+                        '</option>'+"";
+                for(var i=0;i<data.length;i++)
+                {
+                    html=html+/*'<option>请选择' +
+                             '</option>' +*/
+                            '<option value="'+data[i].rid+'">' +data[i].rname +
+                            '</option>';
+                }
+                $("#select2-2").append(html);
+
+            },
+            error:function(msg)
+            {
+                //alert(msg);
+            }
+        });
+        $("#select2-2").on('change',function() {
+
+            var rid = $("#select2-2").val();
+
+
+            $.ajax({
+                type: 'GET',
+                url: serveUrl + 'index.php?g=Api&m=My&a=workasset',
+                data: {urid: rid},
+                dataType: "json",
+                success: function (data) {
+
+                    var html ='<option>请选择' +
+                            '</option>'+ "";
+                    for (var i = 0; i < data.length; i++) {
+                        html = html + /*'<option>请选择' +
+                                 '</option>' +*/
+                                '<option value="' + data[i].code + '">' + data[i].rname +
+                                '</option>';
+                    }
+                    $("#select3-3").append(html);
+                },
+                error: function (msg) {
+                    //alert(msg);
+                }
+            });
+        })
+    };
+    //学习分类select数据
+    var uid = userObj.id;
+    $.ajax({
+        type: 'GET',
+        url: serveUrl + 'index.php?g=Api&m=CommonApi&a=getFileList',
+        dataType: "json",
+        success: function (data) {
+            //alert(JSON.stringify(data));
+
+            var html = '<option value="">请选择' +
+                    '</option>'+"";
+            for (var i = 0; i < data.length; i++) {
+                html = html + /*'<option>请选择' +
+                         '</option>' +*/
+                        '<option value="' + data[i].bscode + '">' + data[i].bname +
+                        '</option>';
+            }
+            $("#select4-4").append(html);
+        },
+        error: function (msg) {
+            //alert(msg);
+        }
+    });
+
+
+    $("#select4-4").change(function()
+    {
+
+
+
+        if($("#select3-3").val()!="")
+        {
+            getXuexiDatda();
+        }
+
+    });
+
+
+</script>
+
+
+
+
+
+
+
+
+
+<!--学习完成情况-->
+<script>
+
+
+    $("#select3-3").on('change',function() {
+
+        if($("#select4-4").val()!="")
+        {
+            getXuexiDatda();
+        }
+
+
+
+    });
+
+
+    function getXuexiDatda()
+    {
+
+        var code = $("#select3-3").val();
+
+        var codeList=$("#select4-4").val().split("#");
+
+        var codeCount=0;
+
+        for(var i=0;i<codeList.length;i++)
+        {
+            if(code==codeList[i])
+            {
+                codeCount++;
+            }
+        }
+
+
+        //获取数据总数和已完成数目接口
+        $.ajax({
+            type: 'GET',
+            url: serveUrl + 'index.php?g=Api&m=CommonApi&a=bookstatus',
+            data: {
+                code: code,
+            },
+            success: function (data) {
+
+
+                var xuexicountall = parseInt(data);   //总数
+                var xuexicountcom = codeCount;   //已完成数目
+                var xuexicountno = xuexicountall - xuexicountcom;  //未完成数目
+                var xuexicomradio = ((xuexicountcom/xuexicountall) * 100).toFixed(2) + '%';   //已经完成的百分比
+                var xuexinoradio = ((xuexicountno/xuexicountall) * 100).toFixed(2) + '%';     //未完成的百分比
+
+
+                $("#comradio-1").text("已完成 "+xuexicomradio);
+                $("#noradio-1").text("未完成 "+xuexinoradio);
+
+
+
+                var myChart = echarts.init(document.getElementById('xuexi'));
+                option = {
+                    title: {
+                        text: '学习完成情况',
+                        subtext: '实时数据',
+                        left: 'center'
+                    },
+
+                    color:['#3366CC', '#DC3912'],
+                    series : [
+                        {
+                            name: '访问来源',
+                            type: 'pie',
+                            radius: '55%',
+                            data:[
+                                {value:xuexicountcom, name:'已完成'},
+                                {value:xuexicountno, name:'未完成'},
+
+                            ]
+                        }
+                    ]
+                };
+                myChart.setOption(option);
+                myChart.setOption(option);
+            },
+            error: function (msg) {
+                //alert(msg);
+            }
+
+        });
+
+    }
+
+
+
+
+</script>

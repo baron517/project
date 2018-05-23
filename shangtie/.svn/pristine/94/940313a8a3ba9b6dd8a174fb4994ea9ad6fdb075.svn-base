@@ -1,0 +1,198 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>设备绑定(手输)</title>
+    <link rel="stylesheet" type="text/css" href="../css/aui.css?v=1"/>
+    <link rel="stylesheet" type="text/css" href="../css/main.css"/>
+
+</head>
+<body>
+
+
+
+
+<div class="aui-content aui-margin-b-15" style="padding:0 0.5rem;">
+
+
+
+    <div class="aui-content aui-margin-b-15">
+        <ul class="aui-list aui-form-list">
+
+
+            <li class="aui-list-item">
+                <div class="aui-list-item-inner">
+                    <div class="aui-list-item-label" style="width:46%;">
+                        设备名：
+                    </div>
+                    <div class="aui-list-item-input">
+                        <input type="text" id="ename" placeholder="请输入设备名" style="padding-left: 0.5rem">
+                    </div>
+                </div>
+            </li>
+            <li class="aui-list-item">
+                <div class="aui-list-item-inner">
+                    <div class="aui-list-item-label" style="width:46%;">
+                        所属企业：
+                    </div>
+                    <div class="aui-list-item-input">
+                        <input type="text" id="ebusiness" placeholder="请输入所属企业" style="padding-left: 0.5rem">
+                    </div>
+                </div>
+            </li>
+
+            <li class="aui-list-item">
+                <div class="aui-list-item-inner">
+                    <div class="aui-list-item-label" style="width:46%;">
+                        包保人：
+                    </div>
+                    <div class="aui-list-item-input">
+                        <input type="text" id="eper" placeholder="请输入包保人" style="padding-left: 0.5rem">
+                    </div>
+                </div>
+            </li>
+            <li class="aui-list-item">
+                <div class="aui-list-item-inner">
+                    <div class="aui-list-item-label" style="width:46%;">
+                        设备属性：
+                    </div>
+                    <div class="aui-list-item-input">
+                        <input type="text" id="property" placeholder="请输入设备属性" style="padding-left: 0.5rem">
+                    </div>
+                </div>
+            </li>
+
+        </ul>
+
+    </div>
+
+
+    <div class="aui-btn aui-btn-info aui-btn-block"  id="bangding" style="margin-top:2rem;background: #0389d0!important;">绑定</div>
+
+
+
+
+</div>
+
+
+
+
+
+
+</body>
+</html>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/jquery-1.8.1.min.js"></script>
+<script type="text/javascript" src="../script/common.js"></script>
+<script type="text/javascript" src="../script/toast.js"></script>
+<script type="text/javascript">
+    apiready = function(){
+        api.setStatusBarStyle({
+            style: 'dark',
+            color: '#666'
+        });
+        api.parseTapmode();
+    };
+
+
+
+
+    $("#bangding").click(function()
+    {
+
+        if($("#ename").val()=="")
+        {
+
+            showMessage('设备名不能为空！',1500);
+            return;
+        }
+
+        if($("#ebusiness").val()=="")
+        {
+
+            showMessage('所属企业能为空！',1500);
+            return;
+        }
+        if($("#eper").val()=="")
+        {
+
+            showMessage('包保人不能为空！',1500);
+            return;
+        }
+        if($("#property").val()=="")
+        {
+
+            showMessage('设备属性不能为空！',1500);
+            return;
+        }
+
+/*
+
+        var param=JSON.stringify({
+            ename:$("#ename").val(),
+            ebusiness:$("#ebusiness").val(),
+            eper:$("#eper").val(),
+            property:$("#property").val(),
+            e_code:userObj.scode,
+            e_sid:userObj.id
+        });
+*/
+
+
+        $.ajax({
+            type: 'POST',
+            url: serveUrl+'index.php?g=Api&m=My&a=shuruDevice' ,
+            data:{
+                ename:$("#ename").val(),
+                ebusiness:$("#ebusiness").val(),
+                eper:$("#eper").val(),
+                property:$("#property").val(),
+                e_code:userObj.scode,
+                e_sid:userObj.id
+
+            },
+
+            dataType: "json",
+            success: function(data)
+            {
+                alert(JSON.stringify(data));
+                if(data.code==1)
+                {
+                    showMessage('绑定成功！',1500);
+                    localStorage.eid=data.eid;
+                    setTimeout(function() {
+
+                        api.openWin({
+                            name: "shebeimingWin",
+                            url: 'shebeimingWin.html',
+                            bounces:false,
+                            slidBackEnabled:true,
+                            vScrollBarEnabled:false,
+                            progress:{
+                                type:"page"
+                            }
+                        });
+
+                    }, 1000);
+
+                }
+                else
+                {
+                    showMessage('绑定失败！',1500);
+                }
+
+            },
+            error:function(msg)
+            {
+                //alert(msg);
+            }
+        });
+
+    });
+
+
+
+
+</script>

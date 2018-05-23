@@ -1,0 +1,312 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>首页</title>
+    <link rel="stylesheet" type="text/css" href="../css/aui.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/main.css"/>
+
+    <style>
+
+        html,body{width:100%;height:100%;}
+        .link{position: absolute;width:5rem;height:5rem;background: transparent;}
+        .link1{top:3%;left:10%;}
+        .link2{top:3%;right:10%;}
+
+        .link3{top:66%;left:10%;}
+        .link4{top:66%;right:10%;}
+
+        .link5{top:35%;left:50%;margin-left:-2.4rem;background: transparent;}
+        .btnbg{top:25%;left:30%;margin-left:-2.4rem; background: url(../image/page-background.png);
+            height: 50%;
+            width: 70%;
+            border: 1px solid #DDDDDD;
+            border-radius: 3px;
+            -webkit-box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+            -moz-box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+            box-shadow: 2px 2px 8px rgba(0,0,0,0.2);}
+
+    </style>
+
+</head>
+<body >
+
+
+
+    <div style="width:100%;height:100%;background: url('../image/homeBg.jpg');background-size:cover;padding-top:2rem;box-sizing: border-box;">
+        <img id="logo" style="width:14rem;margin:0 auto;" src="../image/homeLogo.png" />
+        <div style="margin-top:1.8rem;position: relative;">
+            <img style="width:100%;display: block;position: relative;left:-0.5rem;" src="../image/homeMain.png" />
+            <div class="link link1"></div>
+            <div class="link link2"></div>
+            <div class="link link3"></div>
+            <div class="link link4"></div>
+            <div class="link link5"  id="saoyisao" ></div>
+
+
+          <!--  <div class="cd-popup" role="alert">
+                <div class="cd-popup-container" style="top: 30%">
+                    <p>请选择输入设备名或使用二维码扫一扫</p>
+                    <ul class="cd-buttons">
+                        <li><a onclick="openDialog('input')">输入设备名</a></li>
+                        <li><a id="saoyisao">扫一扫</a></li>
+                    </ul>
+                    <a class="cd-popup-close img-replace"></a>
+                </div>
+
+            </div>-->
+
+
+            <div class="link btnbg" id="btn" style="display: none">
+                <div class="close aui-bg-danger">
+                    <i class="aui-iconfont aui-icon-close" onclick="document.getElementById('btn').style.display='none'" style="color: white;top: -0.1rem"></i>
+                </div>
+          <div class="shebeiming" onclick="openDialog('input')" style="">输入设备名</div>
+                <div class="saoyisao"  style="">扫一扫</div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+</body>
+</html>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/jquery-1.8.1.min.js"></script>
+<script type="text/javascript" src="../script/common.js?v=1"></script>
+<script type="text/javascript" src="../script/aui-dialog.js"></script>
+<script type="text/javascript" src="../script/modernizr.js"></script>
+<script type="text/javascript" src="../script/toast.js"></script>
+<script type="text/javascript">
+
+
+
+    apiready = function(){
+        api.parseTapmode();
+
+        api.setStatusBarStyle({
+            style: 'light',
+            color: '#fff'
+        });
+
+
+        api.addEventListener({
+            name:"keyback"
+        },function(ret,err){
+
+            api.closeWidget({
+                //id: 'A6914645463877', //测试
+                id:'A6066085802483',
+                silent:'false',
+                retData: {
+                    name: 'closeWidget'
+                },
+                animation: {
+                    type: 'flip',
+                    subType: 'from_bottom',
+                    duration: 500
+                }
+            });
+        });
+
+
+
+
+        $(".link3").click(function()
+        {
+
+            api.openWin({
+                name: "mineWin",
+                url: 'mineWin.html',
+                bounces:false,
+                reload:true,
+                slidBackEnabled:true,
+                vScrollBarEnabled:false,
+                progress:{
+                    type:"page"
+                }
+            });
+
+        });
+
+
+        $(".link1").click(function()
+        {
+
+            api.openWin({
+                name: "workGuideWin",
+                url: 'workGuideWin.html',
+                bounces:false,
+                slidBackEnabled:true,
+                vScrollBarEnabled:false,
+                progress:{
+                    type:"page"
+                }
+            });
+
+        });
+
+
+        $(".link2").click(function()
+        {
+
+            api.openWin({
+                name: "bbsWin",
+                url: 'bbsWin.html',
+                bounces:false,
+                slidBackEnabled:true,
+                vScrollBarEnabled:false,
+                reload:true,
+                progress:{
+                    type:"page"
+                }
+            });
+
+        });
+
+
+        $(".link4").click(function()
+        {
+
+            api.openWin({
+                name: "fileStudyWin",
+                url: 'fileStudyWin.html',
+                bounces:false,
+                slidBackEnabled:true,
+                vScrollBarEnabled:false,
+                progress:{
+                    type:"page"
+                }
+            });
+
+        });
+
+
+        var scanner = api.require('scanner');
+
+      $("#saoyisao").click(function()
+        {
+            api.openWin({
+                name: "scanColWin",
+                url: 'scanColWin.html',
+                bounces:false,
+                slidBackEnabled:true,
+                vScrollBarEnabled:false,
+                progress:{
+                    type:"page"
+                }
+            });
+
+
+
+
+        });
+
+
+    };
+    function closeWin(){
+        api.closeWin({
+        });
+    }
+/*    var dialog = new auiDialog({})
+    function openDialog(type){
+        switch (type) {
+            case "input":
+                dialog.prompt({
+                    title:"提示",
+                    text:'输入设备名',
+                    buttons:['取消','确定']
+                },function(ret){
+                    if(ret.buttonIndex == 2){
+
+                        localStorage.ename=ret.text;
+                        var ename = localStorage.ename;
+                       // alert(ename);
+
+                        $.ajax({
+                            type: 'POST',
+                            url: serveUrl+'index.php?g=Api&m=My&a=getDeviceDetail' ,
+                            data: {
+                                ename:ename,
+                                e_code:userObj.scode
+                            } ,
+                            dataType: "json",
+                            success: function(data)
+                            {
+                               //alert(JSON.stringify(data.e_cid));
+                                if(data == null)
+                                {
+                                    showMessage('未识别到设备！',1500);
+                                }
+                                else if(data.qr_code>0)
+                                {
+
+                                    showMessage('设备识别成功！',1500);
+                                    setTimeout(function() {
+                                        localStorage.eid=data.eid;
+                                        api.openWin({
+                                            name: "shebeimingWin",
+                                            url: 'shebeimingWin.html',
+                                            bounces:false,
+                                            slidBackEnabled:true,
+                                            vScrollBarEnabled:false,
+                                            progress:{
+                                                type:"page"
+                                            }
+                                        });
+                                    }, 1000);
+
+                                }
+                                else{
+                                    
+                                    showMessage('设备未绑定，请绑定设备！',1500);
+                                    
+                                }
+
+                            },
+                            error:function(msg)
+                            {
+                                //alert(msg);
+                            }
+                        });
+
+
+                    }
+                });
+                break;
+            default:
+                break;
+
+        }
+    }*/
+
+
+
+
+
+    jQuery(document).ready(function($){
+        //open popup
+        $('.link5').on('click', function(event){
+            event.preventDefault();
+            $('.cd-popup').addClass('is-visible');
+        });
+
+        //close popup
+        $('.cd-popup').on('click', function(event){
+            if( $(event.target).is('.cd-popup-close') || $(event.target).is('.cd-popup') ) {
+                event.preventDefault();
+                $(this).removeClass('is-visible');
+            }
+        });
+        //close popup when clicking the esc keyboard button
+        $(document).keyup(function(event){
+            if(event.which=='27'){
+                $('.cd-popup').removeClass('is-visible');
+            }
+        });
+    });
+
+</script>

@@ -1,0 +1,101 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>现场作业记录</title>
+    <link rel="stylesheet" type="text/css" href="../css/aui.css?v=1"/>
+    <link rel="stylesheet" type="text/css" href="../css/main.css"/>
+    <style>
+        body{background: #fff;}
+        .aui-card-list-header{padding-bottom:0;}
+        .aui-card-list-footer{padding-top:0;}
+        .aui-list .aui-list-header{background: #f1f1f1;}
+
+    </style>
+</head>
+<body>
+
+
+
+
+<section >
+    <div class="aui-card-list" >
+
+        <div class="aui-list aui-list-in" id="detail">
+
+        </div>
+        <div class="aui-card-list-footer">
+            <span id="sname"></span>
+            <span id="wdate">作业时间：</span>
+        </div>
+    </div>
+
+</section>
+
+<span id="jsontext" style="display: none"></span>
+</body>
+</html>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/jquery-1.8.1.min.js"></script>
+<script type="text/javascript" src="../script/common.js"></script>
+<script type="text/javascript">
+    apiready = function(){
+
+        api.setStatusBarStyle({
+            style: 'dark',
+            color: '#666'
+        });
+        api.parseTapmode();
+    };
+
+
+    var wid = localStorage.wid;
+    var page=0;
+    $.ajax({
+        type: 'GET',
+        url: serveUrl+'index.php?g=Api&m=My&a=workcontent' ,
+        data: {page:page,
+            wid:wid,
+        } ,
+        dataType: "json",
+        success: function(data)
+        {
+            var content = data[0].wcontent;
+            //console.log(content);
+          //  alert(JSON.stringify(data));
+            $("#jsontext").append(content);
+            var jscontent = JSON.parse($("#jsontext").text());
+            //console.log(jscontent);
+            var html='';
+            for (var i = 0;i<jscontent.length;i++){
+                html = html+/*'<li class="aui-list-item">'+
+                        '<div class="aui-list-item-inner">'+
+                        '<div class="aui-list-item-label"  style="width:55%;">'+jscontent[i].cname+'：'+
+                        '</div>'+
+                        '<div class="aui-list-item-input">' +jscontent[i].cvalue+
+                        ' </div>'+
+                        ' </div>'+
+                        '</li>';*/
+                           '<li class="aui-list-item">'+
+                            '<div class="aui-list-item-inner">'+
+                                '<div class="aui-list-item-title" style="font-size: 0.8rem">'+jscontent[i].cname+'：' +
+                                        '</div>'+
+                                '<div class="aui-list-item-right" style="font-size: 0.7rem">' +jscontent[i].cvalue+
+                                   '</div>'+
+                               ' </div>';
+
+            }
+            $("#detail").append(html);
+            $("#wdate").append(data.wdate);
+        },
+        error:function(msg)
+        {
+            //alert(msg);
+        }
+    });
+
+
+
+</script>

@@ -1,0 +1,309 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>缺点克服信息单</title>
+    <link rel="stylesheet" type="text/css" href="../css/aui.css?v=1"/>
+    <link rel="stylesheet" type="text/css" href="../css/main.css"/>
+<!--    <link rel="stylesheet" type="text/css" href="../css/swiper.min.css"/>-->
+    <link rel="stylesheet" href="../css/dropload.css">
+    <link rel="stylesheet" type="text/css" href="../css/aui-pull-refresh.css" />
+</head>
+<body>
+
+<div class="aui-searchbar" id="search" style="position: fixed;top: 0;width: 100%;z-index: 99999">
+    <div class="aui-searchbar-input aui-border-radius">
+        <i class="aui-iconfont aui-icon-search"></i>
+        <input type="search" placeholder="请输入搜索内容" id="search-input">
+        <div class="aui-searchbar-clear-btn" id="">
+            <i class="aui-iconfont aui-icon-close"></i>
+        </div>
+    </div>
+    <div class="aui-searchbar-btn" tapmode >取消</div>
+</div>
+        <div style="height:2.2rem;"></div>
+      
+
+        <div class="aui-content aui-margin-b-15">
+
+            <section class="aui-refresh-content"  >
+                <ul class="aui-list aui-media-list" id="workList">
+
+                </ul>
+            </section>
+        </div>
+
+
+
+</body>
+</html>
+<script type="text/javascript" src="../script/jquery-1.8.1.min.js"></script>
+<!--<script type="text/javascript" src="../script/swiper.min.js"></script>
+<script type="text/javascript" src="../script/idangerous.swiper.min.js"></script>-->
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/common.js"></script>
+<script src="../script/dropload.min.js"></script>
+<script type="text/javascript" src="../script/aui-pull-refresh.js"></script>
+
+<script type="text/javascript">
+
+    apiready = function() {
+
+
+        api.setStatusBarStyle({
+            style: 'dark',
+            color: '#666'
+        });
+        api.parseTapmode();
+
+
+        api.addEventListener({
+            name:'viewappear'
+        }, function(ret, err){
+            // alert('window显示');
+           window.location.reload();
+
+        });
+
+    }
+
+
+    var pullRefresh = new auiPullToRefresh({
+        container: document.querySelector('.aui-refresh-content'),
+        triggerDistance: 100
+    },function(ret){
+        if(ret.status=="success"){
+            setTimeout(function(){
+                window.location.reload();
+                pullRefresh.cancelLoading(); //刷新成功后调用此方法隐藏
+            },500)
+        }
+    });
+
+
+    var page=0;
+    var uid=userObj.id;
+    var eid=localStorage.eid;
+   console.log(eid);
+    console.log(uid);
+    function getData(pageIndex)
+    {
+        $.ajax({
+            type:"GET",
+            url:serveUrl+'index.php?g=Api&m=My&a=shebeipro' ,
+            dataType:"json",
+            data:{
+                keyword:$("#search-input").val(),
+                page:pageIndex,
+                eid:eid
+
+            },
+            success:function(data){
+               console.log(data);
+                var html="";
+                for(var i=0;i<data.length;i++)
+                {
+                   
+                    var sub=-(getDate(new Date().format("yyyy-MM-dd")+" :00:00:00").getTime()-getDate(data[i].p_readate).getTime())/1000/3600/24;
+                    var pdateHtml="";
+
+                    if(data[i].p_status=="紧急")
+                    {
+
+                        console.log(getDate(new Date().format("yyyy-MM-dd")+" :00:00:00").getTime());
+                        console.log(getDate(data[i].p_readate).getTime());
+
+
+                        if(8<sub&&sub<=12)
+                        {
+                             pdateHtml='<div class=" aui-list-item-text aui-ellipsis-2" style="color:green;">处理期限：'+  data[i].p_readate +'</div><div class="right-status" style="color:green;">紧急</div>';
+                        }
+                        else if(4<sub&&sub<=8)
+                        {
+                             pdateHtml='<div class=" aui-list-item-text aui-ellipsis-2" style="color:#d7de0b;">处理期限：'+  data[i].p_readate +'</div><div class="right-status" style="color:#d7de0b;">紧急</div>';
+                        }
+                        else if(sub>=0&&sub<=4)
+                        {
+                             pdateHtml='<div class=" aui-list-item-text aui-ellipsis-2" style="color:red;">处理期限：'+  data[i].p_readate +'</div><div class="right-status" style="color:red;">紧急</div>';
+                        }
+                        else
+                        {
+                             pdateHtml='<div class=" aui-list-item-text aui-ellipsis-2" >处理期限：'+  data[i].p_readate +'</div><div class="right-status" >紧急</div>';
+
+                        }
+                    }
+                    else if(data[i].p_status=="重要")
+                    {
+
+                        if(14<sub&&sub<=21)
+                        {
+                            pdateHtml='<div class=" aui-list-item-text aui-ellipsis-2" style="color:green;">处理期限：'+  data[i].p_readate +'</div><div class="right-status" style="color:green;">重要</div>';
+                        }
+                        else if(7<sub&&sub<=14)
+                        {
+                            pdateHtml='<div class=" aui-list-item-text aui-ellipsis-2" style="color:#d7de0b;">处理期限：'+  data[i].p_readate +'</div><div class="right-status" style="color:#d7de0b;">重要</div>';
+                        }
+                        else if(sub>=0&&sub<=7)
+                        {
+                            pdateHtml='<div class=" aui-list-item-text aui-ellipsis-2" style="color:red;">处理期限：'+  data[i].p_readate +'</div><div class="right-status" style="color:red;">重要</div>';
+                        }
+                        else
+                        {
+                            pdateHtml='<div class=" aui-list-item-text aui-ellipsis-2" >处理期限：'+  data[i].p_readate +'</div><div class="right-status" >重要</div>';
+
+                        }
+                    }
+                    else
+                    {
+                        if(20<sub&&sub<=30)
+                        {
+                            pdateHtml='<div class=" aui-list-item-text aui-ellipsis-2" style="color:green;">处理期限：'+  data[i].p_readate +'</div><div class="right-status" style="color:green;">一般</div>';
+                        }
+                        else if(10<sub&&sub<=20)
+                        {
+                            pdateHtml='<div class=" aui-list-item-text aui-ellipsis-2" style="color:#d7de0b;">处理期限：'+  data[i].p_readate +'</div><div class="right-status" style="color:#d7de0b;">一般</div>';
+                        }
+                        else if(0<=sub&&sub<=10)
+                        {
+                            pdateHtml='<div class=" aui-list-item-text aui-ellipsis-2" style="color:red;">处理期限：'+  data[i].p_readate +'</div><div class="right-status" style="color:red;">一般</div>';
+                        }
+                        else
+                        {
+                            pdateHtml='<div class=" aui-list-item-text aui-ellipsis-2" >处理期限：'+  data[i].p_readate +'</div><div class="right-status" >一般</div>';
+
+                        }
+                    }
+
+
+                    html = html + ' <li class="aui-list-item aui-list-item-arrow" data-id="' + data[i].pid + '">' +
+                            '<div class="aui-media-list-item-inner">' +
+                            '<div class="aui-list-item-inner">' +
+                            '<div class="aui-list-item-text">' +
+                            '<div class="aui-list-item-title">' + data[i].pname +
+                            '</div>' +
+                            ' <div class="aui-list-item-right">' + data[i].pdate +
+                            ' </div>' +
+                            '</div>'+pdateHtml+
+                            '</div>'+
+                            '</div>'+
+                            '</li>';
+                }
+
+                $("#workList").append(html);
+
+            }
+
+        });
+    }
+
+    getData(page);
+
+
+    $("#workList").on("click",".aui-list-item",function()
+    {
+
+
+        localStorage.problemkefucontent_pid=$(this).attr("data-id");
+       // alert(localStorage.problemkefucontent_pid);
+        api.openWin({
+            name: "problemkefucontentWin",
+            url: 'problemkefucontentWin.html',
+            bounces:false,
+            slidBackEnabled:true,
+            vScrollBarEnabled:false,
+            progress:{
+                type:"page"
+            }
+        });
+
+    });
+
+
+  /*  $("#workList").on("click",".aui-list-item",function()
+    {
+        var pid = $(this).attr("data-id");
+        localStorage.pid = pid;
+        api.openWin({
+            name: "problemkefuDetailWin",
+            url: 'problemkefuDetailWin.html',
+            bounces:false,
+            slidBackEnabled:true,
+            vScrollBarEnabled:false,
+            progress:{
+                type:"page"
+            }
+        });
+
+    });*/
+
+    var searchBar = document.querySelector(".aui-searchbar");
+    var searchBarInput = document.querySelector(".aui-searchbar input");
+    var searchBarBtn = document.querySelector(".aui-searchbar .aui-searchbar-btn");
+    var searchBarClearBtn = document.querySelector(".aui-searchbar .aui-searchbar-clear-btn");
+    if(searchBar){
+        searchBarInput.onclick = function(){
+            searchBarBtn.style.marginRight = 0;
+        };
+        searchBarInput.oninput = function(){
+            if(this.value.length){
+                searchBarClearBtn.style.display = 'block';
+                searchBarBtn.classList.add("aui-text-info");
+                searchBarBtn.textContent = "搜索";
+            }else{
+                searchBarClearBtn.style.display = 'none';
+                searchBarBtn.classList.remove("aui-text-info");
+                searchBarBtn.textContent = "取消";
+
+            }
+        }
+    }
+    searchBarClearBtn.onclick = function(){
+        window.location.reload();
+        this.style.display = 'none';
+        searchBarInput.value = '';
+        searchBarBtn.classList.remove("aui-text-info");
+        searchBarBtn.textContent = "取消";
+
+    };
+    searchBarBtn.onclick = function(){
+
+        $("li").detach();
+        if($("#search-input").length){
+            /*searchBarInput.blur();*/
+
+            getData(page);
+
+
+            //document.getElementById("search-keywords").textContent = keywords;
+        }else{
+            this.style.marginRight = "-"+this.offsetWidth+"px";
+            searchBarInput.value = '';
+            searchBarInput.blur();
+        }
+    };
+
+</script>
+
+<!--滑动切换-->
+<!--
+<script>
+    var mySwiper = new Swiper('.swiper-container',{
+        autoHeight: true,
+        onSlideChangeStart: function(){
+            $(".aui-tab .aui-active").removeClass('aui-active');
+            $(".aui-tab div").eq(mySwiper.activeIndex).addClass('aui-active');
+        }
+    });
+    $(".aui-tab div").on('click',function(e){
+        e.preventDefault();
+        $(".aui-tab .aui-active").removeClass('aui-active');
+        $(this).addClass('aui-active');
+        mySwiper.swipeTo($(this).index());
+    });
+    $(".aui-tab div").click(function(e){
+        e.preventDefault();
+    });
+
+</script>-->

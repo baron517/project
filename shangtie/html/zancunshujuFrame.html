@@ -1,0 +1,117 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>我的评价</title>
+    <link rel="stylesheet" type="text/css" href="../css/aui.css?v=1"/>
+    <link rel="stylesheet" type="text/css" href="../css/main.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/swiper.min.css"/>
+</head>
+<body>
+
+
+
+    <div class="main-box" >
+       
+        <div class="swiper-container swiper-tab">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="content">
+
+                        <ul class="aui-list aui-media-list" id="list">
+
+
+
+                        </ul>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+       <!-- <ul class="aui-list aui-media-list" id="workList">
+
+
+
+        </ul>-->
+    </div>
+</body>
+</html>
+<script type="text/javascript" src="../script/jquery-1.8.1.min.js"></script>
+<script type="text/javascript" src="../script/swiper.min.js"></script>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/common.js"></script>
+<script type="text/javascript" src="../script/toast.js"></script>
+<!--滑动切换-->
+<script type="text/javascript">
+
+    apiready = function(){
+        
+        api.setStatusBarStyle({
+            style: 'dark',
+            color: '#666'
+        });
+        api.parseTapmode();
+
+    };
+
+    var huancunList=[];
+
+    if(localStorage.huancunList)
+    {
+        huancunList=JSON.parse(localStorage.huancunList);
+    }
+
+
+
+    var html="";
+    for(var i=0;i<huancunList.length;i++)
+    {
+         html = html + ' <li class="aui-list-item aui-list-item-arrow" data-wc_id="' + huancunList[i].wc_id + '">' +
+                '<div class="aui-media-list-item-inner">' +
+                '<div class="aui-list-item-inner">' +
+                '<div class="aui-list-item-text">' +
+                '<div class="aui-list-item-title">' + huancunList[i].titleText +
+                '</div>' +
+                ' <div class="aui-list-item-right">'+huancunList[i].date+
+                ' </div>' +
+                '</div>'
+                '</div>'+
+                '</div>'+
+                '</li>';
+    }
+
+
+
+    $("#list").append(html);
+
+
+    $(".aui-media-list").on("click",".aui-list-item",function()
+    {
+
+
+        localStorage.setForm="1";
+        localStorage.p_wc_id=$(this).attr("data-wc_id");
+
+
+        api.openWin({
+            name: "scenecontentWin",
+            url: 'scenecontentWin.html',
+            bounces:false,
+            slidBackEnabled:true,
+            vScrollBarEnabled:false,
+            progress:{
+                type:"page"
+            }
+        });
+
+    });
+
+
+
+
+</script>
+
+

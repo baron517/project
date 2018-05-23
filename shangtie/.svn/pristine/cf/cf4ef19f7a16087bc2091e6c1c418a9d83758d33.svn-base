@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>关于我们</title>
+    <link rel="stylesheet" type="text/css" href="../css/aui.css?v=1"/>
+    <link rel="stylesheet" type="text/css" href="../css/main.css"/>
+
+</head>
+<body>
+
+
+
+
+<div class="aui-content aui-margin-b-15">
+
+    关于我们关于我们关于我们关于我们关于我们
+    关于我们关于我们关于我们关于我们关于我们
+    关于我们关于我们关于我们关于我们关于我们
+    关于我们关于我们关于我们关于我们关于我们
+    关于我们关于我们关于我们关于我们关于我们
+    关于我们关于我们关于我们关于我们关于我们
+
+
+</div>
+
+
+
+
+
+
+</body>
+</html>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/jquery-1.8.1.min.js"></script>
+<script type="text/javascript" src="../script/common.js"></script>
+
+<script type="text/javascript">
+
+    apiready = function(){
+
+
+
+        api.setStatusBarStyle({
+            style: 'dark',
+            color: '#666'
+        });
+        api.parseTapmode();
+
+
+        var FNScanner = api.require('FNScanner');
+
+
+
+        $("#login").click(function()
+        {
+
+
+            FNScanner.openScanner({
+                autorotation: true
+            }, function(ret, err) {
+                if (ret) {
+                    alert(JSON.stringify(ret));
+                } else {
+                    alert(JSON.stringify(err));
+                }
+            });
+
+           /* api.openWin({
+                name: "mainWin",
+                url: 'mainWin.html',
+                bounces:false,
+                slidBackEnabled:true,
+                vScrollBarEnabled:false,
+                progress:{
+                    type:"page"
+                }
+            });*/
+
+        });
+
+
+
+
+
+    };
+
+
+
+
+</script>

@@ -1,0 +1,417 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>缺点信息整改</title>
+    <link rel="stylesheet" type="text/css" href="../css/aui.css?v=1"/>
+    <link rel="stylesheet" type="text/css" href="../css/main.css"/>
+    <style>
+        body{background: #fff;height:100%;overflow:hidden;}
+        .aui-card-list-header{padding-bottom:0;}
+        .aui-card-list-footer{padding-top:0;}
+        .aui-list .aui-list-header{background: #f1f1f1;}
+        .remove{
+            width: 1.2rem;
+            height: 1.2rem;
+            position: absolute;
+            z-index: 9999;
+            border-radius: 50px;
+            background-color: rgba(0, 0, 0, 0.5);
+            right: -0.45rem;
+            top: -0.45rem;
+            text-align: center;
+
+
+        }
+        .remove p{
+            font-size: 1rem;
+            color: white;
+            margin-top: -0.15rem;
+            margin-left: 0.05rem;
+
+        }
+        .aui-row{
+            width: 700px;
+            overflow: auto;
+            overflow-x:scroll;
+
+        }
+        .aui-col-xs-4{
+            width: 90px;
+            height: 140px;
+            position:relative;
+
+        }
+        .aui-col-xs-4 img{
+
+            height: 100%;
+
+        }
+        .imgbox{
+            width: 110px;
+            height: auto;
+            padding: 0.5rem 0.5rem 0 0.5rem;
+            position: relative;
+            float: left;
+
+        }
+
+    </style>
+</head>
+<body>
+
+
+<div class="aui-card-list-content-padded" id="pname" style="text-align: center;font-size: 1rem;margin-top: 0.5rem">
+    缺点名称：
+</div>
+<div class="aui-card-list-footer">
+    <span id="sname">设备包保人：</span>
+    <span id="pdate">作业时间：</span>
+</div>
+
+<section  class="aui-card-list-content-padded" style="padding: 0">
+
+
+    <ul class="aui-list aui-form-list">
+
+
+
+
+    </ul>
+
+
+    <div class="aui-card-list-content-padded" id="wenti" style="font-size: 0.8rem">
+
+        缺点内容：
+    </div>
+    <ul class="aui-list aui-media-list">
+        <li class="aui-list-item">
+            <div class="aui-list-item-inner" style="overflow: hidden;  overflow-x:scroll;">
+                <div class="aui-row aui-row-padded"  id="wentipic">
+
+                </div>
+            </div>
+        </li>
+    </ul>
+<hr>
+
+    <div class="aui-card-list-content-padded" id="wan" style="font-size: 0.8rem">
+       输入整改内容：
+    </div>
+
+    <textarea placeholder="输入整改问题内容" id="preason"  style="width:100%;height:7rem;display: block;padding: 0.5rem"></textarea>
+
+    <ul class="aui-list aui-media-list">
+        <li class="aui-list-item">
+            <div class="aui-list-item-inner" style="overflow: hidden;  overflow-x:scroll;">
+                <div class="aui-row aui-row-padded"  id="imgList">
+
+                </div>
+            </div>
+        </li>
+    </ul>
+
+<div style="width: 100%;height: 3rem"></div>
+    <div style="width: 100%;height: 2rem;position: fixed;bottom: 0;">
+        <div class="aui-btn aui-btn-info aui-btn-block"  id="img" tapmode onclick="openActionsheet()" style="background: #0389d0!important;width: 50%;float: left;border-radius: 0px;border-right: 1px solid white">上传图片</div>
+        <div class="aui-btn aui-btn-info aui-btn-block"  id="send" style="background: #0389d0!important;width: 50%;float: right;border-radius: 0px">提交</div>
+
+
+    </div>
+
+
+</section>
+
+
+
+
+
+</body>
+</html>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/jquery-1.8.1.min.js"></script>
+<script type="text/javascript" src="../script/common.js"></script>
+<script type="text/javascript" src="../script/aui-actionsheet.js" ></script>
+<script type="text/javascript" src="../script/toast.js"></script>
+<script type="text/javascript">
+
+    apiready = function(){
+
+        api.setStatusBarStyle({
+            style: 'dark',
+            color: '#666'
+        });
+        api.parseTapmode();
+
+
+
+    };
+
+    $("#imgList").on("click",".remove",function()
+    {
+        $(this).parent().parent().remove();
+    });
+
+    $("#wentipic").on("click","img",function()
+    {
+
+        var imgUrl= $(this).attr("src");
+        openPicView(imgUrl);
+        
+    });
+
+
+    $("#imgList").on("click","img",function()
+    {
+
+        var imgUrl= $(this).attr("src");
+        openPicView(imgUrl);
+
+    });
+
+
+    var actionsheet = new auiActionsheet();
+    function openActionsheet(){
+        actionsheet.init({
+            frameBounces:true,//当前页面是否弹动，（主要针对安卓端）
+            title:"请选择",
+            cancelTitle:'这里取消按钮',
+            buttons:['拍照']
+        },function(ret){
+            if(ret.buttonIndex == 1){
+
+               // alert("拍照")
+                api.getPicture({
+                    sourceType: 'camera',
+                    encodingType: 'jpg',
+                    mediaValue: 'pic',
+                    destinationType: 'url',
+                    allowEdit: true,
+                    quality: 100,
+                    targetWidth: 750,
+                    targetHeight: 750,
+                    saveToPhotoAlbum: false
+                }, function(ret, err) {
+                    if (ret) {
+                        uploadImg(ret.data);
+                    } else {
+                        //alert(JSON.stringify(err));
+                    }
+                });
+
+
+            };
+            /*if(ret.buttonIndex == 2){
+
+                //alert("图库选择")
+                api.getPicture({
+                    sourceType: 'album',
+                    encodingType: 'jpg',
+                    mediaValue: 'pic',
+                    destinationType: 'url',
+                    allowEdit: true,
+                    quality: 90,
+       /!*             targetWidth: 100,
+                    targetHeight: 100,*!/
+                    saveToPhotoAlbum: false
+                }, function(ret, err) {
+                    if (ret) {
+
+
+                        uploadImg(ret.data);
+
+                    } else {
+                        //alert(JSON.stringify(err));
+                    }
+                });
+
+            };*/
+        })
+    }
+
+    function uploadImg(imgUrl)
+    {
+        api.ajax({
+            url: serveUrl+'index.php?g=Api&m=CommonApi&a=uploadImg',
+            method: 'post',
+            data: {
+                files: {
+                    file: imgUrl
+                }
+            }
+        }, function(ret, err) {
+
+          //  alert(JSON.stringify(ret));
+
+            if (ret.code=1000) {
+
+                if(imgUrl != "") {
+                   /* if($(".aui-col-xs-4 img").length < 6 ){*/
+
+
+                        $("#imgList").append(
+                        '<div class="imgbox">'+
+                        '<div class="aui-col-xs-4">'+
+                        ' <div class="remove">'+
+                        '<p>×</p>'+
+                        '</div>'+
+                        '<img  src="'+serveUrl+ret.url+'" />'+
+                        '</div>'+
+                        '</div>'
+                );
+                   /* }else {
+                        showMessage('最多只能上传六张图片！',1500);
+                    }*/
+                }
+            }
+
+        });
+    }
+
+
+
+              var  pid = localStorage.problemkefucontentedit_pid;
+                var pclass=localStorage.pclass;
+                //   alert(pid);
+
+    var page=0;
+    $.ajax({
+        type: 'GET',
+        url: serveUrl+'index.php?g=Api&m=My&a=shebeiprocontent' ,
+        data: {page:page,pid:pid} ,
+        dataType: "json",
+        success: function(data)
+        {
+
+
+          //  alert(JSON.stringify(data));
+            var imgHtml="";
+
+            if (data.procontent.p_img) {
+                var imageUrl = JSON.parse(data.procontent.p_img);
+
+                for (var j = 0; j < imageUrl.length; j++)
+                {
+                    imgHtml = imgHtml +
+                            '<div class="imgbox">'+
+                            '<div class="aui-col-xs-4">'+
+                            /*' <div class="remove">'+
+                            '<p>×</p>'+
+                            '</div>'+*/
+                            '<img class="img-col"  src="' + imageUrl[j].img + '" />'+
+                            '</div>'+
+                            '</div>'
+                }
+            }
+
+
+
+         //   alert(JSON.stringify(data));
+            $("#wentipic").append(imgHtml);
+            $("#pname").append(data.procontent.pname);
+            $("#wenti").append(data.procontent.preason);
+            $("#pdate").append(data.procontent.pdate);
+            $("#sname").append(data.procontent.sname);
+        },
+        error:function(msg)
+        {
+            //alert(msg);
+        }
+    });
+
+
+
+
+
+
+
+
+            $("#send").on("click",function()
+            {
+
+
+                /*if($("#wentipic").val()=="")
+                {
+
+                    showMessage('请输入标题！',1500);
+                    return;
+                };*/
+                if($("#preason").val()=="")
+                {
+
+                    showMessage('请输入内容！',1500);
+                    return;
+                }
+
+
+
+            var titleText=localStorage.titleText;
+            var p_sid = localStorage.eid;
+            var p_uid = userObj.id;
+            //console.log(p_sid);
+            //  alert(titleText);
+
+
+                var p_img=[];
+                $("#imgList img").each(function()
+                {
+                    var p_imgObj={};
+                    p_imgObj.img=$(this).attr("src");
+                    p_img.push(p_imgObj);
+                });
+
+               // console.log(uid);
+            $.ajax({
+                type: 'GET',
+                url: serveUrl+'index.php?g=Api&m=My&a=problemedit' ,
+                data: {
+                
+                    preason:$("#preason").val(),
+                    p_sid:p_sid,
+                    p_uid:p_uid,
+                    p_type_name:titleText,
+                    p_img:JSON.stringify(p_img),
+                    pid:pid
+
+                } ,
+                dataType: "json",
+                success: function(data)
+                {
+                  //console.log(JSON.stringify(data));
+                    if(data == 1)
+                    {
+                       //alert(JSON.stringify(data));
+
+                        showMessage('录入成功！',1500);
+
+                        setTimeout(
+                            function() {
+                              api.closeWin({
+                           });
+
+                        }, 1000);
+
+                    }
+                    else
+                    {
+                        showMessage('录入失败！',1500);
+                    }
+
+                },
+                error:function(msg)
+                {
+                    //alert(msg);
+                }
+            });
+
+
+        });
+
+
+
+
+
+
+</script>

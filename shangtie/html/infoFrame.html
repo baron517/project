@@ -1,0 +1,1009 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>设备缺点单</title>
+    <link rel="stylesheet" type="text/css" href="../css/aui.css?v=1"/>
+    <link rel="stylesheet" type="text/css" href="../css/main.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/swiper.min.css"/>
+</head>
+<body>
+
+
+
+
+    <div class="search-top">
+        
+        
+         <div class="search-row date-col">
+          <label>开始时间：</label><input type="date" id="startTime" /> 
+          &nbsp;<label>结束时间：</label><input type="date" id="endTime" />
+        </div>
+        
+       <!--  <div class="search-row qixian-col">
+            <label>处理期限：</label><input type="date" id="qixianCol">
+        </div>-->
+        
+        <div class="search-row keyword-col">
+            <label>关键词：</label><input type="text"  id="search-input">
+             <button type="button" class="aui-btn aui-btn-info" id="search">搜索</button>
+        </div>
+        
+        
+       
+        
+    </div>
+
+
+    <div class="main-box" style="margin-top: 6.4rem">
+        <ul class="aui-list aui-form-list aui-list aui-list-in" style="margin-top:0.2rem;border-top:0!important;position: fixed;top: 4rem;width: 100%;z-index: 999">
+            <div class="aui-tab clearfix">
+                <div class="aui-tab-item aui-active">缺点</div>
+                <div class="aui-tab-item ">已通过</div>
+                <div class="aui-tab-item ">已驳回</div>
+                <div class="aui-tab-item ">已整改</div>
+                <div class="aui-tab-item ">已销号</div>
+                <div class="aui-tab-item ">已评价</div>
+            </div>
+        </ul>
+        <div class="swiper-container swiper-tab">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="content">
+
+                        <ul class="aui-list aui-media-list" id="workList0">
+
+
+
+                        </ul>
+
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="content">
+
+                        <ul class="aui-list aui-media-list" id="workList1">
+
+
+
+                        </ul>
+
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="content">
+
+                        <ul class="aui-list aui-media-list"  id="workList2">
+
+
+                        </ul>
+
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="content">
+
+                        <ul class="aui-list aui-media-list"  id="workList3">
+
+
+                        </ul>
+
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="content">
+
+                        <ul class="aui-list aui-media-list"  id="workList4">
+
+
+                        </ul>
+
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="content">
+
+                        <ul class="aui-list aui-media-list"  id="workList5">
+
+
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+       <!-- <ul class="aui-list aui-media-list" id="workList">
+
+
+
+        </ul>-->
+    </div>
+</body>
+</html>
+<script type="text/javascript" src="../script/jquery-1.8.1.min.js"></script>
+<script type="text/javascript" src="../script/swiper.min.js"></script>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/common.js"></script>
+<script type="text/javascript" src="../script/toast.js"></script>
+<!--滑动切换-->
+<script type="text/javascript">
+    $(function(){
+        $('.aui-tab div').click(function(){
+            var index = $(this).index();
+            $('.aui-tab div.aui-active').removeClass('aui-active');
+            $(this).addClass('aui-active');
+
+            $(".swiper-wrapper .swiper-slide").hide();
+            $(".swiper-wrapper .swiper-slide").eq(index).show();
+
+
+        });
+
+    });
+    apiready = function(){
+        
+        api.setStatusBarStyle({
+            style: 'dark',
+            color: '#666'
+        });
+        api.parseTapmode();
+        api.addEventListener({
+            name:'viewappear'
+        }, function(ret, err){
+            
+            
+           $("#workList0").empty();
+            $("#workList1").empty();
+            $("#workList2").empty();
+            $("#workList3").empty();
+            $("#workList4").empty();
+            $("#workList5").empty();
+            
+            
+            page0=0;
+            page1=0;
+            page2=0;
+            page3=0;
+            page4=0;
+            page5=0;
+            
+            getData0(page0);
+            getData1(page1);
+            getData2(page2);
+            getData3(page3);
+            getData4(page4);
+            getData5(page5);
+            
+           
+            
+            
+        });
+    };
+
+
+
+    var uid = userObj.id;
+    
+   
+
+
+    var page0=0;
+    function getData0(page) {
+
+        if($("#startTime").val())
+        {
+            var startTime=$("#startTime").val()+" 00:00:00";
+        }
+
+        if($("#endTime").val())
+        {
+            var endTime=$("#endTime").val()+" 23:59:59";
+        }
+
+
+        $.ajax({
+            type: 'GET',
+            url: serveUrl + 'index.php?g=Api&m=My&a=problem',
+            data: {page: page, uid: uid,keyword:$("#search-input").val(),pstate:0,startTime:startTime,endTime:endTime},
+            dataType: "json",
+            success: function (data) {
+                // console.log(JSON.stringify(data));
+                //alert(JSON.stringify(data));
+                var html = "";
+                for (var i = 0; i < data.length; i++) {
+
+
+                    var sub=-(getDate(new Date().format("yyyy-MM-dd")+" :00:00:00").getTime()-getDate(data[i].p_readate).getTime())/1000/3600/24;
+                    var pdateHtml="";
+
+                    if(data[i].p_status=="紧急")
+                    {
+
+                        console.log(getDate(new Date().format("yyyy-MM-dd")+" :00:00:00").getTime());
+                        console.log(getDate(data[i].p_readate).getTime());
+
+
+                        if(8<sub&&sub<=12)
+                        {
+                             pdateHtml='<div class=" aui-list-item-text aui-ellipsis-2" style="color:green;">处理期限：'+  data[i].p_readate +'</div><div class="right-status" style="color:green;">紧急</div>';
+                        }
+                        else if(4<sub&&sub<=8)
+                        {
+                             pdateHtml='<div class=" aui-list-item-text aui-ellipsis-2" style="color:#d7de0b;">处理期限：'+  data[i].p_readate +'</div><div class="right-status" style="color:#d7de0b;">紧急</div>';
+                        }
+                        else if(sub>=0&&sub<=4)
+                        {
+                             pdateHtml='<div class=" aui-list-item-text aui-ellipsis-2" style="color:red;">处理期限：'+  data[i].p_readate +'</div><div class="right-status" style="color:red;">紧急</div>';
+                        }
+                        else
+                        {
+                             pdateHtml='<div class=" aui-list-item-text aui-ellipsis-2" >处理期限：'+  data[i].p_readate +'</div><div class="right-status" >紧急</div>';
+
+                        }
+                    }
+                    else if(data[i].p_status=="重要")
+                    {
+
+                        if(14<sub&&sub<=21)
+                        {
+                            pdateHtml='<div class=" aui-list-item-text aui-ellipsis-2" style="color:green;">处理期限：'+  data[i].p_readate +'</div><div class="right-status" style="color:green;">重要</div>';
+                        }
+                        else if(7<sub&&sub<=14)
+                        {
+                            pdateHtml='<div class=" aui-list-item-text aui-ellipsis-2" style="color:#d7de0b;">处理期限：'+  data[i].p_readate +'</div><div class="right-status" style="color:#d7de0b;">重要</div>';
+                        }
+                        else if(sub>=0&&sub<=7)
+                        {
+                            pdateHtml='<div class=" aui-list-item-text aui-ellipsis-2" style="color:red;">处理期限：'+  data[i].p_readate +'</div><div class="right-status" style="color:red;">重要</div>';
+                        }
+                        else
+                        {
+                            pdateHtml='<div class=" aui-list-item-text aui-ellipsis-2" >处理期限：'+  data[i].p_readate +'</div><div class="right-status" >重要</div>';
+
+                        }
+                    }
+                    else
+                    {
+                        if(20<sub&&sub<=30)
+                        {
+                            pdateHtml='<div class=" aui-list-item-text aui-ellipsis-2" style="color:green;">处理期限：'+  data[i].p_readate +'</div><div class="right-status" style="color:green;">一般</div>';
+                        }
+                        else if(10<sub&&sub<=20)
+                        {
+                            pdateHtml='<div class=" aui-list-item-text aui-ellipsis-2" style="color:#d7de0b;">处理期限：'+  data[i].p_readate +'</div><div class="right-status" style="color:#d7de0b;">一般</div>';
+                        }
+                        else if(0<=sub&&sub<=10)
+                        {
+                            pdateHtml='<div class=" aui-list-item-text aui-ellipsis-2" style="color:red;">处理期限：'+  data[i].p_readate +'</div><div class="right-status" style="color:red;">一般</div>';
+                        }
+                        else
+                        {
+                            pdateHtml='<div class=" aui-list-item-text aui-ellipsis-2" >处理期限：'+  data[i].p_readate +'</div><div class="right-status" >一般</div>';
+
+                        }
+                    }
+
+                    html = html + ' <li class="aui-list-item aui-list-item-arrow" data-id="' + data[i].pid + '">' +
+                            '<div class="aui-media-list-item-inner">' +
+                            '<div class="aui-list-item-inner">' +
+                            '<div class="aui-list-item-text">' +
+                            '<div class="aui-list-item-title">' + data[i].pname +
+                            '</div>' +
+                            ' <div class="aui-list-item-right">' + data[i].pdate +
+                            ' </div>' +
+                                /*  '<div class="aui-list-item-right aui-text-success">' +
+                                 '已整改</div>'+*/
+                            '</div>'+pdateHtml+
+                            '</div>'+
+                            '</div>'+
+                            '</li>';
+
+                }
+
+
+                $("#workList0").append(html);
+            },
+            error:function(msg) {
+                //alert(msg);
+            }
+        });
+    }
+
+
+
+    var page1=0;
+    function getData1(page) {
+
+        if($("#startTime").val())
+        {
+            var startTime=$("#startTime").val()+" 00:00:00";
+        }
+
+        if($("#endTime").val())
+        {
+            var endTime=$("#endTime").val()+" 23:59:59";
+        }
+
+        $.ajax({
+            type: 'GET',
+            url: serveUrl + 'index.php?g=Api&m=My&a=problem',
+            data: {page: page, uid: uid,keyword:$("#search-input").val(),pstate:1,startTime:startTime,endTime:endTime},
+            dataType: "json",
+            success: function (data) {
+                // console.log(JSON.stringify(data));
+                //alert(JSON.stringify(data));
+                var html = "";
+                for (var i = 0; i < data.length; i++) {
+
+                    var sub=-(getDate(new Date().format("yyyy-MM-dd")+" :00:00:00").getTime()-getDate(data[i].p_readate).getTime())/1000/3600/24;
+                    var pdateHtml="";
+
+                    if(data[i].p_status=="紧急")
+                    {
+
+                        if(8<sub&&sub<=12)
+                        {
+                            pdateHtml='<div class=" aui-list-item-text aui-ellipsis-2" style="color:green;">处理期限：'+  data[i].p_readate +'</div><div class="right-status" style="color:green;">紧急</div>';
+                        }
+                        else if(4<sub&&sub<=8)
+                        {
+                            pdateHtml='<div class=" aui-list-item-text aui-ellipsis-2" style="color:#d7de0b;">处理期限：'+  data[i].p_readate +'</div><div class="right-status" style="color:#d7de0b;">紧急</div>';
+                        }
+                        else if(sub>=0&&sub<=4)
+                        {
+                            pdateHtml='<div class=" aui-list-item-text aui-ellipsis-2" style="color:red;">处理期限：'+  data[i].p_readate +'</div><div class="right-status" style="color:red;">紧急</div>';
+                        }
+                        else
+                        {
+                            pdateHtml='<div class=" aui-list-item-text aui-ellipsis-2" >处理期限：'+  data[i].p_readate +'</div><div class="right-status" >紧急</div>';
+
+                        }
+                    }
+                    else if(data[i].p_status=="重要")
+                    {
+
+                        if(14<sub&&sub<=21)
+                        {
+                            pdateHtml='<div class=" aui-list-item-text aui-ellipsis-2" style="color:green;">处理期限：'+  data[i].p_readate +'</div><div class="right-status" style="color:green;">重要</div>';
+                        }
+                        else if(7<sub&&sub<=14)
+                        {
+                            pdateHtml='<div class=" aui-list-item-text aui-ellipsis-2" style="color:#d7de0b;">处理期限：'+  data[i].p_readate +'</div><div class="right-status" style="color:#d7de0b;">重要</div>';
+                        }
+                        else if(sub>=0&&sub<=7)
+                        {
+                            pdateHtml='<div class=" aui-list-item-text aui-ellipsis-2" style="color:red;">处理期限：'+  data[i].p_readate +'</div><div class="right-status" style="color:red;">重要</div>';
+                        }
+                        else
+                        {
+                            pdateHtml='<div class=" aui-list-item-text aui-ellipsis-2" >处理期限：'+  data[i].p_readate +'</div><div class="right-status" >重要</div>';
+
+                        }
+                    }
+                    else
+                    {
+                        if(20<sub&&sub<=30)
+                        {
+                            pdateHtml='<div class=" aui-list-item-text aui-ellipsis-2" style="color:green;">处理期限：'+  data[i].p_readate +'</div><div class="right-status" style="color:green;">一般</div>';
+                        }
+                        else if(10<sub&&sub<=20)
+                        {
+                            pdateHtml='<div class=" aui-list-item-text aui-ellipsis-2" style="color:#d7de0b;">处理期限：'+  data[i].p_readate +'</div><div class="right-status" style="color:#d7de0b;">一般</div>';
+                        }
+                        else if(0<=sub&&sub<=10)
+                        {
+                            pdateHtml='<div class=" aui-list-item-text aui-ellipsis-2" style="color:red;">处理期限：'+  data[i].p_readate +'</div><div class="right-status" style="color:red;">一般</div>';
+                        }
+                        else
+                        {
+                            pdateHtml='<div class=" aui-list-item-text aui-ellipsis-2" >处理期限：'+  data[i].p_readate +'</div><div class="right-status" >一般</div>';
+
+                        }
+                    }
+
+
+                    html = html + ' <li class="aui-list-item aui-list-item-arrow" data-zhenggai="1" data-id="' + data[i].pid + '">' +
+                            '<div class="aui-media-list-item-inner">' +
+                            '<div class="aui-list-item-inner">' +
+                            '<div class="aui-list-item-text">' +
+                            '<div class="aui-list-item-title">' + data[i].pname +
+                            '</div>' +
+                            ' <div class="aui-list-item-right">' + data[i].pdate +
+                            ' </div>' +
+                                /*  '<div class="aui-list-item-right aui-text-success">' +
+                                 '已整改</div>'+*/
+                            '</div>'
+                            +
+                            pdateHtml+
+                            '</div>'+
+                            '</div>'+
+                            '</li>'
+
+                    ;
+                }
+
+                $(" #workList1").append(html);
+            },
+            error:function(msg) {
+                //alert(msg);
+            }
+        });
+    }
+
+
+
+    var page2 = 0;
+    function getData2(page)
+    {
+
+        if($("#startTime").val())
+        {
+            var startTime=$("#startTime").val()+" 00:00:00";
+        }
+
+        if($("#endTime").val())
+        {
+            var endTime=$("#endTime").val()+" 23:59:59";
+        }
+
+
+        $.ajax({
+            type: 'GET',
+            url: serveUrl+'index.php?g=Api&m=My&a=problem' ,
+            data: {page:page,pstate:-1,uid:uid,keyword:$("#search-input").val(),startTime:startTime,endTime:endTime} ,
+            dataType: "json",
+            success: function(data)
+            {
+                console.log(JSON.stringify(data));
+                // alert(JSON.stringify(data));
+                var html="";
+                for(var i=0;i<data.length;i++)
+                {
+
+                    var sub=-(getDate(new Date().format("yyyy-MM-dd")+" :00:00:00").getTime()-getDate(data[i].p_readate).getTime())/1000/3600/24;
+                    var pdateHtml="";
+
+                    if(data[i].p_status=="紧急")
+                    {
+
+                        if(8<sub&&sub<=12)
+                        {
+                            pdateHtml='<div class=" aui-list-item-text aui-ellipsis-2" style="color:green;">处理期限：'+  data[i].p_readate +'</div><div class="right-status" style="color:green;">紧急</div>';
+                        }
+                        else if(4<sub&&sub<=8)
+                        {
+                            pdateHtml='<div class=" aui-list-item-text aui-ellipsis-2" style="color:#d7de0b;">处理期限：'+  data[i].p_readate +'</div><div class="right-status" style="color:#d7de0b;">紧急</div>';
+                        }
+                        else if(sub>=0&&sub<=4)
+                        {
+                            pdateHtml='<div class=" aui-list-item-text aui-ellipsis-2" style="color:red;">处理期限：'+  data[i].p_readate +'</div><div class="right-status" style="color:red;">紧急</div>';
+                        }
+                        else
+                        {
+                            pdateHtml='<div class=" aui-list-item-text aui-ellipsis-2" >处理期限：'+  data[i].p_readate +'</div><div class="right-status" >紧急</div>';
+
+                        }
+                    }
+                    else if(data[i].p_status=="重要")
+                    {
+
+                        if(14<sub&&sub<=21)
+                        {
+                            pdateHtml='<div class=" aui-list-item-text aui-ellipsis-2" style="color:green;">处理期限：'+  data[i].p_readate +'</div><div class="right-status" style="color:green;">重要</div>';
+                        }
+                        else if(7<sub&&sub<=14)
+                        {
+                            pdateHtml='<div class=" aui-list-item-text aui-ellipsis-2" style="color:#d7de0b;">处理期限：'+  data[i].p_readate +'</div><div class="right-status" style="color:#d7de0b;">重要</div>';
+                        }
+                        else if(sub>=0&&sub<=7)
+                        {
+                            pdateHtml='<div class=" aui-list-item-text aui-ellipsis-2" style="color:red;">处理期限：'+  data[i].p_readate +'</div><div class="right-status" style="color:red;">重要</div>';
+                        }
+                        else
+                        {
+                            pdateHtml='<div class=" aui-list-item-text aui-ellipsis-2" >处理期限：'+  data[i].p_readate +'</div><div class="right-status" >重要</div>';
+
+                        }
+                    }
+                    else
+                    {
+                        if(20<sub&&sub<=30)
+                        {
+                            pdateHtml='<div class=" aui-list-item-text aui-ellipsis-2" style="color:green;">处理期限：'+  data[i].p_readate +'</div><div class="right-status" style="color:green;">一般</div>';
+                        }
+                        else if(10<sub&&sub<=20)
+                        {
+                            pdateHtml='<div class=" aui-list-item-text aui-ellipsis-2" style="color:#d7de0b;">处理期限：'+  data[i].p_readate +'</div><div class="right-status" style="color:#d7de0b;">一般</div>';
+                        }
+                        else if(0<=sub&&sub<=10)
+                        {
+                            pdateHtml='<div class=" aui-list-item-text aui-ellipsis-2" style="color:red;">处理期限：'+  data[i].p_readate +'</div><div class="right-status" style="color:red;">一般</div>';
+                        }
+                        else
+                        {
+                            pdateHtml='<div class=" aui-list-item-text aui-ellipsis-2" >处理期限：'+  data[i].p_readate +'</div><div class="right-status" >一般</div>';
+
+                        }
+                    }
+
+
+                    html=html+' <li class="aui-list-item aui-list-item-arrow" data-id="'+data[i].pid+'">'+
+                            '<div class="aui-media-list-item-inner">'+
+                            '<div class="aui-list-item-inner">'+
+                            '<div class="aui-list-item-text">'+
+                            '<div class="aui-list-item-title">'+data[i].pname +
+                            '</div>'+
+                            ' <div class="aui-list-item-right">'+data[i].pdate +
+                            ' </div>'+
+                                /*  '<div class="aui-list-item-right aui-text-success">' +
+                                 '已整改</div>'+*/
+                            '</div>'+
+                            pdateHtml+
+                            '</div>'+
+                            '</div>'+
+                            '</li>';
+                }
+
+                $("#workList2").append(html);
+
+            },
+            error:function(msg)
+            {
+                //alert(msg);
+            }
+        });
+    }
+
+
+    var page3 = 0;
+    function getData3(page)
+    {
+
+        if($("#startTime").val())
+        {
+            var startTime=$("#startTime").val()+" 00:00:00";
+        }
+
+        if($("#endTime").val())
+        {
+            var endTime=$("#endTime").val()+" 23:59:59";
+        }
+
+        $.ajax({
+            type: 'GET',
+            url: serveUrl+'index.php?g=Api&m=My&a=problem' ,
+            data: {page:page,pstate:2,uid:uid,keyword:$("#search-input").val(),startTime:startTime,endTime:endTime} ,
+            dataType: "json",
+            success: function(data)
+            {
+                console.log(JSON.stringify(data));
+                // alert(JSON.stringify(data));
+                var html="";
+                for(var i=0;i<data.length;i++)
+                {
+
+                    var sub=-(getDate(new Date().format("yyyy-MM-dd")+" :00:00:00").getTime()-getDate(data[i].p_readate).getTime())/1000/3600/24;
+                    var pdateHtml="";
+
+                    if(data[i].p_status=="紧急")
+                    {
+
+                        if(8<sub&&sub<=12)
+                        {
+                            pdateHtml='<div class=" aui-list-item-text aui-ellipsis-2" style="color:green;">处理期限：'+  data[i].p_readate +'</div><div class="right-status" style="color:green;">紧急</div>';
+                        }
+                        else if(4<sub&&sub<=8)
+                        {
+                            pdateHtml='<div class=" aui-list-item-text aui-ellipsis-2" style="color:#d7de0b;">处理期限：'+  data[i].p_readate +'</div><div class="right-status" style="color:#d7de0b;">紧急</div>';
+                        }
+                        else if(sub>=0&&sub<=4)
+                        {
+                            pdateHtml='<div class=" aui-list-item-text aui-ellipsis-2" style="color:red;">处理期限：'+  data[i].p_readate +'</div><div class="right-status" style="color:red;">紧急</div>';
+                        }
+                        else
+                        {
+                            pdateHtml='<div class=" aui-list-item-text aui-ellipsis-2" >处理期限：'+  data[i].p_readate +'</div><div class="right-status" >紧急</div>';
+
+                        }
+                    }
+                    else if(data[i].p_status=="重要")
+                    {
+
+                        if(14<sub&&sub<=21)
+                        {
+                            pdateHtml='<div class=" aui-list-item-text aui-ellipsis-2" style="color:green;">处理期限：'+  data[i].p_readate +'</div><div class="right-status" style="color:green;">重要</div>';
+                        }
+                        else if(7<sub&&sub<=14)
+                        {
+                            pdateHtml='<div class=" aui-list-item-text aui-ellipsis-2" style="color:#d7de0b;">处理期限：'+  data[i].p_readate +'</div><div class="right-status" style="color:#d7de0b;">重要</div>';
+                        }
+                        else if(sub>=0&&sub<=7)
+                        {
+                            pdateHtml='<div class=" aui-list-item-text aui-ellipsis-2" style="color:red;">处理期限：'+  data[i].p_readate +'</div><div class="right-status" style="color:red;">重要</div>';
+                        }
+                        else
+                        {
+                            pdateHtml='<div class=" aui-list-item-text aui-ellipsis-2" >处理期限：'+  data[i].p_readate +'</div><div class="right-status" >重要</div>';
+
+                        }
+                    }
+                    else
+                    {
+                        if(20<sub&&sub<=30)
+                        {
+                            pdateHtml='<div class=" aui-list-item-text aui-ellipsis-2" style="color:green;">处理期限：'+  data[i].p_readate +'</div><div class="right-status" style="color:green;">一般</div>';
+                        }
+                        else if(10<sub&&sub<=20)
+                        {
+                            pdateHtml='<div class=" aui-list-item-text aui-ellipsis-2" style="color:#d7de0b;">处理期限：'+  data[i].p_readate +'</div><div class="right-status" style="color:#d7de0b;">一般</div>';
+                        }
+                        else if(0<=sub&&sub<=10)
+                        {
+                            pdateHtml='<div class=" aui-list-item-text aui-ellipsis-2" style="color:red;">处理期限：'+  data[i].p_readate +'</div><div class="right-status" style="color:red;">一般</div>';
+                        }
+                        else
+                        {
+                            pdateHtml='<div class=" aui-list-item-text aui-ellipsis-2" >处理期限：'+  data[i].p_readate +'</div><div class="right-status" >一般</div>';
+
+                        }
+                    }
+
+                    html=html+' <li class="aui-list-item aui-list-item-arrow" data-id="'+data[i].pid+'">'+
+                            '<div class="aui-media-list-item-inner">'+
+                            '<div class="aui-list-item-inner">'+
+                            '<div class="aui-list-item-text">'+
+                            '<div class="aui-list-item-title">'+data[i].pname +
+                            '</div>'+
+                            ' <div class="aui-list-item-right">'+data[i].pdate +
+                            ' </div>'+
+                                /*  '<div class="aui-list-item-right aui-text-success">' +
+                                 '已整改</div>'+*/
+                            '</div>'+
+                            pdateHtml+
+                            '</div>'+
+                            '</div>'+
+                            '</li>';
+                }
+
+                $("#workList3").append(html);
+
+            },
+            error:function(msg)
+            {
+                //alert(msg);
+            }
+        });
+    }
+
+
+
+    var page4 = 0;
+    function getData4(page)
+    {
+
+        if($("#startTime").val())
+        {
+            var startTime=$("#startTime").val()+" 00:00:00";
+        }
+
+        if($("#endTime").val())
+        {
+            var endTime=$("#endTime").val()+" 23:59:59";
+        }
+
+        $.ajax({
+            type: 'GET',
+            url: serveUrl+'index.php?g=Api&m=My&a=problem' ,
+            data: {page:page,pstate:3,uid:uid,keyword:$("#search-input").val(),startTime:startTime,endTime:endTime} ,
+            dataType: "json",
+            success: function(data)
+            {
+                console.log(JSON.stringify(data));
+                // alert(JSON.stringify(data));
+                var html="";
+                for(var i=0;i<data.length;i++)
+                {
+
+                    var sub=-(getDate(new Date().format("yyyy-MM-dd")+" :00:00:00").getTime()-getDate(data[i].p_readate).getTime())/1000/3600/24;
+                    var pdateHtml="";
+
+                    if(data[i].p_status=="紧急")
+                    {
+
+                        if(8<sub&&sub<=12)
+                        {
+                            pdateHtml='<div class=" aui-list-item-text aui-ellipsis-2" style="color:green;">处理期限：'+  data[i].p_readate +'</div><div class="right-status" style="color:green;">紧急</div>';
+                        }
+                        else if(4<sub&&sub<=8)
+                        {
+                            pdateHtml='<div class=" aui-list-item-text aui-ellipsis-2" style="color:#d7de0b;">处理期限：'+  data[i].p_readate +'</div><div class="right-status" style="color:#d7de0b;">紧急</div>';
+                        }
+                        else if(sub>=0&&sub<=4)
+                        {
+                            pdateHtml='<div class=" aui-list-item-text aui-ellipsis-2" style="color:red;">处理期限：'+  data[i].p_readate +'</div><div class="right-status" style="color:red;">紧急</div>';
+                        }
+                        else
+                        {
+                            pdateHtml='<div class=" aui-list-item-text aui-ellipsis-2" >处理期限：'+  data[i].p_readate +'</div><div class="right-status" >紧急</div>';
+
+                        }
+                    }
+                    else if(data[i].p_status=="重要")
+                    {
+
+                        if(14<sub&&sub<=21)
+                        {
+                            pdateHtml='<div class=" aui-list-item-text aui-ellipsis-2" style="color:green;">处理期限：'+  data[i].p_readate +'</div><div class="right-status" style="color:green;">重要</div>';
+                        }
+                        else if(7<sub&&sub<=14)
+                        {
+                            pdateHtml='<div class=" aui-list-item-text aui-ellipsis-2" style="color:#d7de0b;">处理期限：'+  data[i].p_readate +'</div><div class="right-status" style="color:#d7de0b;">重要</div>';
+                        }
+                        else if(sub>=0&&sub<=7)
+                        {
+                            pdateHtml='<div class=" aui-list-item-text aui-ellipsis-2" style="color:red;">处理期限：'+  data[i].p_readate +'</div><div class="right-status" style="color:red;">重要</div>';
+                        }
+                        else
+                        {
+                            pdateHtml='<div class=" aui-list-item-text aui-ellipsis-2" >处理期限：'+  data[i].p_readate +'</div><div class="right-status" >重要</div>';
+
+                        }
+                    }
+                    else
+                    {
+                        if(20<sub&&sub<=30)
+                        {
+                            pdateHtml='<div class=" aui-list-item-text aui-ellipsis-2" style="color:green;">处理期限：'+  data[i].p_readate +'</div><div class="right-status" style="color:green;">一般</div>';
+                        }
+                        else if(10<sub&&sub<=20)
+                        {
+                            pdateHtml='<div class=" aui-list-item-text aui-ellipsis-2" style="color:#d7de0b;">处理期限：'+  data[i].p_readate +'</div><div class="right-status" style="color:#d7de0b;">一般</div>';
+                        }
+                        else if(0<=sub&&sub<=10)
+                        {
+                            pdateHtml='<div class=" aui-list-item-text aui-ellipsis-2" style="color:red;">处理期限：'+  data[i].p_readate +'</div><div class="right-status" style="color:red;">一般</div>';
+                        }
+                        else
+                        {
+                            pdateHtml='<div class=" aui-list-item-text aui-ellipsis-2" >处理期限：'+  data[i].p_readate +'</div><div class="right-status" >一般</div>';
+
+                        }
+                    }
+
+                    html=html+' <li class="aui-list-item aui-list-item-arrow" data-id="'+data[i].pid+'">'+
+                            '<div class="aui-media-list-item-inner">'+
+                            '<div class="aui-list-item-inner">'+
+                            '<div class="aui-list-item-text">'+
+                            '<div class="aui-list-item-title">'+data[i].pname +
+                            '</div>'+
+                            ' <div class="aui-list-item-right">'+data[i].pdate +
+                            ' </div>'+
+                                /*  '<div class="aui-list-item-right aui-text-success">' +
+                                 '已整改</div>'+*/
+                            '</div>'+
+                            pdateHtml+
+                            '</div>'+
+                            '</div>'+
+                            '</li>';
+                }
+
+                $("#workList4").append(html);
+
+            },
+            error:function(msg)
+            {
+                //alert(msg);
+            }
+        });
+    }
+
+
+    var page5 = 0;
+    function getData5(page)
+    {
+
+        if($("#startTime").val())
+        {
+            var startTime=$("#startTime").val()+" 00:00:00";
+        }
+
+        if($("#endTime").val())
+        {
+            var endTime=$("#endTime").val()+" 23:59:59";
+        }
+
+        $.ajax({
+            type: 'GET',
+            url: serveUrl+'index.php?g=Api&m=My&a=problem' ,
+            data: {page:page,pstate:4,uid:uid,keyword:$("#search-input").val(),startTime:startTime,endTime:endTime} ,
+            dataType: "json",
+            success: function(data)
+            {
+                console.log(JSON.stringify(data));
+                var html="";
+                for(var i=0;i<data.length;i++)
+                {
+
+
+                    var sub=-(getDate(new Date().format("yyyy-MM-dd")+" :00:00:00").getTime()-getDate(data[i].p_readate).getTime())/1000/3600/24;
+                    var pdateHtml="";
+
+                    if(data[i].p_status=="紧急")
+                    {
+
+                        if(8<sub&&sub<=12)
+                        {
+                            pdateHtml='<div class=" aui-list-item-text aui-ellipsis-2" style="color:green;">处理期限：'+  data[i].p_readate +'</div><div class="right-status" style="color:green;">紧急</div>';
+                        }
+                        else if(4<sub&&sub<=8)
+                        {
+                            pdateHtml='<div class=" aui-list-item-text aui-ellipsis-2" style="color:#d7de0b;">处理期限：'+  data[i].p_readate +'</div><div class="right-status" style="color:#d7de0b;">紧急</div>';
+                        }
+                        else if(sub>=0&&sub<=4)
+                        {
+                            pdateHtml='<div class=" aui-list-item-text aui-ellipsis-2" style="color:red;">处理期限：'+  data[i].p_readate +'</div><div class="right-status" style="color:red;">紧急</div>';
+                        }
+                        else
+                        {
+                            pdateHtml='<div class=" aui-list-item-text aui-ellipsis-2" >处理期限：'+  data[i].p_readate +'</div><div class="right-status" >紧急</div>';
+
+                        }
+                    }
+                    else if(data[i].p_status=="重要")
+                    {
+
+                        if(14<sub&&sub<=21)
+                        {
+                            pdateHtml='<div class=" aui-list-item-text aui-ellipsis-2" style="color:green;">处理期限：'+  data[i].p_readate +'</div><div class="right-status" style="color:green;">重要</div>';
+                        }
+                        else if(7<sub&&sub<=14)
+                        {
+                            pdateHtml='<div class=" aui-list-item-text aui-ellipsis-2" style="color:#d7de0b;">处理期限：'+  data[i].p_readate +'</div><div class="right-status" style="color:#d7de0b;">重要</div>';
+                        }
+                        else if(sub>=0&&sub<=7)
+                        {
+                            pdateHtml='<div class=" aui-list-item-text aui-ellipsis-2" style="color:red;">处理期限：'+  data[i].p_readate +'</div><div class="right-status" style="color:red;">重要</div>';
+                        }
+                        else
+                        {
+                            pdateHtml='<div class=" aui-list-item-text aui-ellipsis-2" >处理期限：'+  data[i].p_readate +'</div><div class="right-status" >重要</div>';
+
+                        }
+                    }
+                    else
+                    {
+                        if(20<sub&&sub<=30)
+                        {
+                            pdateHtml='<div class=" aui-list-item-text aui-ellipsis-2" style="color:green;">处理期限：'+  data[i].p_readate +'</div><div class="right-status" style="color:green;">一般</div>';
+                        }
+                        else if(10<sub&&sub<=20)
+                        {
+                            pdateHtml='<div class=" aui-list-item-text aui-ellipsis-2" style="color:#d7de0b;">处理期限：'+  data[i].p_readate +'</div><div class="right-status" style="color:#d7de0b;">一般</div>';
+                        }
+                        else if(0<=sub&&sub<=10)
+                        {
+                            pdateHtml='<div class=" aui-list-item-text aui-ellipsis-2" style="color:red;">处理期限：'+  data[i].p_readate +'</div><div class="right-status" style="color:red;">一般</div>';
+                        }
+                        else
+                        {
+                            pdateHtml='<div class=" aui-list-item-text aui-ellipsis-2" >处理期限：'+  data[i].p_readate +'</div><div class="right-status" >一般</div>';
+
+                        }
+                    }
+
+                    html=html+' <li class="aui-list-item aui-list-item-arrow" data-id="'+data[i].pid+'">'+
+                            '<div class="aui-media-list-item-inner">'+
+                            '<div class="aui-list-item-inner">'+
+                            '<div class="aui-list-item-text">'+
+                            '<div class="aui-list-item-title">'+data[i].pname +
+                            '</div>'+
+                            ' <div class="aui-list-item-right">'+data[i].pdate +
+                            ' </div>'+
+                                /*  '<div class="aui-list-item-right aui-text-success">' +
+                                 '已整改</div>'+*/
+                            '</div>'+
+                            pdateHtml+
+                            '</div>'+
+                            '</div>'+
+                            '</li>';
+                }
+
+                $("#workList5").append(html);
+
+            },
+            error:function(msg)
+            {
+                //alert(msg);
+            }
+        });
+    }
+   
+
+
+
+    $(".aui-media-list").on("click",".aui-list-item",function()
+    {
+
+        if($(this).attr("data-zhenggai"))
+        {
+            var pid = $(this).attr("data-id");
+            localStorage.problemkefucontent_pid=pid;
+            // alert(localStorage.problemkefucontent_pid);
+            api.openWin({
+                name: "problemkefucontentWin",
+                url: 'problemkefucontentWin.html',
+                bounces:false,
+                slidBackEnabled:true,
+                vScrollBarEnabled:false,
+                progress:{
+                    type:"page"
+                }
+            });
+
+
+        }
+        else
+        {
+            var pid = $(this).attr("data-id");
+            localStorage.pid = pid;
+            api.openWin({
+                name: "infoonDetailWin",
+                url: 'infoonDetailWin.html',
+                bounces:false,
+                slidBackEnabled:true,
+                vScrollBarEnabled:false,
+                progress:{
+                    type:"page"
+                }
+            });
+        }
+
+
+
+    });
+
+
+
+    $("#search").click(function()
+    {
+        
+        if($("#startTime").val()!=""&&$("#endTime").val()=="")
+        {
+            showMessage('结束时间不能为空！',1500);
+            return;
+        }
+        
+         if($("#endTime").val()!=""&&$("#startTime").val()=="")
+        {
+            showMessage('开始时间不能为空！',1500);
+            return;
+        }
+        
+        
+        $("#workList0").empty();
+        getData0(page0);
+        
+        
+        $("#workList1").empty();
+        getData1(page1);
+         $("#workList2").empty();
+        getData2(page2);
+         $("#workList3").empty();
+        getData3(page3);
+         $("#workList4").empty();
+        getData4(page4);
+        
+        $("#workList5").empty();
+        getData5(page5);
+    
+        
+    });
+    
+
+
+
+</script>
+
+

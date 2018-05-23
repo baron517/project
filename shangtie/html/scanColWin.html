@@ -1,0 +1,194 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>首页</title>
+    <link rel="stylesheet" type="text/css" href="../css/aui.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/main.css"/>
+
+
+
+</head>
+<body  style="background: #000;">
+
+<header class="aui-bar aui-bar-nav" id="aui-header" style="background: #000;">
+    <a class="aui-pull-left aui-btn">
+        <span class="aui-iconfont aui-icon-left" onclick="closeWin()"></span>
+    </a>
+    <div class="aui-title">扫一扫</div>
+
+    <a class="aui-pull-right aui-btn" id="deng">
+        <img style="width:1rem;" src="../image/deng.png" />
+    </a>
+
+</header>
+
+
+</body>
+</html>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/jquery-1.8.1.min.js"></script>
+<script type="text/javascript" src="../script/common.js?v=1"></script>
+<script type="text/javascript" src="../script/aui-dialog.js"></script>
+<script type="text/javascript" src="../script/modernizr.js"></script>
+<script type="text/javascript" src="../script/toast.js"></script>
+<script type="text/javascript">
+
+
+
+    apiready = function(){
+        api.parseTapmode();
+
+        api.setStatusBarStyle({
+            style: 'light',
+            color: '#fff'
+        });
+
+        var header = $api.byId('aui-header');
+        $api.fixStatusBar(header);
+        var headerPos = $api.offset(header);
+        var body_h = $api.offset($api.dom('body')).h;
+
+
+
+        var scanner = api.require('scanner');
+
+
+        api.addEventListener({
+            name:'viewappear'
+        }, function(ret, err){
+            scannerInit();
+        });
+
+
+        var widthValue=parseInt(($(window).width()-280)/2);
+
+
+        function scannerInit()
+        {
+            scanner.closeView();
+            scanner .openView({
+                x:0,
+                y: 70,
+                w: $(window).width(),
+                h: $(window).height()
+            },function(ret, err) {
+
+                if (ret) {
+
+
+
+                    if(ret.msg.indexOf("#")>-1)
+                    {
+
+                        if(ret.msg.split("#")[0]=="ZGlndWlrZWpp")
+                        {
+
+                            localStorage.qr_code=ret.msg.split("#")[1];
+
+                            $.ajax({
+                                type: 'POST',
+                                url: serveUrl+'index.php?g=Api&m=CommonApi&a=searchDevice' ,
+                                data: {qr_code:ret.msg.split("#")[1]} ,
+                                dataType:"json",
+                                success: function(data)
+                                {
+
+                                    //alert(JSON.stringify(data));
+
+
+                                    scanner.closeView();
+                                    alert("扫码成功！");
+
+
+                                    if(data.code==0)
+                                    {
+
+                                        api.openWin({
+                                            name: "bangdingWin",
+                                            url: 'bangdingWin.html',
+                                            bounces:false,
+                                            slidBackEnabled:true,
+                                            vScrollBarEnabled:false,
+                                            progress:{
+                                                type:"page"
+                                            }
+                                        });
+
+                                    }
+                                    else {
+
+                                        localStorage.eid=data.eid;
+
+                                        api.openWin({
+                                            name: "scanWin",
+                                            url: 'scanWin.html',
+                                            bounces:false,
+                                            slidBackEnabled:true,
+                                            vScrollBarEnabled:false,
+                                            progress:{
+                                                type:"page"
+                                            }
+                                        });
+
+                                    }
+
+
+
+
+                                },
+                                error:function(msg)
+                                {
+                                    scanner.closeView();
+                                }
+                            });
+
+                        }
+
+
+
+                    }
+
+
+                } else {
+                    //alert(JSON.stringify(err));
+                }
+
+
+            });
+        }
+
+
+        $("#deng").click(function()
+        {
+            $("#deng").toggleClass("active");
+            if($("#deng").hasClass("active"))
+            {
+                scanner.lightSwitch({
+                    turnOn: true
+                });
+            }
+            else
+            {
+                scanner.lightSwitch({
+                    turnOn: false
+                });
+            }
+
+        });
+
+
+
+
+
+
+    };
+    function closeWin(){
+        api.closeWin({
+        });
+    }
+
+
+</script>

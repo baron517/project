@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,initial-scale=1.0,width=device-width"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>超级商务</title>
+    <link rel="stylesheet" type="text/css" href="./css/aui.css" />
+    <style type="text/css">
+
+    </style>
+</head>
+<body>
+
+</body>
+<script type="text/javascript" src="./script/api.js"></script>
+<script type="text/javascript" src="./script/common.js"></script>
+<script type="text/javascript">
+    apiready = function(){
+
+        api.setStatusBarStyle({
+            style: 'light',
+            color: '#fff'
+        });
+
+        if(localStorage.userObj)
+        {
+            api.openWin({
+                name: "mainWin",
+                url: 'html/mainWin.html',
+                bounces:false,
+                slidBackEnabled:true,
+                vScrollBarEnabled:false,
+                progress:{
+                    type:"page"
+                }
+            });
+        }
+        else {
+            api.openWin({
+                name: "loginWin",
+                url: 'html/loginWin.html',
+                bounces:false,
+                slidBackEnabled:true,
+                vScrollBarEnabled:false,
+                progress:{
+                    type:"page"
+                }
+            });
+        }
+
+
+
+    };
+</script>
+</html>

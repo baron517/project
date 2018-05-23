@@ -1,0 +1,295 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>个人中心</title>
+    <link rel="stylesheet" type="text/css" href="../css/aui.css?v=1"/>
+    <link rel="stylesheet" type="text/css" href="../css/main.css"/>
+
+</head>
+<body>
+
+
+
+
+<div class="aui-content aui-margin-b-15" style="padding:0 0.5rem;">
+
+
+    <ul class="aui-list aui-form-list" style="border-top:0!important;">
+        <li class="aui-list-item aui-list-item-middle" tapmode onclick="openActionsheet()">
+            <div class="aui-list-item-inner">
+                <div class="aui-list-item-title" style="font-size: 0.8rem">头像</div>
+
+                <div class="aui-list-item-right" style="padding-right:0.5rem;">
+                    <img id="touxiang" src="../image/touxiang1.png" style="width:2.6rem;height:3.6rem;padding-right:0;border-radius: 50%;" class="aui-list-img-sm aui-list-item-media">
+                </div>
+            </div>
+        </li>
+        <li class="aui-list-item">
+            <div class="aui-list-item-inner">
+                <div class="aui-list-item-title" style="font-size: 0.8rem">用户账号</div>
+                <div class="aui-list-item-right" id="phone" style="padding-right: 1.5rem"></div>
+            </div>
+        </li>
+        <li class="aui-list-item aui-list-item-middle" id="namexiugai">
+            <div class="aui-list-item-inner aui-list-item-arrow">
+                <div class="aui-list-item-title" style="font-size: 0.8rem">修改姓名</div>
+                <div class="aui-list-item-right" id="name" style="padding-right: 1.5rem"></div>
+            </div>
+        </li>
+      <!--  <li class="aui-list-item aui-list-item-middle" id="phonexiugai">
+            <div class="aui-list-item-inner aui-list-item-arrow">
+                <div class="aui-list-item-title" style="font-size: 0.8rem">更换手机号</div>
+                <div class="aui-list-item-right" id="newphone" style="padding-right: 1.5rem"></div>
+            </div>
+        </li>-->
+        <li class="aui-list-item aui-list-item-middle" id="forget">
+            <div class="aui-list-item-inner aui-list-item-arrow">
+                <div class="aui-list-item-title" style="font-size: 0.8rem">修改密码</div>
+            </div>
+        </li>
+    </ul>
+
+    <div class="aui-btn aui-btn-info aui-btn-block"  id="tuichu" style="margin-top:2rem;background: #FF0000!important;">退出当前账户</div>
+
+</div>
+
+
+
+
+</body>
+</html>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/jquery-1.8.1.min.js"></script>
+<script type="text/javascript" src="../script/common.js"></script>
+<script type="text/javascript" src="../script/toast.js"></script>
+<script type="text/javascript" src="../script/aui-actionsheet.js" ></script>
+
+<script type="text/javascript">
+
+    apiready = function(){
+
+        api.setStatusBarStyle({
+            style: 'dark',
+            color: '#666'
+        });
+        api.parseTapmode();
+
+        api.addEventListener({
+            name:'viewappear'
+        }, function(ret, err){
+            // alert('window显示');
+            window.location.reload();
+        });
+
+    };
+
+
+
+    var actionsheet = new auiActionsheet();
+    function openActionsheet(){
+        actionsheet.init({
+            frameBounces:true,//当前页面是否弹动，（主要针对安卓端）
+            title:"请选择",
+            cancelTitle:'这里取消按钮',
+            buttons:['拍照','图库选择']
+        },function(ret){
+            if(ret.buttonIndex == 1){
+
+                //alert("拍照")
+
+                api.getPicture({
+                    sourceType: 'camera',
+                    encodingType: 'jpg',
+                    mediaValue: 'pic',
+                    destinationType: 'url',
+                    allowEdit: true,
+                    quality: 100,
+                    targetWidth: 750,
+                    targetHeight: 750,
+                    saveToPhotoAlbum: false
+                }, function(ret, err) {
+                    if (ret) {
+                        uploadImg(ret.data);
+                    } else {
+                        //alert(JSON.stringify(err));
+                    }
+                });
+
+
+            };
+            if(ret.buttonIndex == 2){
+
+
+
+                api.getPicture({
+                    sourceType: 'album',
+                    encodingType: 'jpg',
+                    mediaValue: 'pic',
+                    destinationType: 'url',
+                    allowEdit: true,
+                    quality: 100,
+                    targetWidth: 750,
+                    targetHeight: 750,
+                    saveToPhotoAlbum: false
+                }, function(ret, err) {
+                    if (ret) {
+
+                        uploadImg(ret.data);
+
+                    } else {
+                        //alert(JSON.stringify(err));
+                    }
+                });
+
+
+            };
+        })
+    }
+
+
+    function uploadImg(imgUrl)
+    {
+        api.ajax({
+            url: serveUrl+'index.php?g=Api&m=CommonApi&a=uploadTouXiang&id='+userObj.id,
+            method: 'post',
+            data: {
+                files: {
+                    file: imgUrl
+                }
+            }
+        }, function(ret, err) {
+
+            //alert(JSON.stringify(ret));
+
+            if (ret.code=1000) {
+
+                $("#touxiang").attr("src",serveUrl+ret.url);
+
+            }
+
+        });
+    }
+
+
+  /*  var uid = userObj.id;
+    var type = userObj.user_type;
+    //alert(type);
+    if (type == 1) {
+        $("#name").append(userObj.user_nicename);
+        $("#phone").append(userObj.user_login);
+        $("#newphone").append(userObj.user_login);
+    }
+    if (type == 2) {
+        $("#name").append(userObj.sname);
+        $("#phone").append(userObj.snum);
+        $("#newphone").append(userObj.snum);
+    }*/
+
+
+    var uid = userObj.id;
+   // alert(JSON.stringify(uid));
+    var type = userObj.user_type;
+    $.ajax({
+        type: 'GET',
+        url: serveUrl+'index.php?g=Api&m=My&a=personinfor' ,
+        data: {uid:uid,type:type} ,
+        dataType: "json",
+        success: function(data)
+        {
+            //alert(JSON.stringify(data));
+            if (type == 1) {
+                $("#name").append(data[0].sname);
+                $("#phone").append(data[0].user_login);
+                $("#newphone").append(data[0].user_login);
+            }
+            else if (type == 2) {
+                $("#name").append(data[0].sname);
+                $("#phone").append(data[0].snum);
+          /*      $("#newphone").append(data[0].snum);*/
+            }
+
+            if(data[0].avatar)
+            {
+                $("#touxiang").attr("src",serveUrl+data[0].avatar);
+            }
+
+        },
+        error:function(msg)
+        {
+            //alert(msg);
+        }
+    });
+
+
+
+    $("#tuichu").click(function()
+    {
+
+        localStorage.userObj="";
+
+        api.openWin({
+            name: "loginWin",
+            url: 'loginWin.html',
+            bounces:false,
+            slidBackEnabled:true,
+            vScrollBarEnabled:false,
+            progress:{
+                type:"page"
+            }
+        });
+
+
+
+    });
+    $("#namexiugai").click(function()
+    {
+
+        api.openWin({
+            name: "namexiugaiWin",
+            url: 'namexiugaiWin.html',
+            bounces:false,
+            slidBackEnabled:true,
+            vScrollBarEnabled:false,
+            progress:{
+                type:"page"
+            }
+        });
+
+    });
+    $("#phonexiugai").click(function()
+    {
+
+        api.openWin({
+            name: "phonexiugaiWin",
+            url: 'phonexiugaiWin.html',
+            bounces:false,
+            slidBackEnabled:true,
+            vScrollBarEnabled:false,
+            progress:{
+                type:"page"
+            }
+        });
+
+    });
+    $("#forget").click(function()
+    {
+
+        api.openWin({
+            name: "forgetWin",
+            url: 'forgetWin.html',
+            bounces:false,
+            slidBackEnabled:true,
+            vScrollBarEnabled:false,
+            progress:{
+                type:"page"
+            }
+        });
+
+    });
+
+
+
+</script>

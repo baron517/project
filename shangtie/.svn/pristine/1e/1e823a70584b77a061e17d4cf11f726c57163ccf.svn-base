@@ -1,0 +1,205 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>登录</title>
+    <link rel="stylesheet" type="text/css" href="../css/aui.css?v=1"/>
+    <link rel="stylesheet" type="text/css" href="../css/main.css"/>
+
+</head>
+<style>
+
+</style>
+<body class="bgimg">
+
+
+<div class="aui-content aui-margin-b-15" style="padding:0 0.5rem;">
+
+<div style="width:300px;height: 131px;text-align: center;margin:0 auto;margin-top: 1.5rem;">
+    <img src="../image/logo1.png" style="width: 15rem;">
+</div>
+    <ul class="login">
+        <li class="aui-list-item1" >
+                <i class="aui-iconfont aui-icon-mobile" style="font-size: 1.2rem;padding-top: 0.3rem;color: #EAF1F4"></i>
+                <input type="text" id="phone" value="" maxlength="11" placeholder="请输入用户名" style="padding-left: 0.75rem;color:#EAF1F4; ">
+        </li>
+        </ul>
+    <ul class="login">
+        <li class="aui-list-item1" >
+            <i class="aui-iconfont aui-icon-lock" style="font-size: 1.2rem;padding-top: 0.3rem;color: #EAF1F4"></i>
+            <input type="password" id="pass" value="" placeholder="请输入密码" style="padding-left: 0.75rem;color:#EAF1F4; ">
+        </li>
+    </ul>
+       <div class="btn-box">
+           <button class="btnlogin" id="login">登陆</button>
+       </div>
+         <div class="forget">
+             <span id="forget">忘记密码？</span>
+         </div>
+       <!-- <div class="zhuce">
+           <span id="reg">注册</span>
+        </div>-->
+
+
+</div>
+
+
+
+
+
+
+</body>
+</html>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/jquery-1.8.1.min.js"></script>
+<script type="text/javascript" src="../script/common.js"></script>
+<script type="text/javascript" src="../script/toast.js"></script>
+<script type="text/javascript">
+
+
+
+
+    apiready = function(){
+
+
+
+        api.setStatusBarStyle({
+            style: 'dark',
+            color: '#666'
+        });
+        api.parseTapmode();
+
+        api.addEventListener({
+            name:"keyback"
+        },function(ret,err){
+
+            api.closeWidget({
+                //id: 'A6914645463877', //测试
+                id:'A6066085802483',
+                silent:'false',
+                retData: {
+                    name: 'closeWidget'
+                },
+                animation: {
+                    type: 'flip',
+                    subType: 'from_bottom',
+                    duration: 500
+                }
+            });
+        });
+
+
+        $("#reg").click(function()
+        {
+
+            api.openWin({
+                name: "regWin",
+                url: 'regWin.html',
+                bounces:false,
+                slidBackEnabled:true,
+                vScrollBarEnabled:false,
+                progress:{
+                    type:"page"
+                }
+            });
+
+        });
+
+        $("#forget").click(function()
+        {
+
+            api.openWin({
+                name: "forgetWin",
+                url: 'forgetWin.html',
+                bounces:false,
+                slidBackEnabled:true,
+                vScrollBarEnabled:false,
+                progress:{
+                    type:"page"
+                }
+            });
+
+        });
+
+
+
+
+
+
+
+
+    };
+    
+
+     $("#login").click(function()
+        {
+
+            if($("#phone").val()=="")
+            {
+
+                showMessage('手机号码不能为空！',1500);
+                return;
+            }
+
+            if($("#pass").val()=="")
+            {
+
+                showMessage('密码不能为空！',1500);
+                return;
+            }
+
+            var param=JSON.stringify({snum:$("#phone").val(),spassword:$("#pass").val()});
+            console.log(param);
+           
+            
+            $.ajax({
+               type: 'POST',
+               url: serveUrl+'index.php?g=Api&m=CommonApi&a=login' ,
+              data: {param:param} ,
+              dataType: "json",
+              success: function(data)
+              {
+                //alert(JSON.stringify(data));
+                if(data.code==1000)
+                {
+
+                    showMessage('登录成功！',1500);
+                    localStorage.userObj=JSON.stringify(data.data);
+                    console.log(userObj);
+                    setTimeout(function() {
+                        
+                          api.openWin({
+                        name: "mainWin",
+                        url: 'mainWin.html',
+                        bounces:false,
+                        slidBackEnabled:true,
+                        vScrollBarEnabled:false,
+                        progress:{
+                            type:"page"
+                        }
+                    });
+                        
+                    }, 1000);
+                  
+                }
+                else
+                {
+                    showMessage(data.msg,1500);
+                }
+                
+              },
+              error:function(msg)
+              {
+                  //alert(msg);
+              }
+            });
+
+        });
+    
+
+
+
+
+</script>

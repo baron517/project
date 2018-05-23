@@ -1,0 +1,525 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>设备详情</title>
+    <link rel="stylesheet" type="text/css" href="../css/aui.css?v=1"/>
+    <link rel="stylesheet" type="text/css" href="../css/main.css"/>
+<style>
+    .remove{
+        width: 1.2rem;
+        height: 1.2rem;
+        position: absolute;
+        z-index: 99;
+        border-radius: 50px;
+        background-color: rgba(0, 0, 0, 0.5);
+        right: 0.2rem;
+        top: 0.2rem;
+        text-align: center;
+
+
+    }
+    .remove p{
+        font-size: 1rem;
+        color: white;
+        margin-top: -0.15rem;
+        margin-left: 0.05rem;
+    }
+.aui-col-xs-4{
+    height: 110px;
+
+    }
+</style>
+</head>
+<body>
+
+
+
+
+<div class="aui-content aui-margin-b-15" style="padding:0 0.5rem;">
+
+
+
+    <div class="aui-content aui-margin-b-15">
+        <ul class="aui-list aui-form-list" id="formList">
+
+
+
+            </ul>
+        <ul class="aui-list aui-media-list">
+        <li class="aui-list-item">
+            <div class="aui-list-item-inner">
+                <div class="aui-list-item-title"  style="font-size: 0.8rem">内部相片:</div>
+                <div class="aui-row aui-row-padded">
+
+
+                    <div id="list1" class="list-img-col"></div>
+                    <div class="aui-col-xs-4 upload-col" id="upload1">
+
+                        <div style="background: #eee;">
+
+                            <img src="../image/addPlus.png" />
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </li>
+            <li class="aui-list-item">
+                <div class="aui-list-item-inner">
+                    <div class="aui-list-item-title"  style="font-size: 0.8rem">外部相片:</div>
+                    <div class="aui-row aui-row-padded">
+
+                        <div id="list2" class="list-img-col"></div>
+
+                        <div class="aui-col-xs-4 upload-col" id="upload2">
+
+
+                            <div style="background: #eee;">
+
+                                <img src="../image/addPlus.png" />
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </li>
+            <li class="aui-list-item">
+                <div class="aui-list-item-inner">
+                    <div class="aui-list-item-title"  style="font-size: 0.8rem">对应图纸:</div>
+                    <div class="aui-row aui-row-padded">
+
+                        <div id="list3" class="list-img-col"></div>
+
+                        <div class="aui-col-xs-4 upload-col" id="upload3">
+                            <div style="background: #eee;">
+                                <img src="../image/addPlus.png" />
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </li>
+            </ul>
+
+
+
+
+    </div>
+
+
+    <div class="aui-btn aui-btn-info aui-btn-block"  id="submitBtn" style="margin-top:2rem;background: #0389d0!important;">
+        确认
+    </div>
+
+
+</div>
+
+
+
+<span id="jsonList" style="display: none;"></span>
+
+
+
+</body>
+</html>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/jquery-1.8.1.min.js"></script>
+<script type="text/javascript" src="../script/common.js"></script>
+<script type="text/javascript" src="../script/toast.js"></script>
+<script type="text/javascript" src="../script/aui-actionsheet.js" ></script>
+<script type="text/javascript">
+
+    apiready = function(){
+        api.setStatusBarStyle({
+            style: 'dark',
+            color: '#666'
+        });
+        api.parseTapmode();
+
+
+
+    };
+
+
+    $(".list-img-col").on("click","img",function()
+    {
+
+        if($(this).parent().parent().hasClass("upload-col"))
+        {
+            return;
+        }
+
+        var imgUrl= $(this).attr("src");
+        openPicView(imgUrl);
+
+
+    });
+
+
+    $("#list1").on("click",".remove",function()
+    {
+        $(this).parent().remove();
+    });
+    $("#list2").on("click",".remove",function()
+    {
+        $(this).parent().remove();
+    });
+    $("#list3").on("click",".remove",function()
+    {
+        $(this).parent().remove();
+    });
+
+
+    $("#submitBtn").click(function()
+    {
+
+        var inputArray=[];
+
+        var flag = false;
+
+        $("#formList input").each(function()
+        {
+            /*if($(this).val() ==  ""){
+
+                flag = true;
+
+            }else {*/
+
+                var inputObj = {};
+                inputObj.cname = $(this).parent().prev().text();
+                inputObj.cvalue = $(this).val();
+                inputArray.push(inputObj);
+            /*}*/
+
+        });
+
+       /* if(flag==true)
+
+        {
+            alert('请输入值！');
+            return;
+        }
+*/
+
+        var fimg1=[];
+        $("#list1 img").each(function()
+        {
+            var fimgObj={};
+            fimgObj.img=$(this).attr("src");
+            fimg1.push(fimgObj);
+        });
+
+        var nei_image=JSON.stringify(fimg1);
+
+        var fimg2=[];
+        $("#list2 img").each(function()
+        {
+            var fimgObj={};
+            fimgObj.img=$(this).attr("src");
+            fimg2.push(fimgObj);
+        });
+        var wai_image=JSON.stringify(fimg2);
+
+
+        var fimg3=[];
+        $("#list3 img").each(function()
+        {
+            var fimgObj={};
+            fimgObj.img=$(this).attr("src");
+            fimg3.push(fimgObj);
+        });
+
+        var tu_image=JSON.stringify(fimg3);
+
+        console.log(inputArray);
+
+        $.ajax({
+            type: 'POST',
+            url: serveUrl + 'index.php?g=Api&m=CommonApi&a=deviceDetailSave',
+            data: {
+                eid:localStorage.eid,inputObj:JSON.stringify(inputArray),nei_image:nei_image,wai_image:wai_image,tu_image:tu_image
+            },
+            dataType:"json",
+            success: function (data) {
+
+                    if(data==1)
+                    {
+                        showMessage('保存成功！',1500);
+                    }
+
+
+
+            },
+            error: function (msg) {
+
+            }
+        });
+
+
+    });
+
+
+    var eid = localStorage.eid;
+
+    $.ajax({
+        type: 'POST',
+        url: serveUrl + 'index.php?g=Api&m=CommonApi&a=getDeviceDetail',
+        data: {eid:localStorage.eid},
+        dataType:"json",
+        success: function (data) {
+
+
+            if(data.ec_content)
+            {
+                $("#jsonList").html(data.ec_content);
+
+                var inputList=JSON.parse($("#jsonList").text());
+
+
+                if(data.nei_image)
+                {
+                    $("#jsonList").html(data.nei_image);
+                    var nei_image=JSON.parse($("#jsonList").text());
+                }
+                else
+                {
+                    var nei_image=[];
+                }
+
+                if(nei_image.length>4)
+                {
+                    $("#upload1").hide();
+                }
+
+                for(var i=0;i<nei_image.length;i++)
+                {
+
+                    $("#list1").append(' <div class="aui-col-xs-4">'+
+                            ' <div class="remove">'+
+                            '<p>×</p>'+
+                            '</div>'+
+                            '<div style="background: #eee;">'+
+                            '<img src="'+nei_image[i].img+'" />'+
+                            '</div>'+
+                            '</div>');
+
+                }
+
+                if(data.wai_image)
+                {
+                    $("#jsonList").html(data.wai_image);
+                    var wai_image=JSON.parse($("#jsonList").text());
+                }
+                else
+                {
+                    var wai_image=[];
+                }
+
+
+
+                if(wai_image.length>4)
+                {
+                    $("#upload2").hide();
+                }
+
+                for(var i=0;i<wai_image.length;i++)
+                {
+
+                    $("#list2").append(' <div class="aui-col-xs-4">'+
+                            ' <div class="remove">'+
+                            '<p>×</p>'+
+                            '</div>'+
+                            '<div style="background: #eee;">'+
+                            '<img src="'+wai_image[i].img+'" />'+
+                            '</div>'+
+                            '</div>');
+
+                }
+
+
+                if(data.tu_image)
+                {
+                    $("#jsonList").html(data.tu_image);
+                    var tu_image=JSON.parse($("#jsonList").text());
+                }
+                else
+                {
+                    var tu_image=[];
+                }
+
+
+
+                if(tu_image.length>4)
+                {
+                    $("#upload3").hide();
+                }
+
+                for(var i=0;i<tu_image.length;i++)
+                {
+
+                    $("#list3").append(' <div class="aui-col-xs-4">'+
+                            ' <div class="remove">'+
+                            '<p>×</p>'+
+                            '</div>'+
+                            '<div style="background: #eee;">'+
+                            '<img src="'+tu_image[i].img+'" />'+
+                            '</div>'+
+                            '</div>');
+
+                }
+
+
+
+                var listHtml="";
+
+                for(var i=0;i<inputList.length;i++)
+                {
+
+                    var cvalue="";
+                    if(inputList[i].cvalue)
+                    {
+                        cvalue=inputList[i].cvalue;
+                    }
+
+                    listHtml=listHtml+'<li class="aui-list-item">'+
+                            '<div class="aui-list-item-inner">'+
+                            ' <div class="aui-list-item-label" style="width:45%">'+inputList[i].cname+
+                            ' </div>'+
+                            '<div class="aui-list-item-input"  style="width: 55%;">'+
+                            ' <input type="text" value="'+cvalue+'"  style="width:90%;float: right  ">'+
+                            '</div>'+
+                            '</div>'+
+                            '</li>';
+                }
+
+                $("#formList").append(listHtml);
+
+            }
+
+
+
+        },
+        error: function (msg) {
+
+        }
+    });
+
+
+
+    $(".upload-col").click(function()
+    {
+        openActionsheet($(this));
+
+    });
+
+
+    var actionsheet = new auiActionsheet();
+    function openActionsheet(objDiv){
+        actionsheet.init({
+            frameBounces:true,//当前页面是否弹动，（主要针对安卓端）
+            title:"请选择",
+            cancelTitle:'这里取消按钮',
+            buttons:['拍照','图库选择']
+        },function(ret){
+            if(ret.buttonIndex == 1){
+
+                //alert("拍照")
+
+                api.getPicture({
+                    sourceType: 'camera',
+                    encodingType: 'jpg',
+                    mediaValue: 'pic',
+                    destinationType: 'url',
+                    allowEdit: true,
+                    quality: 100,
+                    targetWidth: 750,
+                    targetHeight: 750,
+                    saveToPhotoAlbum: false
+                }, function(ret, err) {
+                    if (ret) {
+                        uploadImg(ret.data,objDiv);
+                    } else {
+                        //alert(JSON.stringify(err));
+                    }
+                });
+
+
+            };
+            if(ret.buttonIndex == 2){
+
+
+
+                api.getPicture({
+                    sourceType: 'album',
+                    encodingType: 'jpg',
+                    mediaValue: 'pic',
+                    destinationType: 'url',
+                    allowEdit: true,
+                    quality: 100,
+                    targetWidth: 750,
+                    targetHeight: 750,
+                    saveToPhotoAlbum: false
+                }, function(ret, err) {
+                    if (ret) {
+
+                        uploadImg(ret.data,objDiv);
+
+                    } else {
+                        //alert(JSON.stringify(err));
+                    }
+                });
+
+
+            };
+        })
+    }
+
+
+    function uploadImg(imgUrl,objDiv)
+    {
+        api.ajax({
+            url: serveUrl+'index.php?g=Api&m=CommonApi&a=uploadImg',
+            method: 'post',
+            data: {
+                files: {
+                    file: imgUrl
+                }
+            }
+        }, function(ret, err) {
+
+            //alert(JSON.stringify(ret));
+            //alert(ret.length);
+            if (ret.code=1000) {
+
+                if(imgUrl != "") {
+                    if($(objDiv).prev().find("img").length < 6 ){
+
+
+
+                        $(objDiv).prev().append('<div class="aui-col-xs-4">'+
+                                ' <div class="remove">'+
+                                '<p>×</p>'+
+                                '</div>'+
+                                '<img  src="'+serveUrl+ret.url+'" />'+
+                                '</div>');
+
+                    }else {
+                        showMessage('最多只能上传六张图片！',1500);
+                    }
+                }
+            }
+
+        });
+
+
+
+    }
+
+
+
+</script>

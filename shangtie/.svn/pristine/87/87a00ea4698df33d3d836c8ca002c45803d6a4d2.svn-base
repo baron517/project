@@ -1,0 +1,221 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>申请修改记录</title>
+    <link rel="stylesheet" type="text/css" href="../css/aui.css?v=1"/>
+    <link rel="stylesheet" type="text/css" href="../css/main.css"/>
+
+</head>
+<body>
+
+
+
+<div class="aui-content aui-margin-b-15">
+    <div class="aui-searchbar" id="search">
+        <div class="aui-searchbar-input aui-border-radius" tapmode onclick="doSearch()">
+            <i class="aui-iconfont aui-icon-search"></i>
+            <form action="javascript:search();">
+                <input type="search" placeholder="请输入搜索内容" id="search-input">
+            </form>
+        </div>
+        <div class="aui-searchbar-cancel" tapmod style="margin-right: 0.5rem;padding-right: 0.2rem">取消</div>
+    </div>
+
+<div class="aui-content aui-margin-b-15">
+    <ul class="aui-list aui-form-list aui-list aui-list-in" style="margin-top:0.2rem;border-top:0!important;">
+    <div class="aui-tab" id="tab">
+        <div class="aui-tab-item "  id="modify">二维码申请修改记录</div>
+        <div class="aui-tab-item aui-active"><div></div>数据申请修改记录</div>
+    </div>
+</ul>
+    <ul class="aui-list aui-media-list">
+        <li class="aui-list-item aui-list-item-arrow" style="border-bottom:1px solid #DDDDDD;">
+            <div class="aui-media-list-item-inner">
+                <div class="aui-list-item-inner">
+                    <div class="aui-list-item-text">
+                        <div class="aui-list-item-title">数据申请修改记录</div>
+                        <div class="aui-list-item-right">08:00</div>
+                    </div>
+                    <div class="aui-list-item-text aui-ellipsis-2">
+                        这里是内容区域，新版中的列表布局可以很轻松的帮助开发者完成常见列表样式。
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li class="aui-list-item aui-list-item-arrow" style="border-bottom:1px solid #DDDDDD;">
+            <div class="aui-media-list-item-inner">
+                <div class="aui-list-item-inner">
+                    <div class="aui-list-item-text">
+                        <div class="aui-list-item-title">数据申请修改记录</div>
+                        <div class="aui-list-item-right">08:00</div>
+                    </div>
+                    <div class="aui-list-item-text aui-ellipsis-2">
+                        这里是内容区域，新版中的列表布局可以很轻松的帮助开发者完成常见列表样式。
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li class="aui-list-item aui-list-item-arrow" style="border-bottom:1px solid #DDDDDD;">
+            <div class="aui-media-list-item-inner">
+                <div class="aui-list-item-inner">
+                    <div class="aui-list-item-text">
+                        <div class="aui-list-item-title">数据申请修改记录</div>
+                        <div class="aui-list-item-right">08:00</div>
+                    </div>
+                    <div class="aui-list-item-text aui-ellipsis-2">
+                        这里是内容区域，新版中的列表布局可以很轻松的帮助开发者完成常见列表样式。
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li class="aui-list-item aui-list-item-arrow" style="border-bottom:1px solid #DDDDDD;">
+            <div class="aui-media-list-item-inner">
+                <div class="aui-list-item-inner">
+                    <div class="aui-list-item-text">
+                        <div class="aui-list-item-title">数据申请修改记录</div>
+                        <div class="aui-list-item-right">08:00</div>
+                    </div>
+                    <div class="aui-list-item-text aui-ellipsis-2">
+                        这里是内容区域，新版中的列表布局可以很轻松的帮助开发者完成常见列表样式。
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li class="aui-list-item aui-list-item-arrow" style="border-bottom:1px solid #DDDDDD;">
+            <div class="aui-media-list-item-inner">
+                <div class="aui-list-item-inner">
+                    <div class="aui-list-item-text">
+                        <div class="aui-list-item-title">数据申请修改记录</div>
+                        <div class="aui-list-item-right">08:00</div>
+                    </div>
+                    <div class="aui-list-item-text aui-ellipsis-2">
+                        这里是内容区域，新版中的列表布局可以很轻松的帮助开发者完成常见列表样式。
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li class="aui-list-item aui-list-item-arrow" style="border-bottom:1px solid #DDDDDD;">
+            <div class="aui-media-list-item-inner">
+                <div class="aui-list-item-inner">
+                    <div class="aui-list-item-text">
+                        <div class="aui-list-item-title">数据申请修改记录</div>
+                        <div class="aui-list-item-right">08:00</div>
+                    </div>
+                    <div class="aui-list-item-text aui-ellipsis-2">
+                        这里是内容区域，新版中的列表布局可以很轻松的帮助开发者完成常见列表样式。
+                    </div>
+                </div>
+            </div>
+        </li>
+
+        </ul>
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+</body>
+</html>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/aui-tab.js"></script>
+<script type="text/javascript" src="../script/jquery-1.8.1.min.js"></script>
+<script type="text/javascript" src="../script/common.js"></script>
+
+<script type="text/javascript">
+
+    apiready = function(){
+
+
+
+        api.setStatusBarStyle({
+            style: 'dark',
+            color: '#666'
+        });
+        api.parseTapmode();
+
+
+        var FNScanner = api.require('FNScanner');
+
+
+
+        $("#login").click(function()
+        {
+
+
+            FNScanner.openScanner({
+                autorotation: true
+            }, function(ret, err) {
+                if (ret) {
+                    alert(JSON.stringify(ret));
+                } else {
+                    alert(JSON.stringify(err));
+                }
+            });
+
+            /* api.openWin({
+             name: "mainWin",
+             url: 'mainWin.html',
+             bounces:false,
+             slidBackEnabled:true,
+             vScrollBarEnabled:false,
+             progress:{
+             type:"page"
+             }
+             });*/
+
+        });
+    };
+
+    $("#modify").click(function()
+    {
+
+        api.openWin({
+            name: "modifyWin",
+            url: 'modifyWin.html',
+            bounces:false,
+            slidBackEnabled:true,
+            vScrollBarEnabled:false,
+            progress:{
+                type:"page"
+            }
+        });
+
+    });
+
+</script>
+
+<!--搜索框-->
+<script>
+
+apiready = function(){
+    api.parseTapmode();
+}
+var searchBar = document.querySelector(".aui-searchbar-input");
+if(searchBar){
+    searchBar.onclick = function(){
+        document.querySelector(".aui-searchbar-cancel").style.marginRight = 0;
+    }
+}
+document.querySelector(".aui-searchbar-cancel").onclick = function(){
+    this.style.marginRight = "-"+this.offsetWidth+"px";
+    document.getElementById("search-input").value = '';
+    document.getElementById("search-input").blur();
+}
+function doSearch(){
+    var searchValue = document.getElementById("search-input").value;
+    if(searchValue){
+        alert("您输入的内容是:"+searchValue);
+    }
+}
+</script>

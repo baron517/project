@@ -1,0 +1,167 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>得分列表</title>
+    <link rel="stylesheet" type="text/css" href="../css/aui.css?v=1"/>
+    <link rel="stylesheet" type="text/css" href="../css/main.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/swiper.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/aui-pull-refresh.css" />
+</head>
+<body class="aui-refresh-content">
+
+
+
+
+
+
+    <div class="main-box" style="margin-top: 0.5rem">
+
+        <div class="swiper-container swiper-tab" >
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="content">
+
+                        <ul class="aui-list aui-media-list" id="workList0">
+
+
+
+                        </ul>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+       <!-- <ul class="aui-list aui-media-list" id="workList">
+
+
+
+        </ul>-->
+    </div>
+</body>
+</html>
+<script type="text/javascript" src="../script/jquery-1.8.1.min.js"></script>
+<script type="text/javascript" src="../script/swiper.min.js"></script>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/common.js"></script>
+<script type="text/javascript" src="../script/toast.js"></script>
+<script type="text/javascript" src="../script/aui-pull-refresh.js"></script>
+<!--滑动切换-->
+<script type="text/javascript">
+    $(function(){
+        $('.aui-tab div').click(function(){
+            var index = $(this).index();
+            $('.aui-tab div.aui-active').removeClass('aui-active');
+            $(this).addClass('aui-active');
+
+            $(".swiper-wrapper .swiper-slide").hide();
+            $(".swiper-wrapper .swiper-slide").eq(index).show();
+
+
+        });
+
+    });
+    apiready = function(){
+        
+        api.setStatusBarStyle({
+            style: 'dark',
+            color: '#666'
+        });
+        api.parseTapmode();
+
+    };
+
+
+
+    var uid = userObj.id;
+    
+   
+
+
+    var page0=0;
+    function getData0(page) {
+
+        if($("#startTime").val())
+        {
+            var startTime=$("#startTime").val()+" 00:00:00";
+        }
+
+        if($("#endTime").val())
+        {
+            var endTime=$("#endTime").val()+" 23:59:59";
+        }
+
+
+        $.ajax({
+            type: 'GET',
+            url: serveUrl + 'index.php?g=Api&m=My&a=problemPingfen',
+            data: {page: page, uid: uid,pstate:4},
+            dataType: "json",
+            success: function (data) {
+                console.log(JSON.stringify(data));
+                
+                //alert(JSON.stringify(data));
+                
+                var html = "";
+                for (var i = 0; i < data.length; i++) {
+
+
+
+              
+                        var pdateHtml='<div class=" aui-list-item-text aui-ellipsis-2" style="color:red;">分数：'+ data[i].fenshu+'</div>';
+
+
+                    html = html + ' <li class="aui-list-item" data-id="' + data[i].id + '">' +
+                            '<div class="aui-media-list-item-inner">' +
+                            '<div class="aui-list-item-inner">' +
+                            '<div class="aui-list-item-text">' +
+                            '<div class="aui-list-item-title">' + data[i].sname +
+                            '</div>' +
+                            ' <div class="aui-list-item-right">' + data[i].snum +
+                            ' </div>' +
+                            '</div>'+pdateHtml+
+                            '</div>'+
+                            '</div>'+
+                            '</li>'
+
+                    ;
+                }
+
+
+                $("#workList0").append(html);
+            },
+            error:function(msg) {
+                //alert(msg);
+            }
+        });
+    }
+
+
+    getData0(page0);
+
+
+    var pullRefresh = new auiPullToRefresh({
+        container: document.querySelector('.aui-refresh-content'),
+        triggerDistance: 100
+    },function(ret){
+        if(ret.status=="success"){
+            setTimeout(function(){
+                page0=0;
+                $("#workList0").empty();
+                getData0(page0);
+                pullRefresh.cancelLoading(); //刷新成功后调用此方法隐藏
+            },1500)
+        }
+    });
+
+
+      
+
+
+
+</script>
+
+

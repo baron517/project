@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>手机号修改</title>
+    <link rel="stylesheet" type="text/css" href="../css/aui.css?v=1"/>
+    <link rel="stylesheet" type="text/css" href="../css/main.css"/>
+
+</head>
+<body>
+
+
+
+
+<div class="aui-content aui-margin-b-15" style="padding:0 0.5rem;margin-top: 1rem">
+
+
+    <ul class="aui-list aui-form-list" style="border-top:0!important;">
+        <li class="aui-list-item">
+             <div class="aui-list-item-inner">
+                 <div class="aui-list-item-label-icon">
+                     <i class="aui-iconfont aui-icon-phone aui-text-primary"></i>
+                 </div>
+                 <div class="aui-list-item-input">
+                     <input type="number" id="bname" placeholder="请输入新手机号">
+                 </div>
+             </div>
+         </li>
+         <li class="aui-list-item">
+             <div class="aui-list-item-inner">
+                 <div class="aui-list-item-label-icon aui-text-danger">
+                     <i class="aui-iconfont aui-icon-lock"></i>
+                 </div>
+                 <div class="aui-list-item-input">
+                     <input type="password" id="spassword" placeholder="输入密码">
+                 </div>
+             </div>
+         </li>
+        <li class="aui-list-item">
+            <div class="aui-list-item-inner">
+                <div class="aui-list-item-label-icon aui-text-danger">
+                    <i class="aui-iconfont aui-icon-lock"></i>
+                </div>
+                <div class="aui-list-item-input">
+                    <input type="text" id="shenfengzheng" placeholder="输入身份证号">
+                </div>
+
+            </div>
+        </li>
+    </ul>
+    <div class="aui-btn aui-btn-info aui-btn-block"  id="xiugai" style="margin-top:2rem;background: #0389d0!important;">确认修改</div>
+</div>
+
+
+
+
+
+
+</body>
+</html>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/jquery-1.8.1.min.js"></script>
+<script type="text/javascript" src="../script/common.js"></script>
+<script type="text/javascript" src="../script/toast.js"></script>
+<script type="text/javascript">
+    apiready = function(){
+
+        api.setStatusBarStyle({
+            style: 'dark',
+            color: '#666'
+        });
+        api.parseTapmode();
+    };
+
+
+
+
+
+</script>

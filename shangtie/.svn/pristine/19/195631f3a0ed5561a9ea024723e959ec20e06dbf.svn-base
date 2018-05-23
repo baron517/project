@@ -1,0 +1,208 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>人员学习状态</title>
+    <link rel="stylesheet" type="text/css" href="../css/aui.css?v=1"/>
+    <link rel="stylesheet" type="text/css" href="../css/main.css"/>
+    <style>
+        body{background: #fff;}
+        .aui-card-list-header{padding-bottom:0;}
+        .aui-card-list-footer{padding-top:0;}
+        .aui-list .aui-list-header{background: #f1f1f1;}
+
+    </style>
+</head>
+<body>
+
+
+<div class="aui-searchbar" id="search" style="position: fixed;width:100%;top:0;left:0;z-index:1000;">
+    <div class="aui-searchbar-input aui-border-radius" tapmode onclick="doSearch()">
+        <i class="aui-iconfont aui-icon-search"></i>
+        <form action="javascript:search();">
+            <input type="search" placeholder="请输入搜索内容" id="search-input">
+        </form>
+    </div>
+</div>
+<div style="height:2.2rem;"></div>
+
+<section >
+
+
+    <div class="aui-content aui-margin-b-15">
+        <ul class="aui-list aui-media-list" style="padding-top: 2rem">
+            <li class="aui-list-item aui-list-item-arrow" style="border-bottom:1px solid #DDDDDD;">
+                <div class="aui-media-list-item-inner">
+                    <div class="aui-list-item-inner">
+                        <div class="aui-list-item-text">
+                            <div class="aui-list-item-title">员工1</div>
+                        </div>
+                        <div class="aui-list-item-text aui-ellipsis-2">
+                            这里是内容区域，新版中的列表布局可以很轻松的帮助开发者完成常见列表样式。
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="aui-list-item aui-list-item-arrow" style="border-bottom:1px solid #DDDDDD;">
+                <div class="aui-media-list-item-inner">
+                    <div class="aui-list-item-inner">
+                        <div class="aui-list-item-text">
+                            <div class="aui-list-item-title">员工2</div>
+                        </div>
+                        <div class="aui-list-item-text aui-ellipsis-2">
+                            这里是内容区域，新版中的列表布局可以很轻松的帮助开发者完成常见列表样式。
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="aui-list-item aui-list-item-arrow" style="border-bottom:1px solid #DDDDDD;">
+                <div class="aui-media-list-item-inner">
+                    <div class="aui-list-item-inner">
+                        <div class="aui-list-item-text">
+                            <div class="aui-list-item-title">员工3</div>
+                        </div>
+                        <div class="aui-list-item-text aui-ellipsis-2">
+                            这里是内容区域，新版中的列表布局可以很轻松的帮助开发者完成常见列表样式。
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="aui-list-item aui-list-item-arrow" style="border-bottom:1px solid #DDDDDD;">
+                <div class="aui-media-list-item-inner">
+                    <div class="aui-list-item-inner">
+                        <div class="aui-list-item-text">
+                            <div class="aui-list-item-title">员工4</div>
+                        </div>
+                        <div class="aui-list-item-text aui-ellipsis-2">
+                            这里是内容区域，新版中的列表布局可以很轻松的帮助开发者完成常见列表样式。
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="aui-list-item aui-list-item-arrow" style="border-bottom:1px solid #DDDDDD;">
+                <div class="aui-media-list-item-inner">
+                    <div class="aui-list-item-inner">
+                        <div class="aui-list-item-text">
+                            <div class="aui-list-item-title">员工5</div>
+                        </div>
+                        <div class="aui-list-item-text aui-ellipsis-2">
+                            这里是内容区域，新版中的列表布局可以很轻松的帮助开发者完成常见列表样式。
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="aui-list-item aui-list-item-arrow" style="border-bottom:1px solid #DDDDDD;">
+                <div class="aui-media-list-item-inner">
+                    <div class="aui-list-item-inner">
+                        <div class="aui-list-item-text">
+                            <div class="aui-list-item-title">员工6</div>
+                        </div>
+                        <div class="aui-list-item-text aui-ellipsis-2">
+                            这里是内容区域，新版中的列表布局可以很轻松的帮助开发者完成常见列表样式。
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="aui-list-item aui-list-item-arrow" style="border-bottom:1px solid #DDDDDD;">
+                <div class="aui-media-list-item-inner">
+                    <div class="aui-list-item-inner">
+                        <div class="aui-list-item-text">
+                            <div class="aui-list-item-title">员工7</div>
+                        </div>
+                        <div class="aui-list-item-text aui-ellipsis-2">
+                            这里是内容区域，新版中的列表布局可以很轻松的帮助开发者完成常见列表样式。
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="aui-list-item aui-list-item-arrow" style="border-bottom:1px solid #DDDDDD;">
+                <div class="aui-media-list-item-inner">
+                    <div class="aui-list-item-inner">
+                        <div class="aui-list-item-text">
+                            <div class="aui-list-item-title">员工8</div>
+                        </div>
+                        <div class="aui-list-item-text aui-ellipsis-2">
+                            这里是内容区域，新版中的列表布局可以很轻松的帮助开发者完成常见列表样式。
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="aui-list-item aui-list-item-arrow" style="border-bottom:1px solid #DDDDDD;">
+                <div class="aui-media-list-item-inner">
+                    <div class="aui-list-item-inner">
+                        <div class="aui-list-item-text">
+                            <div class="aui-list-item-title">员工9</div>
+                        </div>
+                        <div class="aui-list-item-text aui-ellipsis-2">
+                            这里是内容区域，新版中的列表布局可以很轻松的帮助开发者完成常见列表样式。
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="aui-list-item aui-list-item-arrow" style="border-bottom:1px solid #DDDDDD;">
+                <div class="aui-media-list-item-inner">
+                    <div class="aui-list-item-inner">
+                        <div class="aui-list-item-text">
+                            <div class="aui-list-item-title">员工10</div>
+                        </div>
+                        <div class="aui-list-item-text aui-ellipsis-2">
+                            这里是内容区域，新版中的列表布局可以很轻松的帮助开发者完成常见列表样式。
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+
+</section>
+
+
+
+
+
+</body>
+</html>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/jquery-1.8.1.min.js"></script>
+<script type="text/javascript" src="../script/common.js"></script>
+<script type="text/javascript">
+
+
+
+
+    apiready = function(){
+
+
+
+        api.setStatusBarStyle({
+            style: 'dark',
+            color: '#666'
+        });
+        api.parseTapmode();
+
+
+        $("#workList").on("click",".aui-list-item",function()
+        {
+
+            api.openWin({
+                name: "workDetailWin",
+                url: 'workDetailWin.html',
+                bounces:false,
+                slidBackEnabled:true,
+                vScrollBarEnabled:false,
+                progress:{
+                    type:"page"
+                }
+            });
+
+        });
+
+
+
+    };
+
+
+</script>

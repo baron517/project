@@ -1,0 +1,171 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>二维码审批</title>
+    <link rel="stylesheet" type="text/css" href="../css/aui.css?v=1"/>
+    <link rel="stylesheet" type="text/css" href="../css/main.css"/>
+    <style>
+        body{background: #fff;}
+        .aui-card-list-header{padding-bottom:0;}
+        .aui-card-list-footer{padding-top:0;}
+        .aui-list .aui-list-header{background: #f1f1f1;}
+        .aui-card-list-content-padded img{
+            max-width: 100%!important;
+        }
+        .shenpi{
+            float: right;
+            margin-right: 0.7rem;
+            text-align: center;
+            background-color: #E73036;
+            color: white;
+            border:0;
+            display: none;
+
+        }
+
+
+    </style>
+</head>
+<body>
+
+
+
+
+<section >
+
+    <div class="aui-card-list" id="workList">
+        <div class="aui-card-list-content-padded" id="title" style="text-align: center;font-size: 1rem">
+
+        </div>
+        <div class="aui-card-list-content-padded" id="detail">
+
+        </div>
+        <div class="aui-card-list-footer">
+            <span>申请人：<span id="person"></span></span>
+            <span >申请日期：<span id="date"></span></span>
+        </div>
+
+    </div>
+
+    <button class="shenpi" data-astatus="1" style="background: #0389d0;">
+        通过
+    </button>
+
+    <button class="shenpi" data-astatus="2">
+        拒绝
+    </button>
+
+    <div style="text-align: right;padding-right:1rem;display: none;font-weight: bold;" id="shenheRs">已经审核过</div>
+
+
+</section>
+
+
+</body>
+</html>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/jquery-1.8.1.min.js"></script>
+<script type="text/javascript" src="../script/common.js"></script>
+<script type="text/javascript" src="../script/toast.js"></script>
+<script type="text/javascript">
+
+    apiready = function(){
+
+        api.setStatusBarStyle({
+            style: 'dark',
+            color: '#666'
+        });
+        api.parseTapmode();
+    };
+
+
+    //var pid = localStorage.pid;
+    var page=0;
+
+    $.ajax({
+        type: 'GET',
+        url: serveUrl + 'index.php?g=Api&m=CommonApi&a=applyGetDetail',
+        data: {aid:localStorage.shenpi_aid},
+        dataType: "json",
+        success: function(data)
+        {
+            console.log(data);
+
+            $("#title").text(data.atitle);
+            $("#detail").text(data.a_content);
+            $("#date").text(data.adate);
+            $("#person").text(data.sname);
+
+            if(data.astatus!="0")
+            {
+                $("#shenheRs").show();
+                $(".shenpi").hide();
+            }
+            else {
+                $("#shenheRs").hide();
+                $(".shenpi").show();
+            }
+
+
+        },
+        error:function(msg)
+        {
+            //alert(msg);
+        }
+    });
+
+
+    $(".shenpi").click(function()
+    {
+
+        var astatus=$(this).attr("data-astatus");
+
+        $.ajax({
+            type: 'POST',
+            url: serveUrl + 'index.php?g=Api&m=CommonApi&a=applyShenhe',
+            data: {aid:localStorage.shenpi_aid,astatus:astatus,a_weid:1},
+            dataType: "json",
+            success: function(data)
+            {
+
+                if(data=="1")
+                {
+                    showMessage('审批成功！',1500);
+
+                    setTimeout(function() {
+
+                        api.openWin({
+                            name: "shenpiWin",
+                            url: 'shenpiWin.html',
+                            bounces:false,
+                            slidBackEnabled:true,
+                            vScrollBarEnabled:false,
+                            progress:{
+                                type:"page"
+                            }
+                        });
+
+
+                    }, 1000);
+                }
+
+
+
+
+            },
+            error:function(msg)
+            {
+                //alert(msg);
+            }
+        });
+
+
+
+    });
+
+
+
+</script>

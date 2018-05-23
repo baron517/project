@@ -1,0 +1,541 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>评价</title>
+    <link rel="stylesheet" type="text/css" href="../css/aui.css?v=1"/>
+    <link rel="stylesheet" type="text/css" href="../css/main.css"/>
+    <style>
+        body{background: #fff;}
+        .aui-card-list-header{padding-bottom:0;}
+        .aui-card-list-footer{padding-top:0;}
+        .aui-list .aui-list-header{background: #f1f1f1;}
+        .aui-card-list-content-padded img{
+            max-width: 100%!important;
+        }
+    </style>
+</head>
+<body>
+
+
+
+
+<section >
+
+    <div class="aui-card-list" id="workList">
+        <div class="aui-card-list-content-padded" id="pname" style="text-align: center;font-size: 1rem;margin-top: 0.5rem">
+            缺点名称：
+        </div>
+
+        <ul class="aui-list aui-form-list">
+            <li class="aui-list-item">
+                <div class="aui-list-item-inner aui-text-default ">
+                    <div class="aui-list-item-label" style="width: 50%;border-right: 1px solid gainsboro;font-weight: bold">
+                        设备包保人：
+                    </div>
+                    <div class="aui-list-item-input" >
+                        <div id="sname"  style="padding-left: 0.5rem;color: red" ></div>
+                    </div>
+                </div>
+            </li>
+            <li class="aui-list-item">
+                <div class="aui-list-item-inner aui-text-default ">
+                    <div class="aui-list-item-label" style="width: 50%;border-right: 1px solid gainsboro;font-weight: bold">
+                        录入设备：
+                    </div>
+                    <div class="aui-list-item-input" >
+                        <div id="ename"  style="padding-left: 0.5rem;color: red" ></div>
+                    </div>
+                </div>
+            </li>
+            <li class="aui-list-item">
+                <div class="aui-list-item-inner">
+                    <div class="aui-list-item-label" style="width: 50%;border-right: 1px solid gainsboro;font-weight: bold">
+                        录入路径：
+                    </div>
+                    <div class="aui-list-item-input aui-text-success" >
+                        <div id="p_type_name"  style="padding-left: 0.5rem" ></div>
+                    </div>
+                </div>
+            </li>
+            <li class="aui-list-item">
+                <div class="aui-list-item-inner">
+                    <div class="aui-list-item-label" style="width: 50%;border-right: 1px solid gainsboro;font-weight: bold">
+                        录入人：
+                    </div>
+                    <div class="aui-list-item-input aui-text-info " >
+                        <div id="zuoyeren"  style="padding-left: 0.5rem" ></div>
+                    </div>
+                </div>
+            </li>
+
+            <li class="aui-list-item">
+                <div class="aui-list-item-inner">
+                    <div class="aui-list-item-label" style="width: 50%;border-right: 1px solid gainsboro;font-weight: bold">
+                        录入时间：
+                    </div>
+                    <div class="aui-list-item-input" >
+                        <div id="pdate"  style="padding-left: 0.5rem;color: grey" ></div>
+                    </div>
+                </div>
+            </li>
+            <li class="aui-list-item">
+                <div class="aui-list-item-inner">
+                    <div class="aui-list-item-label" style="width: 50%;border-right: 1px solid gainsboro;font-weight: bold">
+                        处理期限：
+                    </div>
+                    <div class="aui-list-item-input" >
+                        <div id="p_readate"  style="padding-left: 0.5rem;color: grey" ></div>
+                    </div>
+                </div>
+            </li>
+            <li class="aui-list-item">
+                <div class="aui-list-item-inner">
+                    <div class="aui-list-item-label" style="width: 50%;border-right: 1px solid gainsboro;font-weight: bold">
+                        缺点内容：
+                    </div>
+                    <div class="aui-list-item-input" >
+                        <div id="preason"  style="padding-left: 0.5rem;font-size: 0.7rem;line-height: 1rem;padding-top: 0.2rem;padding-bottom: 0.2rem" ></div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+
+      
+
+        <ul class="aui-list aui-media-list" >
+            <li class="aui-list-item">
+                <div class="aui-list-item-inner">
+                    <div class="aui-list-item-title"  style="font-size: 0.8rem"></div>
+                    <div class="aui-row aui-row-padded" id="img">
+
+                        <!--    <div class="aui-col-xs-4">
+                                <img src="../image/demo1.png"/>
+                            </div>-->
+
+                    </div>
+                </div>
+            </li>
+        </ul>
+
+
+
+        <div class="zhenggai" id="zhenggai">
+
+            <div style="font-size: 0.8rem;width: 100%;height: 2rem;background-color: #EEEEEE;padding-top: 0.4rem;padding-left: 0.5rem">已整改</div>
+            <!--  <div class="aui-card-list-footer" style="margin-top: 1rem">
+                  <span ></span>
+                  <span id="type_name">录入路径：</span>
+              </div>-->
+
+            <!--<div class="aui-card-list-footer">
+
+
+                <span id="pzg_date">整改日期：</span>
+            </div>-->
+            <ul class="aui-list aui-form-list">
+                <li class="aui-list-item">
+                    <div class="aui-list-item-inner">
+                        <div class="aui-list-item-label" style="width: 50%;border-right: 1px solid gainsboro;font-weight: bold">
+                            处理人：
+                        </div>
+                        <div class="aui-list-item-input" >
+                            <div id="s_name"  style="padding-left: 0.5rem;color: red" ></div>
+                        </div>
+                    </div>
+                </li>
+                <li class="aui-list-item">
+                    <div class="aui-list-item-inner">
+                        <div class="aui-list-item-label" style="width: 50%;border-right: 1px solid gainsboro;font-weight: bold">
+                            整改路径：
+                        </div>
+                        <div class="aui-list-item-input aui-text-success" >
+                            <div id="equ"  style="padding-left: 0.5rem;" ></div>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="aui-list-item">
+                    <div class="aui-list-item-inner">
+                        <div class="aui-list-item-label" style="width: 50%;border-right: 1px solid gainsboro;font-weight: bold">
+                            处理时间：
+                        </div>
+                        <div class="aui-list-item-input" >
+                            <div id="pzg_date"  style="padding-left: 0.5rem;color: grey" ></div>
+                        </div>
+                    </div>
+                </li>
+                <li class="aui-list-item">
+                    <div class="aui-list-item-inner">
+                        <div class="aui-list-item-label" style="width: 50%;border-right: 1px solid gainsboro;font-weight: bold">
+                            整改内容：
+                        </div>
+                        <div class="aui-list-item-input" >
+                            <div id="wan"   style="padding-left: 0.5rem;font-size: 0.7rem;line-height: 1rem;padding-top: 0.2rem;padding-bottom: 0.2rem"></div>
+                        </div>
+                    </div>
+                </li>
+
+            </ul>
+
+
+
+            <ul class="aui-list aui-media-list" >
+                <li class="aui-list-item">
+                    <div class="aui-list-item-inner">
+                        <div class="aui-list-item-title"  style="font-size: 0.8rem"></div>
+                        <div class="aui-row aui-row-padded" id="p_wanimg">
+
+                            <!--    <div class="aui-col-xs-4">
+                                    <img src="../image/demo1.png"/>
+                                </div>-->
+
+                        </div>
+                    </div>
+                </li>
+            </ul>
+
+            <!--      <div class="aui-card-list-footer">
+                      <span id="equ">整改路径：</span>
+                      <span id="s_name">处理人：</span>
+                  </div>
+
+                  <div class="aui-card-list-footer">
+
+
+                      <span id="pzg_date">处理时间：</span>
+                  </div>-->
+
+        </div>
+
+
+
+
+
+        <!-- <ul class="aui-list aui-form-list">
+
+             <li class="aui-list-header">评价选项：</li>
+             <div  id="pingjiaList">
+
+             </div>
+         </ul>-->
+
+        <ul class="aui-list aui-form-list">
+            <li class="aui-list-header">缺点发现人评分：</li>
+
+            <li style="padding:5px 0 0 15px;"> 缺点影响程度</li>
+
+            <li class="aui-list-item">
+                <div class="aui-list-item-inner">
+
+                    <div class="aui-list-item-input">
+                        <label><input class="aui-radio" type="radio" name="radio1" value="紧急" data-value="5"> 紧急&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                        <label><input class="aui-radio" type="radio" name="radio1" value="严重" data-value="3"> 严重&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                        <label><input class="aui-radio" type="radio" name="radio1" value="一般" data-value="1"> 一般&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    </div>
+                </div>
+            </li>
+
+            <li class="aui-list-header">缺点处理人评分：</li>
+
+            <li style="padding:5px 0 0 15px;"> 缺点处理结果</li>
+
+            <li class="aui-list-item">
+                <div class="aui-list-item-inner">
+
+
+
+                    <div class="aui-list-item-input">
+                        <label><input class="aui-radio" type="radio" name="radio2" value="非常满意" data-value="5"> 非常满意&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                        <label><input class="aui-radio" type="radio" name="radio2" value="满意" data-value="3"> 满意&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                        <label><input class="aui-radio" type="radio" name="radio2" value="一般" data-value="1"> 一般&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    </div>
+                </div>
+            </li>
+
+            </ul>
+
+
+
+
+    </div>
+
+
+<div style="text-align:center;padding-bottom:20px;">
+
+
+<div class="aui-btn aui-btn-info aui-btn-block shenpi-col" id="tongguo" data-value="4">提交</div>
+
+</div>
+
+
+</section>
+
+
+</body>
+</html>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/jquery-1.8.1.min.js"></script>
+<script type="text/javascript" src="../script/common.js"></script>
+<script type="text/javascript" src="../script/toast.js"></script>
+<script type="text/javascript">
+
+    apiready = function(){
+
+        api.setStatusBarStyle({
+            style: 'dark',
+            color: '#666'
+        });
+        api.parseTapmode();
+        
+
+        
+    };
+
+
+/*
+    $(".xingxing-list span").click(function()
+    {
+
+        if($(this).index()==0)
+        {
+
+            $(".xingxing-list span").removeClass("active");
+            $(this).addClass("active");
+        }
+        else
+        {
+            if($(this).hasClass("active"))
+            {
+
+
+                $(this).next().removeClass("active");
+                $(this).next().next().removeClass("active");
+                $(this).next().next().next().removeClass("active");
+                $(this).next().next().next().next().removeClass("active");
+            }
+            else
+            {
+                $(this).addClass("active");
+                $(this).prev().addClass("active");
+                $(this).prev().prev().addClass("active");
+                $(this).prev().prev().prev().addClass("active");
+                $(this).prev().prev().prev().prev().addClass("active");
+            }
+        }
+
+
+
+        $("#fenshu").text($(".xingxing-list span.active").length);
+
+
+
+    });*/
+
+
+   /* $.ajax({
+        type: 'GET',
+        url: serveUrl + 'index.php?g=Api&m=My&a=pingjiaxuanxiang',
+        dataType: "json",
+        success: function (data) {
+
+            //alert(JSON.stringify(data));
+
+            var html="";
+            for(var i=0;i<data.length;i++)
+            {
+                html=html+'<li class="aui-list-item">'+
+                    '<div class="aui-list-item-inner">'+
+                        '<div class="aui-list-item-input">'+
+                        '<label><input class="aui-radio" type="radio" name="radio" data-text="'+data[i].pj_text+'" data-fenshu="'+data[i].pj_fenshu+'" value="'+data[i].pj_id+'"> '+data[i].pj_text+'</label>'+
+                        '</div><div class="aui-list-item-input">'+data[i].pj_fenshu+'分</div>'+
+                '</div>'+
+                '</li>';
+            }
+            $("#pingjiaList").append(html);
+
+        }
+    });*/
+
+
+    //审批
+    $(".shenpi-col").click(function()
+    {
+        
+        var statusValue=$(this).attr("data-value");
+
+       var  radio1=$('input[name="radio1"]:checked').val();
+
+        if(!radio1)
+        {
+            showMessage('请评价缺点发现人！',1500);
+            return;
+        }
+
+        var  radio2=$('input[name="radio2"]:checked').val();
+
+        if(!radio2)
+        {
+            showMessage('请评价缺点处理人！',1500);
+            return;
+        }
+
+
+
+
+        
+        $.ajax({
+        type: 'POST',
+        url: serveUrl+'index.php?g=Api&m=My&a=pingjiaTijiao' ,
+        data: {
+            pid: localStorage.pid,
+            pstate: statusValue,
+            p_pingjia: radio1,
+            p_pingjia_fenshu: $('input[name="radio1"]:checked').attr("data-value"),
+            p_pingjia_chuli: radio2,
+            p_pingjia_chuli_fenshu: $('input[name="radio2"]:checked').attr("data-value")
+        },
+        dataType: "json",
+        success: function(data)
+        {
+
+            if(data=="1")
+            {
+                showMessage('操作成功！',1500);
+                setTimeout(
+                    function() {
+                        
+                          api.closeWin();
+                        
+                    }, 1000);
+            }
+            else
+            {
+                showMessage('操作失败！',1500);
+            }
+
+
+        },
+        error:function(msg)
+        {
+            //alert(msg);
+        }
+    });
+        
+        
+    });
+
+
+
+ $("#img").on("click","img",function()
+        {
+            var imgUrl= $(this).attr("src");
+            openPicView(imgUrl);
+        });
+
+
+
+    var pid = localStorage.pid;
+
+    var page=0;
+    $.ajax({
+        type: 'GET',
+        url: serveUrl+'index.php?g=Api&m=My&a=shebeiprocontent' ,
+        data: {page:page,pid:pid} ,
+        dataType: "json",
+        success: function(data)
+        {
+
+
+            var imgHtml="";
+
+            if (data.procontent.p_img) {
+                var imageUrl = JSON.parse(data.procontent.p_img);
+
+                for (var j = 0; j < imageUrl.length; j++)
+                {
+                    imgHtml = imgHtml + '<div class="aui-col-xs-4">' +
+                            '<img style="height: 111.66px" src="' + imageUrl[j].img + '"/>' +
+                            '</div>';
+                }
+            }
+
+            var wanimg="";
+
+            if (data.procontent.p_wanimg) {
+                var imageurl = JSON.parse(data.procontent.p_wanimg);
+
+                for (var i = 0; i < imageurl.length; i++)
+                {
+                    wanimg = wanimg + '<div class="aui-col-xs-4">' +
+                            '<img  src="' + imageurl[i].img + '"/>' +
+                            '</div>';
+                }
+            }
+
+
+            //alert(JSON.stringify(data));
+
+            $("#img").append(imgHtml);
+            $("#p_wanimg").append(wanimg);
+            $("#pname").append(data.procontent.pname);
+            $("#ename").append(data.luruequ);
+            $("#preason").append(data.procontent.preason);
+            $("#p_readate").append(data.procontent.p_readate);
+            $("#pdate").append(data.procontent.pdate);
+            $("#pzg_date").append(data.procontent.pzg_date);
+            $("#sname").append(data.procontent.sname);
+            $("#wan").append(data.procontent.pcontent);
+            $("#p_type_name").append(data.procontent.p_type_name);
+            $("#type_name").append(data.procontent.p_type_name);
+            $("#s_name").append(data.zhenggairen);
+            $("#equ").append(data.equ);
+            $("#zuoyeren").append(data.zuoyeren);
+
+            if(data.procontent.pstate >= 2){
+                $("#zhenggai").show();
+            }else {
+                $("#zhenggai").hide();
+            }
+
+            if(data.procontent.pstate == 4){
+                $("#pingjiaCol").show();
+
+
+
+                $("#pingjiaList").append('<li class="aui-list-item">'+
+                        '<div class="aui-list-item-inner">'+
+                        '<div class="aui-list-item-input">'+data.procontent.p_pingjia+
+                        '</div><div class="aui-list-item-input">'+data.procontent.p_pingjia_fenshu+'分</div>'+
+                        '</div>'+
+                        '</li>');
+
+
+                $("#pingjiachuliList").append('<li class="aui-list-item">'+
+                        '<div class="aui-list-item-inner">'+
+                        '<div class="aui-list-item-input">'+data.procontent.p_pingjia_chuli+
+                        '</div><div class="aui-list-item-input">'+data.procontent.p_pingjia_chuli_fenshu+'分</div>'+
+                        '</div>'+
+                        '</li>');
+
+
+
+                $("#p_tichuquedian").text(data.procontent.p_tichuquedian);
+                $("#p_zhenggai").text(data.procontent.p_zhenggai);
+
+
+            }
+
+        },
+        error:function(msg)
+        {
+            //alert(msg);
+        }
+    });
+
+
+
+
+</script>

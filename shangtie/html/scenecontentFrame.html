@@ -1,0 +1,624 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>现场作业</title>
+    <link rel="stylesheet" type="text/css" href="../css/aui.css?v=1"/>
+    <link rel="stylesheet" type="text/css" href="../css/main.css"/>
+
+</head>
+<style>
+    .box{
+        margin-top: 0.5rem;
+        width: 100%;
+        height: 3rem;
+        text-align: center;
+        font-size: 1rem;
+        font-weight: bold;
+        padding-top: 0.8rem;
+        -webkit-box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+        -moz-box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+        box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+    }
+    .remove{
+        width: 1.2rem;
+        height: 1.2rem;
+        position: absolute;
+        z-index: 9999;
+        border-radius: 50px;
+        background-color: rgba(0, 0, 0, 0.5);
+        right: -0.45rem;
+        top: -0.45rem;
+        text-align: center;
+
+
+    }
+    .remove p{
+        font-size: 1rem;
+        color: white;
+        margin-top: -0.15rem;
+        margin-left: 0.05rem;
+
+    }
+    .aui-row{
+        width: 700px;
+        overflow: auto;
+        overflow-x:scroll;
+
+    }
+    .aui-col-xs-4{
+        width: 90px;
+        height: 140px;
+        position:relative;
+
+    }
+    .aui-col-xs-4 img{
+
+        height: 100%;
+
+    }
+    .imgbox{
+        width: 110px;
+        height: auto;
+        padding: 0.5rem 0.5rem 0 0.5rem;
+        position: relative;
+        float: left;
+
+    }
+
+</style>
+<body>
+
+
+<!--
+<div style="margin-top: 2rem;width: 100%;height: auto;">
+    <ul class="aui-list aui-form-list" id="list">
+
+
+
+    </ul>
+-->
+
+
+    <section >
+
+        <div class="aui-card-list" >
+
+            <ul class="aui-list aui-form-list" id="list">
+
+
+
+             <!--    <li class="aui-list-item" style="height: 4rem">
+                <div class="aui-list-item-inner aui-text-default ">
+                    <div class="aui-list-item-label" style="width: 49.85%;border-right: 1px solid gainsboro;font-weight: bold;height: 4rem;padding-right: 0.25rem">542452
+                        </div>
+                    <div class="default-detail" style="width: 49.85%;float: right;border-bottom: 1px solid gainsboro">
+                        <div style="height: 2rem;border-bottom: 1px solid gainsboro;width: 100%;display: -webkit-box;display: -ms-flexbox;display: -webkit-flex;display: flex;-webkit-box-align: center;-ms-flex-align: center;-webkit-align-items: center;align-items: center;padding-left: 0.5rem;">
+                            <font style="color: #009688 ;font-size: 0.7rem">标准值：75
+                                 </font>
+                            </div>
+                         <input type="text" id="1" class="shuju"  name="wdvalue" data-value=' + jsonList[i].wdname + ' placeholder="输入数据"  style="height: 2rem;width: 100%;display: -webkit-box;display: -ms-flexbox;display: -webkit-flex;display: flex;-webkit-box-align: center;-ms-flex-align: center;-webkit-align-items: center;align-items: center;padding-left: 0.5rem;">
+                        </div>
+                    </div>
+                </li>-->
+
+
+
+
+
+            </ul>
+
+        </div>
+
+    </section>
+
+
+
+
+    <ul class="aui-list aui-media-list" >
+        <li class="aui-list-item">
+            <div class="aui-list-item-inner" style="overflow: hidden;  overflow-x:scroll;">
+                <div class="aui-row aui-row-padded"  id="imgList">
+
+                </div>
+            </div>
+        </li>
+    </ul>
+
+    <div class="aui-btn aui-btn-info aui-btn-block"  id="img" tapmode onclick="openActionsheet()" style="margin-top:2rem;background: #0389d0!important;">上传图片</div>
+
+
+    <div class="aui-btn aui-btn-info aui-btn-block"  id="save" style="margin-top:2rem;background: #0389d0!important;">本地保存</div>
+    
+
+    <div class="aui-btn aui-btn-info aui-btn-block"  id="login" style="margin-top:2rem;background: #0389d0!important;">确认提交</div>
+
+
+<div id="jsonList" style="display:none;"></div>
+
+
+</body>
+</html>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/jquery-1.8.1.min.js"></script>
+<script type="text/javascript" src="../script/common.js"></script>
+<script type="text/javascript" src="../script/aui-actionsheet.js" ></script>
+<script type="text/javascript" src="../script/toast.js"></script>
+
+<script type="text/javascript">
+
+    apiready = function(){
+
+        api.setStatusBarStyle({
+            style: 'dark',
+            color: '#666'
+        });
+        api.parseTapmode();
+        
+
+        
+
+    };
+    
+    
+     var eid = localStorage.eid;
+    
+    var huancunList=[];
+    var huancunListObj=[];
+
+
+    //alert(localStorage.huancunList);
+
+    if(localStorage.huancunList)
+    {
+        huancunList=JSON.parse(localStorage.huancunList);
+        huancunListObj=JSON.parse(localStorage.huancunList);
+    }
+    
+
+    function removeSaveData()
+    {
+        
+         for(var i=0;i<huancunListObj.length;i++)
+        {
+
+            if((huancunList[i].wc_id==localStorage.p_wc_id)&&(huancunList[i].eid=eid)&&(huancunList[i].uid==userObj.id))
+            {
+                
+              huancunListObj.splice(i,1);
+              localStorage.huancunList=JSON.stringify(huancunListObj);
+              //alert(JSON.stringify(huancunList));
+              
+            }
+
+        }
+        
+        
+    }
+
+    function setForm(p_wc_id)
+    {
+
+
+        for(var i=0;i<huancunList.length;i++)
+        {
+
+            if(huancunList[i].wc_id==p_wc_id&&(huancunList[i].eid==eid)&&(huancunList[i].uid==userObj.id))
+            {
+
+                $(".shuju").each(function(index)
+                {
+
+                    $(this).val(huancunList[i].shuruList[index]);
+                    
+                     
+                    if(isRealNum($(this).attr("data-minValue"))&&isRealNum($(this).attr("data-maxValue")))
+                    {
+                        if($(this).val()<=$(this).attr("data-maxValue")&&$(this).val()>=$(this).attr("data-minValue"))
+                        {
+                            $(this).removeClass("warning-text");
+                        }
+                        else
+                        {
+                            $(this).addClass("warning-text");
+                        }
+                    }
+                    else
+                    {
+                         $(this).removeClass("warning-text");
+                    }
+                            
+
+                })
+
+
+                for(var j=0;j<huancunList[i].imgList.length;j++)
+                {
+                    $("#imgList").append(
+                            '<div class="imgbox">'+
+                            '<div class="aui-col-xs-4">'+
+                            ' <div class="remove">'+
+                            '<p>×</p>'+
+                            '</div>'+
+                            '<img  src="'+huancunList[i].imgList[j]+'" />'+
+                            '</div>'+
+                            '</div>');
+
+                }
+
+
+                break;
+            }
+
+        }
+
+
+
+
+    }
+
+
+     $("#imgList").on("click","img",function()
+        {
+            var imgUrl= $(this).attr("src");
+            openPicView(imgUrl);
+        });
+
+
+
+    var enameSave="";
+    $("#save").click(function()
+    {
+        var huancunObj={};
+        
+        huancunObj.wc_id=wc_id;
+        huancunObj.titleText=localStorage.titleText;
+        huancunObj.shebeiming=enameSave;
+        huancunObj.eid=eid;
+        huancunObj.uid=userObj.id;
+        huancunObj.date=new Date().format("yyyy-MM-dd hh:mm:ss");
+
+        huancunObj.shuruList=[];
+        huancunObj.imgList=[];
+        $(".shuju").each(function()
+        {
+            huancunObj.shuruList.push($(this).val());
+            
+        })
+        
+        $("#imgList img").each(function()
+        {
+            huancunObj.imgList.push($(this).attr("src"));
+        });
+        
+        var cunzaiFlag=0;
+        
+        for(var i=0;i<huancunList.length;i++)
+        {
+            
+            if((huancunList[i].wc_id==wc_id)&&(huancunList[i].eid==eid)&&(huancunList[i].uid==userObj.id))
+            {
+                huancunList[i]=huancunObj;
+                cunzaiFlag=1;
+                break;
+            }
+            
+        }
+
+        if(cunzaiFlag==0)
+        {
+            huancunList.push(huancunObj);
+        }
+
+        //alert(JSON.stringify(huancunList));
+        
+        localStorage.huancunList=JSON.stringify(huancunList);
+        
+        showMessage("保存成功！",1500);
+
+        setTimeout(function()
+        {
+            api.closeWin({
+            });
+        },1000)
+
+        
+    });
+
+
+
+   
+
+    //alert("进来eid"+eid);
+
+    $.ajax({
+        type:"GET",
+        url:serveUrl+'index.php?g=Api&m=My&a=myequcontent' ,
+        dataType:"json",
+        data:{
+            eid:eid
+        },
+        success:function(data){
+            console.log(data);
+
+            enameSave=data[0].ename;
+
+
+        }
+
+    });
+
+    
+    $("#login").click(function(){
+
+
+        var array = [];
+        
+
+        var fimg=[];
+        $("#imgList img").each(function()
+        {
+            var fimgObj={};
+            fimgObj.img=$(this).attr("src");
+            fimg.push(fimgObj);
+        });
+
+
+        var flag = false;
+        $(".shuju").each(function()
+        {
+
+                var pObj = {};
+                pObj.wdname = $(this).attr("data-value");
+                pObj.wdvalue = $(this).val();
+                pObj.minValue=$(this).attr("data-minValue");;
+                pObj.maxValue=$(this).attr("data-maxValue");;
+                array.push(pObj);
+
+
+        });
+
+
+
+        var wcontent=JSON.stringify(array);
+        var workid = userObj.id;
+        
+    
+        
+
+        //alert(eid);
+        $.ajax({
+            type: 'POST',
+            url: serveUrl+'index.php?g=Api&m=My&a=workadd' ,
+            data: {
+                wname:localStorage.titleText,
+                w_sid:eid,
+                wcontent:wcontent,
+                w_image:JSON.stringify(fimg),
+                pid:localStorage.scenework_pid,
+                w_uid:localStorage.scenework_e_sid,
+                w_workid:workid,
+                wc_id:localStorage.wc_id
+            } ,
+            success: function(data) {
+               // alert(data);
+                if(data=="1")
+                {
+                //    alert(data)
+                
+                    
+                    showMessage("提交成功！",1500);
+                     removeSaveData();
+                    
+                     setTimeout(
+                         function() {
+                        
+                         api.closeWin({
+                        });
+                        
+                    },1000);
+
+                }
+                else
+                {
+                    showMessage("提交失败！",1500);
+                }
+            }
+        });
+
+       
+        })
+        
+
+
+    //获取现场作业数据框
+    var wc_id = localStorage.wc_id;
+
+    //alert("wc_id"+wc_id);
+    $.ajax({
+        type: 'GET',
+        url: serveUrl+'index.php?g=Api&m=My&a=workclasscontent' ,
+        data: {
+            wc_id: wc_id
+        } ,
+        success: function(data) {
+
+            $("#jsonList").html(data);
+
+            var  jsonList = JSON.parse( $("#jsonList").text());
+            
+
+            var jsonHtml = "";
+            for (var i = 0; i < jsonList.length; i++) {
+
+                jsonHtml = jsonHtml +
+                        ' <li class="aui-list-item" style="height: 4rem">'+
+                        '<div class="aui-list-item-inner aui-text-default ">'+
+                        '<div class="aui-list-item-label" style="width: 49.85%;border-right: 1px solid gainsboro;font-weight: bold;height: 4rem;padding-right: 0.25rem;word-break:break-all; word-wrap:break-word;white-space: pre-wrap; line-height: 1rem">' + jsonList[i].wdname+
+                        ' </div>'+
+                        '<div class="default-detail" style="width: 49.85%;float: right;">'+
+                        '<div style="height: 2rem;border-bottom: 1px solid gainsboro;width: 100%;display: -webkit-box;display: -ms-flexbox;display: -webkit-flex;display: flex;-webkit-box-align: center;-ms-flex-align: center;-webkit-align-items: center;align-items: center;padding-left: 0.5rem;">'+
+                        ' <font style="color: #009688 ;font-size: 0.8rem">'+'标准值：'+jsonList[i].minValue+"~"+jsonList[i].maxValue+
+                        ' </font>'+
+                        '</div>'+
+                        '  <input type="text" id="1" class="shuju" data-minValue="'+jsonList[i].minValue+'" data-maxValue="'+jsonList[i].maxValue+'" name="wdvalue" data-value=' + jsonList[i].wdname + ' placeholder="输入数据"  style="height: 2rem;width: 100%;display: -webkit-box;display: -ms-flexbox;display: -webkit-flex;display: flex;-webkit-box-align: center;-ms-flex-align: center;-webkit-align-items: center;align-items: center;padding-left: 0.5rem;">'+
+                        '</div>'+
+                        '</div>'+
+                        '</li>';
+
+
+            }
+
+
+            
+            $("#list").append(jsonHtml);
+
+
+            if(localStorage.setForm=="1")
+            {
+                setForm(localStorage.p_wc_id);
+
+            }
+
+
+            
+        }
+    });
+
+
+ $("#list").on("input","input",function()
+        {
+
+           var minValue=$(this).attr("data-minValue");
+            var maxValue=$(this).attr("data-maxValue");
+            
+            
+            if(isRealNum(minValue)&&isRealNum(maxValue))
+            {
+                if($(this).val()<=maxValue&&$(this).val()>=minValue)
+                {
+                    $(this).removeClass("warning-text");
+                }
+                else
+                {
+                    $(this).addClass("warning-text");
+                }
+            }
+            else
+            {
+                 $(this).removeClass("warning-text");
+            }
+            
+
+            
+        });
+
+    $("#imgList").on("click",".remove",function()
+    {
+        $(this).parent().parent().remove();
+    });
+
+    var actionsheet = new auiActionsheet();
+    function openActionsheet(){
+        actionsheet.init({
+            frameBounces:true,//当前页面是否弹动，（主要针对安卓端）
+            title:"请选择",
+            cancelTitle:'这里取消按钮',
+            buttons:['拍照']
+        },function(ret){
+            if(ret.buttonIndex == 1){
+
+                //alert("拍照")
+                api.getPicture({
+                    sourceType: 'camera',
+                    encodingType: 'jpg',
+                    mediaValue: 'pic',
+                    destinationType: 'url',
+                    allowEdit: true,
+                    quality: 100,
+                    targetWidth: 750,
+                    targetHeight: 750,
+                    saveToPhotoAlbum: false
+                }, function(ret, err) {
+                    if (ret) {
+                        uploadImg(ret.data);
+                    } else {
+                        //alert(JSON.stringify(err));
+                    }
+                });
+
+
+            };
+           /* if(ret.buttonIndex == 2){
+
+                //alert("图库选择")
+                api.getPicture({
+                    sourceType: 'album',
+                    encodingType: 'jpg',
+                    mediaValue: 'pic',
+                    destinationType: 'url',
+                    allowEdit: true,
+                    quality: 50,
+                    targetWidth: 100,
+                    targetHeight: 100,
+                    saveToPhotoAlbum: false
+                }, function(ret, err) {
+                    if (ret) {
+
+
+                        uploadImg(ret.data);
+
+                    } else {
+                        //alert(JSON.stringify(err));
+                    }
+                });
+
+            };*/
+        })
+    }
+
+    function uploadImg(imgUrl)
+    {
+        api.ajax({
+            url: serveUrl+'index.php?g=Api&m=CommonApi&a=uploadImg',
+            method: 'post',
+            data: {
+                files: {
+                    file: imgUrl
+                }
+            }
+        }, function(ret, err) {
+
+            // alert(JSON.stringify(ret));
+
+            if (ret.code=1000) {
+                if(imgUrl != "") {
+                    /*if($(".aui-col-xs-4 img").length < 6 ){*/
+
+
+                        $("#imgList").append(
+                        '<div class="imgbox">'+
+                        '<div class="aui-col-xs-4">'+
+                        ' <div class="remove">'+
+                        '<p>×</p>'+
+                        '</div>'+
+                        '<img  src="'+serveUrl+ret.url+'" />'+
+                        '</div>'+
+                        '</div>'
+                )
+
+                   /* }else {
+                        showMessage('最多只能上传六张图片！',1500);
+                    }*/
+                }
+
+            }
+
+        });
+    }
+
+
+
+</script>

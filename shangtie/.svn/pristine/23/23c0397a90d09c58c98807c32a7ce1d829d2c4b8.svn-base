@@ -1,0 +1,344 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>我的工区</title>
+    <link rel="stylesheet" type="text/css" href="../css/aui.css?v=1"/>
+    <link rel="stylesheet" type="text/css" href="../css/main.css"/>
+<style>
+    .erweima{
+        position: absolute;
+        width: 4rem;
+        height: 1.1rem;
+        padding-top:0.1rem;
+        font-size:0.6rem;
+        background-color: #03a9f4;
+        text-align: center;
+        color: white;
+        border-radius: 5px;
+        -webkit-box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+        -moz-box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+        box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+        right: 1rem;
+        top: 2.1rem;
+        z-index: 999;
+    }
+    .erweima:active{
+        background-color: #00acc1;
+    }
+</style>
+</head>
+<body>
+
+
+<div class="aui-searchbar" id="search" style="position: fixed;top: 0;width: 100%;z-index: 99999">
+    <div class="aui-searchbar-input aui-border-radius">
+        <i class="aui-iconfont aui-icon-search"></i>
+        <input type="search" placeholder="请输入搜索内容" id="search-input">
+        <div class="aui-searchbar-clear-btn" id="">
+            <i class="aui-iconfont aui-icon-close"></i>
+        </div>
+    </div>
+    <div class="aui-searchbar-btn" tapmode >取消</div>
+</div>
+
+<div class="aui-content aui-margin-b-15">
+
+    <ul class="aui-list aui-media-list" id="workList" style="margin-top:2.3rem;border-top:0!important;border-bottom:1px solid #DDDDDD;">
+<!--
+        <li class="aui-list-item aui-list-item-arrow">
+            <div class="aui-media-list-item-inner">
+                <div class="aui-list-item-inner">
+                    <div class="aui-list-item-text">
+                        <div class="aui-list-item-title">已绑定设备:</div>
+                        <div class="aui-list-item-right">08:00</div>
+                    </div>
+                    <div id="ceshi" class="aui-list-item-text aui-ellipsis-2">
+                        包保人:
+                    </div>
+                </div>
+            </div>
+        </li>-->
+
+
+    </ul>
+
+</div>
+
+
+
+
+
+
+</body>
+</html>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/jquery-1.8.1.min.js"></script>
+<script type="text/javascript" src="../script/common.js"></script>
+<script type="text/javascript" src="../script/aui-dialog.js" ></script>
+<script type="text/javascript" src="../script/aui-actionsheet.js" ></script>
+<script type="text/javascript" src="../script/toast.js"></script>
+
+<script type="text/javascript">
+    apiready = function(){
+        api.setStatusBarStyle({
+            style: 'dark',
+            color: '#666'
+        });
+        api.parseTapmode();
+
+    };
+
+
+    var uid = userObj.id;
+    var status = userObj.status;
+    var scode = userObj.scode;
+    var page=0;
+    function getData(page)
+    {
+    $.ajax({
+        type: 'GET',
+        url: serveUrl+'index.php?g=Api&m=CommonApi&a=myGongqu' ,
+        data: {page:page,u_rid:localStorage.userObj_u_rid,keyword:$("#search-input").val()} ,
+        dataType: "json",
+        success: function(data)
+        {
+            //alert(JSON.stringify(data));
+            console.log(data);
+
+            var html="";
+            for(var i=0;i<data.length;i++)
+            {
+                html=html+' <li class="aui-list-item aui-list-item-arrow" data-scode="'+data[i].code+'">'+
+                        '<div class="aui-media-list-item-inner">'+
+                        '<div class="aui-list-item-inner">'+
+                        '<div class="aui-list-item-text">'+
+                        '<div class="aui-list-item-title">工区名称:'+data[i].rname +
+                        '</div>'+
+                        '<div class="aui-list-item-right">工区编码:'+data[i].code+
+                        '</div>'+
+                        '</div>'+
+                       
+                        '</div>'+
+                        '</li>';
+            }
+
+            $("#workList").append(html);
+
+        },
+        error:function(msg)
+        {
+            //alert(msg);
+        }
+    });
+    }
+
+    getData(page);
+
+    $("#workList").on("click",".aui-list-item",function(e)
+    {
+
+
+        if(localStorage.quanxianType==3)
+        {
+            var gongqu_scode = $(this).attr("data-scode");
+            localStorage.gongqu_scode = gongqu_scode;
+            api.openWin({
+                name: "gongquShebeiWin",
+                url: 'gongquShebeiWin.html',
+                bounces:false,
+                slidBackEnabled:true,
+                vScrollBarEnabled:false,
+                progress:{
+                    type:"page"
+                }
+            });
+        }
+        else if(localStorage.quanxianType==1)
+        {
+            var gongqu_scode = $(this).attr("data-scode");
+            localStorage.gongqu_scode = gongqu_scode;
+            api.openWin({
+                name: "gongquWorkWin",
+                url: 'gongquWorkWin.html',
+                bounces:false,
+                slidBackEnabled:true,
+                vScrollBarEnabled:false,
+                progress:{
+                    type:"page"
+                }
+            });
+        }
+        else if(localStorage.quanxianType==2)
+        {
+            var gongqu_scode = $(this).attr("data-scode");
+            localStorage.gongqu_scode = gongqu_scode;
+            api.openWin({
+                name: "gongquInfoWin",
+                url: 'gongquInfoWin.html',
+                bounces:false,
+                slidBackEnabled:true,
+                vScrollBarEnabled:false,
+                progress:{
+                    type:"page"
+                }
+            });
+        }
+        else if(localStorage.quanxianType==5)
+        {
+
+            var gongqu_scode = $(this).attr("data-scode");
+            localStorage.gongqu_scode = gongqu_scode;
+            api.openWin({
+                name: "wodeshenpiWin",
+                url: 'wodeshenpiWin.html',
+                bounces:false,
+                slidBackEnabled:true,
+                vScrollBarEnabled:false,
+                progress:{
+                    type:"page"
+                }
+            });
+        }
+        else{
+            var gongqu_scode = $(this).attr("data-scode");
+            localStorage.gongqu_scode = gongqu_scode;
+            api.openWin({
+                name: "shenpiWin",
+                url: 'shenpiWin.html',
+                bounces:false,
+                slidBackEnabled:true,
+                vScrollBarEnabled:false,
+                progress:{
+                    type:"page"
+                }
+            });
+        }
+
+
+        
+
+    });
+
+    var actionsheet = new auiActionsheet();
+
+    $("#workList").on("click",".erweima",function openActionsheet()
+    {
+        localStorage.ewm_aeid=$(this).attr("data-eid");
+
+        actionsheet.init({
+            frameBounces:true,//当前页面是否弹动，（主要针对安卓端）
+            title:"请选择",
+            cancelTitle:'这里取消按钮',
+            buttons:['解绑']
+        },function(ret){
+            if(ret.buttonIndex == 1){
+                var ewm_eid = localStorage.ewm_aeid;
+                //alert(ewm_eid);
+                $.ajax({
+                    type: 'GET',
+                    url: serveUrl+'index.php?g=Api&m=My&a=Ewmcancel' ,
+                    data: {eid:ewm_eid,} ,
+                    dataType: "json",
+                    success: function(data)
+                    {
+                        //alert(JSON.stringify(data));
+                        //console.log(data);
+                        if(data == 1){
+                            showMessage('解绑成功！',1500);
+                            setTimeout(function() {
+                                $("li").detach();
+                                getData(page);
+                            }, 1000);
+
+
+                        }else{
+
+                        }
+
+                    },
+                    error:function(msg)
+                    {
+                        //alert(msg);
+                    }
+                });
+
+
+            };
+
+        })
+
+
+
+      /*  localStorage.ewm_aeid=$(this).attr("data-eid");*/
+
+ /*       api.openWin({
+            name: "ewmshenqingWin",
+            url: 'ewmshenqingWin.html',
+            bounces:false,
+            slidBackEnabled:true,
+            vScrollBarEnabled:false,
+            progress:{
+                type:"page"
+            }
+        });*/
+    });
+
+
+
+
+
+</script>
+<!--搜索框-->
+<script type="text/javascript">
+    apiready = function(){
+        api.parseTapmode();
+    };
+    var searchBar = document.querySelector(".aui-searchbar");
+    var searchBarInput = document.querySelector(".aui-searchbar input");
+    var searchBarBtn = document.querySelector(".aui-searchbar .aui-searchbar-btn");
+    var searchBarClearBtn = document.querySelector(".aui-searchbar .aui-searchbar-clear-btn");
+    if(searchBar){
+        searchBarInput.onclick = function(){
+            searchBarBtn.style.marginRight = 0;
+        };
+        searchBarInput.oninput = function(){
+            if(this.value.length){
+                searchBarClearBtn.style.display = 'block';
+                searchBarBtn.classList.add("aui-text-info");
+                searchBarBtn.textContent = "搜索";
+            }else{
+                searchBarClearBtn.style.display = 'none';
+                searchBarBtn.classList.remove("aui-text-info");
+                searchBarBtn.textContent = "取消";
+            }
+        }
+    }
+    searchBarClearBtn.onclick = function(){
+        window.location.reload();
+        this.style.display = 'none';
+        searchBarInput.value = '';
+        searchBarBtn.classList.remove("aui-text-info");
+        searchBarBtn.textContent = "取消";
+    };
+    searchBarBtn.onclick = function(){
+
+        $("li").detach();
+        if($("#search-input").length){
+            /*searchBarInput.blur();*/
+            console.log($("#search-input").val());
+            getData(page);
+
+
+            //document.getElementById("search-keywords").textContent = keywords;
+        }else{
+            this.style.marginRight = "-"+this.offsetWidth+"px";
+            searchBarInput.value = '';
+            searchBarInput.blur();
+        }
+    };
+
+
+</script>

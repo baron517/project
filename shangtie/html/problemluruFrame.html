@@ -1,0 +1,101 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>缺点录入</title>
+    <link rel="stylesheet" type="text/css" href="../css/aui.css?v=1"/>
+    <link rel="stylesheet" type="text/css" href="../css/main.css"/>
+
+</head>
+<style>
+    .box{
+        margin-top: 0.5rem;
+        width: 100%;
+        height: 3rem;
+        text-align: center;
+        font-size: 1rem;
+        font-weight: bold;
+        padding-top: 0.8rem;
+        -webkit-box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+        -moz-box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+        box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+    }
+</style>
+<body>
+
+
+
+
+<div class="aui-content aui-margin-b-15" style="padding:0 0.5rem;">
+
+
+        <ul class="aui-list aui-list-in" id="workList">
+
+            <!--<li class="aui-list-item aui-list-item-middle">
+                <div class="aui-list-item-inner aui-list-item-arrow">
+                    <div class="aui-list-item-title"style="font-size: 0.8rem">微机监测</div>
+                </div>
+            </li>-->
+            <li class="aui-list-item">
+                <div class="aui-list-item-inner aui-list-item-arrow">
+                    <div class="aui-list-item-title" style="font-size: 0.8rem">车间检查</div>
+                </div>
+            </li>
+            <li class="aui-list-item">
+                <div class="aui-list-item-inner aui-list-item-arrow">
+                    <div class="aui-list-item-title" style="font-size: 0.8rem">段级检查</div>
+                </div>
+            </li>
+            <li class="aui-list-item">
+                <div class="aui-list-item-inner aui-list-item-arrow">
+                    <div class="aui-list-item-title" style="font-size: 0.8rem">作业遗留</div>
+                </div>
+            </li>
+            <li class="aui-list-item">
+                <div class="aui-list-item-inner aui-list-item-arrow">
+                    <div class="aui-list-item-title" style="font-size: 0.8rem">班组互检</div>
+                </div>
+            </li>
+            <li class="aui-list-item">
+                <div class="aui-list-item-inner aui-list-item-arrow">
+                    <div class="aui-list-item-title"  style="font-size: 0.8rem">工区自检</div>
+                </div>
+            </li>
+
+        </ul>
+    </div>
+
+
+
+   <!-- <div class="aui-btn aui-btn-info aui-btn-block"  id="login" style="margin-top:2rem;background: #0389d0!important;">录入</div>-->
+
+</body>
+</html>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/jquery-1.8.1.min.js"></script>
+<script type="text/javascript" src="../script/common.js"></script>
+<script type="text/javascript" src="../script/toast.js"></script>
+<script>
+
+    $("#workList").on("click",".aui-list-item",function()
+    {
+
+        var titleText=$(this).find(".aui-list-item-title").text().trim();
+        localStorage.titleText=titleText;
+      // alert(localStorage.titleText)
+        api.openWin({
+            name: "problemDetailWin",
+            url: 'problemDetailWin.html',
+            bounces:false,
+            slidBackEnabled:true,
+            vScrollBarEnabled:false,
+            progress:{
+                type:"page"
+            }
+        });
+
+    });
+
+</script>

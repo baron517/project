@@ -1,0 +1,403 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>发帖</title>
+    <link rel="stylesheet" type="text/css" href="../css/aui.css?v=1"/>
+    <link rel="stylesheet" type="text/css" href="../css/main.css"/>
+    <style>
+        body{background: #fff;}
+        .aui-card-list-header{padding-bottom:0;}
+        .aui-card-list-footer{padding-top:0;}
+        .aui-list .aui-list-header{background: #f1f1f1;}
+        .remove{
+            width: 1.2rem;
+            height: 1.2rem;
+            position: absolute;
+            z-index: 9999;
+            border-radius: 50px;
+            background-color: rgba(0, 0, 0, 0.5);
+            right: -0.45rem;
+            top: -0.45rem;
+             text-align: center;
+
+
+        }
+        .remove p{
+            font-size: 1rem;
+            color: white;
+            margin-top: -0.15rem;
+            margin-left: 0.05rem;
+
+        }
+        .aui-row{
+            width: 700px;
+            overflow: auto;
+            overflow-x:scroll;
+
+        }
+        .aui-col-xs-4{
+            width: 90px;
+            height: 140px;
+            position:relative;
+
+
+        }
+        .aui-col-xs-4 img{
+
+            height: 100%;
+
+        }
+        .imgbox{
+            width: 110px;
+            height: auto;
+            padding: 0.5rem 0.5rem 0 0.5rem;
+            position: relative;
+            float: left;
+
+        }
+
+
+    </style>
+</head>
+<body>
+
+
+
+
+<section  class="aui-card-list-content-padded" style="padding: 0">
+
+
+
+
+    <ul class="title" style="height: 2.5rem;width: 100%;border-bottom: 1px solid #dddddd">
+        <li class="aui-list-item" >
+            <input type="text" id="title" placeholder="标题（可选） " autofocus="autofocus"  style="padding-left: 0.5rem;color:black;font-size: 0.8rem ">
+        </li>
+    </ul>
+    <textarea placeholder="内容" id="content"  style="width:100%;height:10rem;display: block;padding: 0.5rem"></textarea>
+    <ul class="aui-list aui-media-list">
+    <li class="aui-list-item" style="">
+        <div class="aui-list-item-inner" style="overflow: hidden;  overflow-x:scroll;">
+            <div class="aui-row aui-row-padded"  id="imgList" >
+           <!--     <div class="imgbox">
+                    <div class="aui-col-xs-4" style="border: 2px solid #d1d1d1;padding-top: 1.3rem;height: 130px;padding-left: 0.3rem">
+
+                        <img src="../image/addPlus.png"/>
+                    </div>
+                </div>-->
+                <!--    <div class="imgbox">
+                 <div class="aui-col-xs-4" >
+                       <div class="remove" >
+                          <p>×</p>
+                       </div>
+                       <img src="../image/touxiang1.png"  />
+                       </div>
+                   </div>
+                 <div class="imgbox">
+                <div class="aui-col-xs-4">
+                      <div class="remove">
+                          <p>×</p>
+                          </div>
+                      <img src="../image/homeBg.jpg"/>
+                  </div>
+                      </div>
+                  <div class="imgbox">
+                  <div class="aui-col-xs-4">
+                      <div class="remove">
+                          <p>×</p>
+                      </div>
+                      <img src="../image/demo1.png"/>
+                  </div>
+                      </div>
+                  <div class="imgbox">
+                  <div class="aui-col-xs-4">
+                      <div class="remove">
+                          <p>×</p>
+                      </div>
+                      <img src="../image/demo2.png"/>
+                  </div>
+                      </div>
+                  <div class="imgbox">
+                  <div class="aui-col-xs-4">
+                      <div class="remove">
+                          <p>×</p>
+                      </div>
+                      <img src="../image/demo3.png"/>
+                  </div>
+                      </div>-->
+
+
+            </div>
+        </div>
+    </li>
+        </ul>
+
+
+    <!--<div class="info" style="width: 200px;height: 80px;float: right;border-radius: 5px;-webkit-box-shadow: 2px 2px 8px rgba(0,0,0,0.2);-moz-box-shadow: 2px 2px 8px rgba(0,0,0,0.2);box-shadow: 2px 2px 8px rgba(0,0,0,0.2);">
+        <div class="on" style="width: 150px;height: 30px;border-radius: 5px;background-color: #3366CC;margin: 0 auto;text-align: center;color: white;font-size: 0.8rem;padding-top: 0.1rem;margin-top: 0.2rem;-webkit-box-shadow: 2px 2px 8px rgba(0,0,0,0.2);-moz-box-shadow: 2px 2px 8px rgba(0,0,0,0.2);box-shadow: 2px 2px 8px rgba(0,0,0,0.2);">
+            已完成&nbsp;50%
+        </div>
+        <div class="on" style="width: 150px;height: 30px;border-radius: 5px;background-color: #DC3912;margin: 0 auto;text-align: center;color: white;font-size: 0.8rem;padding-top: 0.1rem;margin-top: 0.5rem;-webkit-box-shadow: 2px 2px 8px rgba(0,0,0,0.2);-moz-box-shadow: 2px 2px 8px rgba(0,0,0,0.2); box-shadow: 2px 2px 8px rgba(0,0,0,0.2);">
+            未完成&nbsp;50%
+        </div>
+    </div>-->
+
+    <div class="aui-btn aui-btn-info aui-btn-block"  id="img" tapmode onclick="openActionsheet()" style="margin-top:2rem;position: fixed;bottom:3rem;background: #0389d0!important;">上传图片</div>
+    <div class="aui-btn aui-btn-info aui-btn-block"  id="send" style="margin-top:1rem;position: fixed;bottom: 0;background: #0389d0!important;">发表</div>
+
+
+</section>
+
+
+
+
+
+</body>
+</html>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/jquery-1.8.1.min.js"></script>
+<script type="text/javascript" src="../script/common.js"></script>
+<script type="text/javascript" src="../script/aui-actionsheet.js" ></script>
+<script type="text/javascript" src="../script/toast.js"></script>
+<script type="text/javascript">
+
+
+
+
+        apiready = function(){
+
+        api.setStatusBarStyle({
+            style: 'dark',
+            color: '#666'
+        });
+        api.parseTapmode();
+
+
+
+    };
+
+
+
+        $("#imgList").on("click",".remove",function()
+        {
+            $(this).parent().parent().remove();
+        });
+
+
+        $("#imgList").on("click","img",function()
+        {
+            var imgUrl= $(this).attr("src");
+            openPicView(imgUrl);
+        });
+
+
+
+        var actionsheet = new auiActionsheet();
+    function openActionsheet(){
+        actionsheet.init({
+            frameBounces:true,//当前页面是否弹动，（主要针对安卓端）
+            title:"请选择",
+            cancelTitle:'这里取消按钮',
+            buttons:['拍照','图库选择']
+        },function(ret){
+            if(ret.buttonIndex == 1){
+
+               //alert("拍照")
+
+                api.getPicture({
+                    sourceType: 'camera',
+                    encodingType: 'jpg',
+                    mediaValue: 'pic',
+                    destinationType: 'url',
+                    allowEdit: true,
+                    quality: 100,
+                    targetWidth: 750,
+                    targetHeight: 750,
+                    saveToPhotoAlbum: false
+                }, function(ret, err) {
+                    if (ret) {
+                        uploadImg(ret.data);
+                    } else {
+                        //alert(JSON.stringify(err));
+                    }
+                });
+
+
+            };
+            if(ret.buttonIndex == 2){
+
+
+
+                api.getPicture({
+                    sourceType: 'album',
+                    encodingType: 'jpg',
+                    mediaValue: 'pic',
+                    destinationType: 'url',
+                    allowEdit: true,
+                    quality: 100,
+                   targetWidth: 750,
+                    targetHeight: 750,
+                    saveToPhotoAlbum: false
+                }, function(ret, err) {
+                    if (ret) {
+
+                        uploadImg(ret.data);
+
+                    } else {
+                        //alert(JSON.stringify(err));
+                    }
+                });
+
+
+            };
+        })
+    }
+
+
+        function uploadImg(imgUrl)
+        {
+            api.ajax({
+                url: serveUrl+'index.php?g=Api&m=CommonApi&a=uploadImg',
+                method: 'post',
+                data: {
+                    files: {
+                        file: imgUrl
+                    }
+                }
+            }, function(ret, err) {
+
+                //alert(JSON.stringify(ret));
+                //alert(ret.length);
+                if (ret.code=1000) {
+
+                    if(imgUrl != "") {
+                        if($(".aui-col-xs-4 img").length < 6 ){
+
+
+
+                    $("#imgList").append('<div class="imgbox">'+
+                                         '<div class="aui-col-xs-4">'+
+                                         ' <div class="remove">'+
+                                         '<p>×</p>'+
+                                         '</div>'+
+                                         '<img  src="'+serveUrl+ret.url+'" />'+
+                                         '</div>'+
+                                         '</div>'
+                                         );
+
+                        }else {
+                            showMessage('最多只能上传六张图片！',1500);
+                        }
+                    }
+                }
+
+            });
+
+
+
+        }
+
+
+       /* $("#send").on("click",".aui-btn",function()
+        {
+
+            api.openWin({
+                name: "bbsWin",
+                url: 'bbsWin.html',
+                bounces:false,
+                slidBackEnabled:true,
+                vScrollBarEnabled:false,
+                progress:{
+                    type:"page"
+                }
+            });
+
+        });*/
+
+
+    $("#send").click(function()
+    {
+        if($("#title").val()=="")
+        {
+            showMessage('标题不能为空！',1500);
+            return;
+        }
+
+
+        var fimg=[];
+
+        $("#imgList img").each(function()
+        {
+            var fimgObj={};
+            fimgObj.img=$(this).attr("src");
+            fimg.push(fimgObj);
+        });
+
+
+        var param=JSON.stringify({
+            fname:$("#title").val(),
+            fdate:new Date().format("yyyy-MM-dd hh:mm:ss"),
+            fperson:userObj.sname,
+            fcontent:$("#content").val(),
+            f_uid:userObj.id,
+            fimg:JSON.stringify(fimg)
+        });
+
+
+
+        $.ajax({
+            type: 'POST',
+            url: serveUrl+'index.php?g=Api&m=My&a=fatie' ,
+            data: {param:param} ,
+            dataType: "json",
+            success: function(data)
+            {
+                //alert(JSON.stringify(data));
+                if(data.code==1000)
+                {
+
+                    $("#title").val("");
+                    $("#content").val("");
+                    $("#imgList").empty();
+
+                    showMessage('发表成功！',1500);
+
+                    setTimeout(function() {
+
+                        api.openWin({
+                            name: "bbsWin",
+                            url: 'bbsWin.html',
+                            bounces:false,
+                            reload:true,
+                            slidBackEnabled:true,
+                            vScrollBarEnabled:false,
+                            progress:{
+                                type:"page"
+                            }
+                        });
+
+
+                    }, 1000);
+
+                }
+                else
+                {
+                    showMessage(data.msg,1500);
+                }
+
+            },
+            error:function(msg)
+            {
+                //alert(msg);
+            }
+        });
+
+    });
+
+
+
+
+</script>

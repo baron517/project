@@ -1,0 +1,178 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>现场作业</title>
+    <link rel="stylesheet" type="text/css" href="../css/aui.css?v=1"/>
+    <link rel="stylesheet" type="text/css" href="../css/main.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/iconfont.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/demo.css"/>
+
+</head>
+<style>
+    .box{
+        margin-top: 0.2rem;
+        width: 100%;
+        height: 3rem;
+        text-align: center;
+        font-size: 1rem;
+        font-weight: bold;
+        padding-top: 0.8rem;
+        -webkit-box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+        -moz-box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+        box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+    }
+
+    .aui-grid [class*=aui-col-]{
+        padding: 0 0;
+    }
+
+</style>
+<body>
+
+
+
+<section class="aui-grid aui-margin-b-15">
+    <div class="aui-row" id="content">
+
+     <!--   <div class="aui-col-xs-4 icon_lists clear" id="jianxiu">
+            <i class="icon iconfont icon-jianxiu-mian aui-text-indigo"></i>
+            <div class="aui-grid-label">检修</div>
+        </div>
+        <div class="aui-col-xs-4 icon_lists clear"  id="chunjian">
+            <i class="icon iconfont icon-11 aui-text-success"></i>
+            <div class="aui-grid-label">春检</div>
+        </div>
+        <div class="aui-col-xs-4 icon_lists clear"  id="qiujian">
+            <i class="icon iconfont icon-jiancha aui-text-warning"></i>
+            <div class="aui-grid-label">秋鉴</div>
+        </div>
+        <div class="aui-col-xs-4 icon_lists clear" id="test" >
+            <i class="icon iconfont icon-svgmoban17 aui-text-danger" ></i>
+            <div class="aui-grid-label">一级测试</div>
+        </div>-->
+        <div class="aui-col-xs-4 icon_lists clear" id="kefu">
+            <i class="icon iconfont icon-xinxi-jiebao aui-text-primary " ></i>
+            <div class="aui-grid-label"  style="word-break: break-all;height: 63px;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 3;overflow: hidden;">
+                缺点克服
+            </div>
+        </div>
+
+    </div>
+</section>
+</body>
+</html>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/jquery-1.8.1.min.js"></script>
+<script type="text/javascript" src="../script/common.js"></script>
+
+<script>
+
+
+    apiready = function(){
+
+
+        api.setStatusBarStyle({
+            style: 'dark',
+            color: '#666'
+        });
+        api.parseTapmode();
+
+
+
+    };
+
+    var eid = localStorage.eid;
+
+    $.ajax({
+        type: 'GET',
+        url: serveUrl+'index.php?g=Api&m=My&a=work_class' ,
+        data: {eid:eid} ,
+        dataType: "json",
+        success: function(data)
+        {
+
+            
+            console.log(JSON.stringify(data));
+
+           //alert(JSON.stringify(data));
+
+            var html="";
+            for(var i=0;i<data.length;i++)
+            {
+                
+                
+                if(data[i].wstatus==localStorage.xczyFlag)
+                {
+                     html=html+'  <div class="aui-col-xs-4 icon_lists clear dianji" data-wc_id="'+data[i].wc_id+'" data-pid="'+data[i].pid+'" data-e_sid="'+data[i].e_sid+'">'+
+                        '<i class="icon iconfont '+data[i].wc_inco+' '+data[i].wc_inco_color+'"></i>'+
+                        '<div class="aui-grid-label" style="word-break: break-all;height: 63px;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 3;overflow: hidden;">'+data[i].wc_name+'</div><span class="json" style="display: none;">'+data[i].econtent+'</span>'+
+                        '</div>';
+                }
+                
+               
+            }
+            $("#content").append(html);
+
+
+
+        },
+        error:function(msg)
+        {
+            //alert(msg);
+        }
+    });
+
+
+        localStorage.setForm="0";
+
+
+        $("#content").on("click",".dianji",function()
+        {
+
+            var jsonList=$(this).find(".json").text();
+            localStorage.jsonList=jsonList;
+            localStorage.titleText=$(this).find(".aui-grid-label").text();
+            localStorage.scenework_e_sid=$(this).attr("data-e_sid");
+            //alert(localStorage.scenework_e_sid);
+
+            localStorage.scenework_pid=$(this).attr("data-pid");
+            localStorage.wc_id=$(this).attr("data-wc_id");
+            //var wc_id = localStorage.wc_id;
+            //alert(wc_id);
+
+            api.openWin({
+                name: "scenecontentWin",
+                url: 'scenecontentWin.html',
+                bounces:false,
+                slidBackEnabled:true,
+                vScrollBarEnabled:false,
+                progress:{
+                    type:"page"
+                }
+            });
+
+        });
+
+       
+
+        $("#kefu").click(function()
+        {
+
+            api.openWin({
+                name: "shortcomingWin",
+                url: 'shortcomingWin.html',
+                bounces:false,
+                slidBackEnabled:true,
+                vScrollBarEnabled:false,
+                progress:{
+                    type:"page"
+                }
+            });
+
+        });
+
+
+</script>

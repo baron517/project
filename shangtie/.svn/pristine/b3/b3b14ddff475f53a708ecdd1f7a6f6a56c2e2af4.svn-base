@@ -1,0 +1,120 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>手输结果</title>
+    <link rel="stylesheet" type="text/css" href="../css/aui.css?v=1"/>
+    <link rel="stylesheet" type="text/css" href="../css/main.css"/>
+
+</head>
+<body>
+
+
+
+
+<div class="aui-content aui-margin-b-15" style="padding:0 0.5rem;margin-top:8rem;" id="btnList">
+
+
+
+    <div class="aui-btn aui-btn-primary aui-btn-block" id="work"  style="margin-top:3rem;">现场作业</div>
+
+   <!-- <div class="aui-btn aui-btn-info aui-btn-block"    style="margin-top:2rem;">检测问题</div>-->
+
+    <div class="aui-btn aui-btn-success aui-btn-block"  style="margin-top:4rem;">设备详情</div>
+
+
+
+</div>
+
+
+
+
+
+
+</body>
+</html>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/jquery-1.8.1.min.js"></script>
+<script type="text/javascript" src="../script/common.js"></script>
+<script type="text/javascript">
+
+
+    apiready = function(){
+
+
+
+        api.setStatusBarStyle({
+            style: 'dark',
+            color: '#666'
+        });
+        api.parseTapmode();
+
+
+
+
+
+
+        $("#work").click(function()
+        {
+
+            localStorage.xczyFlag=1; 
+
+            api.openWin({
+                name: "sceneworkWin",
+                url: 'sceneworkWin.html',
+                bounces:false,
+                slidBackEnabled:true,
+                vScrollBarEnabled:false,
+                progress:{
+                    type:"page"
+                }
+            });
+
+
+        });
+
+      /*  $("#btnList div").eq(1).click(function()
+        {
+            api.openWin({
+                name: "checkProblemWin",
+                url: 'checkProblemWin.html',
+                bounces:false,
+                slidBackEnabled:true,
+                vScrollBarEnabled:false,
+                progress:{
+                    type:"page"
+                }
+            });
+
+
+        });
+*/
+
+
+        $("#btnList div").eq(1).click(function()
+        {
+
+            api.openWin({
+                name: "deviceDetailWin",
+                url: 'deviceDetailWin.html',
+                bounces:false,
+                slidBackEnabled:true,
+                vScrollBarEnabled:false,
+                progress:{
+                    type:"page"
+                }
+            });
+
+        });
+
+
+
+
+    };
+
+
+
+
+</script>

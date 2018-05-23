@@ -1,0 +1,375 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>现场作业记录</title>
+    <link rel="stylesheet" type="text/css" href="../css/aui.css?v=1"/>
+    <link rel="stylesheet" type="text/css" href="../css/main.css"/>
+
+</head>
+<style>
+    .xiugai{
+        width: 2.2rem;
+        height: 1.2rem;
+        font-size:0.7rem;
+        background-color: #03a9f4;
+        text-align: center;
+        color: white;
+        border-radius: 5px;
+        -webkit-box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+        -moz-box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+        box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+        float: right;
+        margin-top: -0.8rem;
+        margin-right: 0.5rem;
+        z-index: 999;
+        padding-top: 0.1rem ;
+    }
+    .xiugai:active{
+        background-color: #00acc1;
+    }
+</style>
+<body>
+
+
+
+
+<div class="search-top">
+        
+        
+         <div class="search-row date-col">
+          <label>开始时间：</label><input type="date" id="startTime" /> 
+          &nbsp;<label>结束时间：</label><input type="date" id="endTime" />
+        </div>
+        
+       <!--  <div class="search-row qixian-col">
+            <label>处理期限：</label><input type="date" id="qixianCol">
+        </div>-->
+        
+        <div class="search-row keyword-col">
+            <label>关键词：</label><input type="text"  id="search-input">
+             <button type="button" class="aui-btn aui-btn-info" id="search">搜索</button>
+        </div>
+        
+        
+       
+        
+    </div>
+
+
+
+    <div class="aui-content aui-margin-b-15" style="margin-top: 2.3rem">
+        
+         <ul class="aui-list aui-form-list aui-list aui-list-in" style="margin-top:0.2rem;border-top:0!important;position: fixed;top: 4rem;width: 100%;z-index: 999">
+            <div class="aui-tab clearfix">
+                <div class="aui-tab-item aui-active">已提交</div>
+                <div class="aui-tab-item ">未提交</div>
+            </div>
+        </ul>
+    
+    
+      <div class="swiper-container swiper-tab">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="content">
+        
+                    <ul class="aui-list aui-media-list"  id="workList" style="margin-top:4.1rem;border-top:0!important;" >
+                
+                
+                    </ul>
+
+                        <div class="load-more" id="loadCol">
+                            <span >加载更多</span>
+                        </div>
+                    
+                    
+                    </div>
+                    
+                </div>
+                
+                
+                 <div class="swiper-slide" style="display: none;">
+                    <div class="content">
+        
+                    <ul class="aui-list aui-media-list"  id="workList1" style="margin-top:4.1rem;border-top:0!important;" >
+                
+                
+                    </ul>
+                    
+
+
+                    
+                    
+                    </div>
+
+
+
+                </div>
+                
+                
+                
+                
+                </div>
+                
+                    
+        </div>
+
+    </div>
+
+
+
+
+
+
+</body>
+</html>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/jquery-1.8.1.min.js"></script>
+<script type="text/javascript" src="../script/common.js"></script>
+<script type="text/javascript" src="../script/toast.js"></script>
+<script type="text/javascript" src="../script/aui-dialog.js" ></script>
+<script>
+
+
+    apiready = function(){
+      
+        
+        api.setStatusBarStyle({
+            style: 'dark',
+            color: '#666'
+        });
+        api.parseTapmode();
+        
+         api.addEventListener({
+            name:'viewappear'
+        }, function(ret, err){
+
+             $("#workList").empty();
+             page= 0;
+             getData(page);
+          setSaveData();
+           
+        });
+        
+    };
+
+
+    $("#loadCol span").click(function()
+    {
+        getData(page);
+    });
+
+    $('.aui-tab div').click(function(){
+        
+            var index = $(this).index();
+            $('.aui-tab div.aui-active').removeClass('aui-active');
+            $(this).addClass('aui-active');
+
+            $(".swiper-wrapper .swiper-slide").hide();
+            $(".swiper-wrapper .swiper-slide").eq(index).show();
+
+
+        });
+    
+
+    var uid = userObj.id;
+    var page=0;
+
+
+    function getData(pageIndex) {
+
+
+        if($("#startTime").val())
+        {
+            var startTime=$("#startTime").val()+" 00:00:00";
+        }
+
+        if($("#endTime").val())
+        {
+            var endTime=$("#endTime").val()+" 23:59:59";
+        }
+        
+        
+        
+        $.ajax({
+            type: 'GET',
+            url: serveUrl + 'index.php?g=Api&m=My&a=work',
+            data: {
+                page: pageIndex,
+                uid: uid,
+                keyword:$("#search-input").val(),
+                startTime:startTime,
+                endTime:endTime
+            },
+            dataType: "json",
+            success: function (data) {
+                console.log(JSON.stringify(data));
+
+                var html = "";
+                for (var i = 0; i < data.length; i++) {
+                    html = html + ' <li class="aui-list-item aui-list-item-arrow" data-w_sid="' + data[i].w_sid + '"  data-wid="' + data[i].wid + '">' +
+                            '<div class="aui-media-list-item-inner">' +
+                            '<div class="aui-list-item-inner">' +
+                            '<div class="aui-list-item-text">' +
+                            '<div class="aui-list-item-title">' + data[i].wname +
+                            '</div>' +
+                            '<div class="aui-list-item-right">设备名：' +data[i].ename+
+                            '</div>'+
+                            '<span class="json-text" style="display:none;">' + data[i].wcontent + '</span></div>' +
+                            '<div class="aui-list-item-text aui-ellipsis-2">日期：' + data[i].wdate +
+                            '</div>' +
+                            '<div class="xiugai" >修改' +
+                            '</div>' +
+
+                            '</div>' +
+
+                            '</div>' +
+                            '</div>' +
+                            '</li>';
+                }
+
+                page++;
+
+                $("#workList").append(html);
+
+                if(data.length<20)
+                {
+                    $("#loadCol span").text("没有更多数据");
+                }
+
+
+            },
+            error: function (msg) {
+
+            }
+        });
+    }
+
+
+
+    function setSaveData()
+    {
+        
+         var huancunList=[];
+
+        if(localStorage.huancunList)
+        {
+            huancunList=JSON.parse(localStorage.huancunList);
+        }
+        
+        
+        var html="";
+        for(var i=0;i<huancunList.length;i++) {
+
+            if (huancunList[i].uid == userObj.id) {
+
+                html = html +
+                        '<li class="aui-list-item aui-list-item-arrow" data-wc_id="' + huancunList[i].wc_id + '" data-eid="' + huancunList[i].eid + '" data-titleText="' + huancunList[i].titleText + '">' +
+                        '<div class="aui-media-list-item-inner">' +
+                        '<div class="aui-list-item-inner">' +
+                        '<div class="aui-list-item-text">' +
+                        '<div class="aui-list-item-title">' + huancunList[i].titleText +
+                        '</div>' +
+                        '<div class="aui-list-item-right">设备名：' + huancunList[i].shebeiming +
+                        '</div>' +
+                        '</div>' +
+                        '<div class="aui-list-item-text aui-ellipsis-2">日期：' + huancunList[i].date +
+                        '</div>' +
+                        '</div>' +
+
+                        '</div>' +
+                        '</div>' +
+                        '</li>';
+            }
+
+        }
+        
+        $("#workList1").empty();
+         $("#workList1").append(html);
+
+        
+    }
+            
+
+
+    $("#workList").on('click',".aui-list-item",function(){
+
+        var work_json = $(this).find(".json-text").text();
+         localStorage.work_json = work_json;
+         
+         localStorage.work_w_sid=$(this).attr("data-w_sid");
+         localStorage.work_wid=$(this).attr("data-wid");
+
+      //  alert(JSON.stringify(localStorage.work_json));
+         api.openWin({
+         name: "xiugaiWin",
+         url: 'xiugaiWin.html',
+         bounces:false,
+         slidBackEnabled:true,
+         vScrollBarEnabled:false,
+         progress:{
+         type:"page"
+         }
+         });
+    });
+
+
+ $("#workList1").on("click",".aui-list-item",function()
+    {
+
+
+        localStorage.setForm="1";
+        localStorage.p_wc_id=$(this).attr("data-wc_id");
+        localStorage.wc_id=$(this).attr("data-wc_id");
+        localStorage.eid=$(this).attr("data-eid");
+        
+        //alert(localStorage.p_wc_id);
+        //alert(localStorage.eid);
+
+        localStorage.titleText=$(this).attr("data-titleText");
+
+        api.openWin({
+            name: "scenecontentWin",
+            url: 'scenecontentWin.html',
+            bounces:false,
+            slidBackEnabled:true,
+            vScrollBarEnabled:false,
+            progress:{
+                type:"page"
+            }
+        });
+
+    });
+
+   
+   
+   
+    $("#search").click(function()
+    {
+     
+        
+        if($("#startTime").val()!=""&&$("#endTime").val()=="")
+        {
+            showMessage('结束时间不能为空！',1500);
+            return;
+        }
+        
+         if($("#endTime").val()!=""&&$("#startTime").val()=="")
+        {
+            showMessage('开始时间不能为空！',1500);
+            return;
+        }
+        
+
+        page=0;
+        $("#workList").empty();
+        getData(page);
+
+
+    });
+
+
+
+</script>

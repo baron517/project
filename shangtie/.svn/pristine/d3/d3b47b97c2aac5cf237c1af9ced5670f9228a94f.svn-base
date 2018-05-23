@@ -1,0 +1,271 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>设备作业记录</title>
+    <link rel="stylesheet" type="text/css" href="../css/aui.css?v=1"/>
+    <link rel="stylesheet" type="text/css" href="../css/main.css"/>
+
+</head>
+<body>
+<!--
+<div class="aui-searchbar" id="search1" style="margin-top: 0.5rem">
+    <div class="aui-searchbar-input aui-border-radius">
+        <i class="aui-iconfont aui-icon-search"></i>
+        <input type="search" placeholder="请输入搜索内容" id="search-input">
+        <div class="aui-searchbar-clear-btn" >
+            <i class="aui-iconfont aui-icon-close"></i>
+        </div>
+    </div>
+    <div class="aui-searchbar-btn" tapmode >取消</div>
+</div>-->
+
+<div class="aui-searchbar" id="search" style="position: fixed;top: 0;width: 100%;z-index: 99999">
+    <div class="aui-searchbar-input aui-border-radius">
+        <i class="aui-iconfont aui-icon-search"></i>
+        <input type="search" placeholder="请输入搜索内容" id="search-input">
+        <div class="aui-searchbar-clear-btn" id="">
+            <i class="aui-iconfont aui-icon-close"></i>
+        </div>
+    </div>
+    <div class="aui-searchbar-btn" tapmode >取消</div>
+</div>
+
+<div class="main-box">
+
+    <div class="swiper-container swiper-tab" style="margin-top: 2.2rem">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <div class="content">
+
+                    <ul class="aui-list aui-media-list" id="workList2">
+                        <!--
+                                                <div class="aui-searchbar"  style="margin-top: 0.5rem">
+                                                    <div class="aui-searchbar-input aui-border-radius">
+                                                        <i class="aui-iconfont aui-icon-search"></i>
+                                                        <input type="search" placeholder="请输入搜索内容" id="search-input">
+                                                        <div class="aui-searchbar-clear-btn">
+                                                            <i class="aui-iconfont aui-icon-close"></i>
+                                                        </div>
+                                                    </div>
+                                                    <div class="aui-searchbar-btn" tapmode >取消</div>
+                                                </div>-->
+
+
+
+
+
+                    </ul>
+
+                    <!--  <div class="load-more" id="loadCol1">
+                          <span >加载更多</span>
+                      </div>-->
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+<script type="text/javascript" src="../script/jquery-1.8.1.min.js"></script>
+
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/common.js"></script>
+<script src="../script/dropload.min.js"></script>
+<script type="text/javascript" src="../script/aui-pull-refresh.js"></script>
+<!--滑动切换-->
+<script>
+
+    $(function(){
+
+
+        $('.aui-tab div').click(function(){
+            var index = $(this).index();
+            $('.aui-tab div.aui-active').removeClass('aui-active');
+            $(this).addClass('aui-active');
+
+            $(".swiper-wrapper .swiper-slide").hide();
+            $(".swiper-wrapper .swiper-slide").eq(index).show();
+
+
+        });
+
+    });
+
+
+    apiready = function(){
+        api.setStatusBarStyle({
+            style: 'dark',
+            color: '#666'
+        });
+        api.parseTapmode();
+
+        /*   api.addEventListener({
+         name:'viewappear'
+         }, function(ret, err){
+         // alert('window显示');
+         //window.location.reload();
+         var indexValue=$(".aui-tab .aui-active").index();
+         if(indexValue==0)
+         {
+         $("#workList").empty();
+         getData1(page1);
+         }
+         else {
+         console.log("2");
+         $("#workList1").empty();
+         getData2(page2);
+         }
+         });*/
+    };
+
+    //设备作业记录
+    var page3 = 0;
+    var eid=localStorage.eid;
+    //  alert(eid);
+
+    //console.log($("#search-input").val());
+    function getData3(page)
+    {
+        $.ajax({
+            type:"GET",
+            url:serveUrl+'index.php?g=Api&m=My&a=shebeiwork' ,
+            dataType:"json",
+            data:{
+                keyword:$("#search-input").val(),
+                page:page,
+                eid:eid
+            },
+            success:function(data){
+                //console.log(data);
+                var html="";
+                for(var i=0;i<data.length;i++)
+                {
+
+                    html=html+
+                            '<li class="aui-list-item aui-list-item-arrow" style="border-bottom:1px solid #DDDDDD;" data-id="'+data[i].wid+'">'+
+                            ' <div class="aui-media-list-item-inner">'+
+                            '<div class="aui-list-item-inner">'+
+                            '<div class="aui-list-item-text">'+
+                            '<div class="aui-list-item-title">'+data[i].wname+
+                            ' </div>'+
+                            '<div class="aui-list-item-right">设备包保人：' +data[i].sname+
+                            '</div>'+
+                            ' </div>'+
+                            '<div class="aui-list-item-text aui-ellipsis-2" style="padding-right: 3rem">'+data[i].wdate+
+                            '</div>'+
+
+                                /*  '<div class="aui-list-item-right aui-text-success" style="float: right;margin-top: -1rem">二维码' +
+                                 '</div>'+*/
+                                /*        '<div>' + statusHtml+
+                                 '</div>'+*/
+                            ' </div>'+
+                            ' </div>'+
+                            ' </li>';
+                }
+
+                $("#workList2").append(html);
+
+            }
+
+        });
+    }
+    getData3(page3);
+
+    $("#workList2").on("click",".aui-list-item",function()
+    {
+
+        var w_id = $(this).attr("data-id");
+        localStorage.w_id = w_id;
+        api.openWin({
+            name: "equipmentworkWin",
+            url: 'equipmentworkWin.html',
+            bounces:false,
+            slidBackEnabled:true,
+            vScrollBarEnabled:false,
+            progress:{
+                type:"page"
+            }
+        });
+
+    });
+
+
+    var searchBar = document.querySelector(".aui-searchbar");
+    var searchBarInput = document.querySelector(".aui-searchbar input");
+    var searchBarBtn = document.querySelector(".aui-searchbar .aui-searchbar-btn");
+    var searchBarClearBtn = document.querySelector(".aui-searchbar .aui-searchbar-clear-btn");
+    if(searchBar){
+        searchBarInput.onclick = function(){
+            searchBarBtn.style.marginRight = 0;
+        };
+        searchBarInput.oninput = function(){
+            if(this.value.length){
+                searchBarClearBtn.style.display = 'block';
+                searchBarBtn.classList.add("aui-text-info");
+                searchBarBtn.textContent = "搜索";
+            }else{
+                searchBarClearBtn.style.display = 'none';
+                searchBarBtn.classList.remove("aui-text-info");
+                searchBarBtn.textContent = "取消";
+            }
+        }
+    }
+    searchBarClearBtn.onclick = function(){
+        window.location.reload();
+        this.style.display = 'none';
+        searchBarInput.value = '';
+        searchBarBtn.classList.remove("aui-text-info");
+        searchBarBtn.textContent = "取消";
+    };
+
+
+    searchBarBtn.onclick = function(){
+
+        var keywords = searchBarInput.value;
+
+        if(keywords.length>0){
+
+            var indexValue=$(".aui-tab .aui-active").index();
+            if(indexValue==1)
+            {
+                $("#workList1").empty();
+                getData2(page2);
+            }
+            else {
+                //console.log("2");
+                $("#workList2").empty();
+                getData3(page3);
+            }
+
+
+
+        }else{
+            this.style.marginRight = "-"+this.offsetWidth+"px";
+            searchBarInput.value = '';
+            searchBarInput.blur();
+        }
+    };
+
+
+
+
+
+    /*    $("#loadCol2").click(function()
+     {
+     //getData2(page2);
+     });*/
+
+
+
+
+
+
+</script>
+
+

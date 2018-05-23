@@ -1,0 +1,159 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>设备作业记录详情</title>
+    <link rel="stylesheet" type="text/css" href="../css/aui.css?v=1"/>
+    <link rel="stylesheet" type="text/css" href="../css/main.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/swiper.min.css"/>
+    <link rel="stylesheet" href="../css/dropload.css">
+    <link rel="stylesheet" type="text/css" href="../css/aui-pull-refresh.css" />
+    <style>
+        body{background: #fff;}
+        .aui-card-list-header{padding-bottom:0;}
+        .aui-card-list-footer{padding-top:0;}
+        .aui-list .aui-list-header{background: #f1f1f1;}
+        .aui-searchbar-input input{width:100%;}
+
+    </style>
+</head>
+<body>
+
+
+<div class="main-box">
+
+    <div class="aui-card-list">
+        <div class="aui-card-list-content-padded" id="wname" style="text-align: center;font-size: 1rem;margin-top: 0.5rem">
+            
+        </div>
+
+        <div class="aui-card-list-footer" >
+            <span id="zuoyeren">作业人：</span>
+            <span id="wdate">作业日期：</span>
+
+        </div>
+
+    </div>
+
+
+
+                  <ul class="aui-list aui-form-list" id="workList">
+
+                   </ul>
+                    <ul class="aui-list aui-media-list" >
+                        <li class="aui-list-item">
+                            <div class="aui-list-item-inner">
+                                <div class="aui-list-item-title"  style="font-size: 0.8rem">设备作业相片:</div>
+                                <div class="aui-row aui-row-padded" id="w_image">
+
+                                </div>
+                            </div>
+                        </li>
+
+                    </ul>
+
+                </div>
+                <span id="jsontext" style="display: none"></span>
+
+
+
+</body>
+</html>
+<script type="text/javascript" src="../script/jquery-1.8.1.min.js"></script>
+
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/common.js"></script>
+<script src="../script/dropload.min.js"></script>
+<script type="text/javascript" src="../script/aui-pull-refresh.js"></script>
+<script>
+
+
+    apiready = function(){
+        api.setStatusBarStyle({
+            style: 'dark',
+            color: '#666'
+        });
+        api.parseTapmode();
+
+
+    };
+
+
+    $("#w_image").on("click","img",function()
+    {
+        var imgUrl= $(this).attr("src");
+        openPicView(imgUrl);
+    });
+
+//设备详情
+    var wid = localStorage.w_id;
+   //alert(wid)
+    var page = 0;
+
+        $.ajax({
+            type: 'GET',
+            url: serveUrl+'index.php?g=Api&m=My&a=shebeiworkcontent' ,
+            data: {
+                page: page,
+                wid:wid
+            },
+            dataType: "json",
+            success: function(data)
+            {
+                //console.log(JSON.stringify(data));
+                var s = data.wcontent.wcontent;
+                //console.log(s);
+                $("#jsontext").append(s);
+
+                var ss = JSON.parse($("#jsontext").text());
+               // console.log(ss);
+                var html = "";
+                for (var i =0;i<ss.length;i++){
+
+                    html = html+'<li class="aui-list-item">'+
+                            '<div class="aui-list-item-inner">'+
+                            '<div class="aui-list-item-label" style="width:55%;" >'
+                            +ss[i].wdname+
+                            '</div>'+
+                            '<div class="aui-list-item-input" style="width:45%;" >' +ss[i].wdvalue+
+                            '</div>'+
+                            '</div>'+
+                            '</li>';
+                }
+
+
+                //设备作业相片
+                var w_imgHtml="";
+
+                    if (data.wcontent.w_image) {
+                        var w_imageUrl = JSON.parse(data.wcontent.w_image);
+
+                        for (var j = 0; j < w_imageUrl.length; j++)
+                        {
+                            w_imgHtml = w_imgHtml + '<div class="aui-col-xs-4">' +
+                                    '<img style="height: 111.66px" src="' + w_imageUrl[j].img + '"/>' +
+                                    '</div>';
+                        }
+                    }
+
+
+
+                $("#w_image").append(w_imgHtml);
+                $("#workList").append(html);
+                $("#wdate").append(data.wcontent.wdate);
+                $("#wname").append(data.wcontent.wname);
+                $("#zuoyeren").append(data.workpeople);
+            },
+            error:function(msg)
+            {
+                //alert(msg);
+            }
+        });
+
+
+
+</script>
+
+
