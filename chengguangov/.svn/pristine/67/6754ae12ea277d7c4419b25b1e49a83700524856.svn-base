@@ -1,0 +1,9 @@
+[ 2017-11-09T10:37:57+08:00 ] 127.0.0.1 /Chengguangov/index.php?g=install&a=testdbpwd
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001025s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.007845s ]
+INFO: Run Common\Behavior\UrldecodeGetBehavior [ RunTime:0.000641s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.010218s ]
+NOTIC: [8] Undefined index: db_name D:\WWW\project\Chengguangov\simplewind\Core\Library\Think\Db.class.php 第 68 行.
+SQL: show databases; [ RunTime:0.0056s ]
+

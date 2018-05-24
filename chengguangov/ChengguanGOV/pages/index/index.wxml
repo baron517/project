@@ -1,0 +1,91 @@
+<!--pages/components/shixue/shixue.wxml-->
+<button class='userBtn' open-type='getUserInfo'>点击获取信息</button>
+<view class='title'>加班就餐申请单</view>
+   <view class="main">
+    <view class="form-box">
+        <form bindsubmit="form" report-submit="true">
+      
+          <picker bindchange="bindPickerChange" name="zhongdui" data-id='{{areadata}}' value="{{area[areaIndex]}}" range="{{area}}">  
+             <view class="picker">  
+             <text > 申请中队（科室）：{{area[areaIndex]}} </text>
+              </view>  
+              </picker>
+
+           <text class='li'>经办人：</text>
+             <input value="" name="jingban" placeholder="请输入经办人"/>
+             <textarea  name="liyou" value="" placeholder="加班事由：" ></textarea>
+                <text class='li' >加班人数：</text>
+             <input focus="true"  name="renshu" value="{{pernum}}" placeholder="请输入加班人数"  />
+
+
+
+                <text class='li'>加班人员：</text>
+                <checkbox-group bindchange="checkboxChange" class="numcheck" >
+                  <view class='personBox' wx:for='{{person}}'>
+                  <label class='cbox' >
+                    <checkbox class='check' value="{{item.uname}}" checked="{{item.selected}}"/>
+                    
+                     {{item.uname}} 
+                  </label>
+                  </view>
+                </checkbox-group>
+                 <input value="{{pername}}" type='hidden' name="renyuan" disabled="true" placeholder="请选择加班人员姓名" class='namecub'/> 
+           
+            
+
+              
+
+             <picker bindchange="bindPickerChange1" name="canting" value="{{res[resIndex]}}" range="{{res}}">  
+             <view class="picker">  
+               <text >就餐场所：{{res[resIndex]}}</text>
+             </view>  
+             </picker>
+        
+             <picker mode="date" value="{{date}}" name="time" bindchange="bindDateChange2">
+             <view class="picker">  
+                <text>就餐时间: {{dates}}</text>
+             </view>  
+             </picker>
+              <picker bindchange="bindPickerChange4" name="uname" data-id='{{prisedata}}' value="{{prise[priseIndex]}}" range="{{prise}}">  
+             <view class="picker">  
+             <text >就餐类型：{{prise[priseIndex]}} </text>
+              </view>  
+              </picker>
+             
+             <picker bindchange="bindPickerChange5" name="price" data-id='{{typledata}}' value="{{typle[typleIndex]}}" range="{{typle}}">  
+              <view class="picker">  
+                <text >就餐金额：{{typle[typleIndex]}} </text>
+              </view>  
+              </picker>
+              <view class="box3">  
+                <text class='money'>共计金额： </text>
+             <!--  -->
+              <input value="{{moneySum}}" type='hidden' name="renyuan" disabled="true"- class='kuang'/> 
+             </view>
+
+              <picker bindchange="bindPickerChange3" name="fristshenpi" data-id='{{appdata}}' value="{{approvalid[approvalIndex]}}" range="{{approval}}">  
+             <view class="picker">  
+             <text> 审批人：{{approval[approvalIndex]}}  　　  　　 　　</text>
+              </view>  
+              </picker>
+                 <text class='li' style='margin-left:1rem'>办公室审批：</text>
+             <input value="" name="gaoji_shenpi" placeholder=""/>
+                <text class='li' style='margin-left:1rem'>领导人审批签字：</text>
+             <input value="" name="gaoshenpi" disabled="disabled" placeholder="" style='   background-color: #E6E6E6;'/>
+                  <textarea  name="beizhu" value="" placeholder="备注：" />
+             <button type="default" form-type="submit">推送</button>
+           
+          <view style="height:200px;"></view>
+
+        </form>
+    </view>
+</view>
+<!--
+<view class='box'>
+    <text>经办人</text>
+   <input class='input' value="" name="" placeholder="请输入经办人"/>
+</view>
+<view class='box1'>
+    <text>人名</text>
+   <input class='input' value="" name="" placeholder="请输入人员姓名"/>
+</view>-->
