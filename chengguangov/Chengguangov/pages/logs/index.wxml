@@ -1,8 +1,0 @@
-<!--pages/logs/index.wxml-->
-<view class='main'>
-  <view class='name input'>
-    <input class='telInput' placeholder='请输入手机号' bindinput='telInput'></input>
-  </view>
-  <button type='primary' bindtap='login' class='btn'>登陆</button>
-
-</view>
