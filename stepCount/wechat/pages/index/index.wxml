@@ -2,11 +2,11 @@
 <view class="container">
 
 <swiper indicator-dots="{{indicatorDots}}" bindchange="bindchange"
-   autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" style="height:120px;">
+   autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" style="height:160px;">
    <block wx:for="{{imgUrls}}" wx:key="{{index}}" wx:for-item="item" data-index="{{index}}" >
      <swiper-item>
        
-       <view style="background-image:url({{item}});background-size:cover;height:120px;" bindtap="goToDetail"></view>
+       <view style="background-image:url({{item}});background-size:cover;height:160px;" bindtap="goToDetail"></view>
      </swiper-item>
    </block>
  </swiper>
@@ -14,54 +14,100 @@
 
   
   <view  bindtap="bindViewTap" class="userinfo"> 
-    <text style="color: #fff; font-size: 25px;">今日步数</text> 
+    
 
     <view class="circle-box">
+      <!-- <view style='position: relative; width: 100%; height: 200px;'> -->
+        <image  src="{{circle_bg}}" class='circle_bg' style='width:{{screenWidth}}px; height:{{screenWidth/1.8}}px; '></image>
+      <!-- </view> -->
+      
       <canvas class="circle"  canvas-id="canvasBgCircle">
       </canvas>
        <canvas class="circle"  canvas-id="canvasCircle">
       </canvas> 
+      
+      
+      
 
-      <text style="color: #fff; font-size: 25px; margin-top: 1px">{{todayStep}}</text> 
+      <view class="todayTextWrap" style='top: {{screenWidth/12.8}}px'>
+        <text class="todayText">今日步数</text> 
+        <text class="todayStep">{{todayStep}}</text>
+      </view>
+       
 
     </view>
 
     <view class='stepCal'>
-      <text style='color: #fff'>朝三 {{morning_step}} 步</text>
-      <text style='color: #fff'>暮四 {{night_step}} 步</text>
+      <view style='text-align: center; justify-content: flex-end; display: flex; flex-direction: column;'>
+        <view style='color: #000; font-size: 12px;'>热量 </view>
+        <view style='color: #000; font-size: 12px;'>{{kaka}}千卡 </view>
+        <view style='display: flex; align-items:flex-end;flex-direction: row;'>
+          <text style='color: #000'>朝三: </text>
+          <text style='color: #02177B'>{{morning_step}}</text>
+          <text> 步</text>
+        </view>
+      </view>
+
+      <view style='text-align: center; justify-content: flex-end; display: flex; flex-direction: column;'>
+        <view style='color: #000; font-size: 12px;'>距离 </view>
+        <view style='color: #000; font-size: 12px;'>{{distance}}公里 </view>
+        <view style='display: flex; align-items:flex-end;flex-direction: row;'>
+          <text style='color: #000'>暮四: </text>
+          <text style='color: #02177B'>{{night_step}}</text>
+          <text> 步</text>
+        </view>
+      </view>
+      
+      
     </view>
-    <view class='stepTime'>
+    <!-- <view class='stepTime'>
       <text style='color: #fff; font-size: 15px'>5:00~9:00</text>
       <text style='color: #fff; font-size: 15px'>17:00~22:00</text>
-    </view>
+    </view> -->
     
-    <view class='stepstatus'>
+    <!-- <view class='stepstatus'>
       <text style='color: #fff'>{{distance}}公里</text>
       <text style='color: #fff'>{{kaka}}千卡</text>
       <text style='color: #fff'>{{time}}分钟</text>
+    </view> -->
+
+    <view class='userInfoWrap'>
+        <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+
+        <view class='userInfoText'>
+            <text class='userInfoTextBtn' bindtap="goCard">打卡</text>
+            <text class="">{{userInfo.nickName}}</text>
+        </view>
+
+        <view class='userInfoSelf'>
+            <text style='color: #ff0f00; font-size: 12px; margin-bottom: 10px;'>今日个人排名</text>
+            <text class="userinfo-nickname">{{myRank}}名</text>
+        </view>
+
     </view>
+
   </view>
 
 
   <view class="usermotto">
     <view class='bottomTab'>
       <image src='../../images/home_fill_light.png' style='width: 25px; height: 25px;'></image>
-      <text style='color: #15abc4; font-size: 14px'>首页</text>
+      <text style='color: #999; font-size: 10px'>首页</text>
     </view>
 
     <view class='bottomTab' bindtap="goSecondTab">
-      <image src='../../images/medal_white.png' style='width: 25px; height: 25px;'></image>
-      <text style='color: #ffffff; font-size: 14px'>排名</text>
+      <image src='../../images/medal.png' style='width: 25px; height: 25px;'></image>
+      <text style='color: #000; font-size: 10px'>排名</text>
     </view>
 
     <view class='bottomTab' bindtap="goThirdTab">
-      <image src='../../images/plane_white.png' style='width: 25px; height: 25px;'></image>
-      <text style='color: #ffffff; font-size: 14px'>积分</text>
+      <image src='../../images/plane.png' style='width: 25px; height: 25px;'></image>
+      <text style='color: #000; font-size: 10px'>积分</text>
     </view>
 
     <view class='bottomTab' bindtap="goFourthTab">
-      <image src='../../images/remind_white.png' style='width: 25px; height: 25px;'></image>
-      <text style='color: #ffffff; font-size: 14px'>公告</text>
+      <image src='../../images/remind.png' style='width: 25px; height: 25px;'></image>
+      <text style='color: #000; font-size: 10px'>公告</text>
     </view>
     
   </view>    

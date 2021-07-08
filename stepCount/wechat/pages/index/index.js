@@ -13,7 +13,7 @@ var ctx = wx.createCanvasContext('canvasCircle');
 var interval;
 var svarName;
 
-var radius = 80;
+var radius = 140;
 var lineWidth = 12;
 
 Page({
@@ -38,17 +38,23 @@ Page({
     current:0,
     imageObj:[],
     morning_step:'',
-    night_step:''
+    night_step:'',
+    firstAvatar:'',
+    firstName:'',
+    myRank:'',
+    circle_bg: '../../images/circle_bg.jpg',
+    screenWidth: '',
+    circlebgWidth: ''
   },
 
   drawBgCircle: function () {
     //创建并返回绘图上下文context对象。
     var cxt_arc = wx.createCanvasContext('canvasBgCircle');
     cxt_arc.setLineWidth(lineWidth);
-    cxt_arc.setStrokeStyle('#2c4c60');
+    cxt_arc.setStrokeStyle('#eeeeee');
     cxt_arc.setLineCap('round');
     cxt_arc.beginPath();
-    cxt_arc.arc(120, 130, radius, 0, 2 * Math.PI, false);
+    cxt_arc.arc(this.data.screenWidth / 2, this.data.screenWidth / 1.6, (this.data.screenWidth-40) / 2, Math.PI, 2*Math.PI, false);
     cxt_arc.stroke();
     cxt_arc.draw();
   },
@@ -59,12 +65,12 @@ Page({
     //ctx.createLinearGradient(100, 100, )
     function drawArc(s, e) {
       ctx.draw();
-      var x = 120, y = 130;
+      var x = that.data.screenWidth / 2, y = that.data.screenWidth / 1.6;
       ctx.setLineWidth(lineWidth);
-      ctx.setStrokeStyle('#e9890B');
+      ctx.setStrokeStyle('#7b6faf');
       ctx.setLineCap('round');
       ctx.beginPath();
-      ctx.arc(x, y, radius, s, e, false);
+      ctx.arc(x, y, (that.data.screenWidth - 40) / 2, s, e, false);
       ctx.stroke()
       ctx.draw()
     }
@@ -75,7 +81,7 @@ Page({
 
     var animation = function () {
       if (step <= that.data.allStep) {
-        endAngle = step * 2 * Math.PI / n + startAngle;
+        endAngle = step * Math.PI / n + startAngle;
         //console.log(endAngle)
         drawArc(startAngle, endAngle);
         step++;
@@ -146,7 +152,7 @@ Page({
 
         that.drawBgCircle();
         that.drawCircle();
-
+        that.getBrank("getMyStepInfo");
       }
     })
   },
@@ -319,6 +325,31 @@ Page({
     console.log(this.data.current);
   },
 
+  getBrank: function (type) {
+    var that = this;
+    wx.request({
+      url: app.globalData.url + '/index.php?g=Api&m=CommonApi&a=' + type,
+      data: {
+        m_id: app.globalData.userAllInfo.m_id
+      },
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      method: 'GET',
+      success: function (res) {
+        console.log(res.data)
+        //console.log(that.data.pageIndex)
+
+        that.setData({
+          myRank: res.data.rank,
+        })
+
+
+      }
+    });
+
+  },
+
   onLoad: function () {
     //console.log('onLoad')
     var that = this
@@ -326,8 +357,12 @@ Page({
     app.getUserInfo(function (userInfo) {
       //更新数据
       that.setData({
-        userInfo: userInfo
+        userInfo: userInfo,
+        screenWidth: wx.getSystemInfoSync().windowWidth
       })
+
+      console.log(that.data.screenWidth);
+     
       
     })
 
@@ -364,6 +399,27 @@ Page({
       }
     });
 
+  },
+
+  goCard: function(){
+    var myDate = new Date();
+    var hour = myDate.getHours();
+    console.log(hour);
+    if (((hour => 5) && (hour < 9)) || ((hour => 17) && (hour < 23))){
+      wx.showToast({
+        title: '已打卡成功',
+        icon: 'success',
+        duration: 1000,
+        mask: true
+      })
+    }else{
+      wx.showToast({
+        title: '请在朝三暮四时间段内打卡',
+        icon: 'none',
+        duration: 1000,
+        mask: true
+      })
+    }
   },
 
   goSecondTab: function(){
